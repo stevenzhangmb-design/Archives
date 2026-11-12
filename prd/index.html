@@ -13,14 +13,24 @@
 *{box-sizing:border-box}html{scroll-padding-top:16px}
 body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.75 "Microsoft YaHei","PingFang SC",sans-serif}
 #TOC{position:fixed;top:0;left:0;bottom:0;width:300px;overflow:auto;background:var(--side);border-right:1px solid var(--line);padding:16px 12px;font-size:13px}
-#TOC ul{list-style:none;padding-left:12px;margin:0}#TOC>ul{padding-left:0}
-#TOC a{color:var(--fg);text-decoration:none;display:block;padding:2px 4px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#TOC ul{list-style:none;padding-left:14px;margin:0}#TOC>ul{padding-left:0}
+#TOC li{position:relative}
+#TOC li.closed>ul{display:none}
+#TOC .tw{position:absolute;left:-2px;top:3px;width:18px;height:18px;cursor:pointer;border-radius:3px}
+#TOC .tw:hover{background:var(--line)}
+#TOC li.open>.tw::before,#TOC li.closed>.tw::before{content:"";position:absolute;left:6px;top:5px;border:4px solid transparent;border-left:6px solid var(--muted)}
+#TOC li.open>.tw::before{transform:rotate(90deg);transform-origin:3px 4px}
+#TOC a{color:var(--fg);text-decoration:none;display:block;padding:2px 4px 2px 18px;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #TOC a:hover{background:var(--line)}
+#TOC a.cur{background:var(--line);font-weight:600}
+.toc-bar{display:flex;gap:8px;margin-bottom:8px;position:sticky;top:-16px;background:var(--side);padding:6px 0}
+.toc-bar button{font:12px "Microsoft YaHei",sans-serif;padding:2px 10px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg);cursor:pointer}
+.toc-bar button:hover{border-color:var(--accent);color:var(--accent)}
 main{margin-left:300px;padding:24px 40px 80px;max-width:1300px}
 h1{font-size:24px}h2{font-size:20px;border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:40px}h3{font-size:17px}h4,h5,h6,h7{font-size:15px}
 p{text-indent:0;margin:6px 0}
 table{border-collapse:collapse;margin:10px 0;width:100%;font-size:13px}
-th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left;overflow-wrap:anywhere}
+th,td{border:1px solid var(--line);padding:6px 8px;vertical-align:top;text-align:left;overflow-wrap:break-word}
 th{white-space:nowrap}
 pre{white-space:pre-wrap}
 main{overflow-x:hidden}
@@ -34,955 +44,443 @@ code{font-family:Consolas,monospace}
 </style>
 </head>
 <body>
-<nav id="TOC" role="doc-toc">
-<ul><li><a href="#erpwms零售系统-发票管理系统-修订版2026-11-11" title="ERP/WMS/零售系统-发票管理系统-修订版：2026-11-11">ERP/WMS/零售系统-发票管理系统-修订版：2026-11-11</a></li>
-<ul><li><a href="#开发目的" title="1 开发目的">1 开发目的</a></li>
-<li><a href="#版本变更" title="2 版本变更">2 版本变更</a></li>
-<li><a href="#术语-图例定义" title="3 术语 / 图例定义">3 术语 / 图例定义</a></li>
-<li><a href="#功能需求" title="4 功能需求">4 功能需求</a></li>
-<ul><li><a href="#产品定义" title="4.1 产品定义">4.1 产品定义</a></li>
-<li><a href="#产品框架" title="4.2 产品框架">4.2 产品框架</a></li>
-<ul><li><a href="#发票主体是什么按-cnpj-判断不设场所类型" title="4.2.1 发票主体是什么，按
-CNPJ 判断（不设场所类型）">4.2.1 发票主体是什么，按
-CNPJ 判断（不设场所类型）</a></li>
-<li><a href="#发票类型" title="4.2.2 发票类型">4.2.2 发票类型</a></li>
-<li><a href="#出票规则" title="4.2.3 出票规则">4.2.3 出票规则</a></li>
-<li><a href="#取消发票时限" title="4.2.4 取消发票时限">4.2.4 取消发票时限</a></li>
-<li><a href="#退货换货退款开票" title="4.2.5 退货、换货、退款开票">4.2.5 退货、换货、退款开票</a></li>
-<li><a href="#断网后如何开票" title="4.2.6 断网后如何开票">4.2.6 断网后如何开票</a></li>
-<li><a href="#发票号与-key-规则" title="4.2.7 发票号与 Key 规则">4.2.7 发票号与 Key 规则</a></li>
-<li><a href="#和税局交互的通用说明" title="4.2.8 和税局交互的通用说明">4.2.8 和税局交互的通用说明</a></li>
-</ul></ul><li><a href="#发票系统" title="5 发票系统">5 发票系统</a></li>
-<ul><li><a href="#发票主体零售" title="5.1 发票主体（零售）">5.1 发票主体（零售）</a></li>
-<ul><li><a href="#业务场景说明" title="5.1.1 业务场景说明">5.1.1 业务场景说明</a></li>
-<li><a href="#流程图" title="5.1.2 流程图">5.1.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互" title="5.1.3 和税局（SEFAZ）的数据交互">5.1.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束" title="5.1.4 关键业务约束">5.1.4 关键业务约束</a></li>
-</ul><li><a href="#税种管理零售" title="5.2 税种管理（零售）">5.2 税种管理（零售）</a></li>
-<ul><li><a href="#业务场景说明-1" title="5.2.1 业务场景说明">5.2.1 业务场景说明</a></li>
-<li><a href="#流程图-1" title="5.2.2 流程图">5.2.2 流程图</a></li>
-<li><a href="#关键业务约束-1" title="5.2.3 关键业务约束">5.2.3 关键业务约束</a></li>
-</ul><li><a href="#发票管理电商-零售" title="5.3 发票管理（电商 + 零售）">5.3 发票管理（电商 + 零售）</a></li>
-<ul><li><a href="#草稿中" title="5.3.1 草稿中">5.3.1 草稿中</a></li>
-<ul><li><a href="#业务场景说明-2" title="5.3.1.1 业务场景说明">5.3.1.1 业务场景说明</a></li>
-<li><a href="#流程图-2" title="5.3.1.2 流程图">5.3.1.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-1" title="5.3.1.3 和税局（SEFAZ）的数据交互">5.3.1.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-2" title="5.3.1.4 关键业务约束">5.3.1.4 关键业务约束</a></li>
-<li><a href="#功能点详细介绍" title="5.3.1.5 功能点详细介绍">5.3.1.5 功能点详细介绍</a></li>
-<ul><li><a href="#创建发票" title="5.3.1.5.1 创建发票">5.3.1.5.1 创建发票</a></li>
-<ul><li><a href="#hx-1" class="red" title="5.3.1.5.1.1 销售发票">5.3.1.5.1.1 销售发票</a></li>
-<ul><li><a href="#hx-2" class="red" title="5.3.1.5.1.1.1
-关键业务约束">5.3.1.5.1.1.1
-关键业务约束</a></li>
-<li><a href="#hx-3" class="red" title="5.3.1.5.1.1.2
-和税局（SEFAZ）的数据交互">5.3.1.5.1.1.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-4" class="red" title="5.3.1.5.1.1.3 流程图">5.3.1.5.1.1.3 流程图</a></li>
-<li><a href="#hx-5" class="red" title="5.3.1.5.1.1.4 原型">5.3.1.5.1.1.4 原型</a></li>
-<li><a href="#hx-6" class="red" title="5.3.1.5.1.1.5 字段规范">5.3.1.5.1.1.5 字段规范</a></li>
-<li><a href="#hx-7" class="red" title="5.3.1.5.1.1.6 用例规则">5.3.1.5.1.1.6 用例规则</a></li>
-</ul><li><a href="#hx-8" class="red" title="5.3.1.5.1.2 货物转移">5.3.1.5.1.2 货物转移</a></li>
-<ul><li><a href="#hx-9" class="red" title="5.3.1.5.1.2.1
-关键业务约束">5.3.1.5.1.2.1
-关键业务约束</a></li>
-<li><a href="#hx-10" class="red" title="5.3.1.5.1.2.2
-和税局（SEFAZ）的数据交互">5.3.1.5.1.2.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-11" class="red" title="5.3.1.5.1.2.3 流程图">5.3.1.5.1.2.3 流程图</a></li>
-<li><a href="#hx-12" class="red" title="5.3.1.5.1.2.4 原型">5.3.1.5.1.2.4 原型</a></li>
-<li><a href="#hx-13" class="red" title="5.3.1.5.1.2.5 字段规范">5.3.1.5.1.2.5 字段规范</a></li>
-<li><a href="#hx-14" class="red" title="5.3.1.5.1.2.6 用例规则">5.3.1.5.1.2.6 用例规则</a></li>
-</ul><li><a href="#hx-15" class="red" title="5.3.1.5.1.3 货物调拨">5.3.1.5.1.3 货物调拨</a></li>
-<ul><li><a href="#hx-16" class="red" title="5.3.1.5.1.3.1
-关键业务约束">5.3.1.5.1.3.1
-关键业务约束</a></li>
-<li><a href="#hx-17" class="red" title="5.3.1.5.1.3.2
-和税局（SEFAZ）的数据交互">5.3.1.5.1.3.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-18" class="red" title="5.3.1.5.1.3.3 流程图">5.3.1.5.1.3.3 流程图</a></li>
-<li><a href="#hx-19" class="red" title="5.3.1.5.1.3.4 原型">5.3.1.5.1.3.4 原型</a></li>
-<li><a href="#hx-20" class="red" title="5.3.1.5.1.3.5 字段规范">5.3.1.5.1.3.5 字段规范</a></li>
-<li><a href="#hx-21" class="red" title="5.3.1.5.1.3.6 用例规则">5.3.1.5.1.3.6 用例规则</a></li>
-</ul><li><a href="#hx-22" class="red" title="5.3.1.5.1.4 采购退票">5.3.1.5.1.4 采购退票</a></li>
-<ul><li><a href="#hx-23" class="red" title="5.3.1.5.1.4.1
-关键业务约束">5.3.1.5.1.4.1
-关键业务约束</a></li>
-<li><a href="#hx-24" class="red" title="5.3.1.5.1.4.2
-和税局（SEFAZ）的数据交互">5.3.1.5.1.4.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-25" class="red" title="5.3.1.5.1.4.3 流程图">5.3.1.5.1.4.3 流程图</a></li>
-<li><a href="#hx-26" class="red" title="5.3.1.5.1.4.4 原型">5.3.1.5.1.4.4 原型</a></li>
-<li><a href="#hx-27" class="red" title="5.3.1.5.1.4.5 字段规范">5.3.1.5.1.4.5 字段规范</a></li>
-<li><a href="#hx-28" class="red" title="5.3.1.5.1.4.6 用例规则">5.3.1.5.1.4.6 用例规则</a></li>
-</ul><li><a href="#hx-29" class="red" title="5.3.1.5.1.5 进口采购">5.3.1.5.1.5 进口采购</a></li>
-<ul><li><a href="#hx-30" class="red" title="5.3.1.5.1.5.1
-关键业务约束">5.3.1.5.1.5.1
-关键业务约束</a></li>
-<li><a href="#hx-31" class="red" title="5.3.1.5.1.5.2
-和税局（SEFAZ）的数据交互">5.3.1.5.1.5.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-32" class="red" title="5.3.1.5.1.5.3 流程图">5.3.1.5.1.5.3 流程图</a></li>
-<li><a href="#hx-33" class="red" title="5.3.1.5.1.5.4 原型">5.3.1.5.1.5.4 原型</a></li>
-<li><a href="#hx-34" class="red" title="5.3.1.5.1.5.5 字段规范">5.3.1.5.1.5.5 字段规范</a></li>
-<li><a href="#hx-35" class="red" title="5.3.1.5.1.5.6 用例规则">5.3.1.5.1.5.6 用例规则</a></li>
-</ul></ul><li><a href="#编辑" title="5.3.1.5.2 编辑">5.3.1.5.2 编辑</a></li>
-<ul><li><a href="#hx-36" class="red" title="5.3.1.5.2.1 原型">5.3.1.5.2.1 原型</a></li>
-<li><a href="#hx-37" title="5.3.1.5.2.2 字段规范">5.3.1.5.2.2 字段规范</a></li>
-<li><a href="#hx-38" title="5.3.1.5.2.3 用例规则">5.3.1.5.2.3 用例规则</a></li>
-</ul><li><a href="#开票" title="5.3.1.5.3 开票">5.3.1.5.3 开票</a></li>
-<ul><li><a href="#hx-39" class="red" title="5.3.1.5.3.1 原型">5.3.1.5.3.1 原型</a></li>
-<li><a href="#hx-40" title="5.3.1.5.3.2 字段规范">5.3.1.5.3.2 字段规范</a></li>
-<li><a href="#hx-41" title="5.3.1.5.3.3 用例规则">5.3.1.5.3.3 用例规则</a></li>
-</ul><li><a href="#删除" title="5.3.1.5.4 删除">5.3.1.5.4 删除</a></li>
-<ul><li><a href="#hx-42" class="red" title="5.3.1.5.4.1 原型">5.3.1.5.4.1 原型</a></li>
-<li><a href="#hx-43" title="5.3.1.5.4.2 字段规范">5.3.1.5.4.2 字段规范</a></li>
-<li><a href="#hx-44" title="5.3.1.5.4.3 用例规则">5.3.1.5.4.3 用例规则</a></li>
-</ul></ul></ul><li><a href="#开票中" title="5.3.2 开票中">5.3.2 开票中</a></li>
-<ul><li><a href="#业务场景说明-3" title="5.3.2.1 业务场景说明">5.3.2.1 业务场景说明</a></li>
-<li><a href="#流程图-3" title="5.3.2.2 流程图">5.3.2.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-2" title="5.3.2.3 和税局（SEFAZ）的数据交互">5.3.2.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-3" title="5.3.2.4 关键业务约束">5.3.2.4 关键业务约束</a></li>
-</ul><li><a href="#开票失败" title="5.3.3 开票失败">5.3.3 开票失败</a></li>
-<ul><li><a href="#业务场景说明-4" title="5.3.3.1 业务场景说明">5.3.3.1 业务场景说明</a></li>
-<li><a href="#流程图-4" title="5.3.3.2 流程图">5.3.3.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-3" title="5.3.3.3 和税局（SEFAZ）的数据交互">5.3.3.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-4" title="5.3.3.4 关键业务约束">5.3.3.4 关键业务约束</a></li>
-<li><a href="#哪些发票不可以修改重提" title="5.3.3.5 哪些发票不可以修改重提">5.3.3.5 哪些发票不可以修改重提</a></li>
-<li><a href="#开票失败标准模板" title="5.3.3.6 开票失败标准模板">5.3.3.6 开票失败标准模板</a></li>
-<li><a href="#功能点详细介绍-1" title="5.3.3.7 功能点详细介绍">5.3.3.7 功能点详细介绍</a></li>
-<ul><li><a href="#验证发票xml" title="5.3.3.7.1 验证发票XML">5.3.3.7.1 验证发票XML</a></li>
-<ul><li><a href="#hx-45" title="5.3.3.7.1.1 哪些发票可以验证发票XML">5.3.3.7.1.1 哪些发票可以验证发票XML</a></li>
-<li><a href="#hx-46" title="5.3.3.7.1.2 校验项">5.3.3.7.1.2 校验项</a></li>
-<li><a href="#hx-47" title="5.3.3.7.1.3 流程图">5.3.3.7.1.3 流程图</a></li>
-<li><a href="#hx-48" title="5.3.3.7.1.4 和税局（SEFAZ）的数据交互">5.3.3.7.1.4 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-49" class="red" title="5.3.3.7.1.5 原型">5.3.3.7.1.5 原型</a></li>
-<li><a href="#hx-50" title="5.3.3.7.1.6 字段规范">5.3.3.7.1.6 字段规范</a></li>
-<li><a href="#hx-51" title="5.3.3.7.1.7 用例规则">5.3.3.7.1.7 用例规则</a></li>
-</ul><li><a href="#修改重提" title="5.3.3.7.2 修改重提">5.3.3.7.2 修改重提</a></li>
-<ul><li><a href="#hx-52" title="5.3.3.7.2.1 哪些发票可以修改重提">5.3.3.7.2.1 哪些发票可以修改重提</a></li>
-<li><a href="#hx-53" title="5.3.3.7.2.2 流程图">5.3.3.7.2.2 流程图</a></li>
-<li><a href="#hx-54" title="5.3.3.7.2.3 和税局（SEFAZ）的数据交互">5.3.3.7.2.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#hx-55" title="5.3.3.7.2.4 关键业务约束">5.3.3.7.2.4 关键业务约束</a></li>
-<li><a href="#hx-56" class="red" title="5.3.3.7.2.5 原型">5.3.3.7.2.5 原型</a></li>
-<li><a href="#hx-57" title="5.3.3.7.2.6 字段规范">5.3.3.7.2.6 字段规范</a></li>
-<li><a href="#hx-58" title="5.3.3.7.2.7 用例规则">5.3.3.7.2.7 用例规则</a></li>
-</ul></ul></ul><li><a href="#已开票-近期发票" title="5.3.4 已开票-近期发票">5.3.4 已开票-近期发票</a></li>
-<ul><li><a href="#业务场景说明-5" title="5.3.4.1 业务场景说明">5.3.4.1 业务场景说明</a></li>
-<li><a href="#流程图-5" title="5.3.4.2 流程图">5.3.4.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-4" title="5.3.4.3 和税局（SEFAZ）的数据交互">5.3.4.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-5" title="5.3.4.4 关键业务约束">5.3.4.4 关键业务约束</a></li>
-<li><a href="#功能点详细介绍-2" title="5.3.4.5 功能点详细介绍">5.3.4.5 功能点详细介绍</a></li>
-<ul><li><a href="#打印发票" title="5.3.4.5.1 打印发票">5.3.4.5.1 打印发票</a></li>
-<ul><li><a href="#hx-59" title="5.3.4.5.1.1 哪些发票可以打印">5.3.4.5.1.1 哪些发票可以打印</a></li>
-<li><a href="#hx-60" title="5.3.4.5.1.2 流程图">5.3.4.5.1.2 流程图</a></li>
-<li><a href="#hx-61" title="5.3.4.5.1.3 字段规范">5.3.4.5.1.3 字段规范</a></li>
-<li><a href="#hx-62" title="5.3.4.5.1.4 用例规则">5.3.4.5.1.4 用例规则</a></li>
-</ul><li><a href="#开具cc-e" title="5.3.4.5.2 开具CC-e">5.3.4.5.2 开具CC-e</a></li>
-<ul><li><a href="#hx-63" title="5.3.4.5.2.1 哪些发票可以开具 CC-e">5.3.4.5.2.1 哪些发票可以开具 CC-e</a></li>
-<li><a href="#hx-64" title="5.3.4.5.2.2 流程图与税局交互">5.3.4.5.2.2 流程图与税局交互</a></li>
-<li><a href="#hx-65" title="5.3.4.5.2.3 原型">5.3.4.5.2.3 原型</a></li>
-<li><a href="#hx-66" title="5.3.4.5.2.4 字段规范">5.3.4.5.2.4 字段规范</a></li>
-<li><a href="#hx-67" title="5.3.4.5.2.5 用例规则">5.3.4.5.2.5 用例规则</a></li>
-<li><a href="#hx-68" title="5.3.4.5.2.6 操作后单据及发票流向">5.3.4.5.2.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#取消发票" title="5.3.4.5.3 取消发票">5.3.4.5.3 取消发票</a></li>
-<ul><li><a href="#hx-69" title="5.3.4.5.3.1 哪些发票可以取消发票">5.3.4.5.3.1 哪些发票可以取消发票</a></li>
-<li><a href="#hx-70" title="5.3.4.5.3.2 流程图与税局交互">5.3.4.5.3.2 流程图与税局交互</a></li>
-<li><a href="#hx-71" title="5.3.4.5.3.3 原型">5.3.4.5.3.3 原型</a></li>
-<li><a href="#hx-72" title="5.3.4.5.3.4 字段规范">5.3.4.5.3.4 字段规范</a></li>
-<li><a href="#hx-73" title="5.3.4.5.3.5 用例规则">5.3.4.5.3.5 用例规则</a></li>
-<li><a href="#hx-74" title="5.3.4.5.3.6 操作后单据及发票流向">5.3.4.5.3.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#开退票" title="5.3.4.5.4 开退票">5.3.4.5.4 开退票</a></li>
-<ul><li><a href="#hx-75" title="5.3.4.5.4.1 哪些发票可以开退票">5.3.4.5.4.1 哪些发票可以开退票</a></li>
-<li><a href="#hx-76" title="5.3.4.5.4.2 流程图与税局交互">5.3.4.5.4.2 流程图与税局交互</a></li>
-<li><a href="#hx-77" title="5.3.4.5.4.3 原型">5.3.4.5.4.3 原型</a></li>
-<li><a href="#hx-78" title="5.3.4.5.4.4 字段规范">5.3.4.5.4.4 字段规范</a></li>
-<li><a href="#hx-79" title="5.3.4.5.4.5 用例规则">5.3.4.5.4.5 用例规则</a></li>
-<li><a href="#hx-80" title="5.3.4.5.4.6 操作后单据及发票流向">5.3.4.5.4.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#导出xml" title="5.3.4.5.5 导出XML">5.3.4.5.5 导出XML</a></li>
-<ul><li><a href="#hx-81" title="5.3.4.5.5.1 哪些发票可以导出XML">5.3.4.5.5.1 哪些发票可以导出XML</a></li>
-<li><a href="#hx-82" title="5.3.4.5.5.2 流程图">5.3.4.5.5.2 流程图</a></li>
-<li><a href="#hx-83" title="5.3.4.5.5.3 原型">5.3.4.5.5.3 原型</a></li>
-<li><a href="#hx-84" title="5.3.4.5.5.4 字段规范">5.3.4.5.5.4 字段规范</a></li>
-<li><a href="#hx-85" title="5.3.4.5.5.5 用例规则">5.3.4.5.5.5 用例规则</a></li>
-</ul><li><a href="#打印pdf" title="5.3.4.5.6 打印PDF">5.3.4.5.6 打印PDF</a></li>
-<ul><li><a href="#hx-86" title="5.3.4.5.6.1 哪些发票可以打印PDF">5.3.4.5.6.1 哪些发票可以打印PDF</a></li>
-<li><a href="#hx-87" title="5.3.4.5.6.2 流程图">5.3.4.5.6.2 流程图</a></li>
-<li><a href="#hx-88" title="5.3.4.5.6.3 原型">5.3.4.5.6.3 原型</a></li>
-<li><a href="#hx-89" title="5.3.4.5.6.4 字段规范">5.3.4.5.6.4 字段规范</a></li>
-<li><a href="#hx-90" title="5.3.4.5.6.5 用例规则">5.3.4.5.6.5 用例规则</a></li>
-</ul><li><a href="#重开发票" title="5.3.4.5.7 重开发票">5.3.4.5.7 重开发票</a></li>
-<ul><li><a href="#hx-91" title="5.3.4.5.7.1 哪些发票可以重开发票">5.3.4.5.7.1 哪些发票可以重开发票</a></li>
-<li><a href="#hx-92" title="5.3.4.5.7.2 流程图与税局交互">5.3.4.5.7.2 流程图与税局交互</a></li>
-<li><a href="#hx-93" title="5.3.4.5.7.3 原型">5.3.4.5.7.3 原型</a></li>
-<li><a href="#hx-94" title="5.3.4.5.7.4 字段规范">5.3.4.5.7.4 字段规范</a></li>
-<li><a href="#hx-95" title="5.3.4.5.7.5 用例规则">5.3.4.5.7.5 用例规则</a></li>
-<li><a href="#hx-96" title="5.3.4.5.7.6 操作后单据及发票流向">5.3.4.5.7.6 操作后单据及发票流向</a></li>
-</ul></ul></ul><li><a href="#已开票-历史发票" title="5.3.5 已开票-历史发票">5.3.5 已开票-历史发票</a></li>
-<ul><li><a href="#业务场景说明-6" title="5.3.5.1 业务场景说明">5.3.5.1 业务场景说明</a></li>
-<li><a href="#流程图-6" title="5.3.5.2 流程图">5.3.5.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-5" title="5.3.5.3 和税局（SEFAZ）的数据交互">5.3.5.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-6" title="5.3.5.4 关键业务约束">5.3.5.4 关键业务约束</a></li>
-<li><a href="#功能点详细介绍-3" title="5.3.5.5 功能点详细介绍">5.3.5.5 功能点详细介绍</a></li>
-<ul><li><a href="#打印发票-1" title="5.3.5.5.1 打印发票">5.3.5.5.1 打印发票</a></li>
-<ul><li><a href="#hx-97" title="5.3.5.5.1.1 哪些发票可以打印">5.3.5.5.1.1 哪些发票可以打印</a></li>
-<li><a href="#hx-98" title="5.3.5.5.1.2 流程图">5.3.5.5.1.2 流程图</a></li>
-<li><a href="#hx-99" title="5.3.5.5.1.3 原型">5.3.5.5.1.3 原型</a></li>
-<li><a href="#hx-100" class="red" title="5.3.5.5.1.4 字段规范">5.3.5.5.1.4 字段规范</a></li>
-<li><a href="#hx-101" title="5.3.5.5.1.5 用例规则">5.3.5.5.1.5 用例规则</a></li>
-</ul><li><a href="#开具cc-e-1" title="5.3.5.5.2 开具CC-e">5.3.5.5.2 开具CC-e</a></li>
-<ul><li><a href="#hx-102" title="5.3.5.5.2.1 哪些发票可以开具 CC-e">5.3.5.5.2.1 哪些发票可以开具 CC-e</a></li>
-<li><a href="#hx-103" class="red" title="5.3.5.5.2.2 流程图与税局交互">5.3.5.5.2.2 流程图与税局交互</a></li>
-<li><a href="#hx-104" title="5.3.5.5.2.3 原型">5.3.5.5.2.3 原型</a></li>
-<li><a href="#hx-105" title="5.3.5.5.2.4 字段规范">5.3.5.5.2.4 字段规范</a></li>
-<li><a href="#hx-106" title="5.3.5.5.2.5 用例规则">5.3.5.5.2.5 用例规则</a></li>
-<li><a href="#hx-107" title="5.3.5.5.2.6 操作后单据及发票流向">5.3.5.5.2.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#开退票-1" title="5.3.5.5.3 开退票">5.3.5.5.3 开退票</a></li>
-<ul><li><a href="#hx-108" title="5.3.5.5.3.1 哪些发票可以开退票">5.3.5.5.3.1 哪些发票可以开退票</a></li>
-<li><a href="#hx-109" class="red" title="5.3.5.5.3.2 流程图与税局交互">5.3.5.5.3.2 流程图与税局交互</a></li>
-<li><a href="#hx-110" title="5.3.5.5.3.3 原型">5.3.5.5.3.3 原型</a></li>
-<li><a href="#hx-111" title="5.3.5.5.3.4 字段规范">5.3.5.5.3.4 字段规范</a></li>
-<li><a href="#hx-112" title="5.3.5.5.3.5 用例规则">5.3.5.5.3.5 用例规则</a></li>
-<li><a href="#hx-113" title="5.3.5.5.3.6 操作后单据及发票流向">5.3.5.5.3.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#导出xml-1" title="5.3.5.5.4 导出XML">5.3.5.5.4 导出XML</a></li>
-<ul><li><a href="#hx-114" title="5.3.5.5.4.1 原型">5.3.5.5.4.1 原型</a></li>
-<li><a href="#hx-115" class="red" title="5.3.5.5.4.2 字段规范">5.3.5.5.4.2 字段规范</a></li>
-<li><a href="#hx-116" title="5.3.5.5.4.3 用例规则">5.3.5.5.4.3 用例规则</a></li>
-</ul><li><a href="#打印pdf-1" title="5.3.5.5.5 打印PDF">5.3.5.5.5 打印PDF</a></li>
-<ul><li><a href="#hx-117" title="5.3.5.5.5.1 哪些发票可以打印PDF">5.3.5.5.5.1 哪些发票可以打印PDF</a></li>
-<li><a href="#hx-118" title="5.3.5.5.5.2 流程图">5.3.5.5.5.2 流程图</a></li>
-<li><a href="#hx-119" title="5.3.5.5.5.3 原型">5.3.5.5.5.3 原型</a></li>
-<li><a href="#hx-120" class="red" title="5.3.5.5.5.4 字段规范">5.3.5.5.5.4 字段规范</a></li>
-<li><a href="#hx-121" title="5.3.5.5.5.5 用例规则">5.3.5.5.5.5 用例规则</a></li>
-</ul></ul></ul><li><a href="#异常发票" title="5.3.6 异常发票">5.3.6 异常发票</a></li>
-<ul><li><a href="#异常发票怎么来的" title="5.3.6.1 异常发票怎么来的">5.3.6.1 异常发票怎么来的</a></li>
-<li><a href="#流程图-7" title="5.3.6.2 流程图">5.3.6.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-6" title="5.3.6.3 和税局（SEFAZ）的数据交互">5.3.6.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-7" title="5.3.6.4 关键业务约束">5.3.6.4 关键业务约束</a></li>
-<li><a href="#功能点详细介绍-4" title="5.3.6.5 功能点详细介绍">5.3.6.5 功能点详细介绍</a></li>
-<ul><li><a href="#待处理" title="5.3.6.5.1 待处理">5.3.6.5.1 待处理</a></li>
-<ul><li><a href="#hx-122" title="5.3.6.5.1.1 开退票">5.3.6.5.1.1 开退票</a></li>
-<ul><li><a href="#hx-123" title="5.3.6.5.1.1.1 哪些发票可以开退票">5.3.6.5.1.1.1 哪些发票可以开退票</a></li>
-<li><a href="#hx-124" title="5.3.6.5.1.1.2 流程图与税局交互">5.3.6.5.1.1.2 流程图与税局交互</a></li>
-<li><a href="#hx-125" title="5.3.6.5.1.1.3 原型">5.3.6.5.1.1.3 原型</a></li>
-<li><a href="#hx-126" title="5.3.6.5.1.1.4 字段规范">5.3.6.5.1.1.4 字段规范</a></li>
-<li><a href="#hx-127" title="5.3.6.5.1.1.5 用例规则">5.3.6.5.1.1.5 用例规则</a></li>
-<li><a href="#hx-128" title="5.3.6.5.1.1.6 操作后单据及发票流向">5.3.6.5.1.1.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-129" title="5.3.6.5.1.2 取消发票">5.3.6.5.1.2 取消发票</a></li>
-<ul><li><a href="#hx-130" title="5.3.6.5.1.2.1 哪些发票可以取消发票">5.3.6.5.1.2.1 哪些发票可以取消发票</a></li>
-<li><a href="#hx-131" title="5.3.6.5.1.2.2 流程图与税局交互">5.3.6.5.1.2.2 流程图与税局交互</a></li>
-<li><a href="#hx-132" title="5.3.6.5.1.2.3 原型">5.3.6.5.1.2.3 原型</a></li>
-<li><a href="#hx-133" title="5.3.6.5.1.2.4 字段规范">5.3.6.5.1.2.4 字段规范</a></li>
-<li><a href="#hx-134" title="5.3.6.5.1.2.5 用例规则">5.3.6.5.1.2.5 用例规则</a></li>
-<li><a href="#hx-135" title="5.3.6.5.1.2.6 操作后单据及发票流向">5.3.6.5.1.2.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-136" title="5.3.6.5.1.3 标记为已忽略">5.3.6.5.1.3 标记为已忽略</a></li>
-<ul><li><a href="#hx-137" title="5.3.6.5.1.3.1 哪些异常记录可以标记为已忽略">5.3.6.5.1.3.1 哪些异常记录可以标记为已忽略</a></li>
-<li><a href="#hx-138" title="5.3.6.5.1.3.2 流程图">5.3.6.5.1.3.2 流程图</a></li>
-<li><a href="#hx-139" title="5.3.6.5.1.3.3 原型">5.3.6.5.1.3.3 原型</a></li>
-<li><a href="#hx-140" title="5.3.6.5.1.3.4 字段规范">5.3.6.5.1.3.4 字段规范</a></li>
-<li><a href="#hx-141" title="5.3.6.5.1.3.5 用例规则">5.3.6.5.1.3.5 用例规则</a></li>
-<li><a href="#hx-142" title="5.3.6.5.1.3.6 操作后单据及发票流向">5.3.6.5.1.3.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-143" title="5.3.6.5.1.4 同步">5.3.6.5.1.4 同步</a></li>
-<ul><li><a href="#hx-144" title="5.3.6.5.1.4.1 同步的范围">5.3.6.5.1.4.1 同步的范围</a></li>
-<li><a href="#hx-145" title="5.3.6.5.1.4.2 流程图">5.3.6.5.1.4.2 流程图</a></li>
-<li><a href="#hx-146" title="5.3.6.5.1.4.3 原型">5.3.6.5.1.4.3 原型</a></li>
-<li><a href="#hx-147" title="5.3.6.5.1.4.4 字段规范">5.3.6.5.1.4.4 字段规范</a></li>
-<li><a href="#hx-148" title="5.3.6.5.1.4.5 用例规则">5.3.6.5.1.4.5 用例规则</a></li>
-<li><a href="#hx-149" title="5.3.6.5.1.4.6 操作后单据及发票流向">5.3.6.5.1.4.6 操作后单据及发票流向</a></li>
-</ul></ul><li><a href="#处理中" title="5.3.6.5.2 处理中">5.3.6.5.2 处理中</a></li>
-<ul><li><a href="#hx-150" title="5.3.6.5.2.1 刷新">5.3.6.5.2.1 刷新</a></li>
-<ul><li><a href="#hx-151" title="5.3.6.5.2.1.1 刷新适用哪些记录">5.3.6.5.2.1.1 刷新适用哪些记录</a></li>
-<li><a href="#hx-152" title="5.3.6.5.2.1.2 流程图">5.3.6.5.2.1.2 流程图</a></li>
-<li><a href="#hx-153" title="5.3.6.5.2.1.3 原型">5.3.6.5.2.1.3 原型</a></li>
-<li><a href="#hx-154" title="5.3.6.5.2.1.4 字段规范">5.3.6.5.2.1.4 字段规范</a></li>
-<li><a href="#hx-155" title="5.3.6.5.2.1.5 用例规则">5.3.6.5.2.1.5 用例规则</a></li>
-<li><a href="#hx-156" title="5.3.6.5.2.1.6 操作后单据及发票流向">5.3.6.5.2.1.6 操作后单据及发票流向</a></li>
-</ul></ul><li><a href="#失败" title="5.3.6.5.3 失败">5.3.6.5.3 失败</a></li>
-<ul><li><a href="#hx-157" title="5.3.6.5.3.1 开退票">5.3.6.5.3.1 开退票</a></li>
-<ul><li><a href="#hx-158" title="5.3.6.5.3.1.1 哪些发票可以开退票">5.3.6.5.3.1.1 哪些发票可以开退票</a></li>
-<li><a href="#hx-159" title="5.3.6.5.3.1.2 流程图与税局交互">5.3.6.5.3.1.2 流程图与税局交互</a></li>
-<li><a href="#hx-160" title="5.3.6.5.3.1.3 原型">5.3.6.5.3.1.3 原型</a></li>
-<li><a href="#hx-161" title="5.3.6.5.3.1.4 字段规范">5.3.6.5.3.1.4 字段规范</a></li>
-<li><a href="#hx-162" title="5.3.6.5.3.1.5 用例规则">5.3.6.5.3.1.5 用例规则</a></li>
-<li><a href="#hx-163" title="5.3.6.5.3.1.6 操作后单据及发票流向">5.3.6.5.3.1.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-164" title="5.3.6.5.3.2 取消发票">5.3.6.5.3.2 取消发票</a></li>
-<ul><li><a href="#hx-165" title="5.3.6.5.3.2.1 哪些发票可以取消发票">5.3.6.5.3.2.1 哪些发票可以取消发票</a></li>
-<li><a href="#hx-166" title="5.3.6.5.3.2.2 流程图与税局交互">5.3.6.5.3.2.2 流程图与税局交互</a></li>
-<li><a href="#hx-167" title="5.3.6.5.3.2.3 原型">5.3.6.5.3.2.3 原型</a></li>
-<li><a href="#hx-168" title="5.3.6.5.3.2.4 字段规范">5.3.6.5.3.2.4 字段规范</a></li>
-<li><a href="#hx-169" title="5.3.6.5.3.2.5 用例规则">5.3.6.5.3.2.5 用例规则</a></li>
-<li><a href="#hx-170" title="5.3.6.5.3.2.6 操作后单据及发票流向">5.3.6.5.3.2.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-171" title="5.3.6.5.3.3 标记为已忽略">5.3.6.5.3.3 标记为已忽略</a></li>
-<ul><li><a href="#hx-172" title="5.3.6.5.3.3.1 哪些异常记录可以标记为已忽略">5.3.6.5.3.3.1 哪些异常记录可以标记为已忽略</a></li>
-<li><a href="#hx-173" title="5.3.6.5.3.3.2 流程图">5.3.6.5.3.3.2 流程图</a></li>
-<li><a href="#hx-174" title="5.3.6.5.3.3.3 原型">5.3.6.5.3.3.3 原型</a></li>
-<li><a href="#hx-175" title="5.3.6.5.3.3.4 字段规范">5.3.6.5.3.3.4 字段规范</a></li>
-<li><a href="#hx-176" title="5.3.6.5.3.3.5 用例规则">5.3.6.5.3.3.5 用例规则</a></li>
-<li><a href="#hx-177" title="5.3.6.5.3.3.6 操作后单据及发票流向">5.3.6.5.3.3.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-178" title="5.3.6.5.3.4 刷新">5.3.6.5.3.4 刷新</a></li>
-<ul><li><a href="#hx-179" title="5.3.6.5.3.4.1 刷新适用哪些记录">5.3.6.5.3.4.1 刷新适用哪些记录</a></li>
-<li><a href="#hx-180" title="5.3.6.5.3.4.2 流程图">5.3.6.5.3.4.2 流程图</a></li>
-<li><a href="#hx-181" title="5.3.6.5.3.4.3 原型">5.3.6.5.3.4.3 原型</a></li>
-<li><a href="#hx-182" title="5.3.6.5.3.4.4 字段规范">5.3.6.5.3.4.4 字段规范</a></li>
-<li><a href="#hx-183" title="5.3.6.5.3.4.5 用例规则">5.3.6.5.3.4.5 用例规则</a></li>
-<li><a href="#hx-184" title="5.3.6.5.3.4.6 操作后单据及发票流向">5.3.6.5.3.4.6 操作后单据及发票流向</a></li>
-</ul></ul><li><a href="#已处理" title="5.3.6.5.4 已处理">5.3.6.5.4 已处理</a></li>
-<ul><li><a href="#hx-185" title="5.3.6.5.4.1 标记为待处理">5.3.6.5.4.1 标记为待处理</a></li>
-<ul><li><a href="#hx-186" title="5.3.6.5.4.1.1 哪些异常记录可以标记为待处理">5.3.6.5.4.1.1 哪些异常记录可以标记为待处理</a></li>
-<li><a href="#hx-187" title="5.3.6.5.4.1.2 流程图">5.3.6.5.4.1.2 流程图</a></li>
-<li><a href="#hx-188" title="5.3.6.5.4.1.3 原型">5.3.6.5.4.1.3 原型</a></li>
-<li><a href="#hx-189" title="5.3.6.5.4.1.4 字段规范">5.3.6.5.4.1.4 字段规范</a></li>
-<li><a href="#hx-190" title="5.3.6.5.4.1.5 用例规则">5.3.6.5.4.1.5 用例规则</a></li>
-<li><a href="#hx-191" title="5.3.6.5.4.1.6 操作后单据及发票流向">5.3.6.5.4.1.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-192" title="5.3.6.5.4.2 同步">5.3.6.5.4.2 同步</a></li>
-<ul><li><a href="#hx-193" title="5.3.6.5.4.2.1 同步的范围">5.3.6.5.4.2.1 同步的范围</a></li>
-<li><a href="#hx-194" title="5.3.6.5.4.2.2 流程图">5.3.6.5.4.2.2 流程图</a></li>
-<li><a href="#hx-195" title="5.3.6.5.4.2.3 原型">5.3.6.5.4.2.3 原型</a></li>
-<li><a href="#hx-196" title="5.3.6.5.4.2.4 字段规范">5.3.6.5.4.2.4 字段规范</a></li>
-<li><a href="#hx-197" title="5.3.6.5.4.2.5 用例规则">5.3.6.5.4.2.5 用例规则</a></li>
-<li><a href="#hx-198" title="5.3.6.5.4.2.6 操作后单据及发票流向">5.3.6.5.4.2.6 操作后单据及发票流向</a></li>
-</ul></ul><li><a href="#已忽略" title="5.3.6.5.5 已忽略">5.3.6.5.5 已忽略</a></li>
-<ul><li><a href="#hx-199" title="5.3.6.5.5.1 标记为待处理">5.3.6.5.5.1 标记为待处理</a></li>
-<ul><li><a href="#hx-200" title="5.3.6.5.5.1.1 哪些异常记录可以标记为待处理">5.3.6.5.5.1.1 哪些异常记录可以标记为待处理</a></li>
-<li><a href="#hx-201" title="5.3.6.5.5.1.2 流程图">5.3.6.5.5.1.2 流程图</a></li>
-<li><a href="#hx-202" title="5.3.6.5.5.1.3 原型">5.3.6.5.5.1.3 原型</a></li>
-<li><a href="#hx-203" title="5.3.6.5.5.1.4 字段规范">5.3.6.5.5.1.4 字段规范</a></li>
-<li><a href="#hx-204" title="5.3.6.5.5.1.5 用例规则">5.3.6.5.5.1.5 用例规则</a></li>
-<li><a href="#hx-205" title="5.3.6.5.5.1.6 操作后单据及发票流向">5.3.6.5.5.1.6 操作后单据及发票流向</a></li>
-</ul><li><a href="#hx-206" title="5.3.6.5.5.2 同步">5.3.6.5.5.2 同步</a></li>
-<ul><li><a href="#hx-207" title="5.3.6.5.5.2.1 同步的范围">5.3.6.5.5.2.1 同步的范围</a></li>
-<li><a href="#hx-208" title="5.3.6.5.5.2.2 流程图">5.3.6.5.5.2.2 流程图</a></li>
-<li><a href="#hx-209" title="5.3.6.5.5.2.3 原型">5.3.6.5.5.2.3 原型</a></li>
-<li><a href="#hx-210" title="5.3.6.5.5.2.4 字段规范">5.3.6.5.5.2.4 字段规范</a></li>
-<li><a href="#hx-211" title="5.3.6.5.5.2.5 用例规则">5.3.6.5.5.2.5 用例规则</a></li>
-<li><a href="#hx-212" title="5.3.6.5.5.2.6 操作后单据及发票流向">5.3.6.5.5.2.6 操作后单据及发票流向</a></li>
-</ul></ul></ul></ul></ul><li><a href="#收银台的开票场景" title="5.4 收银台的开票场景">5.4 收银台的开票场景</a></li>
-<ul><li><a href="#用户填写cpfcnpj" title="5.4.1 用户填写CPF/CNPJ">5.4.1 用户填写CPF/CNPJ</a></li>
-<ul><li><a href="#业务场景说明-7" title="5.4.1.1 业务场景说明">5.4.1.1 业务场景说明</a></li>
-<li><a href="#流程图-8" title="5.4.1.2 流程图">5.4.1.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-7" title="5.4.1.3 和税局（SEFAZ）的数据交互">5.4.1.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-8" title="5.4.1.4 关键业务约束">5.4.1.4 关键业务约束</a></li>
-<li><a href="#原型" class="red" title="5.4.1.5
-原型">5.4.1.5
-原型</a></li>
-<li><a href="#字段规范" title="5.4.1.6 字段规范">5.4.1.6 字段规范</a></li>
-<li><a href="#用例规则" title="5.4.1.7 用例规则">5.4.1.7 用例规则</a></li>
-</ul><li><a href="#打印nfc-e发票" title="5.4.2 打印NFC-e发票">5.4.2 打印NFC-e发票</a></li>
-<ul><li><a href="#业务场景说明-8" title="5.4.2.1 业务场景说明">5.4.2.1 业务场景说明</a></li>
-<li><a href="#和税局sefaz的数据交互-8" class="red" title="5.4.2.2
-和税局（SEFAZ）的数据交互">5.4.2.2
-和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-9" class="red" title="5.4.2.3
-关键业务约束">5.4.2.3
-关键业务约束</a></li>
-<li><a href="#字段规范-1" class="red" title="5.4.2.4
-字段规范">5.4.2.4
-字段规范</a></li>
-<li><a href="#用例规则-1" class="red" title="5.4.2.5
-用例规则">5.4.2.5
-用例规则</a></li>
-</ul><li><a href="#打印小票" title="5.4.3 打印小票">5.4.3 打印小票</a></li>
-<ul><li><a href="#业务场景说明-9" title="5.4.3.1 业务场景说明">5.4.3.1 业务场景说明</a></li>
-<li><a href="#流程图-9" title="5.4.3.2 流程图">5.4.3.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-9" title="5.4.3.3 和税局（SEFAZ）的数据交互">5.4.3.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-10" title="5.4.3.4 关键业务约束">5.4.3.4 关键业务约束</a></li>
-<li><a href="#字段规范-2" title="5.4.3.5 字段规范">5.4.3.5 字段规范</a></li>
-<li><a href="#用例规则-2" title="5.4.3.6 用例规则">5.4.3.6 用例规则</a></li>
-</ul><li><a href="#离线开票场景" class="red" title="5.4.4
-离线开票场景">5.4.4
-离线开票场景</a></li>
-<ul><li><a href="#业务场景说明-10" title="5.4.4.1 业务场景说明">5.4.4.1 业务场景说明</a></li>
-<li><a href="#流程图-10" title="5.4.4.2 流程图">5.4.4.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-10" title="5.4.4.3 和税局（SEFAZ）的数据交互">5.4.4.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-11" title="5.4.4.4 关键业务约束">5.4.4.4 关键业务约束</a></li>
-<li><a href="#原型-1" class="red" title="5.4.4.5
-原型">5.4.4.5
-原型</a></li>
-<li><a href="#字段规范-3" title="5.4.4.6 字段规范">5.4.4.6 字段规范</a></li>
-<li><a href="#用例规则-3" title="5.4.4.7 用例规则">5.4.4.7 用例规则</a></li>
-</ul><li><a href="#交班日结" title="5.4.5 交班日结">5.4.5 交班日结</a></li>
-<ul><li><a href="#业务场景说明-11" title="5.4.5.1 业务场景说明">5.4.5.1 业务场景说明</a></li>
-<li><a href="#流程图-11" title="5.4.5.2 流程图">5.4.5.2 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-11" title="5.4.5.3 和税局（SEFAZ）的数据交互">5.4.5.3 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-12" title="5.4.5.4 关键业务约束">5.4.5.4 关键业务约束</a></li>
-<li><a href="#原型-2" class="red" title="5.4.5.5
-原型">5.4.5.5
-原型</a></li>
-<li><a href="#字段规范-4" title="5.4.5.6 字段规范">5.4.5.6 字段规范</a></li>
-<li><a href="#用例规则-4" title="5.4.5.7 用例规则">5.4.5.7 用例规则</a></li>
-</ul></ul><li><a href="#收银订单-门店预订单-退货订单-换货订单" class="red" title="5.5 收银订单 / 门店预订单 / 退货订单 /
-换货订单">5.5 收银订单 / 门店预订单 / 退货订单 /
-换货订单</a></li>
-<ul><li><a href="#流程图-12" class="red" title="5.5.2
-流程图">5.5.2
-流程图</a></li>
-<li><a href="#待开票开票中开票失败已开票的发票信息展示" class="red" title="5.5.3
-待开票/开票中/开票失败/已开票的发票信息展示">5.5.3
-待开票/开票中/开票失败/已开票的发票信息展示</a></li>
-<ul><li><a href="#原型-3" class="red" title="5.5.3.1
-原型">5.5.3.1
-原型</a></li>
-<li><a href="#发票信息" class="red" title="5.5.3.2
-发票信息">5.5.3.2
-发票信息</a></li>
-</ul><li><a href="#收银台离线开票发票没有开出的场景" class="red" title="5.5.4
-收银台离线开票、发票没有开出的场景">5.5.4
-收银台离线开票、发票没有开出的场景</a></li>
-<ul><li><a href="#原型-4" class="red" title="5.5.4.1
-原型">5.5.4.1
-原型</a></li>
-<li><a href="#发票信息-1" class="red" title="5.5.4.2
-发票信息">5.5.4.2
-发票信息</a></li>
-</ul><li><a href="#待开票" class="red" title="5.5.5
-待开票">5.5.5
-待开票</a></li>
-<ul><li><a href="#开票-1" class="red" title="5.5.5.1
-开票">5.5.5.1
-开票</a></li>
-<ul><li><a href="#关键业务约束-13" class="red" title="5.5.5.1.2
-关键业务约束">5.5.5.1.2
-关键业务约束</a></li>
-<li><a href="#原型-5" class="red" title="5.5.5.1.3
-原型">5.5.5.1.3
-原型</a></li>
-<li><a href="#字段规范-5" class="red" title="5.5.5.1.4
-字段规范">5.5.5.1.4
-字段规范</a></li>
-<li><a href="#用例规则-5" class="red" title="5.5.5.1.5
-用例规则">5.5.5.1.5
-用例规则</a></li>
-</ul><li><a href="#核销取货" class="red" title="5.5.5.2
-核销取货">5.5.5.2
-核销取货</a></li>
-</ul><li><a href="#开票中-1" class="red" title="5.5.6
-开票中">5.5.6
-开票中</a></li>
-<ul><li><a href="#关键业务约束-14" class="red" title="5.5.6.1
-关键业务约束">5.5.6.1
-关键业务约束</a></li>
-<li><a href="#原型-6" class="red" title="5.5.6.2
-原型">5.5.6.2
-原型</a></li>
-<li><a href="#字段规范-6" class="red" title="5.5.6.3
-字段规范">5.5.6.3
-字段规范</a></li>
-<li><a href="#用例规则-6" class="red" title="5.5.6.4
-用例规则">5.5.6.4
-用例规则</a></li>
-</ul><li><a href="#开票失败-1" class="red" title="5.5.7
-开票失败">5.5.7
-开票失败</a></li>
-<ul><li><a href="#开票-2" class="red" title="5.5.7.1
-开票">5.5.7.1
-开票</a></li>
-</ul><li><a href="#已开票" class="red" title="5.5.8
-已开票">5.5.8
-已开票</a></li>
-<ul><li><a href="#打印-nfc-e-发票" class="red" title="5.5.8.1 打印
-NFC-e 发票">5.5.8.1 打印
-NFC-e 发票</a></li>
-<ul><li><a href="#操作日志" class="red" title="5.5.8.1.3
-操作日志">5.5.8.1.3
-操作日志</a></li>
-</ul><li><a href="#打印小票-1" class="red" title="5.5.8.2
-打印小票">5.5.8.2
-打印小票</a></li>
-<ul><li><a href="#操作日志-1" class="red" title="5.5.8.2.3
-操作日志">5.5.8.2.3
-操作日志</a></li>
-</ul><li><a href="#打印-nf-e-发票a4-danfe" class="red" title="5.5.8.3 打印 NF-e 发票（A4
-DANFE）">5.5.8.3 打印 NF-e 发票（A4
-DANFE）</a></li>
-<ul><li><a href="#操作日志-2" class="red" title="5.5.8.3.3
-操作日志">5.5.8.3.3
-操作日志</a></li>
-</ul><li><a href="#取消发票-1" class="red" title="5.5.8.4
-取消发票">5.5.8.4
-取消发票</a></li>
-<ul><li><a href="#关键业务约束-15" class="red" title="5.5.8.4.1
-关键业务约束">5.5.8.4.1
-关键业务约束</a></li>
-<li><a href="#原型-7" class="red" title="5.5.8.4.2
-原型">5.5.8.4.2
-原型</a></li>
-<li><a href="#字段规范-7" class="red" title="5.5.8.4.3
-字段规范">5.5.8.4.3
-字段规范</a></li>
-<li><a href="#用例规则-7" class="red" title="5.5.8.4.4
-用例规则">5.5.8.4.4
-用例规则</a></li>
-</ul><li><a href="#售后" class="red" title="5.5.8.6
-售后">5.5.8.6
-售后</a></li>
-<ul><li><a href="#关键业务约束-16" class="red" title="5.5.8.6.1
-关键业务约束">5.5.8.6.1
-关键业务约束</a></li>
-<li><a href="#原型-8" class="red" title="5.5.8.6.2
-原型">5.5.8.6.2
-原型</a></li>
-<li><a href="#字段规范-8" class="red" title="5.5.8.6.3
-字段规范">5.5.8.6.3
-字段规范</a></li>
-<li><a href="#操作日志-3" class="red" title="5.5.8.6.4
-操作日志">5.5.8.6.4
-操作日志</a></li>
-</ul></ul></ul><li><a href="#批发订单" class="red" title="5.6
-批发订单">5.6
-批发订单</a></li>
-<ul><li><a href="#流程图-13" class="red" title="5.6.2
-流程图">5.6.2
-流程图</a></li>
-<li><a href="#关键业务约束-17" class="red" title="5.6.3
-关键业务约束">5.6.3
-关键业务约束</a></li>
-<li><a href="#待开票-1" class="red" title="5.6.4
-待开票">5.6.4
-待开票</a></li>
-<ul><li><a href="#开票-3" class="red" title="5.6.4.1
-开票">5.6.4.1
-开票</a></li>
-<ul><li><a href="#关键业务约束-18" class="red" title="5.6.4.1.1
-关键业务约束">5.6.4.1.1
-关键业务约束</a></li>
-<li><a href="#原型-9" class="red" title="5.6.4.1.2
-原型">5.6.4.1.2
-原型</a></li>
-<li><a href="#字段规范-9" class="red" title="5.6.4.1.3
-字段规范">5.6.4.1.3
-字段规范</a></li>
-<li><a href="#用例规则-8" class="red" title="5.6.4.1.4
-用例规则">5.6.4.1.4
-用例规则</a></li>
-</ul><li><a href="#重新开票开票失败" class="red" title="5.6.4.2
-重新开票（开票失败）">5.6.4.2
-重新开票（开票失败）</a></li>
-<ul><li><a href="#关键业务约束-19" class="red" title="5.6.4.2.1
-关键业务约束">5.6.4.2.1
-关键业务约束</a></li>
-<li><a href="#原型-10" class="red" title="5.6.4.2.2
-原型">5.6.4.2.2
-原型</a></li>
-<li><a href="#字段规范-10" class="red" title="5.6.4.2.3
-字段规范">5.6.4.2.3
-字段规范</a></li>
-<li><a href="#用例规则-9" class="red" title="5.6.4.2.4
-用例规则">5.6.4.2.4
-用例规则</a></li>
-</ul></ul><li><a href="#开票中-2" class="red" title="5.6.5
-开票中">5.6.5
-开票中</a></li>
-<ul><li><a href="#刷新查税局状态" class="red" title="5.6.5.1
-刷新（查税局状态）">5.6.5.1
-刷新（查税局状态）</a></li>
-<ul><li><a href="#关键业务约束-20" class="red" title="5.6.5.1.1
-关键业务约束">5.6.5.1.1
-关键业务约束</a></li>
-<li><a href="#原型-11" class="red" title="5.6.5.1.2
-原型">5.6.5.1.2
-原型</a></li>
-<li><a href="#字段规范-11" class="red" title="5.6.5.1.3
-字段规范">5.6.5.1.3
-字段规范</a></li>
-<li><a href="#用例规则-10" class="red" title="5.6.5.1.4
-用例规则">5.6.5.1.4
-用例规则</a></li>
-</ul></ul><li><a href="#开票失败-2" class="red" title="5.6.6
-开票失败">5.6.6
-开票失败</a></li>
-<ul><li><a href="#开票含重新开票" class="red" title="5.6.6.1
-开票（含重新开票）">5.6.6.1
-开票（含重新开票）</a></li>
-<ul><li><a href="#关键业务约束-21" class="red" title="5.6.6.1.1
-关键业务约束">5.6.6.1.1
-关键业务约束</a></li>
-</ul></ul><li><a href="#已开票-1" class="red" title="5.6.7
-已开票">5.6.7
-已开票</a></li>
-<ul><li><a href="#打印发票-2" class="red" title="5.6.7.1
-打印发票">5.6.7.1
-打印发票</a></li>
-<ul><li><a href="#操作" class="red" title="5.6.7.1.3
-操作">5.6.7.1.3
-操作</a></li>
-</ul><li><a href="#批量打印发票" class="red" title="5.6.7.2
-批量打印发票">5.6.7.2
-批量打印发票</a></li>
-<ul><li><a href="#关键业务约束-22" class="red" title="5.6.7.2.1
-关键业务约束">5.6.7.2.1
-关键业务约束</a></li>
-<li><a href="#字段规范-12" class="red" title="5.6.7.2.2
-字段规范">5.6.7.2.2
-字段规范</a></li>
-<li><a href="#用例规则-11" class="red" title="5.6.7.2.3
-用例规则">5.6.7.2.3
-用例规则</a></li>
-</ul><li><a href="#取消发票-2" class="red" title="5.6.7.3
-取消发票">5.6.7.3
-取消发票</a></li>
-<ul><li><a href="#关键业务约束-23" class="red" title="5.6.7.3.1
-关键业务约束">5.6.7.3.1
-关键业务约束</a></li>
-<li><a href="#原型-12" class="red" title="5.6.7.3.2
-原型">5.6.7.3.2
-原型</a></li>
-<li><a href="#字段规范-13" class="red" title="5.6.7.3.3
-字段规范">5.6.7.3.3
-字段规范</a></li>
-<li><a href="#用例规则-12" class="red" title="5.6.7.3.4
-用例规则">5.6.7.3.4
-用例规则</a></li>
-</ul><li><a href="#查看发票信息" class="red" title="5.6.7.4
-查看发票信息">5.6.7.4
-查看发票信息</a></li>
-<ul><li><a href="#原型-13" class="red" title="5.6.7.4.1
-原型">5.6.7.4.1
-原型</a></li>
-</ul></ul></ul><li><a href="#赠品开票" class="red" title="5.7
-赠品开票">5.7
-赠品开票</a></li>
-<ul><li><a href="#怎么开票" class="red" title="5.7.1
-怎么开票">5.7.1
-怎么开票</a></li>
-<li><a href="#赠品退货如何开销售退票" class="red" title="5.7.2
-赠品退货如何开销售退票">5.7.2
-赠品退货如何开销售退票</a></li>
-<li><a href="#关键业务约束-24" class="red" title="5.7.3
-关键业务约束">5.7.3
-关键业务约束</a></li>
-<li><a href="#原型-14" class="red" title="5.7.4
-原型">5.7.4
-原型</a></li>
-</ul></ul><li><a href="#设置" title="6 设置">6 设置</a></li>
-<ul><li><a href="#订单配置" class="red" title="6.1
-订单配置">6.1
-订单配置</a></li>
-<ul><li><a href="#自动取消" class="red" title="6.1.1
-自动取消">6.1.1
-自动取消</a></li>
-</ul><li><a href="#调拨配置" class="red" title="6.2
-调拨配置">6.2
-调拨配置</a></li>
-<ul><li><a href="#原型-15" class="red" title="6.2.1
-原型">6.2.1
-原型</a></li>
-</ul><li><a href="#收银开票设置离线开票" class="red" title="6.3
-收银开票设置（离线开票）">6.3
-收银开票设置（离线开票）</a></li>
-<ul><li><a href="#关键业务约束-25" class="red" title="6.3.1
-关键业务约束">6.3.1
-关键业务约束</a></li>
-<li><a href="#原型-16" class="red" title="6.3.2
-原型">6.3.2
-原型</a></li>
-<li><a href="#字段规范-14" class="red" title="6.3.3
-字段规范">6.3.3
-字段规范</a></li>
-<li><a href="#用例规则-13" class="red" title="6.3.4
-用例规则">6.3.4
-用例规则</a></li>
-</ul><li><a href="#订单设置" class="red" title="6.4
-订单设置">6.4
-订单设置</a></li>
-</ul><li><a href="#采购发票" title="7 采购发票">7 采购发票</a></li>
-<ul><li><a href="#采购发票-1" title="7.1 采购发票">7.1 采购发票</a></li>
-<ul><li><a href="#页面说明" title="7.1.1 页面说明">7.1.1 页面说明</a></li>
-<li><a href="#业务场景说明-12" title="7.1.2 业务场景说明">7.1.2 业务场景说明</a></li>
-<li><a href="#流程图-14" title="7.1.3 流程图">7.1.3 流程图</a></li>
-<li><a href="#和税局sefaz的数据交互-12" title="7.1.4 和税局（SEFAZ）的数据交互">7.1.4 和税局（SEFAZ）的数据交互</a></li>
-<li><a href="#关键业务约束-26" title="7.1.5 关键业务约束">7.1.5 关键业务约束</a></li>
-<li><a href="#同步发票" title="7.1.6 同步发票">7.1.6 同步发票</a></li>
-<ul><li><a href="#同步发票的范围" title="7.1.6.1 同步发票的范围">7.1.6.1 同步发票的范围</a></li>
-<li><a href="#关键业务约束-27" title="7.1.6.2 关键业务约束">7.1.6.2 关键业务约束</a></li>
-<li><a href="#原型-17" class="red" title="7.1.6.3
-原型">7.1.6.3
-原型</a></li>
-<li><a href="#字段规范-15" title="7.1.6.4 字段规范">7.1.6.4 字段规范</a></li>
-<li><a href="#用例规则-14" title="7.1.6.5 用例规则">7.1.6.5 用例规则</a></li>
-</ul><li><a href="#发票声明含再次声明" title="7.1.7 发票声明（含再次声明）">7.1.7 发票声明（含再次声明）</a></li>
-<ul><li><a href="#哪些发票可以发票声明" title="7.1.7.1 哪些发票可以发票声明">7.1.7.1 哪些发票可以发票声明</a></li>
-<li><a href="#关键业务约束-28" title="7.1.7.2 关键业务约束">7.1.7.2 关键业务约束</a></li>
-<li><a href="#原型-18" class="red" title="7.1.7.3
-原型">7.1.7.3
-原型</a></li>
-<li><a href="#字段规范-16" title="7.1.7.4 字段规范">7.1.7.4 字段规范</a></li>
-<li><a href="#用例规则-15" title="7.1.7.5 用例规则">7.1.7.5 用例规则</a></li>
-</ul><li><a href="#忽略" title="7.1.8 忽略">7.1.8 忽略</a></li>
-<ul><li><a href="#哪些发票可以忽略" title="7.1.8.1 哪些发票可以忽略">7.1.8.1 哪些发票可以忽略</a></li>
-<li><a href="#关键业务约束-29" title="7.1.8.2 关键业务约束">7.1.8.2 关键业务约束</a></li>
-<li><a href="#原型-19" class="red" title="7.1.8.3
-原型">7.1.8.3
-原型</a></li>
-<li><a href="#字段规范-17" title="7.1.8.4 字段规范">7.1.8.4 字段规范</a></li>
-<li><a href="#用例规则-16" title="7.1.8.5 用例规则">7.1.8.5 用例规则</a></li>
-</ul><li><a href="#打印发票-3" title="7.1.9 打印发票">7.1.9 打印发票</a></li>
-<ul><li><a href="#哪些发票可以打印" title="7.1.9.1 哪些发票可以打印">7.1.9.1 哪些发票可以打印</a></li>
-<li><a href="#关键业务约束-30" title="7.1.9.2 关键业务约束">7.1.9.2 关键业务约束</a></li>
-<li><a href="#字段规范-18" title="7.1.9.3 字段规范">7.1.9.3 字段规范</a></li>
-<li><a href="#用例规则-17" title="7.1.9.4 用例规则">7.1.9.4 用例规则</a></li>
-</ul><li><a href="#生成采购单" title="7.1.10 生成采购单">7.1.10 生成采购单</a></li>
-<ul><li><a href="#哪些发票可以生成采购单" title="7.1.10.1 哪些发票可以生成采购单">7.1.10.1 哪些发票可以生成采购单</a></li>
-<li><a href="#关键业务约束-31" title="7.1.10.2 关键业务约束">7.1.10.2 关键业务约束</a></li>
-<li><a href="#原型-20" class="red" title="7.1.10.3
-原型">7.1.10.3
-原型</a></li>
-<li><a href="#字段规范-19" title="7.1.10.4 字段规范">7.1.10.4 字段规范</a></li>
-<li><a href="#用例规则-18" title="7.1.10.5 用例规则">7.1.10.5 用例规则</a></li>
-</ul><li><a href="#开退货发票" title="7.1.11 开退货发票">7.1.11 开退货发票</a></li>
-<ul><li><a href="#哪些发票可以开退货发票" title="7.1.11.1 哪些发票可以开退货发票">7.1.11.1 哪些发票可以开退货发票</a></li>
-<li><a href="#关键业务约束-32" title="7.1.11.2 关键业务约束">7.1.11.2 关键业务约束</a></li>
-<li><a href="#原型-21" class="red" title="7.1.11.3
-原型">7.1.11.3
-原型</a></li>
-<li><a href="#字段规范-20" title="7.1.11.4 字段规范">7.1.11.4 字段规范</a></li>
-<li><a href="#用例规则-19" title="7.1.11.5 用例规则">7.1.11.5 用例规则</a></li>
-</ul><li><a href="#下载-xml" title="7.1.12 下载 XML">7.1.12 下载 XML</a></li>
-<ul><li><a href="#哪些发票可以下载-xml" title="7.1.12.1 哪些发票可以下载 XML">7.1.12.1 哪些发票可以下载 XML</a></li>
-<li><a href="#关键业务约束-33" title="7.1.12.2 关键业务约束">7.1.12.2 关键业务约束</a></li>
-<li><a href="#字段规范-21" title="7.1.12.3 字段规范">7.1.12.3 字段规范</a></li>
-<li><a href="#用例规则-20" title="7.1.12.4 用例规则">7.1.12.4 用例规则</a></li>
-</ul><li><a href="#导入xml" title="7.1.13 导入XML">7.1.13 导入XML</a></li>
-<ul><li><a href="#导入xml-的范围" title="7.1.13.1 导入XML 的范围">7.1.13.1 导入XML 的范围</a></li>
-<li><a href="#关键业务约束-34" title="7.1.13.2 关键业务约束">7.1.13.2 关键业务约束</a></li>
-<li><a href="#原型-22" class="red" title="7.1.13.3
-原型">7.1.13.3
-原型</a></li>
-<li><a href="#字段规范-22" title="7.1.13.4 字段规范">7.1.13.4 字段规范</a></li>
-<li><a href="#用例规则-21" title="7.1.13.5 用例规则">7.1.13.5 用例规则</a></li>
-</ul><li><a href="#按日期导出" title="7.1.14 按日期导出">7.1.14 按日期导出</a></li>
-<ul><li><a href="#按日期导出的范围" title="7.1.14.1 按日期导出的范围">7.1.14.1 按日期导出的范围</a></li>
-<li><a href="#关键业务约束-35" title="7.1.14.2 关键业务约束">7.1.14.2 关键业务约束</a></li>
-<li><a href="#原型-23" class="red" title="7.1.14.3
-原型">7.1.14.3
-原型</a></li>
-<li><a href="#字段规范-23" title="7.1.14.4 字段规范">7.1.14.4 字段规范</a></li>
-<li><a href="#用例规则-22" title="7.1.14.5 用例规则">7.1.14.5 用例规则</a></li>
-</ul><li><a href="#按勾选导出" title="7.1.15 按勾选导出">7.1.15 按勾选导出</a></li>
-<ul><li><a href="#按勾选导出的范围" title="7.1.15.1 按勾选导出的范围">7.1.15.1 按勾选导出的范围</a></li>
-<li><a href="#关键业务约束-36" title="7.1.15.2 关键业务约束">7.1.15.2 关键业务约束</a></li>
-<li><a href="#字段规范-24" title="7.1.15.3 字段规范">7.1.15.3 字段规范</a></li>
-<li><a href="#用例规则-23" title="7.1.15.4 用例规则">7.1.15.4 用例规则</a></li>
-</ul></ul></ul><li><a href="#供应商管理税务资料" class="red" title="8
-供应商管理（税务资料）">8
-供应商管理（税务资料）</a></li>
-<ul><li><a href="#关键业务约束-37" class="red" title="8.1
-关键业务约束">8.1
-关键业务约束</a></li>
-<li><a href="#编辑供应商" class="red" title="8.2
-编辑供应商">8.2
-编辑供应商</a></li>
-<ul><li><a href="#原型-24" class="red" title="8.2.1
-原型">8.2.1
-原型</a></li>
-<li><a href="#字段规范-25" class="red" title="8.2.2
-字段规范">8.2.2
-字段规范</a></li>
-<li><a href="#用例规则-24" class="red" title="8.2.3
-用例规则">8.2.3
-用例规则</a></li>
-</ul></ul><li><a href="#调拨管理" title="9 调拨管理">9 调拨管理</a></li>
-<ul><li><a href="#页面说明-1" title="9.1 页面说明">9.1 页面说明</a></li>
-<li><a href="#流程图-15" class="red" title="9.2
-流程图">9.2
-流程图</a></li>
-<li><a href="#关键业务约束-38" class="red" title="9.3
-关键业务约束">9.3
-关键业务约束</a></li>
-<li><a href="#待开票-2" class="red" title="9.4
-待开票">9.4
-待开票</a></li>
-<ul><li><a href="#开票含重新开票-1" class="red" title="9.4.1
-开票（含重新开票）">9.4.1
-开票（含重新开票）</a></li>
-<ul><li><a href="#关键业务约束-39" class="red" title="9.4.1.1
-关键业务约束">9.4.1.1
-关键业务约束</a></li>
-<li><a href="#原型-25" class="red" title="9.4.1.2
-原型">9.4.1.2
-原型</a></li>
-<li><a href="#字段规范-26" class="red" title="9.4.1.3
-字段规范">9.4.1.3
-字段规范</a></li>
-<li><a href="#用例规则-25" class="red" title="9.4.1.4
-用例规则">9.4.1.4
-用例规则</a></li>
-</ul><li><a href="#转提交含批量转提交" class="red" title="9.4.2
-转提交（含批量转提交）">9.4.2
-转提交（含批量转提交）</a></li>
-<ul><li><a href="#关键业务约束-40" class="red" title="9.4.2.1
-关键业务约束">9.4.2.1
-关键业务约束</a></li>
-<li><a href="#原型-26" class="red" title="9.4.2.2
-原型">9.4.2.2
-原型</a></li>
-<li><a href="#字段规范-27" class="red" title="9.4.2.3
-字段规范">9.4.2.3
-字段规范</a></li>
-<li><a href="#用例规则-26" class="red" title="9.4.2.4
-用例规则">9.4.2.4
-用例规则</a></li>
-</ul><li><a href="#取消调拨" class="red" title="9.4.3
-取消调拨">9.4.3
-取消调拨</a></li>
-<ul><li><a href="#关键业务约束-41" class="red" title="9.4.3.1
-关键业务约束">9.4.3.1
-关键业务约束</a></li>
-<li><a href="#原型-27" class="red" title="9.4.3.2
-原型">9.4.3.2
-原型</a></li>
-<li><a href="#字段规范-28" class="red" title="9.4.3.3
-字段规范">9.4.3.3
-字段规范</a></li>
-<li><a href="#用例规则-27" class="red" title="9.4.3.4
-用例规则">9.4.3.4
-用例规则</a></li>
-</ul></ul><li><a href="#开票中-3" class="red" title="9.5
-开票中">9.5
-开票中</a></li>
-<ul><li><a href="#刷新查税局状态含批量刷新" class="red" title="9.5.1
-刷新（查税局状态）（含批量刷新）">9.5.1
-刷新（查税局状态）（含批量刷新）</a></li>
-<ul><li><a href="#关键业务约束-42" class="red" title="9.5.1.1
-关键业务约束">9.5.1.1
-关键业务约束</a></li>
-<li><a href="#原型-28" class="red" title="9.5.1.2
-原型">9.5.1.2
-原型</a></li>
-<li><a href="#字段规范-29" class="red" title="9.5.1.3
-字段规范">9.5.1.3
-字段规范</a></li>
-<li><a href="#用例规则-28" class="red" title="9.5.1.4
-用例规则">9.5.1.4
-用例规则</a></li>
-</ul></ul><li><a href="#开票失败-3" class="red" title="9.6
-开票失败">9.6
-开票失败</a></li>
-<ul><li><a href="#开票含重新开票-2" class="red" title="9.6.1
-开票（含重新开票）">9.6.1
-开票（含重新开票）</a></li>
-<ul><li><a href="#关键业务约束-43" class="red" title="9.6.1.1
-关键业务约束">9.6.1.1
-关键业务约束</a></li>
-</ul><li><a href="#转提交含批量转提交-1" class="red" title="9.6.2
-转提交（含批量转提交）">9.6.2
-转提交（含批量转提交）</a></li>
-<ul><li><a href="#关键业务约束-44" class="red" title="9.6.2.1
-关键业务约束">9.6.2.1
-关键业务约束</a></li>
-</ul><li><a href="#取消调拨-1" class="red" title="9.6.3
-取消调拨">9.6.3
-取消调拨</a></li>
-<li><a href="#失败原因与处理指引要修改位置" class="red" title="9.6.4
-失败原因与处理指引（要修改位置）">9.6.4
-失败原因与处理指引（要修改位置）</a></li>
-<ul><li><a href="#关键业务约束-45" class="red" title="9.6.4.1
-关键业务约束">9.6.4.1
-关键业务约束</a></li>
-<li><a href="#原型-29" class="red" title="9.6.4.2
-原型">9.6.4.2
-原型</a></li>
-<li><a href="#字段规范-30" class="red" title="9.6.4.3
-字段规范">9.6.4.3
-字段规范</a></li>
-<li><a href="#用例规则-29" class="red" title="9.6.4.4
-用例规则">9.6.4.4
-用例规则</a></li>
-</ul><li><a href="#验证发票xml-1" class="red" title="9.6.5
-验证发票XML">9.6.5
-验证发票XML</a></li>
-<ul><li><a href="#关键业务约束-46" class="red" title="9.6.5.1
-关键业务约束">9.6.5.1
-关键业务约束</a></li>
-<li><a href="#字段规范-31" class="red" title="9.6.5.2
-字段规范">9.6.5.2
-字段规范</a></li>
-<li><a href="#用例规则-30" class="red" title="9.6.5.3
-用例规则">9.6.5.3
-用例规则</a></li>
-</ul></ul><li><a href="#已开票-2" class="red" title="9.7
-已开票">9.7
-已开票</a></li>
-<ul><li><a href="#详情发票信息" class="red" title="9.7.1
-详情（发票信息）">9.7.1
-详情（发票信息）</a></li>
-<ul><li><a href="#关键业务约束-47" class="red" title="9.7.1.1
-关键业务约束">9.7.1.1
-关键业务约束</a></li>
-<li><a href="#原型-30" class="red" title="9.7.1.2
-原型">9.7.1.2
-原型</a></li>
-<li><a href="#字段规范-32" class="red" title="9.7.1.3
-字段规范">9.7.1.3
-字段规范</a></li>
-<li><a href="#用例规则-31" class="red" title="9.7.1.4
-用例规则">9.7.1.4
-用例规则</a></li>
-</ul><li><a href="#打印发票含批量打印发票" class="red" title="9.7.2
-打印发票（含批量打印发票）">9.7.2
-打印发票（含批量打印发票）</a></li>
-<ul><li><a href="#关键业务约束-48" class="red" title="9.7.2.1
-关键业务约束">9.7.2.1
-关键业务约束</a></li>
-<li><a href="#字段规范-33" class="red" title="9.7.2.2
-字段规范">9.7.2.2
-字段规范</a></li>
-<li><a href="#用例规则-32" class="red" title="9.7.2.3
-用例规则">9.7.2.3
-用例规则</a></li>
-</ul></ul><li><a href="#待出库" class="red" title="9.8
-待出库">9.8
-待出库</a></li>
-<ul><li><a href="#取消发票待出库" class="red" title="9.8.1
-取消发票（待出库）">9.8.1
-取消发票（待出库）</a></li>
-<ul><li><a href="#关键业务约束-49" class="red" title="9.8.1.1
-关键业务约束">9.8.1.1
-关键业务约束</a></li>
-<li><a href="#原型-31" class="red" title="9.8.1.2
-原型">9.8.1.2
-原型</a></li>
-<li><a href="#字段规范-34" class="red" title="9.8.1.3
-字段规范">9.8.1.3
-字段规范</a></li>
-<li><a href="#用例规则-33" class="red" title="9.8.1.4
-用例规则">9.8.1.4
-用例规则</a></li>
-</ul><li><a href="#出库拦截开关开启时" class="red" title="9.8.2
-出库拦截（开关开启时）">9.8.2
-出库拦截（开关开启时）</a></li>
-<ul><li><a href="#字段规范-35" class="red" title="9.8.2.1
-字段规范">9.8.2.1
-字段规范</a></li>
-<li><a href="#用例规则-34" class="red" title="9.8.2.2
-用例规则">9.8.2.2
-用例规则</a></li>
-</ul></ul><li><a href="#无需开票" class="red" title="9.9
-无需开票">9.9
-无需开票</a></li>
-<ul><li><a href="#详情发票信息-1" class="red" title="9.9.1
-详情（发票信息）">9.9.1
-详情（发票信息）</a></li>
-<li><a href="#无需开票同一发票主体内调拨" class="red" title="9.9.2
-无需开票（同一发票主体内调拨）">9.9.2
-无需开票（同一发票主体内调拨）</a></li>
-<ul><li><a href="#关键业务约束-50" class="red" title="9.9.2.1
-关键业务约束">9.9.2.1
-关键业务约束</a></li>
-<li><a href="#原型-32" class="red" title="9.9.2.2
-原型">9.9.2.2
-原型</a></li>
-<li><a href="#字段规范-36" class="red" title="9.9.2.3
-字段规范">9.9.2.3
-字段规范</a></li>
-<li><a href="#用例规则-35" class="red" title="9.9.2.4
-用例规则">9.9.2.4
-用例规则</a></li>
-</ul></ul><li><a href="#关闭调拨单出库前是否开票后" class="red" title="9.10
-关闭【调拨单出库前是否开票】后">9.10
-关闭【调拨单出库前是否开票】后</a></li>
-<ul><li><a href="#关键业务约束-51" class="red" title="9.10.1
-关键业务约束">9.10.1
-关键业务约束</a></li>
-</ul></ul></ul></ul></nav>
+<nav id="TOC" role="doc-toc"><div class="toc-bar"><button type="button" data-act="open">全部展开</button><button type="button" data-act="close">全部收起</button></div>
+<ul><li class="open"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#erpwms零售系统-发票管理系统-修订版2026-11-11" class="t" title="ERP/WMS/零售系统-发票管理系统-修订版：2026-11-11">ERP/WMS/零售系统-发票管理系统-修订版：2026-11-11</a><ul><li class="leaf"><span class="tw"></span><a href="#开发目的" class="t" title="1 开发目的">1 开发目的</a></li>
+<li class="leaf"><span class="tw"></span><a href="#版本变更" class="t" title="2 版本变更">2 版本变更</a></li>
+<li class="leaf"><span class="tw"></span><a href="#术语-图例定义" class="t" title="3 术语 / 图例定义">3 术语 / 图例定义</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能需求" class="t" title="4 功能需求">4 功能需求</a><ul><li class="leaf"><span class="tw"></span><a href="#产品定义" class="t" title="4.1 产品定义">4.1 产品定义</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#产品框架" class="t" title="4.2 产品框架">4.2 产品框架</a><ul><li class="leaf"><span class="tw"></span><a href="#发票主体是什么按-cnpj-判断不设场所类型" class="t" title="4.2.1 发票主体是什么，按 CNPJ 判断（不设场所类型）">4.2.1 发票主体是什么，按 CNPJ 判断（不设场所类型）</a></li>
+<li class="leaf"><span class="tw"></span><a href="#发票类型" class="t" title="4.2.2 发票类型">4.2.2 发票类型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#出票规则" class="t" title="4.2.3 出票规则">4.2.3 出票规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#取消发票时限" class="t" title="4.2.4 取消发票时限">4.2.4 取消发票时限</a></li>
+<li class="leaf"><span class="tw"></span><a href="#退货换货退款开票" class="t" title="4.2.5 退货、换货、退款开票">4.2.5 退货、换货、退款开票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#断网后如何开票" class="t" title="4.2.6 断网后如何开票">4.2.6 断网后如何开票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#发票号与-key-规则" class="t" title="4.2.7 发票号与 Key 规则">4.2.7 发票号与 Key 规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局交互的通用说明" class="t" title="4.2.8 和税局交互的通用说明">4.2.8 和税局交互的通用说明</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#发票系统" class="t" title="5 发票系统">5 发票系统</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#发票主体零售" class="t" title="5.1 发票主体（零售）">5.1 发票主体（零售）</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明" class="t" title="5.1.1 业务场景说明">5.1.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图" class="t" title="5.1.2 流程图">5.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互" class="t" title="5.1.3 和税局（SEFAZ）的数据交互">5.1.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束" class="t" title="5.1.4 关键业务约束">5.1.4 关键业务约束</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#税种管理零售" class="t" title="5.2 税种管理（零售）">5.2 税种管理（零售）</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-1" class="t" title="5.2.1 业务场景说明">5.2.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-1" class="t" title="5.2.2 流程图">5.2.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-1" class="t" title="5.2.3 关键业务约束">5.2.3 关键业务约束</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#发票管理电商-零售" class="t" title="5.3 发票管理（电商 + 零售）">5.3 发票管理（电商 + 零售）</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#草稿中" class="t" title="5.3.1 草稿中">5.3.1 草稿中</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-2" class="t" title="5.3.1.1 业务场景说明">5.3.1.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-2" class="t" title="5.3.1.2 流程图">5.3.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-1" class="t" title="5.3.1.3 和税局（SEFAZ）的数据交互">5.3.1.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-2" class="t" title="5.3.1.4 关键业务约束">5.3.1.4 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能点详细介绍" class="t" title="5.3.1.5 功能点详细介绍">5.3.1.5 功能点详细介绍</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#创建发票" class="t" title="5.3.1.5.1 创建发票">5.3.1.5.1 创建发票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-1" class="t red" title="5.3.1.5.1.1 销售发票">5.3.1.5.1.1 销售发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-2" class="t red" title="5.3.1.5.1.1.1 关键业务约束">5.3.1.5.1.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-3" class="t red" title="5.3.1.5.1.1.2 和税局（SEFAZ）的数据交互">5.3.1.5.1.1.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-4" class="t red" title="5.3.1.5.1.1.3 流程图">5.3.1.5.1.1.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-5" class="t red" title="5.3.1.5.1.1.4 原型">5.3.1.5.1.1.4 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-6" class="t red" title="5.3.1.5.1.1.5 字段规范">5.3.1.5.1.1.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-7" class="t red" title="5.3.1.5.1.1.6 用例规则">5.3.1.5.1.1.6 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-8" class="t red" title="5.3.1.5.1.2 货物转移">5.3.1.5.1.2 货物转移</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-9" class="t red" title="5.3.1.5.1.2.1 关键业务约束">5.3.1.5.1.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-10" class="t red" title="5.3.1.5.1.2.2 和税局（SEFAZ）的数据交互">5.3.1.5.1.2.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-11" class="t red" title="5.3.1.5.1.2.3 流程图">5.3.1.5.1.2.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-12" class="t red" title="5.3.1.5.1.2.4 原型">5.3.1.5.1.2.4 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-13" class="t red" title="5.3.1.5.1.2.5 字段规范">5.3.1.5.1.2.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-14" class="t red" title="5.3.1.5.1.2.6 用例规则">5.3.1.5.1.2.6 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-15" class="t red" title="5.3.1.5.1.3 货物调拨">5.3.1.5.1.3 货物调拨</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-16" class="t red" title="5.3.1.5.1.3.1 关键业务约束">5.3.1.5.1.3.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-17" class="t red" title="5.3.1.5.1.3.2 和税局（SEFAZ）的数据交互">5.3.1.5.1.3.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-18" class="t red" title="5.3.1.5.1.3.3 流程图">5.3.1.5.1.3.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-19" class="t red" title="5.3.1.5.1.3.4 原型">5.3.1.5.1.3.4 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-20" class="t red" title="5.3.1.5.1.3.5 字段规范">5.3.1.5.1.3.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-21" class="t red" title="5.3.1.5.1.3.6 用例规则">5.3.1.5.1.3.6 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-22" class="t red" title="5.3.1.5.1.4 采购退票">5.3.1.5.1.4 采购退票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-23" class="t red" title="5.3.1.5.1.4.1 关键业务约束">5.3.1.5.1.4.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-24" class="t red" title="5.3.1.5.1.4.2 和税局（SEFAZ）的数据交互">5.3.1.5.1.4.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-25" class="t red" title="5.3.1.5.1.4.3 流程图">5.3.1.5.1.4.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-26" class="t red" title="5.3.1.5.1.4.4 原型">5.3.1.5.1.4.4 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-27" class="t red" title="5.3.1.5.1.4.5 字段规范">5.3.1.5.1.4.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-28" class="t red" title="5.3.1.5.1.4.6 用例规则">5.3.1.5.1.4.6 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-29" class="t red" title="5.3.1.5.1.5 进口采购">5.3.1.5.1.5 进口采购</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-30" class="t red" title="5.3.1.5.1.5.1 关键业务约束">5.3.1.5.1.5.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-31" class="t red" title="5.3.1.5.1.5.2 和税局（SEFAZ）的数据交互">5.3.1.5.1.5.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-32" class="t red" title="5.3.1.5.1.5.3 流程图">5.3.1.5.1.5.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-33" class="t red" title="5.3.1.5.1.5.4 原型">5.3.1.5.1.5.4 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-34" class="t red" title="5.3.1.5.1.5.5 字段规范">5.3.1.5.1.5.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-35" class="t red" title="5.3.1.5.1.5.6 用例规则">5.3.1.5.1.5.6 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#编辑" class="t" title="5.3.1.5.2 编辑">5.3.1.5.2 编辑</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-36" class="t red" title="5.3.1.5.2.1 原型">5.3.1.5.2.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-37" class="t" title="5.3.1.5.2.2 字段规范">5.3.1.5.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-38" class="t" title="5.3.1.5.2.3 用例规则">5.3.1.5.2.3 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票" class="t" title="5.3.1.5.3 开票">5.3.1.5.3 开票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-39" class="t red" title="5.3.1.5.3.1 原型">5.3.1.5.3.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-40" class="t" title="5.3.1.5.3.2 字段规范">5.3.1.5.3.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-41" class="t" title="5.3.1.5.3.3 用例规则">5.3.1.5.3.3 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#删除" class="t" title="5.3.1.5.4 删除">5.3.1.5.4 删除</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-42" class="t red" title="5.3.1.5.4.1 原型">5.3.1.5.4.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-43" class="t" title="5.3.1.5.4.2 字段规范">5.3.1.5.4.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-44" class="t" title="5.3.1.5.4.3 用例规则">5.3.1.5.4.3 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中" class="t" title="5.3.2 开票中">5.3.2 开票中</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-3" class="t" title="5.3.2.1 业务场景说明">5.3.2.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-3" class="t" title="5.3.2.2 流程图">5.3.2.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-2" class="t" title="5.3.2.3 和税局（SEFAZ）的数据交互">5.3.2.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-3" class="t" title="5.3.2.4 关键业务约束">5.3.2.4 关键业务约束</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败" class="t" title="5.3.3 开票失败">5.3.3 开票失败</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-4" class="t" title="5.3.3.1 业务场景说明">5.3.3.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-4" class="t" title="5.3.3.2 流程图">5.3.3.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-3" class="t" title="5.3.3.3 和税局（SEFAZ）的数据交互">5.3.3.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-4" class="t" title="5.3.3.4 关键业务约束">5.3.3.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#哪些发票不可以修改重提" class="t" title="5.3.3.5 哪些发票不可以修改重提">5.3.3.5 哪些发票不可以修改重提</a></li>
+<li class="leaf"><span class="tw"></span><a href="#开票失败标准模板" class="t" title="5.3.3.6 开票失败标准模板">5.3.3.6 开票失败标准模板</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能点详细介绍-1" class="t" title="5.3.3.7 功能点详细介绍">5.3.3.7 功能点详细介绍</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#验证发票xml" class="t" title="5.3.3.7.1 验证发票XML">5.3.3.7.1 验证发票XML</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-45" class="t" title="5.3.3.7.1.1 哪些发票可以验证发票XML">5.3.3.7.1.1 哪些发票可以验证发票XML</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-46" class="t" title="5.3.3.7.1.2 校验项">5.3.3.7.1.2 校验项</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-47" class="t" title="5.3.3.7.1.3 流程图">5.3.3.7.1.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-48" class="t" title="5.3.3.7.1.4 和税局（SEFAZ）的数据交互">5.3.3.7.1.4 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-49" class="t red" title="5.3.3.7.1.5 原型">5.3.3.7.1.5 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-50" class="t" title="5.3.3.7.1.6 字段规范">5.3.3.7.1.6 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-51" class="t" title="5.3.3.7.1.7 用例规则">5.3.3.7.1.7 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#修改重提" class="t" title="5.3.3.7.2 修改重提">5.3.3.7.2 修改重提</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-52" class="t" title="5.3.3.7.2.1 哪些发票可以修改重提">5.3.3.7.2.1 哪些发票可以修改重提</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-53" class="t" title="5.3.3.7.2.2 流程图">5.3.3.7.2.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-54" class="t" title="5.3.3.7.2.3 和税局（SEFAZ）的数据交互">5.3.3.7.2.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-55" class="t" title="5.3.3.7.2.4 关键业务约束">5.3.3.7.2.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-56" class="t red" title="5.3.3.7.2.5 原型">5.3.3.7.2.5 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-57" class="t" title="5.3.3.7.2.6 字段规范">5.3.3.7.2.6 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-58" class="t" title="5.3.3.7.2.7 用例规则">5.3.3.7.2.7 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-近期发票" class="t" title="5.3.4 已开票-近期发票">5.3.4 已开票-近期发票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-5" class="t" title="5.3.4.1 业务场景说明">5.3.4.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-5" class="t" title="5.3.4.2 流程图">5.3.4.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-4" class="t" title="5.3.4.3 和税局（SEFAZ）的数据交互">5.3.4.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-5" class="t" title="5.3.4.4 关键业务约束">5.3.4.4 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能点详细介绍-2" class="t" title="5.3.4.5 功能点详细介绍">5.3.4.5 功能点详细介绍</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票" class="t" title="5.3.4.5.1 打印发票">5.3.4.5.1 打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-59" class="t" title="5.3.4.5.1.1 哪些发票可以打印">5.3.4.5.1.1 哪些发票可以打印</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-60" class="t" title="5.3.4.5.1.2 流程图">5.3.4.5.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-61" class="t" title="5.3.4.5.1.3 字段规范">5.3.4.5.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-62" class="t" title="5.3.4.5.1.4 用例规则">5.3.4.5.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开具cc-e" class="t" title="5.3.4.5.2 开具CC-e">5.3.4.5.2 开具CC-e</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-63" class="t" title="5.3.4.5.2.1 哪些发票可以开具 CC-e">5.3.4.5.2.1 哪些发票可以开具 CC-e</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-64" class="t" title="5.3.4.5.2.2 流程图与税局交互">5.3.4.5.2.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-65" class="t" title="5.3.4.5.2.3 原型">5.3.4.5.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-66" class="t" title="5.3.4.5.2.4 字段规范">5.3.4.5.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-67" class="t" title="5.3.4.5.2.5 用例规则">5.3.4.5.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-68" class="t" title="5.3.4.5.2.6 操作后单据及发票流向">5.3.4.5.2.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票" class="t" title="5.3.4.5.3 取消发票">5.3.4.5.3 取消发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-69" class="t" title="5.3.4.5.3.1 哪些发票可以取消发票">5.3.4.5.3.1 哪些发票可以取消发票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-70" class="t" title="5.3.4.5.3.2 流程图与税局交互">5.3.4.5.3.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-71" class="t" title="5.3.4.5.3.3 原型">5.3.4.5.3.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-72" class="t" title="5.3.4.5.3.4 字段规范">5.3.4.5.3.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-73" class="t" title="5.3.4.5.3.5 用例规则">5.3.4.5.3.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-74" class="t" title="5.3.4.5.3.6 操作后单据及发票流向">5.3.4.5.3.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开退票" class="t" title="5.3.4.5.4 开退票">5.3.4.5.4 开退票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-75" class="t" title="5.3.4.5.4.1 哪些发票可以开退票">5.3.4.5.4.1 哪些发票可以开退票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-76" class="t" title="5.3.4.5.4.2 流程图与税局交互">5.3.4.5.4.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-77" class="t" title="5.3.4.5.4.3 原型">5.3.4.5.4.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-78" class="t" title="5.3.4.5.4.4 字段规范">5.3.4.5.4.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-79" class="t" title="5.3.4.5.4.5 用例规则">5.3.4.5.4.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-80" class="t" title="5.3.4.5.4.6 操作后单据及发票流向">5.3.4.5.4.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#导出xml" class="t" title="5.3.4.5.5 导出XML">5.3.4.5.5 导出XML</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-81" class="t" title="5.3.4.5.5.1 哪些发票可以导出XML">5.3.4.5.5.1 哪些发票可以导出XML</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-82" class="t" title="5.3.4.5.5.2 流程图">5.3.4.5.5.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-83" class="t" title="5.3.4.5.5.3 原型">5.3.4.5.5.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-84" class="t" title="5.3.4.5.5.4 字段规范">5.3.4.5.5.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-85" class="t" title="5.3.4.5.5.5 用例规则">5.3.4.5.5.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印pdf" class="t" title="5.3.4.5.6 打印PDF">5.3.4.5.6 打印PDF</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-86" class="t" title="5.3.4.5.6.1 哪些发票可以打印PDF">5.3.4.5.6.1 哪些发票可以打印PDF</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-87" class="t" title="5.3.4.5.6.2 流程图">5.3.4.5.6.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-88" class="t" title="5.3.4.5.6.3 原型">5.3.4.5.6.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-89" class="t" title="5.3.4.5.6.4 字段规范">5.3.4.5.6.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-90" class="t" title="5.3.4.5.6.5 用例规则">5.3.4.5.6.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#重开发票" class="t" title="5.3.4.5.7 重开发票">5.3.4.5.7 重开发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-91" class="t" title="5.3.4.5.7.1 哪些发票可以重开发票">5.3.4.5.7.1 哪些发票可以重开发票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-92" class="t" title="5.3.4.5.7.2 流程图与税局交互">5.3.4.5.7.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-93" class="t" title="5.3.4.5.7.3 原型">5.3.4.5.7.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-94" class="t" title="5.3.4.5.7.4 字段规范">5.3.4.5.7.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-95" class="t" title="5.3.4.5.7.5 用例规则">5.3.4.5.7.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-96" class="t" title="5.3.4.5.7.6 操作后单据及发票流向">5.3.4.5.7.6 操作后单据及发票流向</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-历史发票" class="t" title="5.3.5 已开票-历史发票">5.3.5 已开票-历史发票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-6" class="t" title="5.3.5.1 业务场景说明">5.3.5.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-6" class="t" title="5.3.5.2 流程图">5.3.5.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-5" class="t" title="5.3.5.3 和税局（SEFAZ）的数据交互">5.3.5.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-6" class="t" title="5.3.5.4 关键业务约束">5.3.5.4 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能点详细介绍-3" class="t" title="5.3.5.5 功能点详细介绍">5.3.5.5 功能点详细介绍</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票-1" class="t" title="5.3.5.5.1 打印发票">5.3.5.5.1 打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-97" class="t" title="5.3.5.5.1.1 哪些发票可以打印">5.3.5.5.1.1 哪些发票可以打印</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-98" class="t" title="5.3.5.5.1.2 流程图">5.3.5.5.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-99" class="t" title="5.3.5.5.1.3 原型">5.3.5.5.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-100" class="t red" title="5.3.5.5.1.4 字段规范">5.3.5.5.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-101" class="t" title="5.3.5.5.1.5 用例规则">5.3.5.5.1.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开具cc-e-1" class="t" title="5.3.5.5.2 开具CC-e">5.3.5.5.2 开具CC-e</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-102" class="t" title="5.3.5.5.2.1 哪些发票可以开具 CC-e">5.3.5.5.2.1 哪些发票可以开具 CC-e</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-103" class="t red" title="5.3.5.5.2.2 流程图与税局交互">5.3.5.5.2.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-104" class="t" title="5.3.5.5.2.3 原型">5.3.5.5.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-105" class="t" title="5.3.5.5.2.4 字段规范">5.3.5.5.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-106" class="t" title="5.3.5.5.2.5 用例规则">5.3.5.5.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-107" class="t" title="5.3.5.5.2.6 操作后单据及发票流向">5.3.5.5.2.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开退票-1" class="t" title="5.3.5.5.3 开退票">5.3.5.5.3 开退票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-108" class="t" title="5.3.5.5.3.1 哪些发票可以开退票">5.3.5.5.3.1 哪些发票可以开退票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-109" class="t red" title="5.3.5.5.3.2 流程图与税局交互">5.3.5.5.3.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-110" class="t" title="5.3.5.5.3.3 原型">5.3.5.5.3.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-111" class="t" title="5.3.5.5.3.4 字段规范">5.3.5.5.3.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-112" class="t" title="5.3.5.5.3.5 用例规则">5.3.5.5.3.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-113" class="t" title="5.3.5.5.3.6 操作后单据及发票流向">5.3.5.5.3.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#导出xml-1" class="t" title="5.3.5.5.4 导出XML">5.3.5.5.4 导出XML</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-114" class="t" title="5.3.5.5.4.1 原型">5.3.5.5.4.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-115" class="t red" title="5.3.5.5.4.2 字段规范">5.3.5.5.4.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-116" class="t" title="5.3.5.5.4.3 用例规则">5.3.5.5.4.3 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印pdf-1" class="t" title="5.3.5.5.5 打印PDF">5.3.5.5.5 打印PDF</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-117" class="t" title="5.3.5.5.5.1 哪些发票可以打印PDF">5.3.5.5.5.1 哪些发票可以打印PDF</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-118" class="t" title="5.3.5.5.5.2 流程图">5.3.5.5.5.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-119" class="t" title="5.3.5.5.5.3 原型">5.3.5.5.5.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-120" class="t red" title="5.3.5.5.5.4 字段规范">5.3.5.5.5.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-121" class="t" title="5.3.5.5.5.5 用例规则">5.3.5.5.5.5 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#异常发票" class="t" title="5.3.6 异常发票">5.3.6 异常发票</a><ul><li class="leaf"><span class="tw"></span><a href="#异常发票怎么来的" class="t" title="5.3.6.1 异常发票怎么来的">5.3.6.1 异常发票怎么来的</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-7" class="t" title="5.3.6.2 流程图">5.3.6.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-6" class="t" title="5.3.6.3 和税局（SEFAZ）的数据交互">5.3.6.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-7" class="t" title="5.3.6.4 关键业务约束">5.3.6.4 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#功能点详细介绍-4" class="t" title="5.3.6.5 功能点详细介绍">5.3.6.5 功能点详细介绍</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待处理" class="t" title="5.3.6.5.1 待处理">5.3.6.5.1 待处理</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-122" class="t" title="5.3.6.5.1.1 开退票">5.3.6.5.1.1 开退票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-123" class="t" title="5.3.6.5.1.1.1 哪些发票可以开退票">5.3.6.5.1.1.1 哪些发票可以开退票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-124" class="t" title="5.3.6.5.1.1.2 流程图与税局交互">5.3.6.5.1.1.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-125" class="t" title="5.3.6.5.1.1.3 原型">5.3.6.5.1.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-126" class="t" title="5.3.6.5.1.1.4 字段规范">5.3.6.5.1.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-127" class="t" title="5.3.6.5.1.1.5 用例规则">5.3.6.5.1.1.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-128" class="t" title="5.3.6.5.1.1.6 操作后单据及发票流向">5.3.6.5.1.1.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-129" class="t" title="5.3.6.5.1.2 取消发票">5.3.6.5.1.2 取消发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-130" class="t" title="5.3.6.5.1.2.1 哪些发票可以取消发票">5.3.6.5.1.2.1 哪些发票可以取消发票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-131" class="t" title="5.3.6.5.1.2.2 流程图与税局交互">5.3.6.5.1.2.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-132" class="t" title="5.3.6.5.1.2.3 原型">5.3.6.5.1.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-133" class="t" title="5.3.6.5.1.2.4 字段规范">5.3.6.5.1.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-134" class="t" title="5.3.6.5.1.2.5 用例规则">5.3.6.5.1.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-135" class="t" title="5.3.6.5.1.2.6 操作后单据及发票流向">5.3.6.5.1.2.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-136" class="t" title="5.3.6.5.1.3 标记为已忽略">5.3.6.5.1.3 标记为已忽略</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-137" class="t" title="5.3.6.5.1.3.1 哪些异常记录可以标记为已忽略">5.3.6.5.1.3.1 哪些异常记录可以标记为已忽略</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-138" class="t" title="5.3.6.5.1.3.2 流程图">5.3.6.5.1.3.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-139" class="t" title="5.3.6.5.1.3.3 原型">5.3.6.5.1.3.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-140" class="t" title="5.3.6.5.1.3.4 字段规范">5.3.6.5.1.3.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-141" class="t" title="5.3.6.5.1.3.5 用例规则">5.3.6.5.1.3.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-142" class="t" title="5.3.6.5.1.3.6 操作后单据及发票流向">5.3.6.5.1.3.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-143" class="t" title="5.3.6.5.1.4 同步">5.3.6.5.1.4 同步</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-144" class="t" title="5.3.6.5.1.4.1 同步的范围">5.3.6.5.1.4.1 同步的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-145" class="t" title="5.3.6.5.1.4.2 流程图">5.3.6.5.1.4.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-146" class="t" title="5.3.6.5.1.4.3 原型">5.3.6.5.1.4.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-147" class="t" title="5.3.6.5.1.4.4 字段规范">5.3.6.5.1.4.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-148" class="t" title="5.3.6.5.1.4.5 用例规则">5.3.6.5.1.4.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-149" class="t" title="5.3.6.5.1.4.6 操作后单据及发票流向">5.3.6.5.1.4.6 操作后单据及发票流向</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#处理中" class="t" title="5.3.6.5.2 处理中">5.3.6.5.2 处理中</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-150" class="t" title="5.3.6.5.2.1 刷新">5.3.6.5.2.1 刷新</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-151" class="t" title="5.3.6.5.2.1.1 刷新适用哪些记录">5.3.6.5.2.1.1 刷新适用哪些记录</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-152" class="t" title="5.3.6.5.2.1.2 流程图">5.3.6.5.2.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-153" class="t" title="5.3.6.5.2.1.3 原型">5.3.6.5.2.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-154" class="t" title="5.3.6.5.2.1.4 字段规范">5.3.6.5.2.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-155" class="t" title="5.3.6.5.2.1.5 用例规则">5.3.6.5.2.1.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-156" class="t" title="5.3.6.5.2.1.6 操作后单据及发票流向">5.3.6.5.2.1.6 操作后单据及发票流向</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#失败" class="t" title="5.3.6.5.3 失败">5.3.6.5.3 失败</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-157" class="t" title="5.3.6.5.3.1 开退票">5.3.6.5.3.1 开退票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-158" class="t" title="5.3.6.5.3.1.1 哪些发票可以开退票">5.3.6.5.3.1.1 哪些发票可以开退票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-159" class="t" title="5.3.6.5.3.1.2 流程图与税局交互">5.3.6.5.3.1.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-160" class="t" title="5.3.6.5.3.1.3 原型">5.3.6.5.3.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-161" class="t" title="5.3.6.5.3.1.4 字段规范">5.3.6.5.3.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-162" class="t" title="5.3.6.5.3.1.5 用例规则">5.3.6.5.3.1.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-163" class="t" title="5.3.6.5.3.1.6 操作后单据及发票流向">5.3.6.5.3.1.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-164" class="t" title="5.3.6.5.3.2 取消发票">5.3.6.5.3.2 取消发票</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-165" class="t" title="5.3.6.5.3.2.1 哪些发票可以取消发票">5.3.6.5.3.2.1 哪些发票可以取消发票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-166" class="t" title="5.3.6.5.3.2.2 流程图与税局交互">5.3.6.5.3.2.2 流程图与税局交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-167" class="t" title="5.3.6.5.3.2.3 原型">5.3.6.5.3.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-168" class="t" title="5.3.6.5.3.2.4 字段规范">5.3.6.5.3.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-169" class="t" title="5.3.6.5.3.2.5 用例规则">5.3.6.5.3.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-170" class="t" title="5.3.6.5.3.2.6 操作后单据及发票流向">5.3.6.5.3.2.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-171" class="t" title="5.3.6.5.3.3 标记为已忽略">5.3.6.5.3.3 标记为已忽略</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-172" class="t" title="5.3.6.5.3.3.1 哪些异常记录可以标记为已忽略">5.3.6.5.3.3.1 哪些异常记录可以标记为已忽略</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-173" class="t" title="5.3.6.5.3.3.2 流程图">5.3.6.5.3.3.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-174" class="t" title="5.3.6.5.3.3.3 原型">5.3.6.5.3.3.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-175" class="t" title="5.3.6.5.3.3.4 字段规范">5.3.6.5.3.3.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-176" class="t" title="5.3.6.5.3.3.5 用例规则">5.3.6.5.3.3.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-177" class="t" title="5.3.6.5.3.3.6 操作后单据及发票流向">5.3.6.5.3.3.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-178" class="t" title="5.3.6.5.3.4 刷新">5.3.6.5.3.4 刷新</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-179" class="t" title="5.3.6.5.3.4.1 刷新适用哪些记录">5.3.6.5.3.4.1 刷新适用哪些记录</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-180" class="t" title="5.3.6.5.3.4.2 流程图">5.3.6.5.3.4.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-181" class="t" title="5.3.6.5.3.4.3 原型">5.3.6.5.3.4.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-182" class="t" title="5.3.6.5.3.4.4 字段规范">5.3.6.5.3.4.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-183" class="t" title="5.3.6.5.3.4.5 用例规则">5.3.6.5.3.4.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-184" class="t" title="5.3.6.5.3.4.6 操作后单据及发票流向">5.3.6.5.3.4.6 操作后单据及发票流向</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已处理" class="t" title="5.3.6.5.4 已处理">5.3.6.5.4 已处理</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-185" class="t" title="5.3.6.5.4.1 标记为待处理">5.3.6.5.4.1 标记为待处理</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-186" class="t" title="5.3.6.5.4.1.1 哪些异常记录可以标记为待处理">5.3.6.5.4.1.1 哪些异常记录可以标记为待处理</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-187" class="t" title="5.3.6.5.4.1.2 流程图">5.3.6.5.4.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-188" class="t" title="5.3.6.5.4.1.3 原型">5.3.6.5.4.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-189" class="t" title="5.3.6.5.4.1.4 字段规范">5.3.6.5.4.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-190" class="t" title="5.3.6.5.4.1.5 用例规则">5.3.6.5.4.1.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-191" class="t" title="5.3.6.5.4.1.6 操作后单据及发票流向">5.3.6.5.4.1.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-192" class="t" title="5.3.6.5.4.2 同步">5.3.6.5.4.2 同步</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-193" class="t" title="5.3.6.5.4.2.1 同步的范围">5.3.6.5.4.2.1 同步的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-194" class="t" title="5.3.6.5.4.2.2 流程图">5.3.6.5.4.2.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-195" class="t" title="5.3.6.5.4.2.3 原型">5.3.6.5.4.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-196" class="t" title="5.3.6.5.4.2.4 字段规范">5.3.6.5.4.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-197" class="t" title="5.3.6.5.4.2.5 用例规则">5.3.6.5.4.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-198" class="t" title="5.3.6.5.4.2.6 操作后单据及发票流向">5.3.6.5.4.2.6 操作后单据及发票流向</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已忽略" class="t" title="5.3.6.5.5 已忽略">5.3.6.5.5 已忽略</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-199" class="t" title="5.3.6.5.5.1 标记为待处理">5.3.6.5.5.1 标记为待处理</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-200" class="t" title="5.3.6.5.5.1.1 哪些异常记录可以标记为待处理">5.3.6.5.5.1.1 哪些异常记录可以标记为待处理</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-201" class="t" title="5.3.6.5.5.1.2 流程图">5.3.6.5.5.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-202" class="t" title="5.3.6.5.5.1.3 原型">5.3.6.5.5.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-203" class="t" title="5.3.6.5.5.1.4 字段规范">5.3.6.5.5.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-204" class="t" title="5.3.6.5.5.1.5 用例规则">5.3.6.5.5.1.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-205" class="t" title="5.3.6.5.5.1.6 操作后单据及发票流向">5.3.6.5.5.1.6 操作后单据及发票流向</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#hx-206" class="t" title="5.3.6.5.5.2 同步">5.3.6.5.5.2 同步</a><ul><li class="leaf"><span class="tw"></span><a href="#hx-207" class="t" title="5.3.6.5.5.2.1 同步的范围">5.3.6.5.5.2.1 同步的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-208" class="t" title="5.3.6.5.5.2.2 流程图">5.3.6.5.5.2.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-209" class="t" title="5.3.6.5.5.2.3 原型">5.3.6.5.5.2.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-210" class="t" title="5.3.6.5.5.2.4 字段规范">5.3.6.5.5.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-211" class="t" title="5.3.6.5.5.2.5 用例规则">5.3.6.5.5.2.5 用例规则</a></li>
+<li class="leaf"><span class="tw"></span><a href="#hx-212" class="t" title="5.3.6.5.5.2.6 操作后单据及发票流向">5.3.6.5.5.2.6 操作后单据及发票流向</a></li></ul></li></ul></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#收银台的开票场景" class="t" title="5.4 收银台的开票场景">5.4 收银台的开票场景</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#用户填写cpfcnpj" class="t" title="5.4.1 用户填写CPF/CNPJ">5.4.1 用户填写CPF/CNPJ</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-7" class="t" title="5.4.1.1 业务场景说明">5.4.1.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-8" class="t" title="5.4.1.2 流程图">5.4.1.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-7" class="t" title="5.4.1.3 和税局（SEFAZ）的数据交互">5.4.1.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-8" class="t" title="5.4.1.4 关键业务约束">5.4.1.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型" class="t red" title="5.4.1.5 原型">5.4.1.5 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范" class="t" title="5.4.1.6 字段规范">5.4.1.6 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则" class="t" title="5.4.1.7 用例规则">5.4.1.7 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印nfc-e发票" class="t" title="5.4.2 打印NFC-e发票">5.4.2 打印NFC-e发票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-8" class="t" title="5.4.2.1 业务场景说明">5.4.2.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-8" class="t red" title="5.4.2.2 和税局（SEFAZ）的数据交互">5.4.2.2 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-9" class="t red" title="5.4.2.3 关键业务约束">5.4.2.3 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-1" class="t red" title="5.4.2.4 字段规范">5.4.2.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-1" class="t red" title="5.4.2.5 用例规则">5.4.2.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印小票" class="t" title="5.4.3 打印小票">5.4.3 打印小票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-9" class="t" title="5.4.3.1 业务场景说明">5.4.3.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-9" class="t" title="5.4.3.2 流程图">5.4.3.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-9" class="t" title="5.4.3.3 和税局（SEFAZ）的数据交互">5.4.3.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-10" class="t" title="5.4.3.4 关键业务约束">5.4.3.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-2" class="t" title="5.4.3.5 字段规范">5.4.3.5 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-2" class="t" title="5.4.3.6 用例规则">5.4.3.6 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#离线开票场景" class="t red" title="5.4.4 离线开票场景">5.4.4 离线开票场景</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-10" class="t" title="5.4.4.1 业务场景说明">5.4.4.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-10" class="t" title="5.4.4.2 流程图">5.4.4.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-10" class="t" title="5.4.4.3 和税局（SEFAZ）的数据交互">5.4.4.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-11" class="t" title="5.4.4.4 关键业务约束">5.4.4.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-1" class="t red" title="5.4.4.5 原型">5.4.4.5 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-3" class="t" title="5.4.4.6 字段规范">5.4.4.6 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-3" class="t" title="5.4.4.7 用例规则">5.4.4.7 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#交班日结" class="t" title="5.4.5 交班日结">5.4.5 交班日结</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-11" class="t" title="5.4.5.1 业务场景说明">5.4.5.1 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-11" class="t" title="5.4.5.2 流程图">5.4.5.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-11" class="t" title="5.4.5.3 和税局（SEFAZ）的数据交互">5.4.5.3 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-12" class="t" title="5.4.5.4 关键业务约束">5.4.5.4 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-2" class="t red" title="5.4.5.5 原型">5.4.5.5 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-4" class="t" title="5.4.5.6 字段规范">5.4.5.6 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-4" class="t" title="5.4.5.7 用例规则">5.4.5.7 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#收银订单-门店预订单-退货订单-换货订单" class="t red" title="5.5 收银订单 / 门店预订单 / 退货订单 / 换货订单">5.5 收银订单 / 门店预订单 / 退货订单 / 换货订单</a><ul><li class="leaf"><span class="tw"></span><a href="#流程图-12" class="t red" title="5.5.2 流程图">5.5.2 流程图</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票开票中开票失败已开票的发票信息展示" class="t red" title="5.5.3 待开票/开票中/开票失败/已开票的发票信息展示">5.5.3 待开票/开票中/开票失败/已开票的发票信息展示</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-3" class="t red" title="5.5.3.1 原型">5.5.3.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#发票信息" class="t red" title="5.5.3.2 发票信息">5.5.3.2 发票信息</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#收银台离线开票发票没有开出的场景" class="t red" title="5.5.4 收银台离线开票、发票没有开出的场景">5.5.4 收银台离线开票、发票没有开出的场景</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-4" class="t red" title="5.5.4.1 原型">5.5.4.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#发票信息-1" class="t red" title="5.5.4.2 发票信息">5.5.4.2 发票信息</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票" class="t red" title="5.5.5 待开票">5.5.5 待开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票-1" class="t red" title="5.5.5.1 开票">5.5.5.1 开票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-13" class="t red" title="5.5.5.1.2 关键业务约束">5.5.5.1.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-5" class="t red" title="5.5.5.1.3 原型">5.5.5.1.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-5" class="t red" title="5.5.5.1.4 字段规范">5.5.5.1.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-5" class="t red" title="5.5.5.1.5 用例规则">5.5.5.1.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#核销取货" class="t red" title="5.5.5.2 核销取货">5.5.5.2 核销取货</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中-1" class="t red" title="5.5.6 开票中">5.5.6 开票中</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-14" class="t red" title="5.5.6.1 关键业务约束">5.5.6.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-6" class="t red" title="5.5.6.2 原型">5.5.6.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-6" class="t red" title="5.5.6.3 字段规范">5.5.6.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-6" class="t red" title="5.5.6.4 用例规则">5.5.6.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败-1" class="t red" title="5.5.7 开票失败">5.5.7 开票失败</a><ul><li class="leaf"><span class="tw"></span><a href="#开票-2" class="t red" title="5.5.7.1 开票">5.5.7.1 开票</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票" class="t red" title="5.5.8 已开票">5.5.8 已开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印-nfc-e-发票" class="t red" title="5.5.8.1 打印 NFC-e 发票">5.5.8.1 打印 NFC-e 发票</a><ul><li class="leaf"><span class="tw"></span><a href="#操作日志" class="t red" title="5.5.8.1.3 操作日志">5.5.8.1.3 操作日志</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印小票-1" class="t red" title="5.5.8.2 打印小票">5.5.8.2 打印小票</a><ul><li class="leaf"><span class="tw"></span><a href="#操作日志-1" class="t red" title="5.5.8.2.3 操作日志">5.5.8.2.3 操作日志</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印-nf-e-发票a4-danfe" class="t red" title="5.5.8.3 打印 NF-e 发票（A4 DANFE）">5.5.8.3 打印 NF-e 发票（A4 DANFE）</a><ul><li class="leaf"><span class="tw"></span><a href="#操作日志-2" class="t red" title="5.5.8.3.3 操作日志">5.5.8.3.3 操作日志</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票-1" class="t red" title="5.5.8.4 取消发票">5.5.8.4 取消发票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-15" class="t red" title="5.5.8.4.1 关键业务约束">5.5.8.4.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-7" class="t red" title="5.5.8.4.2 原型">5.5.8.4.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-7" class="t red" title="5.5.8.4.3 字段规范">5.5.8.4.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-7" class="t red" title="5.5.8.4.4 用例规则">5.5.8.4.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#售后" class="t red" title="5.5.8.6 售后">5.5.8.6 售后</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-16" class="t red" title="5.5.8.6.1 关键业务约束">5.5.8.6.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-8" class="t red" title="5.5.8.6.2 原型">5.5.8.6.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-8" class="t red" title="5.5.8.6.3 字段规范">5.5.8.6.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#操作日志-3" class="t red" title="5.5.8.6.4 操作日志">5.5.8.6.4 操作日志</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#批发订单" class="t red" title="5.6 批发订单">5.6 批发订单</a><ul><li class="leaf"><span class="tw"></span><a href="#流程图-13" class="t red" title="5.6.2 流程图">5.6.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-17" class="t red" title="5.6.3 关键业务约束">5.6.3 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票-1" class="t red" title="5.6.4 待开票">5.6.4 待开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票-3" class="t red" title="5.6.4.1 开票">5.6.4.1 开票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-18" class="t red" title="5.6.4.1.1 关键业务约束">5.6.4.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-9" class="t red" title="5.6.4.1.2 原型">5.6.4.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-9" class="t red" title="5.6.4.1.3 字段规范">5.6.4.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-8" class="t red" title="5.6.4.1.4 用例规则">5.6.4.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#重新开票开票失败" class="t red" title="5.6.4.2 重新开票（开票失败）">5.6.4.2 重新开票（开票失败）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-19" class="t red" title="5.6.4.2.1 关键业务约束">5.6.4.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-10" class="t red" title="5.6.4.2.2 原型">5.6.4.2.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-10" class="t red" title="5.6.4.2.3 字段规范">5.6.4.2.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-9" class="t red" title="5.6.4.2.4 用例规则">5.6.4.2.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中-2" class="t red" title="5.6.5 开票中">5.6.5 开票中</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#刷新查税局状态" class="t red" title="5.6.5.1 刷新（查税局状态）">5.6.5.1 刷新（查税局状态）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-20" class="t red" title="5.6.5.1.1 关键业务约束">5.6.5.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-11" class="t red" title="5.6.5.1.2 原型">5.6.5.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-11" class="t red" title="5.6.5.1.3 字段规范">5.6.5.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-10" class="t red" title="5.6.5.1.4 用例规则">5.6.5.1.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败-2" class="t red" title="5.6.6 开票失败">5.6.6 开票失败</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票" class="t red" title="5.6.6.1 开票（含重新开票）">5.6.6.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-21" class="t red" title="5.6.6.1.1 关键业务约束">5.6.6.1.1 关键业务约束</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-1" class="t red" title="5.6.7 已开票">5.6.7 已开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票-2" class="t red" title="5.6.7.1 打印发票">5.6.7.1 打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#操作" class="t red" title="5.6.7.1.3 操作">5.6.7.1.3 操作</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#批量打印发票" class="t red" title="5.6.7.2 批量打印发票">5.6.7.2 批量打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-22" class="t red" title="5.6.7.2.1 关键业务约束">5.6.7.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-12" class="t red" title="5.6.7.2.2 字段规范">5.6.7.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-11" class="t red" title="5.6.7.2.3 用例规则">5.6.7.2.3 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票-2" class="t red" title="5.6.7.3 取消发票">5.6.7.3 取消发票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-23" class="t red" title="5.6.7.3.1 关键业务约束">5.6.7.3.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-12" class="t red" title="5.6.7.3.2 原型">5.6.7.3.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-13" class="t red" title="5.6.7.3.3 字段规范">5.6.7.3.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-12" class="t red" title="5.6.7.3.4 用例规则">5.6.7.3.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#查看发票信息" class="t red" title="5.6.7.4 查看发票信息">5.6.7.4 查看发票信息</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-13" class="t red" title="5.6.7.4.1 原型">5.6.7.4.1 原型</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#赠品开票" class="t red" title="5.7 赠品开票">5.7 赠品开票</a><ul><li class="leaf"><span class="tw"></span><a href="#怎么开票" class="t red" title="5.7.1 怎么开票">5.7.1 怎么开票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#赠品退货如何开销售退票" class="t red" title="5.7.2 赠品退货如何开销售退票">5.7.2 赠品退货如何开销售退票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-24" class="t red" title="5.7.3 关键业务约束">5.7.3 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-14" class="t red" title="5.7.4 原型">5.7.4 原型</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#设置" class="t" title="6 设置">6 设置</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#订单配置" class="t red" title="6.1 订单配置">6.1 订单配置</a><ul><li class="leaf"><span class="tw"></span><a href="#自动取消" class="t red" title="6.1.1 自动取消">6.1.1 自动取消</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#调拨配置" class="t red" title="6.2 调拨配置">6.2 调拨配置</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-15" class="t red" title="6.2.1 原型">6.2.1 原型</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#收银开票设置离线开票" class="t red" title="6.3 收银开票设置（离线开票）">6.3 收银开票设置（离线开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-25" class="t red" title="6.3.1 关键业务约束">6.3.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-16" class="t red" title="6.3.2 原型">6.3.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-14" class="t red" title="6.3.3 字段规范">6.3.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-13" class="t red" title="6.3.4 用例规则">6.3.4 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#订单设置" class="t red" title="6.4 订单设置">6.4 订单设置</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#采购发票" class="t" title="7 采购发票">7 采购发票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#采购发票-1" class="t" title="7.1 采购发票">7.1 采购发票</a><ul><li class="leaf"><span class="tw"></span><a href="#页面说明" class="t" title="7.1.1 页面说明">7.1.1 页面说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#业务场景说明-12" class="t" title="7.1.2 业务场景说明">7.1.2 业务场景说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-14" class="t" title="7.1.3 流程图">7.1.3 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-12" class="t" title="7.1.4 和税局（SEFAZ）的数据交互">7.1.4 和税局（SEFAZ）的数据交互</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-26" class="t" title="7.1.5 关键业务约束">7.1.5 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#同步发票" class="t" title="7.1.6 同步发票">7.1.6 同步发票</a><ul><li class="leaf"><span class="tw"></span><a href="#同步发票的范围" class="t" title="7.1.6.1 同步发票的范围">7.1.6.1 同步发票的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-27" class="t" title="7.1.6.2 关键业务约束">7.1.6.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-17" class="t red" title="7.1.6.3 原型">7.1.6.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-15" class="t" title="7.1.6.4 字段规范">7.1.6.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-14" class="t" title="7.1.6.5 用例规则">7.1.6.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#发票声明含再次声明" class="t" title="7.1.7 发票声明（含再次声明）">7.1.7 发票声明（含再次声明）</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以发票声明" class="t" title="7.1.7.1 哪些发票可以发票声明">7.1.7.1 哪些发票可以发票声明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-28" class="t" title="7.1.7.2 关键业务约束">7.1.7.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-18" class="t red" title="7.1.7.3 原型">7.1.7.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-16" class="t" title="7.1.7.4 字段规范">7.1.7.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-15" class="t" title="7.1.7.5 用例规则">7.1.7.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#忽略" class="t" title="7.1.8 忽略">7.1.8 忽略</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以忽略" class="t" title="7.1.8.1 哪些发票可以忽略">7.1.8.1 哪些发票可以忽略</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-29" class="t" title="7.1.8.2 关键业务约束">7.1.8.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-19" class="t red" title="7.1.8.3 原型">7.1.8.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-17" class="t" title="7.1.8.4 字段规范">7.1.8.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-16" class="t" title="7.1.8.5 用例规则">7.1.8.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票-3" class="t" title="7.1.9 打印发票">7.1.9 打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以打印" class="t" title="7.1.9.1 哪些发票可以打印">7.1.9.1 哪些发票可以打印</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-30" class="t" title="7.1.9.2 关键业务约束">7.1.9.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-18" class="t" title="7.1.9.3 字段规范">7.1.9.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-17" class="t" title="7.1.9.4 用例规则">7.1.9.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#生成采购单" class="t" title="7.1.10 生成采购单">7.1.10 生成采购单</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以生成采购单" class="t" title="7.1.10.1 哪些发票可以生成采购单">7.1.10.1 哪些发票可以生成采购单</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-31" class="t" title="7.1.10.2 关键业务约束">7.1.10.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-20" class="t red" title="7.1.10.3 原型">7.1.10.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-19" class="t" title="7.1.10.4 字段规范">7.1.10.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-18" class="t" title="7.1.10.5 用例规则">7.1.10.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开退货发票" class="t" title="7.1.11 开退货发票">7.1.11 开退货发票</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以开退货发票" class="t" title="7.1.11.1 哪些发票可以开退货发票">7.1.11.1 哪些发票可以开退货发票</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-32" class="t" title="7.1.11.2 关键业务约束">7.1.11.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-21" class="t red" title="7.1.11.3 原型">7.1.11.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-20" class="t" title="7.1.11.4 字段规范">7.1.11.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-19" class="t" title="7.1.11.5 用例规则">7.1.11.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#下载-xml" class="t" title="7.1.12 下载 XML">7.1.12 下载 XML</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以下载-xml" class="t" title="7.1.12.1 哪些发票可以下载 XML">7.1.12.1 哪些发票可以下载 XML</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-33" class="t" title="7.1.12.2 关键业务约束">7.1.12.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-21" class="t" title="7.1.12.3 字段规范">7.1.12.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-20" class="t" title="7.1.12.4 用例规则">7.1.12.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#导入xml" class="t" title="7.1.13 导入XML">7.1.13 导入XML</a><ul><li class="leaf"><span class="tw"></span><a href="#导入xml-的范围" class="t" title="7.1.13.1 导入XML 的范围">7.1.13.1 导入XML 的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-34" class="t" title="7.1.13.2 关键业务约束">7.1.13.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-22" class="t red" title="7.1.13.3 原型">7.1.13.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-22" class="t" title="7.1.13.4 字段规范">7.1.13.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-21" class="t" title="7.1.13.5 用例规则">7.1.13.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#按日期导出" class="t" title="7.1.14 按日期导出">7.1.14 按日期导出</a><ul><li class="leaf"><span class="tw"></span><a href="#按日期导出的范围" class="t" title="7.1.14.1 按日期导出的范围">7.1.14.1 按日期导出的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-35" class="t" title="7.1.14.2 关键业务约束">7.1.14.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-23" class="t red" title="7.1.14.3 原型">7.1.14.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-23" class="t" title="7.1.14.4 字段规范">7.1.14.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-22" class="t" title="7.1.14.5 用例规则">7.1.14.5 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#按勾选导出" class="t" title="7.1.15 按勾选导出">7.1.15 按勾选导出</a><ul><li class="leaf"><span class="tw"></span><a href="#按勾选导出的范围" class="t" title="7.1.15.1 按勾选导出的范围">7.1.15.1 按勾选导出的范围</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-36" class="t" title="7.1.15.2 关键业务约束">7.1.15.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-24" class="t" title="7.1.15.3 字段规范">7.1.15.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-23" class="t" title="7.1.15.4 用例规则">7.1.15.4 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#供应商管理税务资料" class="t red" title="8 供应商管理（税务资料）">8 供应商管理（税务资料）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-37" class="t red" title="8.1 关键业务约束">8.1 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#编辑供应商" class="t red" title="8.2 编辑供应商">8.2 编辑供应商</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-24" class="t red" title="8.2.1 原型">8.2.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-25" class="t red" title="8.2.2 字段规范">8.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-24" class="t red" title="8.2.3 用例规则">8.2.3 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#调拨管理" class="t" title="9 调拨管理">9 调拨管理</a><ul><li class="leaf"><span class="tw"></span><a href="#页面说明-1" class="t" title="9.1 页面说明">9.1 页面说明</a></li>
+<li class="leaf"><span class="tw"></span><a href="#流程图-15" class="t red" title="9.2 流程图">9.2 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-38" class="t red" title="9.3 关键业务约束">9.3 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票-2" class="t red" title="9.4 待开票">9.4 待开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-1" class="t red" title="9.4.1 开票（含重新开票）">9.4.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-39" class="t red" title="9.4.1.1 关键业务约束">9.4.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-25" class="t red" title="9.4.1.2 原型">9.4.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-26" class="t red" title="9.4.1.3 字段规范">9.4.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-25" class="t red" title="9.4.1.4 用例规则">9.4.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交" class="t red" title="9.4.2 转提交（含批量转提交）">9.4.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-40" class="t red" title="9.4.2.1 关键业务约束">9.4.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-26" class="t red" title="9.4.2.2 原型">9.4.2.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-27" class="t red" title="9.4.2.3 字段规范">9.4.2.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-26" class="t red" title="9.4.2.4 用例规则">9.4.2.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消调拨" class="t red" title="9.4.3 取消调拨">9.4.3 取消调拨</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-41" class="t red" title="9.4.3.1 关键业务约束">9.4.3.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-27" class="t red" title="9.4.3.2 原型">9.4.3.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-28" class="t red" title="9.4.3.3 字段规范">9.4.3.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-27" class="t red" title="9.4.3.4 用例规则">9.4.3.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中-3" class="t red" title="9.5 开票中">9.5 开票中</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#刷新查税局状态含批量刷新" class="t red" title="9.5.1 刷新（查税局状态）（含批量刷新）">9.5.1 刷新（查税局状态）（含批量刷新）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-42" class="t red" title="9.5.1.1 关键业务约束">9.5.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-28" class="t red" title="9.5.1.2 原型">9.5.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-29" class="t red" title="9.5.1.3 字段规范">9.5.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-28" class="t red" title="9.5.1.4 用例规则">9.5.1.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败-3" class="t red" title="9.6 开票失败">9.6 开票失败</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-2" class="t red" title="9.6.1 开票（含重新开票）">9.6.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-43" class="t red" title="9.6.1.1 关键业务约束">9.6.1.1 关键业务约束</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交-1" class="t red" title="9.6.2 转提交（含批量转提交）">9.6.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-44" class="t red" title="9.6.2.1 关键业务约束">9.6.2.1 关键业务约束</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#取消调拨-1" class="t red" title="9.6.3 取消调拨">9.6.3 取消调拨</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#失败原因与处理指引要修改位置" class="t red" title="9.6.4 失败原因与处理指引（要修改位置）">9.6.4 失败原因与处理指引（要修改位置）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-45" class="t red" title="9.6.4.1 关键业务约束">9.6.4.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-29" class="t red" title="9.6.4.2 原型">9.6.4.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-30" class="t red" title="9.6.4.3 字段规范">9.6.4.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-29" class="t red" title="9.6.4.4 用例规则">9.6.4.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#验证发票xml-1" class="t red" title="9.6.5 验证发票XML">9.6.5 验证发票XML</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-46" class="t red" title="9.6.5.1 关键业务约束">9.6.5.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-31" class="t red" title="9.6.5.2 字段规范">9.6.5.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-30" class="t red" title="9.6.5.3 用例规则">9.6.5.3 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-2" class="t red" title="9.7 已开票">9.7 已开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#详情发票信息" class="t red" title="9.7.1 详情（发票信息）">9.7.1 详情（发票信息）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-47" class="t red" title="9.7.1.1 关键业务约束">9.7.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-30" class="t red" title="9.7.1.2 原型">9.7.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-32" class="t red" title="9.7.1.3 字段规范">9.7.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-31" class="t red" title="9.7.1.4 用例规则">9.7.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票含批量打印发票" class="t red" title="9.7.2 打印发票（含批量打印发票）">9.7.2 打印发票（含批量打印发票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-48" class="t red" title="9.7.2.1 关键业务约束">9.7.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-33" class="t red" title="9.7.2.2 字段规范">9.7.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-32" class="t red" title="9.7.2.3 用例规则">9.7.2.3 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待出库" class="t red" title="9.8 待出库">9.8 待出库</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票待出库" class="t red" title="9.8.1 取消发票（待出库）">9.8.1 取消发票（待出库）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-49" class="t red" title="9.8.1.1 关键业务约束">9.8.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-31" class="t red" title="9.8.1.2 原型">9.8.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-34" class="t red" title="9.8.1.3 字段规范">9.8.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-33" class="t red" title="9.8.1.4 用例规则">9.8.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#出库拦截开关开启时" class="t red" title="9.8.2 出库拦截（开关开启时）">9.8.2 出库拦截（开关开启时）</a><ul><li class="leaf"><span class="tw"></span><a href="#字段规范-35" class="t red" title="9.8.2.1 字段规范">9.8.2.1 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-34" class="t red" title="9.8.2.2 用例规则">9.8.2.2 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#无需开票" class="t red" title="9.9 无需开票">9.9 无需开票</a><ul><li class="leaf"><span class="tw"></span><a href="#详情发票信息-1" class="t red" title="9.9.1 详情（发票信息）">9.9.1 详情（发票信息）</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#无需开票同一发票主体内调拨" class="t red" title="9.9.2 无需开票（同一发票主体内调拨）">9.9.2 无需开票（同一发票主体内调拨）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-50" class="t red" title="9.9.2.1 关键业务约束">9.9.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-32" class="t red" title="9.9.2.2 原型">9.9.2.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-36" class="t red" title="9.9.2.3 字段规范">9.9.2.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-35" class="t red" title="9.9.2.4 用例规则">9.9.2.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#关闭调拨单出库前是否开票后" class="t red" title="9.10 关闭【调拨单出库前是否开票】后">9.10 关闭【调拨单出库前是否开票】后</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-51" class="t red" title="9.10.1 关键业务约束">9.10.1 关键业务约束</a></li></ul></li></ul></li></ul></li></ul></nav>
 <main>
 
 <h1
@@ -29019,6 +28517,15 @@ data-custom-style="Red Text">调拨管理里的操作不与税局交互；开票
 5.3.1.3、5.3.4.3。</span></p>
 </blockquote>
 </main>
+<script>(function(){var T=document.getElementById('TOC');
+T.addEventListener('click',function(e){var b=e.target.closest('button[data-act]');if(b){var o=b.dataset.act==='open';T.querySelectorAll('li.open,li.closed').forEach(function(li){li.className=o?'open':'closed'});if(!o){var top=T.querySelector(':scope>ul>li');if(top&&!top.classList.contains('leaf'))top.className='open'}return}
+var tw=e.target.closest('.tw');if(tw){var li=tw.parentNode;if(li.classList.contains('leaf'))return;li.className=li.classList.contains('open')?'closed':'open';}});
+function reveal(a){for(var li=a.parentNode.parentNode.closest('li');li;li=li.parentNode.closest('li'))if(li.classList.contains('closed'))li.className='open';}
+var links=[].slice.call(T.querySelectorAll('a.t')),map={};links.forEach(function(a){map[decodeURIComponent(a.hash.slice(1))]=a});
+var cur=null;function mark(id){var a=map[id];if(!a||a===cur)return;if(cur)cur.classList.remove('cur');cur=a;a.classList.add('cur');reveal(a);var r=a.getBoundingClientRect(),tr=T.getBoundingClientRect();if(r.top<tr.top+40||r.bottom>tr.bottom-10)a.scrollIntoView({block:'center'});}
+var hs=[].slice.call(document.querySelectorAll('main h1[id],main h2[id],main h3[id],main h4[id],main h5[id],main h6[id],main .hx[id]'));
+var tick=false;window.addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){tick=false;var c=null;for(var i=0;i<hs.length;i++){if(hs[i].getBoundingClientRect().top<=80)c=hs[i];else break}if(c)mark(c.id)})},{passive:true});
+if(location.hash)mark(decodeURIComponent(location.hash.slice(1)));})();</script>
 <script src="mermaid.min.js"></script>
 <script>mermaid.initialize({startOnLoad:false,securityLevel:'loose',flowchart:{useMaxWidth:true},themeVariables:{fontFamily:'Microsoft YaHei'}});mermaid.run();</script>
 </body>

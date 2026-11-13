@@ -7100,7 +7100,7 @@ Paulista）。【单据信息】：电商显示订单号和平台订单号；零
   subgraph sg1[&quot;系统&quot;]
     A --&gt; B[&quot;发票进入“开票中”，发票号显示 --&quot;]
     OF[&quot;收银台断网时离线开出的 NFC-e 65，开票状态为“离线已开票（待上传）”&quot;]
-    OF --&gt; UP[&quot;网络恢复后自动上传，或在 收银台 › 订单管理 点【立即上传】&quot;]
+    OF --&gt; UP[&quot;网络恢复后自动上传；也可在 收银台 › 订单管理，或后台【收银订单】【门店预订单】【换货订单】点【立即上传】&quot;]
     D1[&quot;发票进入【近期发票】，原单据变为已开票&quot;]
     D2[&quot;发票进入“开票失败”，显示失败原因和处理入口&quot;]
   end
@@ -16622,7 +16622,7 @@ data-custom-style="Red Text">（3）自动上传或【立即上传】</span></p>
 <pre class="mermaid">flowchart TB
   S((&quot;开始&quot;)) --&gt; A{&quot;网络已恢复？&quot;}
   subgraph sg1[&quot;角色：收银员&quot;]
-    M[&quot;在 收银台 › 订单管理 选中离线已开票（待上传）的订单，点【立即上传】&quot;]
+    M[&quot;在 收银台 › 订单管理 选中离线已开票（待上传）的订单，或在后台【收银订单】【门店预订单】【换货订单】列表的该行，点【立即上传】&quot;]
   end
   subgraph sg2[&quot;系统&quot;]
     A --&gt;|&quot;是&quot;| B[&quot;自动上传离线开出的发票，发票号和 Key 不变&quot;]

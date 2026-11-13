@@ -766,8 +766,9 @@ data-custom-style="Red Text">本系统只对收银台、门店预订的 NFC-e 65
 <td><span data-custom-style="Red Text">离线已开票（待上传）</span></td>
 <td><span data-custom-style="Red Text">开票状态的一种：NFC-e 65
 已在收银台离线开出并打印给顾客，尚未上传税局。显示在【开票中】。网络恢复后系统自动上传，也可以在
-收银台 › 订单管理
-点【立即上传】。税局授权后变为“已开票”；被税局拒绝的进入“开票失败”。</span></td>
+收银台 › 订单管理 点【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里这类行的操作列也有【立即上传】。</span><span
+data-custom-style="Red Text">税局授权后变为“已开票”；被税局拒绝的进入“开票失败”。</span></td>
 </tr>
 <tr>
 <td>开退票</td>
@@ -1270,7 +1271,9 @@ data-custom-style="Red Text">（只改被取消的那一张）</span>。</p>
 data-custom-style="Red Text">2、<strong>离线开出后</strong>：开票状态为“离线已开票（待上传）”，显示在
 财务（零售）› 发票管理 ›【开票中】和 收银台 ›
 订单管理。网络恢复后系统自动上传税局，收银员也可以在 收银台 › 订单管理
-点【立即上传】。上传时发票号和 Key
+点【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，操作列也有【立即上传】，作为自动上传之外的手动上传方式。</span><span
+data-custom-style="Red Text">上传时发票号和 Key
 不变。税局授权后变为“已开票”；被税局拒绝的进入“开票失败”，处理方法见本节第
 6 条。</span><br />
 <span
@@ -1311,7 +1314,8 @@ CONTINGÊNCIA”和进入离线的时间，打印两份：一份交给顾客，�
 收银订单或门店预订单）找到“待开票”的订单，点击【开票】，订单进入【开票中】，税局授权后变为“已开票”，发票自动发送至登记的邮箱。</span><br />
 <span
 data-custom-style="Red Text">（5）上传：网络恢复后系统自动上传离线开出的
-NFC-e 65，也可以在 收银台 › 订单管理 点【立即上传】。</span><br />
+NFC-e 65，也可以在 收银台 › 订单管理 点【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，也可以点操作列的【立即上传】。</span><br />
 （<span
 data-custom-style="Red Text">6</span>）后台单据（批发订单、调拨单，以及在后台对收银订单或门店预订单发起退货）在网页上操作：本机断网时，点击【开票】或提交均无法发送，提示：“网络异常，提交失败，请检查网络后重试”。单据停留在原状态，不进入“开票失败”。<br />
 （<span
@@ -7122,8 +7126,9 @@ Paulista）。【单据信息】：电商显示订单号和平台订单号；零
 CC-e】弹窗里等待结果。<br />
 • <span data-custom-style="Red Text">收银台断网时离线开出的 NFC-e 65
 在本页，开票状态为“离线已开票（待上传）”。网络恢复后系统自动上传税局，也可以在
-收银台 › 订单管理
-点【立即上传】；授权后进入【已开票-近期发票】，上传被拒的进入“开票失败”。</span><br />
+收银台 › 订单管理 点【立即上传】</span><span
+data-custom-style="Red Text">，或在后台【收银订单】【门店预订单】【换货订单】列表里这类行的操作列点【立即上传】</span><span
+data-custom-style="Red Text">；授权后进入【已开票-近期发票】，上传被拒的进入“开票失败”。</span><br />
 • 结账时因断网未能开具发票的单据不在本页<span
 data-custom-style="Red Text">（NF-e 55，以及关闭离线开票时的 NFC-e
 65）</span>，这些单据仍在业务单据的【待开票】中。<br />
@@ -7269,12 +7274,16 @@ NF-e 55。处理方法请参考 5.4.4.4 的目录，【处理方法】弹窗的�
 data-custom-style="Blue Text">离线发票上传被拒的行不显示【修改重提】。原因：发票号和
 Key
 已印在交给顾客的小票上，而【修改重提】页有【存草稿】，会把已开出的发票退回【草稿中】。这些行保留【验证发票XML】，结果弹窗与其他发票相同。</span></strong><br />
-• <strong><span data-custom-style="Blue Text">【立即上传】只在 收银台 ›
+• <strong><span
+data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
 订单管理
-的订单详情底部提供，发票信息表的行上没有，是唯一入口；失败原因为
-Rejeição
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+› 订单管理 发票信息表的行上没有【立即上传】。</span><span
+data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
-›【开票失败】、后台订单列表的行上和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong><br />
+›【开票失败】、</span><span
+data-custom-style="Red Text">后台订单列表上离线发票上传被拒和开票失败的行</span><span
+data-custom-style="Blue Text">和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong><br />
 • <strong><span data-custom-style="Red Text">NFC-e
 65（含在线被拒和离线上传被拒）都不显示【修改重提】：在线被拒的，到【收银台
 ›
@@ -16767,12 +16776,16 @@ data-custom-style="Red Text">离线开出的发票占用发票号，开票状态
 • <span
 data-custom-style="Red Text">离线开出的发票须在门店所在州的上传时限内上传税局。时限在
 设置 ›【收银开票设置】按州配置，请参考 6.3 的目录。</span><br />
-• <strong><span data-custom-style="Blue Text">【立即上传】只在 收银台 ›
+• <strong><span
+data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
 订单管理
-的订单详情底部提供，发票信息表的行上没有，是唯一入口；失败原因为
-Rejeição
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+› 订单管理 发票信息表的行上没有【立即上传】。</span><span
+data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
-›【开票失败】、后台订单列表的行上和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong><br />
+›【开票失败】、</span><span
+data-custom-style="Red Text">后台订单列表上离线发票上传被拒和开票失败的行</span><span
+data-custom-style="Blue Text">和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong><br />
 • <span
 data-custom-style="Red Text">离线发票上传被拒的常见返回码：Rejeição
 225（XML 格式校验未通过）、Rejeição
@@ -16851,8 +16864,9 @@ Key 不变。”。</span></td>
 <td><span data-custom-style="Red Text">网络恢复后</span></td>
 <td><span
 data-custom-style="Red Text">系统自动上传离线开出的发票；收银员也可以在
-收银台 › 订单管理
-选中订单，点【立即上传】。授权后开票状态变为“已开票”，顶栏“待上传”数量减
+收银台 › 订单管理 选中订单，点【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，也可以点操作列的【立即上传】。</span><span
+data-custom-style="Red Text">授权后开票状态变为“已开票”，顶栏“待上传”数量减
 1；登记了邮箱的，系统自动发送 XML 和 DANFE。</span></td>
 </tr>
 <tr>
@@ -17391,7 +17405,7 @@ data-custom-style="Red Text">离线开出的 NFC-e 65
     E[&quot;逐张查看原因并重新开票&quot;]
   end
   subgraph 系统
-    C[&quot;跳转至本班开票失败清单&quot;] --&gt; D[&quot;显示每张单据的失败原因&quot;]
+    C[&quot;打开【收银台-订单管理】，开票状态自动筛选为“开票失败”&quot;] --&gt; D[&quot;显示每张单据的失败原因&quot;]
   end
   B --&gt; C
   D --&gt; E</pre>
@@ -17399,17 +17413,19 @@ data-custom-style="Red Text">离线开出的 NFC-e 65
 <pre class="mermaid">flowchart TB
   subgraph 收银员
     A[&quot;在【交班】页签查看“待上传”卡片和底部待补开提醒&quot;] --&gt; B{&quot;待上传张数大于 0？&quot;}
-    B -- 是 --&gt; C[&quot;点击【去上传】&quot;]
-    B -- 否 --&gt; B1[&quot;不显示【去上传】&quot;]
+    B -- 是 --&gt; C[&quot;点击【立即上传】&quot;]
+    B -- 否 --&gt; B1[&quot;不显示【立即上传】&quot;]
     A --&gt; P{&quot;有待补开的订单？&quot;}
     P -- 是 --&gt; Q[&quot;点击【去补开】&quot;]
     F[&quot;对离线已开票（待上传）的订单点【立即上传】；或按开票状态“待开票”筛选，点【开票】补开&quot;]
   end
   subgraph 系统
     D[&quot;打开【收银台-订单管理】&quot;]
+    D2[&quot;打开【收银台-订单管理】，开票状态自动筛选为“开票中”&quot;]
     G[&quot;上传成功：待上传张数减 1；补开成功：待补开张数减 1，发票自动发送至客户登记的邮箱&quot;]
   end
-  C --&gt; D
+  C --&gt; D2
+  D2 --&gt; F
   Q --&gt; D
   D --&gt; F
   F --&gt; G</pre>
@@ -17450,11 +17466,15 @@ NFC-e）</span></p>
 <blockquote>
 <p>以下操作都不与税局交互：1、查看本班开票情况：张数和号段数据取自本系统保存的本班次
 NFC-e
-开票结果（已授权、开票失败、作废、跳号记录）；2、去处理（开票失败）：仅跳转至本班开票失败清单，重开时的授权请求见
-<span
+开票结果（已授权、开票失败、作废、跳号记录）；2、去处理（开票失败）：<span
+data-custom-style="Red Text">仅打开 收银台 ›
+订单管理，开票状态自动筛选为“开票失败”，</span>重开时的授权请求见 <span
 data-custom-style="Red Text">5.5.7</span>（收银台-订单管理-开票失败）；3、去补开（待补开）：只打开
 收银台 › 订单管理，补开时的授权请求见 <span
-data-custom-style="Red Text">5.4.4</span>（联网补开并自动发送邮件）；4、交班（待补开提醒）：交班只结清本班次，未补开的订单保留在
+data-custom-style="Red Text">5.4.4</span>（联网补开并自动发送邮件）<span
+data-custom-style="Red Text">；交班页的【立即上传】只打开 收银台 ›
+订单管理 并自动筛选开票状态为“开票中”，上传时的请求见
+5.4.4.3</span>；4、交班（待补开提醒）：交班只结清本班次，未补开的订单保留在
 收银台 › 订单管理，开票状态仍为“待开票”；5、交班记录（本班开具
 NFC-e）：显示的是本系统保存的历史交班记录。</p>
 </blockquote>
@@ -17472,7 +17492,8 @@ N”为同一数值；每上传成功一张，两处各减
 N”为同一数值；每补开成功一张，两处各减 1。<br />
 • 跳号必须申报作废号段（Inutilização），在 财务（零售）› 发票号管理 ›
 作废发票号 操作；交班页不提供作废入口。<br />
-• 【去处理】【去补开】只跳转页面，不在交班页修改发票和订单数据。</p>
+• 【去处理】【去补开】<span
+data-custom-style="Red Text">【立即上传】</span>只跳转页面，不在交班页修改发票和订单数据。</p>
 <table>
 
 <thead>
@@ -17490,15 +17511,19 @@ N”为同一数值；每补开成功一张，两处各减 1。<br />
 <td>显示【本班开票（NFC-e）】时</td>
 <td>显示三张卡片：1、开具成功 N 张；2、开票失败 N
 张，并显示【去处理】；3、<span data-custom-style="Red Text">待上传 N
-张（离线开出、尚未上传税局），N 大于 0 时数字用警示色并显示【去上传】，N
-等于 0 时不显示【去上传】。</span></td>
+张（离线开出、尚未上传税局），N 大于 0 时数字用警示色并显示</span><span
+data-custom-style="Red Text">【立即上传】</span><span
+data-custom-style="Red Text">，N 等于 0 时不显示</span><span
+data-custom-style="Red Text">【立即上传】</span><span
+data-custom-style="Red Text">。</span></td>
 </tr>
 <tr>
-<td><span data-custom-style="Red Text">用户点【去上传】后</span></td>
+<td><span data-custom-style="Red Text">用户点【立即上传】后</span></td>
 <td><span
 data-custom-style="Red Text">提示：“正在打开订单管理…”。系统打开 收银台
-›
-订单管理，用户对离线订单点【立即上传】。全部上传成功后提示：“离线发票已全部上传”。</span></td>
+› 订单管理，</span><span
+data-custom-style="Red Text">开票状态自动筛选为“开票中”，</span><span
+data-custom-style="Red Text">用户对离线订单点【立即上传】。全部上传成功后提示：“离线发票已全部上传”。</span></td>
 </tr>
 <tr>
 <td><span
@@ -17525,7 +17550,8 @@ Inutilização；跳号这一行用警示色。</td>
 </tr>
 <tr>
 <td>用户点【去处理】后</td>
-<td>跳转至本班开票失败的订单，用户逐张查看失败原因并重开；重开规则见
+<td><span data-custom-style="Red Text">系统打开 收银台 ›
+订单管理，开票状态自动筛选为“开票失败”，</span>用户逐张查看失败原因并重开；重开规则见
 <span
 data-custom-style="Red Text">5.5.7</span>（收银台-订单管理-开票失败）。</td>
 </tr>
@@ -17568,19 +17594,22 @@ data-custom-style="Red Text">交班时已没有待上传的离线发票，因此
 原型</span></h5>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">下面是收银台 ›
-交班日结【交班】页签的原型截图：有待上传的离线发票时，【本班开票（NFC-e）】的“待上传”卡片显示张数和【去上传】，底部提示不能交班，【交班】不可点击。</span></p>
+交班日结【交班】页签的原型截图：有待上传的离线发票时，【本班开票（NFC-e）】的“待上传”卡片显示张数和</span><span
+data-custom-style="Red Text">【立即上传】</span><span
+data-custom-style="Red Text">，底部提示不能交班，【交班】不可点击。</span></p>
 </div>
 <figure>
 <img loading="lazy" src="img/0182.png"
-alt="交班日结【交班】页签：“待上传”卡片为 2 张并显示【去上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击" />
+alt="交班日结【交班】页签：“待上传”卡片为 2 张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击" />
 <figcaption aria-hidden="true">交班日结【交班】页签：“待上传”卡片为 2
-张并显示【去上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击</figcaption>
+张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击</figcaption>
 </figure>
 <h5 id="字段规范-5">5.4.5.6 字段规范</h5>
 <p><span data-custom-style="Red Text">无。</span></p>
 <h5 id="用例规则-5">5.4.5.7 用例规则</h5>
 <p>• 前置条件：<br />
-1、用户已登录收银台，具备【收银台-交班日结】权限；去补开还需要【收银台-订单管理】权限。<br />
+1、用户已登录收银台，具备【收银台-交班日结】权限；去补开还需要【收银台-订单管理】权限<span
+data-custom-style="Red Text">；去处理、立即上传也需要该权限</span>。<br />
 2、当前班次已上班（有上班时间），当前在交班日结的【交班】页签。<br />
 3、查看交班记录时，本门店有历史交班记录。<br />
 • 操作流程：<br />
@@ -17594,13 +17623,16 @@ data-custom-style="Red Text">待上传</span>（单位：张）。<br />
 <span
 data-custom-style="Red Text">（2）去处理（开票失败）：</span><br />
 1、用户在【本班开票（NFC-e）】的“开票失败”卡片点击【去处理】。<br />
-2、系统跳转至本班开票失败清单，用户逐张查看失败原因并重开。<br />
-<span
-data-custom-style="Red Text">（3）去补开（待补开）、去上传（待上传）：</span><br />
+2、<span data-custom-style="Red Text">系统打开 收银台 ›
+订单管理，开票状态自动筛选为“开票失败”，</span>用户逐张查看失败原因并重开。<br />
+<span data-custom-style="Red Text">（3）去补开（待补开）、</span><span
+data-custom-style="Red Text">立即上传（待上传）：</span><br />
 1、用户<span
 data-custom-style="Red Text">在底部待补开提醒中</span>点击【去补开】<span
-data-custom-style="Red Text">，或在“待上传”卡片点击【去上传】</span>。<br />
-2、系统打开 收银台 › 订单管理。<br />
+data-custom-style="Red Text">，或在“待上传”卡片点击</span><span
+data-custom-style="Red Text">【立即上传】</span>。<br />
+2、系统打开 收银台 › 订单管理<span
+data-custom-style="Red Text">；点击【立即上传】时，开票状态自动筛选为“开票中”</span>。<br />
 3、用户按开票状态“待开票”筛选，选中订单点击【开票】补开<span
 data-custom-style="Red Text">；或对开票状态为“离线已开票（待上传）”的订单点击【立即上传】</span>（见
 <span data-custom-style="Red Text">5.4.4</span>）。<br />
@@ -17615,7 +17647,8 @@ data-custom-style="Red Text">（4）交班（待补开提醒）：</span><br />
 data-custom-style="Red Text">有待上传的离线发票时，系统提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。系统不交班。</span><br />
 4、用户需先补开发票<span
 data-custom-style="Red Text">或上传离线发票</span>时，点击【去补开】<span
-data-custom-style="Red Text">或【去上传】</span>（见<span
+data-custom-style="Red Text">或</span><span
+data-custom-style="Red Text">【立即上传】</span>（见<span
 data-custom-style="Red Text">本节（3）</span>），不交班。<br />
 <span data-custom-style="Red Text">（5）交班记录（本班开具
 NFC-e）：</span><br />
@@ -17624,7 +17657,8 @@ NFC-e）：</span><br />
 NFC-e】显示本班开票张数和待补开情况。<br />
 3、用户点击关闭，系统关闭抽屉。<br />
 • 后置条件：<br />
-1、查看本班开票情况、去处理、去补开、查看交班记录：只查看或跳转，不修改任何数据；补开成功后，交班页“待补开”数量减
+1、查看本班开票情况、去处理、去补开、<span
+data-custom-style="Red Text">立即上传（交班页）、</span>查看交班记录：只查看或跳转，不修改任何数据；补开成功后，交班页“待补开”数量减
 1。<br />
 2、交班：本班次结清，生成一条交班记录，其中【本班开具
 NFC-e】记录本班开票情况；未补开的订单仍在 收银台 ›
@@ -17633,7 +17667,7 @@ NFC-e】记录本班开票情况；未补开的订单仍在 收银台 ›
 1、当用户查看“<span
 data-custom-style="Red Text">待上传</span>”卡片时，若<span
 data-custom-style="Red Text">待上传</span>张数为 0，则不显示<span
-data-custom-style="Red Text">【去上传】</span>，系统不提供跳转入口。<br />
+data-custom-style="Red Text">【立即上传】</span>，系统不提供跳转入口。<br />
 2、当用户点击【交班】时，若还有待补开的订单<span
 data-custom-style="Red Text">（NF-e 55）</span>，则底部提示：“还有 {n}
 张待开票订单未补开（结账时网络异常）。可先交班，由下一班次或在网络恢复后到【收银台
@@ -17643,8 +17677,8 @@ data-custom-style="Red Text">（NF-e 55）</span>，则底部提示：“还有 
 data-custom-style="Red Text">3、当用户点击【交班】时，若还有待上传的离线发票，则提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。系统不允许交班。</span><br />
 • 提示消息：无。<br />
 • 消息通知：无。<br />
-•
-操作日志：查看本班开票情况、去处理、去补开、查看交班记录不输出操作日志。交班成功后，系统在操作日志模块记录：操作时间、操作账号、操作模块、操作功能、操作明细、IP地址。</p>
+• 操作日志：查看本班开票情况、去处理、去补开、<span
+data-custom-style="Red Text">交班页的立即上传（只跳转）、</span>查看交班记录不输出操作日志。交班成功后，系统在操作日志模块记录：操作时间、操作账号、操作模块、操作功能、操作明细、IP地址。</p>
 <table>
 
 <thead>
@@ -17850,8 +17884,10 @@ alt="收银台 › 订单管理【筛选】：开票状态共 5 个选项：全�
 与后台的【发票信息】按同一套规则展示：列名、列的顺序和取值写法相同，后台多
 Key 列和单独的 CPF/CNPJ
 列。各开票状态的展示规则如下：1、待开票：显示历次发票记录（原发票已开票后又取消的，先“已开票”、后“已取消”）；2、开票中：包含离线已开票（待上传）的发票，离线发票排在第一行；3、开票失败：包含离线发票上传被拒，行下面显示失败原因条和【处理方法】；</span><strong><span
-data-custom-style="Blue Text">【立即上传】只在 收银台 › 订单管理
-的订单详情上提供，后台订单详情没有，失败原因为 Rejeição 539
+data-custom-style="Red Text">【立即上传】不在【发票信息】表里：收银台 ›
+订单管理
+在订单详情底部提供，后台在【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行的操作列提供；</span><span
+data-custom-style="Blue Text">后台订单详情没有，失败原因为 Rejeição 539
 或拒绝使用（Denegada）时也不显示；</span></strong><span
 data-custom-style="Red Text">4、已开票、已取消的记录排在当前有效记录之后；5、时间列写“提交
 时间”“失败 时间”“授权 时间”“取消
@@ -18399,7 +18435,20 @@ data-custom-style="Red Text">表格显示这张离线发票，状态为“离线
 65），正在等待上传税局。网络恢复后系统自动上传，发票号和 Key
 不变。”。</span></td>
 <td><span
-data-custom-style="Red Text">上传规则与第一行相同。后台不提供【立即上传】。</span></td>
+data-custom-style="Red Text">上传规则与第一行相同。后台订单详情不提供【立即上传】，后台订单列表的操作列有【立即上传】，见下一行。</span></td>
+</tr>
+<tr>
+<td><span
+data-custom-style="Red Text">后台订单列表（收银订单、门店预订单、换货订单）</span></td>
+<td><span data-custom-style="Red Text">断网时离线开出</span></td>
+<td><span data-custom-style="Red Text">销售发票 · NFC-e 65</span></td>
+<td><span data-custom-style="Red Text">离线已开票（待上传）</span></td>
+<td><span data-custom-style="Red Text">【查看】【立即上传】</span></td>
+<td><span
+data-custom-style="Red Text">这张订单显示在左侧【开票中】下，开票状态为“离线已开票（待上传）”；操作列在【查看】右边显示【立即上传】。其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span></td>
+<td><span
+data-custom-style="Red Text">点击【立即上传】后提示：“已提交上传，税局授权后发票状态变为“已开票”。”。上传时发票号和
+Key 不变，上传结果与第一行相同。</span></td>
 </tr>
 <tr>
 <td><span
@@ -18409,7 +18458,7 @@ data-custom-style="Red Text">换货订单（换出的商品）</span></td>
 <td><span data-custom-style="Red Text">销售发票 · NFC-e 65</span></td>
 <td><span data-custom-style="Red Text">离线已开票（待上传）</span></td>
 <td><span data-custom-style="Red Text">收银台 ›
-订单管理为【立即上传】</span></td>
+订单管理为【立即上传】；后台换货订单列表的操作列也有【立即上传】</span></td>
 <td><span data-custom-style="Red Text">收银台 › 订单管理
 提示：“换出件的销售发票（NFC-e
 65）：这张发票已离线开出，尚未上传税局，须在 {上传截止时间}
@@ -19777,7 +19826,8 @@ Key
 Key
 不变。这类订单只显示【备注】和【立即上传】，不显示打印、退换货、导出和【取消发票】。税局授权后订单变为“已开票”，登记了邮箱的自动发送发票；上传被拒的订单变为“开票失败”，见
 5.5.7。后台 › 收银订单、门店预订单
-的【发票信息】显示这张离线发票和离线开票的提示，不提供【立即上传】。</span></p>
+的【发票信息】显示这张离线发票和离线开票的提示，订单详情不提供【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里，开票状态为“离线已开票（待上传）”的行在操作列【查看】的右边有【立即上传】，点击后提示与收银台相同。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">3、适用入口：收银台 ›
@@ -19788,6 +19838,16 @@ Key
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">4、收银台 › 订单管理
 的【发票信息】：普通开票中的发票没有发票号（显示“–”），操作列为空，没有【查看】；离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线·待上传”；离线已开票（待上传）的发票显示发票号，行上有【查看】，点击后打开【发票详情】弹窗，显示开票信息和离线开票信息，弹窗底部只有【关闭】。</span></p>
+</div>
+<div data-custom-style="First Line Indent">
+<p><span
+data-custom-style="Red Text">5、后台【收银订单】【门店预订单】【换货订单】列表的操作列：普通开票中的行只有【查看】；开票状态为“离线已开票（待上传）”的行为【查看】和【立即上传】。离线发票上传被拒、开票失败的行不显示【立即上传】。</span></p>
+</div>
+<div data-custom-style="First Line Indent">
+<p><span data-custom-style="Red Text">6、离线开出的 NFC-e 65
+在网络恢复后由系统自动上传税局，同时保留手动【立即上传】，自动上传未完成时可以手动上传。收银台
+› 订单管理
+和后台【收银订单】【门店预订单】【换货订单】都可以手动上传。</span></p>
 </div>
 <h5 id="原型-7"><span data-custom-style="Red Text">5.5.6.2
 原型</span></h5>
@@ -19954,7 +20014,8 @@ data-custom-style="Red Text">1、用户已登录系统，具备【收银台-订�
 <span
 data-custom-style="Red Text">2、订单的开票状态为“开票中”，或离线开出的发票开票状态为“离线已开票（待上传）”。</span><br />
 <span data-custom-style="Red Text">3、【立即上传】：订单在 收银台 ›
-订单管理，开票状态为“离线已开票（待上传）”。</span><br />
+订单管理，开票状态为“离线已开票（待上传）”。</span><span
+data-custom-style="Red Text">或订单在后台【收银订单】【门店预订单】【换货订单】的【开票中】，开票状态为“离线已开票（待上传）”。</span><br />
 <span data-custom-style="Red Text">• 操作流程：</span><br />
 <span data-custom-style="Red Text">（1）查看开票中的订单：</span><br />
 <span
@@ -19972,11 +20033,19 @@ data-custom-style="Red Text">2、用户点【关闭】，系统关闭弹窗。</
 <span
 data-custom-style="Red Text">2、系统提交税局，提示：“已提交上传，税局授权后发票状态变为“已开票”。”。上传时发票号和
 Key 不变。</span><br />
+<span data-custom-style="Red Text">（4）后台立即上传：</span><br />
+<span
+data-custom-style="Red Text">1、用户在后台【收银订单】【门店预订单】或【换货订单】左侧开票状态点【开票中】，在开票状态为“离线已开票（待上传）”的行点击操作列的【立即上传】（在【查看】的右边）。</span><br />
+<span
+data-custom-style="Red Text">2、系统提交税局，提示：“已提交上传，税局授权后发票状态变为“已开票”。”。上传时发票号和
+Key 不变。</span><br />
+<span
+data-custom-style="Red Text">3、用户不点【立即上传】时，网络恢复后系统也会自动上传。</span><br />
 <span data-custom-style="Red Text">• 后置条件：</span><br />
 <span
 data-custom-style="Red Text">1、查看订单、查看离线发票：不修改任何数据。</span><br />
 <span
-data-custom-style="Red Text">2、立即上传：税局授权后订单的开票状态变为“已开票”，发票进入
+data-custom-style="Red Text">2、立即上传（收银台和后台相同）：税局授权后订单的开票状态变为“已开票”，发票进入
 财务（零售）› 发票管理 › 已开票-近期发票，顶栏和交班页的“待上传”数量各减
 1，登记了邮箱的系统自动发送 XML 和
 DANFE；税局拒绝时订单的开票状态变为“开票失败”，见
@@ -19989,7 +20058,9 @@ data-custom-style="Red Text">1、当订单的开票状态为“开票中”时�
 <span
 data-custom-style="Red Text">2、当订单的开票状态为“离线已开票（待上传）”时，收银台
 › 订单管理
-只显示【备注】和【立即上传】；后台不提供【立即上传】。</span><br />
+只显示【备注】和【立即上传】；后台订单详情不提供【立即上传】。</span><br />
+<span
+data-custom-style="Red Text">3、当后台【收银订单】【门店预订单】【换货订单】列表中行的开票状态为“离线已开票（待上传）”时，操作列显示【查看】和【立即上传】；其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span><br />
 <span data-custom-style="Red Text">• 提示消息：无。</span><br />
 <span data-custom-style="Red Text">• 消息通知：无。</span><br />
 <span data-custom-style="Red Text">•
@@ -20020,7 +20091,9 @@ data-custom-style="Red Text">例如：ana@tfretail.com.br</span></td>
 <tr>
 <td><span data-custom-style="Red Text">操作模块</span></td>
 <td><span data-custom-style="Red Text">具体菜单名称</span></td>
-<td><span data-custom-style="Red Text">例如：收银台-订单管理</span></td>
+<td><span
+data-custom-style="Red Text">例如：收银台-订单管理；后台立即上传时为
+订单管理-收银订单、订单管理-门店预订单 或 售后管理-换货订单</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">操作功能</span></td>
@@ -20051,11 +20124,15 @@ Key
 不变，离线发票号不能作废；请按【处理方法】改正后，点【立即上传】用原发票号重新上传，并重新打印小票。”。处理方法请参考
 5.4.4.4 的目录，【处理方法】弹窗内容见 5.3.3.6 第 3
 部分。</span><strong><span
-data-custom-style="Blue Text">【立即上传】只在 收银台 › 订单管理
-的订单详情底部提供，发票信息表的行上没有，是唯一入口；失败原因为
-Rejeição
+data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
+订单管理
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+› 订单管理 发票信息表的行上没有【立即上传】。</span><span
+data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
-›【开票失败】、后台订单列表的行上和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong></p>
+›【开票失败】、</span><span
+data-custom-style="Red Text">后台订单列表上离线发票上传被拒和开票失败的行</span><span
+data-custom-style="Blue Text">和后台订单详情（收银订单、门店预订单、换货订单）都没有【立即上传】，【处理方法】提示用户回到该订单点【立即上传】。</span></strong></p>
 </div>
 <h5 id="开票-2"><span data-custom-style="Red Text">5.5.7.1
 开票</span></h5>

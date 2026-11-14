@@ -20934,17 +20934,14 @@ data-custom-style="Red Text">适用：收银订单（已开票）、门店预订
 <tbody>
 <tr>
 <td>用户在本功能做售后时</td>
-<td>与 收银台 › 订单管理
-的【退换货】规则相同：换货、退货退款时系统自动开票；仅退款因货物未退回，不开票。</td>
+<td><span data-custom-style="Red Text">与 收银台 › 订单管理
+的【退换货】规则相同：退货退款时系统自动开票；仅退款因货物未退回，不开票。后台【售后】不提供换货，换货只能在
+收银台 › 订单管理【退换货】发起。</span></td>
 </tr>
 <tr>
 <td>售后弹窗显示【开票说明】时</td>
 <td>弹窗【开票说明】固定显示：<span
-data-custom-style="Prompt Text">“换货：退回件开具 NF-e 55
-入库票，换出件开具销售发票</span><span
-data-custom-style="Red Text">（公司或有州税号默认开 NF-e 55，可改 NFC-e
-65；个人现场默认开 NFC-e 65，可选 NF-e 55）</span><span
-data-custom-style="Prompt Text">；退货退款：开具 NF-e 55
+data-custom-style="Prompt Text">“退货退款：开具 NF-e 55
 入库票，引用原发票；仅退款：不开票”</span>。</td>
 </tr>
 <tr>
@@ -20956,13 +20953,9 @@ NF-e 55 入库发票（销售退票，引用原发票），在 售后管理 ›
 销售退票（退货）“。</td>
 </tr>
 <tr>
-<td>售后选换货并完成后</td>
-<td>换货：<span
-data-custom-style="Red Text">1、生成互相关联的退货订单和换货订单，开票状态都为”已开票”。2、系统自动开出两张发票：退货订单（退回件）开
-NF-e 55
-入库发票（销售退票，引用原发票）；换货订单（换出件）开销售发票（按买方身份确定：买方是公司（CNPJ）或有州税号的，默认开具
-NF-e 55，也可以改开 NFC-e 65（改时提醒）；个人现场购买的，默认开具 NFC-e
-65，也可以改开 NF-e 55）</span>。3、原订单的发票不变。</td>
+<td><span data-custom-style="Red Text">售后弹窗没有换货选项</span></td>
+<td><span data-custom-style="Red Text">换货只能在 收银台 ›
+订单管理【退换货】发起，发起后自动切换到收银台完成换出；后台【售后】只提供退货退款、仅退款。</span></td>
 </tr>
 <tr>
 <td>售后选仅退款并完成后</td>
@@ -20972,11 +20965,10 @@ NF-e 55，也可以改开 NFC-e 65（改时提醒）；个人现场购买的，�
 </tbody>
 </table>
 <div data-custom-style="Body Text">
-<p>• 换货、退货退款时系统自动开票。<br />
-• 换货时原订单的发票不变；<span
-data-custom-style="Red Text">换出件按买方身份确定：买方是公司（CNPJ）或有州税号的，默认开具
-NF-e 55，也可以改开 NFC-e 65（改时提醒）；个人现场购买的，默认开具 NFC-e
-65，也可以改开 NF-e 55</span>。</p>
+<p>• <span
+data-custom-style="Red Text">退货退款时系统自动开票；后台【售后】不提供换货。</span><br />
+• <span data-custom-style="Red Text">换货的开票规则见 收银台 ›
+订单管理【退换货】。</span></p>
 </div>
 <h6 id="原型-9"><span data-custom-style="Red Text">5.5.8.6.2
 原型</span></h6>
@@ -21012,10 +21004,8 @@ alt="后台 › 收银订单：已开票的订单点行上的【售后】，弹�
 <td>开票说明</td>
 <td>文本（只读）</td>
 <td>否</td>
-<td>换货：退回件开具 NF-e 55 入库票，换出件开具销售发票<span
-data-custom-style="Red Text">（公司或有州税号默认开 NF-e 55，可改 NFC-e
-65；个人现场默认开 NFC-e 65，可选 NF-e 55）</span>；退货退款：开具 NF-e
-55 入库票，引用原发票；仅退款：不开票</td>
+<td><span data-custom-style="Red Text">退货退款：开具 NF-e 55
+入库票，引用原发票；仅退款：不开票</span></td>
 <td>固定值</td>
 </tr>
 </tbody>
@@ -21030,18 +21020,17 @@ data-custom-style="Red Text">1、用户已登录系统，具备“订单-订单�
 data-custom-style="Red Text">2、订单的开票状态为“已开票”；门店预订单包括订单状态为“待提货”“已提货”的订单。</span><br />
 <span data-custom-style="Red Text">• 操作流程：</span><br />
 <span
-data-custom-style="Red Text">1、用户在后台收银订单或门店预订单列表，找到已开票的订单，点行上的【售后】，系统打开【售后】弹窗。弹窗显示订单号、售后方式、售后原因、退款金额和开票说明，售后方式默认选中“换货”。</span><br />
+data-custom-style="Red Text">1、用户在后台收银订单或门店预订单列表，找到已开票的订单，点行上的【售后】，系统打开【售后】弹窗。弹窗显示订单号、售后方式、售后原因、退款金额和开票说明，售后方式有退货退款、仅退款两种，换货只能在
+收银台 › 订单管理【退换货】发起。</span><br />
 <span
-data-custom-style="Red Text">2、用户选择售后方式（换货、退货退款、仅退款）和售后原因，点【提交】，系统按所选方式处理并关闭弹窗：换货时，生成互相关联的退货订单和换货订单，系统自动开出两张发票，退回件开
-NF-e 55
-入库发票（销售退票，引用原发票），换出件开销售发票；退货退款时，生成一张退货订单，系统自动开出
+data-custom-style="Red Text">2、用户选择售后方式（退货退款、仅退款）和售后原因，点【提交】，系统按所选方式处理并关闭弹窗：退货退款时，生成一张退货订单，系统自动开出
 NF-e 55
 入库发票（销售退票，引用原发票）；仅退款时，只生成退款记录，不开票。</span><br />
 <span
 data-custom-style="Red Text">3、用户点【取消】，系统关闭弹窗，不做任何处理。</span><br />
 <span data-custom-style="Red Text">• 后置条件：</span><br />
 <span
-data-custom-style="Red Text">1、换货、退货退款：新生成的退货订单、换货订单的开票状态为“已开票”，发票在
+data-custom-style="Red Text">1、退货退款：新生成的退货订单的开票状态为“已开票”，发票在
 财务（零售）› 发票管理 › 已开票-近期发票
 的【入库】【出库】页签可以查到。</span><br />
 <span data-custom-style="Red Text">2、仅退款：在 售后管理 › 退货订单

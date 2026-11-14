@@ -768,6 +768,9 @@ data-custom-style="Red Text">本系统只对收银台、门店预订的 NFC-e 65
 已在收银台离线开出并打印给顾客，尚未上传税局。显示在【开票中】。网络恢复后系统自动上传，也可以在
 收银台 › 订单管理 点【立即上传】。</span><span
 data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里这类行的操作列也有【立即上传】。</span><span
+data-custom-style="Red Text">后台这三个列表的开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”；收银台
+› 订单管理
+的订单卡片显示标签“离线已开票（待上传）”。收银台和后台的开票状态筛选都可以选“离线待上传”，只列出这类订单。</span><span
 data-custom-style="Red Text">税局授权后变为“已开票”；被税局拒绝的进入“开票失败”。</span></td>
 </tr>
 <tr>
@@ -1272,7 +1275,7 @@ data-custom-style="Red Text">2、<strong>离线开出后</strong>：开票状态
 财务（零售）› 发票管理 ›【开票中】和 收银台 ›
 订单管理。网络恢复后系统自动上传税局，收银员也可以在 收银台 › 订单管理
 点【立即上传】。</span><span
-data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，操作列也有【立即上传】，作为自动上传之外的手动上传方式。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），操作列也有【立即上传】，作为自动上传之外的手动上传方式。</span><span
 data-custom-style="Red Text">上传时发票号和 Key
 不变。税局授权后变为“已开票”；被税局拒绝的进入“开票失败”，处理方法见本节第
 6 条。</span><br />
@@ -1315,7 +1318,7 @@ CONTINGÊNCIA”和进入离线的时间，打印两份：一份交给顾客，�
 <span
 data-custom-style="Red Text">（5）上传：网络恢复后系统自动上传离线开出的
 NFC-e 65，也可以在 收银台 › 订单管理 点【立即上传】。</span><span
-data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，也可以点操作列的【立即上传】。</span><br />
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），也可以点操作列的【立即上传】。</span><br />
 （<span
 data-custom-style="Red Text">6</span>）后台单据（批发订单、调拨单，以及在后台对收银订单或门店预订单发起退货）在网页上操作：本机断网时，点击【开票】或提交均无法发送，提示：“网络异常，提交失败，请检查网络后重试”。单据停留在原状态，不进入“开票失败”。<br />
 （<span
@@ -3801,7 +3804,8 @@ data-custom-style="Red Text">2、发票类型为采购退票时，不显示这�
 <td>输入框</td>
 <td>是</td>
 <td>请输入接收方名称</td>
-<td>只支持数字、字母和部分英文符号，不支持中文。</td>
+<td>只支持数字、字母和部分英文符号，不支持中文。<span
+data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -3853,7 +3857,8 @@ data-custom-style="Red Text">2、发票类型为采购退票时，不显示这�
 <td>输入框</td>
 <td>是</td>
 <td>请输入</td>
-<td>必须与邮编、州对应</td>
+<td>必须与邮编、州对应<span data-custom-style="Red Text">；2～60
+个字符。</span></td>
 </tr>
 <tr>
 <td>区</td>
@@ -3867,7 +3872,7 @@ data-custom-style="Red Text">2、发票类型为采购退票时，不显示这�
 <td>输入框</td>
 <td>否</td>
 <td>请输入</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>地址</td>
@@ -3923,14 +3928,16 @@ data-custom-style="Red Text">2、发票类型为采购退票时，不显示这�
 <td>表格内输入框</td>
 <td>是</td>
 <td>空</td>
-<td>必须大于 0</td>
+<td>必须大于 0<span data-custom-style="Red Text">；最多 4
+位小数。</span></td>
 </tr>
 <tr>
 <td>单价 BRL</td>
 <td>表格内输入框</td>
 <td>是</td>
 <td>0,00</td>
-<td>必须大于 0；<span
+<td>必须大于 0；<span data-custom-style="Red Text">最多 2
+位小数；</span><span
 data-custom-style="Red Text">关联调拨单</span>时取结存成本。</td>
 </tr>
 <tr>
@@ -4009,7 +4016,7 @@ data-custom-style="Red Text">关联调拨单</span>时取结存成本。</td>
 <td>输入框</td>
 <td>否</td>
 <td>请输入</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>包裹类型</td>
@@ -4049,7 +4056,8 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td>输入框</td>
 <td>否</td>
 <td>请输入</td>
-<td>须与【税号】同时填写或同时不填</td>
+<td>须与【税号】同时填写或同时不填<span
+data-custom-style="Red Text">；最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>州税号 (IE)</td>
@@ -4063,14 +4071,14 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td>输入框</td>
 <td>否</td>
 <td>选填</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>城市</td>
 <td>输入框</td>
 <td>否</td>
 <td>选填</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>州</td>
@@ -4305,13 +4313,16 @@ data-custom-style="Red Text">1.1、一张调拨单只能被一张发票关联。
 <span
 data-custom-style="Red Text">6、当开票产品为空，用户点【保存】或【开票】时，开票产品下面红字提示：“请添加开票产品”。系统同时提示：“有内容未填或填写不正确，已标红，请修改后再试”。系统不保存。</span><br />
 7、当用户输入【数量】【单价 BRL】时，若不大于
-0，则在字段下面红字提示，系统不保存。<br />
+0，则在字段下面红字提示，系统不保存。<span
+data-custom-style="Red Text">【数量】超过 4 位小数、【单价 BRL】超过 2
+位小数时，也在字段下面红字提示，系统不保存。</span><br />
 8、当用户输入【NCM】时，若不是 8
 位数字，则在字段下面红字提示；【CEST】填写了但不是 7
 位数字时，在字段下面红字提示，系统不保存。<br />
 9、当用户输入【运费】【折扣】【海关费用】【加项折扣金额】时，若为负数或超过
 2 位小数，则在字段下面红字提示，系统不保存。<br />
-10、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示两项须同时填写或同时不填，系统不保存。<br />
+10、当承运商的【税号】【名称】只填了其中一个时，<span
+data-custom-style="Red Text">只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。</span>系统不保存。<br />
 11、当用户选择【出入库时间】时，不能选择未来时间。<br />
 12、当用户在【添加商品】弹窗里没有勾选任何商品就点【添加】时，提示：“请先勾选商品”。勾选的商品已经在列表里时，提示：“所选商品已在列表中”。系统不重复添加。<br />
 13、当用户点【开票】时，系统按 A1 证书、发票号段、出入库时间、接收方
@@ -4320,6 +4331,10 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 项做开票前检查，并在弹窗里显示每一项的结果和【未通过的后果】。有不通过的项时，弹窗下方提示：“有
 1
 项未通过。请修正后点击【确认开票】，或点击【仍然保存为草稿】。”。<br />
+<span
+data-custom-style="Red Text">14、当用户输入的内容超过字段的字数上限时，系统不截断，在字段下面红字提示，如“城市最多
+60 个字符”。【城市】少于 2 个字符时，提示：“城市至少 2
+个字符”。系统不保存。</span><br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
@@ -4371,7 +4386,8 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 <tr>
 <td>接收方名称</td>
 <td>请输入接收方名称</td>
-<td>接收方名称不能包含特殊字符</td>
+<td>接收方名称不能包含特殊字符<span
+data-custom-style="Red Text">；接收方名称最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -4406,7 +4422,8 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 <tr>
 <td>城市</td>
 <td>请输入城市</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">城市至少 2 个字符；城市最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>区</td>
@@ -4416,7 +4433,7 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 <tr>
 <td>门牌号</td>
 <td>-</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">门牌号最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>地址</td>
@@ -4446,12 +4463,14 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 <tr>
 <td>数量</td>
 <td>请输入数量</td>
-<td>数量须大于 0</td>
+<td>数量须大于 0<span data-custom-style="Red Text">；数量最多 4
+位小数</span></td>
 </tr>
 <tr>
 <td>单价 BRL</td>
 <td>请输入单价 BRL</td>
-<td>单价 BRL须大于 0</td>
+<td>单价 BRL须大于 0<span data-custom-style="Red Text">；单价 BRL最多 2
+位小数</span></td>
 </tr>
 <tr>
 <td>税种编号</td>
@@ -4491,7 +4510,8 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 <tr>
 <td>包装编号</td>
 <td>-</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">包装编号最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>包裹类型</td>
@@ -4500,18 +4520,30 @@ IE、接收方名称、产品行、NCM、原产地、CFOP、中介标识、承�
 </tr>
 <tr>
 <td>税号（承运商）</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td>税号格式不正确</td>
 </tr>
 <tr>
 <td>名称（承运商）</td>
-<td>-</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>州税号 (IE)（承运商）</td>
 <td>-</td>
 <td>州税号 (IE)格式不正确</td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>交易形式</td>
@@ -5011,28 +5043,29 @@ data-custom-style="Red Text">选项：0、1、2、3、4、9</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">如 CAIXA / PALETE</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">编号</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">如 1/1</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">物流方式</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
-<td><span data-custom-style="Red Text">如 自提 / 快递 / 专线</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span
+data-custom-style="Red Text">请输入物流方式，如自提/快递/专线</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">运单号</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">承运商运单号</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">包裹数量</span></td>
@@ -5099,7 +5132,8 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
 <td><span
-data-custom-style="Red Text">须与【税号】同时填写或同时不填。</span></td>
+data-custom-style="Red Text">须与【税号】同时填写或同时不填；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)（承运商）</span></td>
@@ -5115,14 +5149,14 @@ ISENTO</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">城市（承运商）</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州（承运商）</span></td>
@@ -5279,11 +5313,15 @@ data-custom-style="Red Text">1、当发票类型为采购退票、用户未选�
 已开退票数量 =
 0），不能再开退票。”。在税局已被取消的采购发票，提示：“该发票已在税局取消，不能再开退票。”。已被税局否决的采购发票，提示：“该发票已被税局否决，不能再开退票。”。</span><br />
 <span
-data-custom-style="Red Text">3、一张采购退票只能关联一张采购发票。退货商品来自多张采购发票的，分别开具。退货数量超过可退数量时，系统不提交，提示这张采购发票的可退数量。</span><br />
+data-custom-style="Red Text">3、一张采购退票只能关联一张采购发票。退货商品来自多张采购发票的，分别开具。退货数量超过可退数量时，系统不提交，在字段下面提示：“退货数量须在
+1~N 之间”（N 为这一行的可退数量）。</span><br />
 <span
 data-custom-style="Red Text">4、当用户未关联采购发票就点【开票】时，提示：“请选择采购发票，不关联采购发票，无法开采购退票。”。系统不提交。</span><br />
 <span
-data-custom-style="Red Text">5、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示：“税号和名称须同时填写或同时留空”。系统不提交。</span><br />
+data-custom-style="Red Text">5、当承运商的【税号】【名称】只填了其中一个时，只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。系统不提交。</span><br />
+<span
+data-custom-style="Red Text">6、当用户输入的内容超过字段的字数上限时，系统不截断，在字段下面红字提示，如“运单号最多
+60 个字符”。系统不提交。</span><br />
 <span data-custom-style="Red Text">• 提示消息：</span><br />
 <span
 data-custom-style="Red Text">在当前页面的字段下面红色字体提示：</span></p>
@@ -5301,7 +5339,7 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 <td><span data-custom-style="Red Text">退货数量（采购退票）</span></td>
 <td><span data-custom-style="Red Text">请输入退货数量</span></td>
 <td><span data-custom-style="Red Text">退货数量须为整数；退货数量须大于
-0</span></td>
+0；退货数量须在 1~N 之间（N 为可退数量）</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">税收性质（采购退票）</span></td>
@@ -5335,16 +5373,52 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 0</span></td>
 </tr>
 <tr>
+<td><span data-custom-style="Red Text">包裹类型（采购退票）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包裹类型最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">编号（采购退票）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">编号最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">物流方式（采购退票）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">物流方式最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">运单号（采购退票）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">运单号最多 60 个字符</span></td>
+</tr>
+<tr>
 <td><span
 data-custom-style="Red Text">税号（采购退票承运商）</span></td>
-<td><span data-custom-style="Red Text">-</span></td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td><span data-custom-style="Red Text">税号格式不正确</span></td>
 </tr>
 <tr>
 <td><span
 data-custom-style="Red Text">名称（采购退票承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span
+data-custom-style="Red Text">地址1（采购退票承运商）</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span
+data-custom-style="Red Text">城市（采购退票承运商）</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">销售终端（采购退票）</span></td>
@@ -5493,7 +5567,9 @@ aria-hidden="true">创建手工发票：发票类型选“进口采购”，不�
 <td>输入框</td>
 <td>是</td>
 <td>请输入接收方名称</td>
-<td>国外出口商名称</td>
+<td>国外出口商名称<span
+data-custom-style="Red Text">；只支持数字、字母和部分英文符号，不支持中文；最多
+60 个字符。</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -5521,21 +5597,23 @@ aria-hidden="true">创建手工发票：发票类型选“进口采购”，不�
 <td>输入框</td>
 <td>是</td>
 <td>空</td>
-<td>2～60 个字符</td>
+<td>2～60 个字符<span
+data-custom-style="Red Text">；不支持中文。</span></td>
 </tr>
 <tr>
 <td>门牌号</td>
 <td>输入框</td>
 <td>否</td>
 <td>空</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>地址</td>
 <td>输入框</td>
 <td>是</td>
 <td>空</td>
-<td>2～60 个字符</td>
+<td>2～60 个字符<span
+data-custom-style="Red Text">；不支持中文。</span></td>
 </tr>
 <tr>
 <td>邮箱</td>
@@ -5563,7 +5641,8 @@ aria-hidden="true">创建手工发票：发票类型选“进口采购”，不�
 <td>输入框</td>
 <td>是</td>
 <td>请输入内容</td>
-<td>DUIMP 或 DI 申报单号</td>
+<td>DUIMP 或 DI 申报单号<span data-custom-style="Red Text">；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td>注册日期</td>
@@ -5577,7 +5656,7 @@ aria-hidden="true">创建手工发票：发票类型选“进口采购”，不�
 <td>输入框</td>
 <td>是</td>
 <td>请输入内容</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>清关州</td>
@@ -5633,7 +5712,7 @@ aria-hidden="true">创建手工发票：发票类型选“进口采购”，不�
 <td>输入框</td>
 <td>是</td>
 <td>请输入内容</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>海关费用</td>
@@ -5731,6 +5810,14 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 </thead>
 <tbody>
 <tr>
+<td><span
+data-custom-style="Red Text">接收方名称（进口采购）</span></td>
+<td><span data-custom-style="Red Text">请输入接收方名称</span></td>
+<td><span
+data-custom-style="Red Text">接收方名称不能包含特殊字符；接收方名称最多
+60 个字符</span></td>
+</tr>
+<tr>
 <td>证件号</td>
 <td>请输入证件号</td>
 <td>证件号至少 5 个字符；证件号最多 20 个字符</td>
@@ -5741,9 +5828,27 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 <td>-</td>
 </tr>
 <tr>
+<td><span data-custom-style="Red Text">区（进口采购）</span></td>
+<td><span data-custom-style="Red Text">请输入区</span></td>
+<td><span data-custom-style="Red Text">区至少 2 个字符；区最多 60
+个字符；区格式不正确</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">门牌号（进口采购）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">门牌号最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址（进口采购）</span></td>
+<td><span data-custom-style="Red Text">请输入地址</span></td>
+<td><span data-custom-style="Red Text">地址至少 2 个字符；地址最多 60
+个字符；地址格式不正确</span></td>
+</tr>
+<tr>
 <td>申报单编号</td>
 <td>请输入申报单编号</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">申报单编号最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>注册日期</td>
@@ -5753,7 +5858,8 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 <tr>
 <td>清关地点</td>
 <td>请输入清关地点</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">清关地点最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>清关州</td>
@@ -5788,7 +5894,8 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 <tr>
 <td>出口商代码</td>
 <td>请输入出口商代码</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">出口商代码最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>海关费用</td>
@@ -5946,7 +6053,8 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>只支持数字、字母和部分英文符号，不支持中文。</td>
+<td>只支持数字、字母和部分英文符号，不支持中文。<span
+data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -5995,7 +6103,8 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>必须与邮编、州对应</td>
+<td>必须与邮编、州对应<span data-custom-style="Red Text">；2～60
+个字符。</span></td>
 </tr>
 <tr>
 <td>区</td>
@@ -6009,7 +6118,7 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>地址</td>
@@ -6051,7 +6160,9 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>国外出口商名称</td>
+<td>国外出口商名称<span
+data-custom-style="Red Text">；只支持数字、字母和部分英文符号，不支持中文；最多
+60 个字符。</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -6079,21 +6190,23 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>2～60 个字符</td>
+<td>2～60 个字符<span
+data-custom-style="Red Text">；不支持中文。</span></td>
 </tr>
 <tr>
 <td>门牌号</td>
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>地址</td>
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>2～60 个字符</td>
+<td>2～60 个字符<span
+data-custom-style="Red Text">；不支持中文。</span></td>
 </tr>
 <tr>
 <td>邮箱</td>
@@ -6121,7 +6234,8 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>DUIMP 或 DI 申报单号</td>
+<td>DUIMP 或 DI 申报单号<span data-custom-style="Red Text">；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td>注册日期</td>
@@ -6135,7 +6249,7 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>清关州</td>
@@ -6191,7 +6305,7 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>海关费用</td>
@@ -6233,14 +6347,16 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>表格内输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>必须大于 0</td>
+<td>必须大于 0<span data-custom-style="Red Text">；最多 4
+位小数。</span></td>
 </tr>
 <tr>
 <td>单价 BRL</td>
 <td>表格内输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>必须大于 0</td>
+<td>必须大于 0<span data-custom-style="Red Text">；最多 2
+位小数。</span></td>
 </tr>
 <tr>
 <td>总金额</td>
@@ -6380,7 +6496,7 @@ NF-e开票、补充发票、调整发票、退货发票，电商和零售相同�
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>包裹类型</td>
@@ -6418,7 +6534,8 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>须与【税号】同时填写或同时不填</td>
+<td>须与【税号】同时填写或同时不填<span
+data-custom-style="Red Text">；最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>州税号 (IE)</td>
@@ -6432,14 +6549,14 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>城市</td>
 <td>输入框</td>
 <td>否</td>
 <td>回显</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td>州</td>
@@ -6522,8 +6639,14 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 位数字时，在字段下面红字提示，系统不保存。<br />
 5、当【运费】【折扣】【海关费用】为负数或超过 2
 位小数时，在字段下面红字提示，系统不保存。<br />
-6、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示，系统不保存。<br />
+6、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示，系统不保存。<span
+data-custom-style="Red Text">只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。</span><br />
 7、当用户点【开票】时，系统做 12 项开票前检查，在弹窗里显示结果。<br />
+<span
+data-custom-style="Red Text">8、当用户输入的内容超过字段的字数上限时，系统不截断，在字段下面红字提示，如“城市最多
+60 个字符”。【城市】少于 2 个字符时，提示：“城市至少 2
+个字符”。【数量】超过 4 位小数、【单价 BRL】超过 2
+位小数时，也在字段下面红字提示。系统不保存。</span><br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
@@ -6575,7 +6698,8 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>接收方名称</td>
 <td>请输入接收方名称</td>
-<td>接收方名称不能包含特殊字符</td>
+<td>接收方名称不能包含特殊字符<span
+data-custom-style="Red Text">；接收方名称最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>是否终端销售</td>
@@ -6610,22 +6734,25 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>城市</td>
 <td>请输入城市</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">城市至少 2 个字符；城市最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>区</td>
 <td>请输入区</td>
-<td>区至少 2 个字符；区最多 60 个字符</td>
+<td>区至少 2 个字符；区最多 60 个字符<span
+data-custom-style="Red Text">；区格式不正确（进口采购）</span></td>
 </tr>
 <tr>
 <td>门牌号</td>
 <td>-</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">门牌号最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>地址</td>
 <td>请输入地址</td>
-<td>地址至少 2 个字符；地址最多 60 个字符</td>
+<td>地址至少 2 个字符；地址最多 60 个字符<span
+data-custom-style="Red Text">；地址格式不正确（进口采购）</span></td>
 </tr>
 <tr>
 <td>邮箱</td>
@@ -6650,7 +6777,8 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>申报单编号</td>
 <td>请输入申报单编号</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">申报单编号最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>注册日期</td>
@@ -6660,7 +6788,8 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>清关地点</td>
 <td>请输入清关地点</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">清关地点最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>清关州</td>
@@ -6695,7 +6824,8 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>出口商代码</td>
 <td>请输入出口商代码</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">出口商代码最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>海关费用</td>
@@ -6715,12 +6845,14 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>数量</td>
 <td>请输入数量</td>
-<td>数量须大于 0</td>
+<td>数量须大于 0<span data-custom-style="Red Text">；数量最多 4
+位小数</span></td>
 </tr>
 <tr>
 <td>单价 BRL</td>
 <td>请输入单价 BRL</td>
-<td>单价 BRL须大于 0</td>
+<td>单价 BRL须大于 0<span data-custom-style="Red Text">；单价 BRL最多 2
+位小数</span></td>
 </tr>
 <tr>
 <td>税种编号</td>
@@ -6800,7 +6932,8 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 <tr>
 <td>包装编号</td>
 <td>-</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">包装编号最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td>包裹类型</td>
@@ -6809,18 +6942,30 @@ data-custom-style="Red Text">字段下面红字提示，并提示：“有内容
 </tr>
 <tr>
 <td>税号（承运商）</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td>税号格式不正确</td>
 </tr>
 <tr>
 <td>名称（承运商）</td>
-<td>-</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>州税号 (IE)（承运商）</td>
 <td>-</td>
 <td>州税号 (IE)格式不正确</td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>交易形式</td>
@@ -7277,7 +7422,7 @@ Key
 • <strong><span
 data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
 订单管理
-的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），在操作列【查看】的右边。收银台
 › 订单管理 发票信息表的行上没有【立即上传】。</span><span
 data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
@@ -8534,7 +8679,8 @@ Key 不变。<br />
 4、当用户修改【数量】【单价 BRL】时，若不大于
 0，则在字段下面红字提示；【NCM】不是 8 位数字、【CEST】不是 7
 位数字时，在字段下面红字提示，系统不提交。<br />
-5、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示，系统不提交。<br />
+5、当承运商的【税号】【名称】只填了其中一个时，在字段下面红字提示，系统不提交。<span
+data-custom-style="Red Text">只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。</span><br />
 6、当发票类型为销售退票，用户点【开票提交】时，若【退票信息】里的 CFOP
 未填写，则在字段下面红字提示，系统不提交。<br />
 7、当用户在单字段修正弹窗提交时，若【州税号
@@ -8712,12 +8858,14 @@ Key 不变。<br />
 </tr>
 <tr>
 <td>税号（承运商）</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td>税号格式不正确</td>
 </tr>
 <tr>
 <td>名称（承运商）</td>
-<td>-</td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
 <td>-</td>
 </tr>
 <tr>
@@ -15955,13 +16103,17 @@ data-custom-style="Red Text">点击【开票】并在弹窗里选 NF-e
 <tr>
 <td>用户添加临时商品且缺 NCM 时</td>
 <td><strong>临时商品缺 NCM</strong>：1、【临时商品 [L]】弹窗中 NCM
-必填，须为 8 位数字。弹窗提示：“NCM 为巴西税则号，NFC-e
-的每个商品行均须填写；缺少 NCM 时税局将拒绝（Rejeição 778）”。
-2、允许点“先不填
+必填，须为 8 位数字<span data-custom-style="Red Text">，不是 8
+位数字时，在字段下面提示：“NCM应为 8 位数字”</span>。弹窗提示：“NCM
+为巴西税则号，NFC-e 的每个商品行均须填写；缺少 NCM
+时税局将拒绝（Rejeição 778）”。 2、允许点“先不填
 NCM，加入”，但结账时会开票失败。结果页标题为“开票失败：Rejeição 778 -
 Informado NCM inexistente”，说明为“临时商品“{商品名}”未填写 NCM
 税则号，税局拒绝受理。请补填 NCM
-后重新开票；或先完成收款，之后在【订单管理】中补开。”，按钮：返回修改、重试。</td>
+后重新开票；或先完成收款，之后在【订单管理】中补开。”，按钮：返回修改、重试。<span
+data-custom-style="Red Text">3、单价、数量必填，须大于 0。没填、填 0
+或负数时，点【加入购物车】在字段下面提示：“单价须大于 0”“数量须大于
+0”，商品不加入购物车。</span></td>
 </tr>
 <tr>
 <td>用户点击【确定】时，若网络断开或联系不上税局。</td>
@@ -16345,10 +16497,12 @@ NFC-e；发票数据不变，订单的开票状态仍为“已开票”。<br />
 1、当用户点击【打印 NFC-e
 发票】时，若没有连接打印机，则提示：“没有连接打印机，先去【硬件设备】添加小票打印机，或改用邮箱
 / 扫码交付”。系统不打印。<br />
-2、当用户点击【发送】时，若邮箱为空或格式不正确，则在字段下方提示：“邮箱格式不对，请重新录入”。系统不发送。<br />
+2、当用户点击【发送】时，若邮箱为空或格式不正确，则在字段下方提示：“<span
+data-custom-style="Red Text">邮箱格式不正确</span>”。系统不发送。<br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
+
 <thead>
 <tr>
 <th>字段名称</th>
@@ -16359,8 +16513,8 @@ NFC-e；发票数据不变，订单的开票状态仍为“已开票”。<br />
 <tbody>
 <tr>
 <td>顾客邮箱</td>
-<td>邮箱格式不对，请重新录入</td>
-<td>邮箱格式不对，请重新录入</td>
+<td><span data-custom-style="Red Text">邮箱格式不正确</span></td>
+<td><span data-custom-style="Red Text">邮箱格式不正确</span></td>
 </tr>
 </tbody>
 </table>
@@ -16612,11 +16766,13 @@ data-custom-style="Red Text">（2）登记邮箱（授权后自动发送）</spa
   end
   subgraph sg2[&quot;系统&quot;]
     B --&gt; C{&quot;邮箱格式正确？&quot;}
-    C --&gt;|&quot;否&quot;| C1[&quot;字段下方提示：邮箱格式不对，请重新录入&quot;]
+    C --&gt;|&quot;否&quot;| C1[&quot;字段下方提示：邮箱格式不正确&quot;]
     C --&gt;|&quot;是&quot;| D[&quot;邮箱保存到订单，不发送；离线开票提示授权后自动发送，NF-e 55 待补开提示补开成功后自动发送&quot;]
   end
   C1 --&gt; B
   D --&gt; E((&quot;结束&quot;))</pre>
+<p><span
+data-custom-style="Red Text">说明：流程图中“字段下方提示”的文字已改为“邮箱格式不正确”，与原型一致。</span></p>
 <p><span
 data-custom-style="Red Text">（3）自动上传或【立即上传】</span></p>
 <pre class="mermaid">flowchart TB
@@ -16779,7 +16935,7 @@ data-custom-style="Red Text">离线开出的发票须在门店所在州的上传
 • <strong><span
 data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
 订单管理
-的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），在操作列【查看】的右边。收银台
 › 订单管理 发票信息表的行上没有【立即上传】。</span><span
 data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
@@ -16865,7 +17021,7 @@ Key 不变。”。</span></td>
 <td><span
 data-custom-style="Red Text">系统自动上传离线开出的发票；收银员也可以在
 收银台 › 订单管理 选中订单，点【立即上传】。</span><span
-data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，也可以点操作列的【立即上传】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），也可以点操作列的【立即上传】。</span><span
 data-custom-style="Red Text">授权后开票状态变为“已开票”，顶栏“待上传”数量减
 1；登记了邮箱的，系统自动发送 XML 和 DANFE。</span></td>
 </tr>
@@ -17007,9 +17163,9 @@ aria-hidden="true">离线开票结果页点【登记邮箱】：弹窗多一行�
 </figure>
 <figure>
 <img loading="lazy" src="img/0179.png"
-alt="收银台 › 订单管理：离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线·待上传”；发票信息的状态列为“离线已开票（待上传）”，下方为离线开票提示，订单详情底部有【立即上传】" />
+alt="收银台 › 订单管理：离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线已开票（待上传）”；发票信息的状态列为“离线已开票（待上传）”，下方为离线开票提示，订单详情底部有【立即上传】" />
 <figcaption aria-hidden="true">收银台 ›
-订单管理：离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线·待上传”；发票信息的状态列为“离线已开票（待上传）”，下方为离线开票提示，订单详情底部有【立即上传】</figcaption>
+订单管理：离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线已开票（待上传）”；发票信息的状态列为“离线已开票（待上传）”，下方为离线开票提示，订单详情底部有【立即上传】</figcaption>
 </figure>
 <figure>
 <img loading="lazy" src="img/0180.png"
@@ -17261,7 +17417,8 @@ data-custom-style="Red Text">若还有待上传的离线发票，则提示：“
 张待开票订单未补开（结账时网络异常）。可先交班，由下一班次或在网络恢复后到【收银台
 ›
 订单管理】补开，开票成功后发票将自动发送至客户登记的邮箱。”。系统允许交班。<br />
-3、当用户点击【发送】时，若邮箱为空或格式不正确，则在字段下方提示：“邮箱格式不对，请重新录入”。系统不保存。<br />
+3、当用户点击【发送】时，若邮箱为空或格式不正确，则在字段下方提示：“<span
+data-custom-style="Red Text">邮箱格式不正确</span>”。系统不保存。<br />
 4、当用户点击【重试】时，若仍无法连接网络或税局，则继续显示：“网络异常，发票未开出”。结果页，系统不开具发票。<br />
 5、当用户点击【确认开票】时，若 CPF / CNPJ
 已填写，但格式或校验位不正确，则在字段下方提示，系统不提交。<br />
@@ -17272,6 +17429,7 @@ NF-e 55。</span><br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
+
 <thead>
 <tr>
 <th>字段名称</th>
@@ -17282,8 +17440,8 @@ NF-e 55。</span><br />
 <tbody>
 <tr>
 <td>顾客邮箱</td>
-<td>邮箱格式不对，请重新录入</td>
-<td>邮箱格式不对，请重新录入</td>
+<td><span data-custom-style="Red Text">邮箱格式不正确</span></td>
+<td><span data-custom-style="Red Text">邮箱格式不正确</span></td>
 </tr>
 <tr>
 <td>CPF / CNPJ</td>
@@ -17421,7 +17579,7 @@ data-custom-style="Red Text">离线开出的 NFC-e 65
   end
   subgraph 系统
     D[&quot;打开【收银台-订单管理】&quot;]
-    D2[&quot;打开【收银台-订单管理】，开票状态自动筛选为“开票中”&quot;]
+    D2[&quot;打开【收银台-订单管理】，开票状态自动筛选为“离线待上传”&quot;]
     G[&quot;上传成功：待上传张数减 1；补开成功：待补开张数减 1，发票自动发送至客户登记的邮箱&quot;]
   end
   C --&gt; D2
@@ -17429,6 +17587,8 @@ data-custom-style="Red Text">离线开出的 NFC-e 65
   Q --&gt; D
   D --&gt; F
   F --&gt; G</pre>
+<p><span
+data-custom-style="Red Text">流程图修改说明：点击【立即上传】后，打开【收银台-订单管理】，开票状态自动筛选的值由“开票中”改为“离线待上传”。</span></p>
 <p><span data-custom-style="Red Text">（4）交班（待补开提醒）</span></p>
 <pre class="mermaid">flowchart TB
   subgraph 收银员
@@ -17473,7 +17633,7 @@ data-custom-style="Red Text">5.5.7</span>（收银台-订单管理-开票失败�
 收银台 › 订单管理，补开时的授权请求见 <span
 data-custom-style="Red Text">5.4.4</span>（联网补开并自动发送邮件）<span
 data-custom-style="Red Text">；交班页的【立即上传】只打开 收银台 ›
-订单管理 并自动筛选开票状态为“开票中”，上传时的请求见
+订单管理 并自动筛选开票状态为“离线待上传”，上传时的请求见
 5.4.4.3</span>；4、交班（待补开提醒）：交班只结清本班次，未补开的订单保留在
 收银台 › 订单管理，开票状态仍为“待开票”；5、交班记录（本班开具
 NFC-e）：显示的是本系统保存的历史交班记录。</p>
@@ -17522,7 +17682,7 @@ data-custom-style="Red Text">。</span></td>
 <td><span
 data-custom-style="Red Text">提示：“正在打开订单管理…”。系统打开 收银台
 › 订单管理，</span><span
-data-custom-style="Red Text">开票状态自动筛选为“开票中”，</span><span
+data-custom-style="Red Text">开票状态自动筛选为“离线待上传”，列表只显示离线开出、尚未上传的订单，</span><span
 data-custom-style="Red Text">用户对离线订单点【立即上传】。全部上传成功后提示：“离线发票已全部上传”。</span></td>
 </tr>
 <tr>
@@ -17632,7 +17792,7 @@ data-custom-style="Red Text">在底部待补开提醒中</span>点击【去补�
 data-custom-style="Red Text">，或在“待上传”卡片点击</span><span
 data-custom-style="Red Text">【立即上传】</span>。<br />
 2、系统打开 收银台 › 订单管理<span
-data-custom-style="Red Text">；点击【立即上传】时，开票状态自动筛选为“开票中”</span>。<br />
+data-custom-style="Red Text">；点击【立即上传】时，开票状态自动筛选为“离线待上传”，列表只显示离线开出、尚未上传的订单</span>。<br />
 3、用户按开票状态“待开票”筛选，选中订单点击【开票】补开<span
 data-custom-style="Red Text">；或对开票状态为“离线已开票（待上传）”的订单点击【立即上传】</span>（见
 <span data-custom-style="Red Text">5.4.4</span>）。<br />
@@ -17853,9 +18013,9 @@ alt="收银台 › 订单管理【发票信息】：已开票，发票类型为�
 </figure>
 <figure>
 <img loading="lazy" src="img/0179.png"
-alt="收银台 › 订单管理【发票信息】：离线已开票（待上传）排在第一行，列表徽标为“开票中”加橙色小标签“离线·待上传”" />
+alt="收银台 › 订单管理【发票信息】：离线已开票（待上传）排在第一行，列表徽标为“开票中”加橙色小标签“离线已开票（待上传）”" />
 <figcaption aria-hidden="true">收银台 ›
-订单管理【发票信息】：离线已开票（待上传）排在第一行，列表徽标为“开票中”加橙色小标签“离线·待上传”</figcaption>
+订单管理【发票信息】：离线已开票（待上传）排在第一行，列表徽标为“开票中”加橙色小标签“离线已开票（待上传）”</figcaption>
 </figure>
 <figure>
 <img loading="lazy" src="img/0180.png"
@@ -17873,9 +18033,9 @@ alt="收银台 › 订单管理【发票信息】：退货订单已开票，发�
 </figure>
 <figure>
 <img loading="lazy" src="img/0194.png"
-alt="收银台 › 订单管理【筛选】：开票状态共 5 个选项：全部、待开票、开票中、开票失败、已开票；“开票中”包含离线已开票（待上传）的订单" />
-<figcaption aria-hidden="true">收银台 › 订单管理【筛选】：开票状态共 5
-个选项：全部、待开票、开票中、开票失败、已开票；“开票中”包含离线已开票（待上传）的订单</figcaption>
+alt="收银台 › 订单管理【筛选】：开票状态共 6 个选项：全部、待开票、开票中、离线待上传、开票失败、已开票；“开票中”包含离线已开票（待上传）的订单" />
+<figcaption aria-hidden="true">收银台 › 订单管理【筛选】：开票状态共 6
+个选项：全部、待开票、开票中、离线待上传、开票失败、已开票；“开票中”包含离线已开票（待上传）的订单</figcaption>
 </figure>
 <h5 id="发票信息"><span data-custom-style="Red Text">5.5.3.2
 发票信息</span></h5>
@@ -17886,7 +18046,7 @@ Key 列和单独的 CPF/CNPJ
 列。各开票状态的展示规则如下：1、待开票：显示历次发票记录（原发票已开票后又取消的，先“已开票”、后“已取消”）；2、开票中：包含离线已开票（待上传）的发票，离线发票排在第一行；3、开票失败：包含离线发票上传被拒，行下面显示失败原因条和【处理方法】；</span><strong><span
 data-custom-style="Red Text">【立即上传】不在【发票信息】表里：收银台 ›
 订单管理
-在订单详情底部提供，后台在【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行的操作列提供；</span><span
+在订单详情底部提供，后台在【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”）的操作列提供；</span><span
 data-custom-style="Blue Text">后台订单详情没有，失败原因为 Rejeição 539
 或拒绝使用（Denegada）时也不显示；</span></strong><span
 data-custom-style="Red Text">4、已开票、已取消的记录排在当前有效记录之后；5、时间列写“提交
@@ -17900,8 +18060,13 @@ CPF/CNPJ
 </div>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">收银台 › 订单管理 的开票状态筛选共
-5
-个选项：全部、待开票、开票中、开票失败、已开票；“开票中”包含离线已开票（待上传）的订单，不再单列一项。离线订单在列表上的开票状态徽标显示“开票中”，旁边橙色小标签显示“离线·待上传”；订单详情【发票信息】表的状态列仍显示“离线已开票（待上传）”。</span></p>
+6
+个选项：全部、待开票、开票中、离线待上传、开票失败、已开票。选“开票中”时包含离线已开票（待上传）的订单；选“离线待上传”时只列出离线开出、尚未上传的订单；选“已开票”时不含离线订单。离线订单在列表上的开票状态徽标显示“开票中”，旁边橙色小标签显示“离线已开票（待上传）”；订单详情【发票信息】表的状态列仍显示“离线已开票（待上传）”。</span></p>
+</div>
+<div data-custom-style="First Line Indent">
+<p><span data-custom-style="Red Text">后台 订单 › 订单管理
+›【收银订单】【门店预订单】和 订单 › 售后管理
+›【换货订单】列表的“开票状态”格：离线开出、尚未上传的订单显示两行，第一行为“开票中”（蓝点），第二行为灰色小字“离线已开票（待上传）”，这些订单在左侧【开票中】下。查询区的“全部开票状态”下拉在“开票中”后有“离线待上传”，选它只列出离线开出、尚未上传的订单；选“已开票”时不含离线订单。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span
@@ -18442,10 +18607,11 @@ data-custom-style="Red Text">上传规则与第一行相同。后台订单详情
 data-custom-style="Red Text">后台订单列表（收银订单、门店预订单、换货订单）</span></td>
 <td><span data-custom-style="Red Text">断网时离线开出</span></td>
 <td><span data-custom-style="Red Text">销售发票 · NFC-e 65</span></td>
-<td><span data-custom-style="Red Text">离线已开票（待上传）</span></td>
+<td><span
+data-custom-style="Red Text">开票中，第二行灰色小字：离线已开票（待上传）</span></td>
 <td><span data-custom-style="Red Text">【查看】【立即上传】</span></td>
 <td><span
-data-custom-style="Red Text">这张订单显示在左侧【开票中】下，开票状态为“离线已开票（待上传）”；操作列在【查看】右边显示【立即上传】。其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span></td>
+data-custom-style="Red Text">这张订单显示在左侧【开票中】下，开票状态格显示两行：第一行“开票中”（蓝点），第二行灰色小字“离线已开票（待上传）”；操作列在【查看】右边显示【立即上传】。其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span></td>
 <td><span
 data-custom-style="Red Text">点击【立即上传】后提示：“已提交上传，税局授权后发票状态变为“已开票”。”。上传时发票号和
 Key 不变，上传结果与第一行相同。</span></td>
@@ -19660,17 +19826,20 @@ data-custom-style="Red Text">在当前页面的字段下面红色字体提示：
 <tr>
 <td><span data-custom-style="Red Text">接收方信息 › 城市</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
-<td><span data-custom-style="Red Text">城市格式不正确</span></td>
+<td><span data-custom-style="Red Text">城市至少 2 个字符；城市最多 60
+个字符；城市格式不正确</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">接收方信息 › 区</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
-<td><span data-custom-style="Red Text">区格式不正确</span></td>
+<td><span data-custom-style="Red Text">区至少 2 个字符；区最多 60
+个字符；区格式不正确</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">接收方信息 › 街道</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
-<td><span data-custom-style="Red Text">街道格式不正确</span></td>
+<td><span data-custom-style="Red Text">街道至少 2 个字符；街道最多 60
+个字符；街道格式不正确</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">接收方信息 › 门牌号</span></td>
@@ -19827,21 +19996,22 @@ Key
 不变。这类订单只显示【备注】和【立即上传】，不显示打印、退换货、导出和【取消发票】。税局授权后订单变为“已开票”，登记了邮箱的自动发送发票；上传被拒的订单变为“开票失败”，见
 5.5.7。后台 › 收银订单、门店预订单
 的【发票信息】显示这张离线发票和离线开票的提示，订单详情不提供【立即上传】。</span><span
-data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里，开票状态为“离线已开票（待上传）”的行在操作列【查看】的右边有【立即上传】，点击后提示与收银台相同。</span></p>
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”）在操作列【查看】的右边有【立即上传】，点击后提示与收银台相同。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">3、适用入口：收银台 ›
 订单管理（收银订单、门店预订单、退货订单、换货订单）；后台 ›
 收银订单、门店预订单、退货订单、换货订单
-的【开票中】。离线已开票（待上传）的订单在后台同样显示在【开票中】。</span></p>
+的【开票中】。离线已开票（待上传）的订单在后台同样显示在【开票中】。</span><span
+data-custom-style="Red Text">后台【收银订单】【门店预订单】【换货订单】列表的“开票状态”格对这类订单显示两行：第一行“开票中”（蓝点），第二行灰色小字“离线已开票（待上传）”。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">4、收银台 › 订单管理
-的【发票信息】：普通开票中的发票没有发票号（显示“–”），操作列为空，没有【查看】；离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线·待上传”；离线已开票（待上传）的发票显示发票号，行上有【查看】，点击后打开【发票详情】弹窗，显示开票信息和离线开票信息，弹窗底部只有【关闭】。</span></p>
+的【发票信息】：普通开票中的发票没有发票号（显示“–”），操作列为空，没有【查看】；离线订单在列表上的徽标为“开票中”，旁边橙色小标签“离线已开票（待上传）”；离线已开票（待上传）的发票显示发票号，行上有【查看】，点击后打开【发票详情】弹窗，显示开票信息和离线开票信息，弹窗底部只有【关闭】。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span
-data-custom-style="Red Text">5、后台【收银订单】【门店预订单】【换货订单】列表的操作列：普通开票中的行只有【查看】；开票状态为“离线已开票（待上传）”的行为【查看】和【立即上传】。离线发票上传被拒、开票失败的行不显示【立即上传】。</span></p>
+data-custom-style="Red Text">5、后台【收银订单】【门店预订单】【换货订单】列表的操作列：普通开票中的行只有【查看】；离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”）为【查看】和【立即上传】。离线发票上传被拒、开票失败的行不显示【立即上传】。</span></p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><span data-custom-style="Red Text">6、离线开出的 NFC-e 65
@@ -19858,9 +20028,9 @@ data-custom-style="Red Text">下面是开票中订单的原型截图：后台以
 </div>
 <figure>
 <img loading="lazy" src="img/0207.png"
-alt="后台 › 收银订单：开票状态选【开票中】，列表中离线开出的订单开票状态为“离线已开票（待上传）”，行上有【查看】" />
+alt="后台 › 收银订单：开票状态选【开票中】，列表中离线开出的订单开票状态显示“开票中”，下方灰色小字“离线已开票（待上传）”，行上有【查看】和【立即上传】" />
 <figcaption aria-hidden="true">后台 ›
-收银订单：开票状态选【开票中】，列表中离线开出的订单开票状态为“离线已开票（待上传）”，行上有【查看】</figcaption>
+收银订单：开票状态选【开票中】，列表中离线开出的订单开票状态显示“开票中”，下方灰色小字“离线已开票（待上传）”，行上有【查看】和【立即上传】</figcaption>
 </figure>
 <figure>
 <img loading="lazy" src="img/0185.png"
@@ -19877,9 +20047,9 @@ alt="收银台 › 订单管理：开票中的订单（换货订单），发票�
 </figure>
 <figure>
 <img loading="lazy" src="img/0179.png"
-alt="收银台 › 订单管理：离线订单的徽标为“开票中”加橙色小标签“离线·待上传”，发票信息行上有【查看】，订单详情底部有【备注】和【立即上传】" />
+alt="收银台 › 订单管理：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，订单详情底部有【备注】和【立即上传】" />
 <figcaption aria-hidden="true">收银台 ›
-订单管理：离线订单的徽标为“开票中”加橙色小标签“离线·待上传”，发票信息行上有【查看】，订单详情底部有【备注】和【立即上传】</figcaption>
+订单管理：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，订单详情底部有【备注】和【立即上传】</figcaption>
 </figure>
 <figure>
 <img loading="lazy" src="img/0208.png"
@@ -20015,13 +20185,17 @@ data-custom-style="Red Text">1、用户已登录系统，具备【收银台-订�
 data-custom-style="Red Text">2、订单的开票状态为“开票中”，或离线开出的发票开票状态为“离线已开票（待上传）”。</span><br />
 <span data-custom-style="Red Text">3、【立即上传】：订单在 收银台 ›
 订单管理，开票状态为“离线已开票（待上传）”。</span><span
-data-custom-style="Red Text">或订单在后台【收银订单】【门店预订单】【换货订单】的【开票中】，开票状态为“离线已开票（待上传）”。</span><br />
+data-custom-style="Red Text">或订单在后台【收银订单】【门店预订单】【换货订单】的【开票中】，开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”。</span><br />
 <span data-custom-style="Red Text">• 操作流程：</span><br />
 <span data-custom-style="Red Text">（1）查看开票中的订单：</span><br />
 <span
 data-custom-style="Red Text">1、后台：用户在左侧开票状态点【开票中】，系统列出开票中和离线已开票（待上传）的订单；用户点行上的【查看】，系统打开订单详情，【发票信息】显示这张发票和提示。</span><br />
 <span data-custom-style="Red Text">2、收银台 ›
 订单管理：用户选中订单，系统在右侧显示订单详情；开票中的订单底部只有【备注】。</span><br />
+<span
+data-custom-style="Red Text">3、后台查询区“全部开票状态”下拉选“离线待上传”时，系统只列出离线开出、尚未上传的订单；选“已开票”时，列表不含离线开出、尚未上传的订单。</span><br />
+<span data-custom-style="Red Text">4、收银台 ›
+订单管理【筛选】的开票状态选“开票中”时，系统列出开票中的订单，包含离线开出、尚未上传的订单；选“离线待上传”时，只列出离线开出、尚未上传的订单；选“已开票”时，不含离线开出、尚未上传的订单。</span><br />
 <span data-custom-style="Red Text">（2）查看离线发票：</span><br />
 <span data-custom-style="Red Text">1、用户在 收银台 › 订单管理
 的【发票信息】点离线发票行上的【查看】，系统打开【发票详情】弹窗。</span><br />
@@ -20035,7 +20209,7 @@ data-custom-style="Red Text">2、系统提交税局，提示：“已提交上�
 Key 不变。</span><br />
 <span data-custom-style="Red Text">（4）后台立即上传：</span><br />
 <span
-data-custom-style="Red Text">1、用户在后台【收银订单】【门店预订单】或【换货订单】左侧开票状态点【开票中】，在开票状态为“离线已开票（待上传）”的行点击操作列的【立即上传】（在【查看】的右边）。</span><br />
+data-custom-style="Red Text">1、用户在后台【收银订单】【门店预订单】或【换货订单】左侧开票状态点【开票中】，在离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”）点击操作列的【立即上传】（在【查看】的右边）。</span><br />
 <span
 data-custom-style="Red Text">2、系统提交税局，提示：“已提交上传，税局授权后发票状态变为“已开票”。”。上传时发票号和
 Key 不变。</span><br />
@@ -20060,7 +20234,7 @@ data-custom-style="Red Text">2、当订单的开票状态为“离线已开票�
 › 订单管理
 只显示【备注】和【立即上传】；后台订单详情不提供【立即上传】。</span><br />
 <span
-data-custom-style="Red Text">3、当后台【收银订单】【门店预订单】【换货订单】列表中行的开票状态为“离线已开票（待上传）”时，操作列显示【查看】和【立即上传】；其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span><br />
+data-custom-style="Red Text">3、当后台【收银订单】【门店预订单】【换货订单】列表中行的开票状态格显示“开票中”、下方灰色小字为“离线已开票（待上传）”时，操作列显示【查看】和【立即上传】；其它开票中的行、离线发票上传被拒和开票失败的行不显示【立即上传】。</span><br />
 <span data-custom-style="Red Text">• 提示消息：无。</span><br />
 <span data-custom-style="Red Text">• 消息通知：无。</span><br />
 <span data-custom-style="Red Text">•
@@ -20126,7 +20300,7 @@ Key
 部分。</span><strong><span
 data-custom-style="Red Text">【立即上传】的入口有两处：一是 收银台 ›
 订单管理
-的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里开票状态为“离线已开票（待上传）”的行，在操作列【查看】的右边。收银台
+的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），在操作列【查看】的右边。收银台
 › 订单管理 发票信息表的行上没有【立即上传】。</span><span
 data-custom-style="Blue Text">失败原因为 Rejeição
 539（发票号重复）或拒绝使用（Denegada）时不显示【立即上传】。发票管理
@@ -21394,7 +21568,8 @@ data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 <td><span data-custom-style="Red Text">否（为空时必填）</span></td>
 <td><span data-custom-style="Red Text">回显</span></td>
 <td><span
-data-custom-style="Red Text">为空时须补填，必须与邮编、州对应。</span></td>
+data-custom-style="Red Text">为空时须补填，必须与邮编、州对应；2～60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">区</span></td>
@@ -21411,7 +21586,8 @@ data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">回显</span></td>
-<td><span data-custom-style="Red Text">为空时可以补填。</span></td>
+<td><span data-custom-style="Red Text">为空时可以补填；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">地址</span></td>
@@ -21579,7 +21755,7 @@ data-custom-style="Red Text"><strong>包裹信息</strong></span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">包裹类型</span></td>
@@ -21610,7 +21786,8 @@ data-custom-style="Red Text"><strong>承运商信息</strong></span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
 <td><span
-data-custom-style="Red Text">须与【税号】同时填写或同时不填。</span></td>
+data-custom-style="Red Text">须与【税号】同时填写或同时不填；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)</span></td>
@@ -21626,14 +21803,14 @@ ISENTO</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州</span></td>
@@ -21722,6 +21899,12 @@ data-custom-style="Red Text">1、当用户点【开票】时，若必填项未�
 <span data-custom-style="Red Text">3、当用户点【开票】时，若 CPF / CNPJ
 格式或校验位不正确，则提示：“CPF /
 CNPJ格式不正确”。系统不提交。</span><br />
+<span
+data-custom-style="Red Text">4、当承运商的【税号】【名称】只填了其中一个时，只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。系统不提交。</span><br />
+<span
+data-custom-style="Red Text">5、当用户输入的内容超过字段的字数上限时，系统不截断，在字段下面红字提示，如“门牌号最多
+60 个字符”。【城市】少于 2 个字符时，提示：“城市至少 2
+个字符”。系统不提交。</span><br />
 <span data-custom-style="Red Text">•
 提示消息：在当前页面的字段下面红色字体提示：</span></p>
 <table>
@@ -21784,7 +21967,8 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">请输入城市</span></td>
-<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市至少 2 个字符；城市最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">区</span></td>
@@ -21797,6 +21981,11 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <td><span data-custom-style="Red Text">请输入地址</span></td>
 <td><span data-custom-style="Red Text">地址至少 2 个字符；地址最多 60
 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">门牌号</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">门牌号最多 60 个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">邮箱</span></td>
@@ -21824,14 +22013,37 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <td><span data-custom-style="Red Text">净重最多 3 位小数</span></td>
 </tr>
 <tr>
-<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span data-custom-style="Red Text">包装编号</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包装编号最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td><span data-custom-style="Red Text">税号格式不正确</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)（承运商）</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
 <td><span data-custom-style="Red Text">州税号 (IE)格式不正确</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">名称（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 </tbody>
 </table>
@@ -22147,7 +22359,8 @@ data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 <td><span data-custom-style="Red Text">否（为空时必填）</span></td>
 <td><span data-custom-style="Red Text">回显</span></td>
 <td><span
-data-custom-style="Red Text">为空时须补填，必须与邮编、州对应。</span></td>
+data-custom-style="Red Text">为空时须补填，必须与邮编、州对应；2～60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">区</span></td>
@@ -22164,7 +22377,8 @@ data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 data-custom-style="Red Text">只读文本（为空时为输入框）</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">回显</span></td>
-<td><span data-custom-style="Red Text">为空时可以补填。</span></td>
+<td><span data-custom-style="Red Text">为空时可以补填；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">地址</span></td>
@@ -22332,7 +22546,7 @@ data-custom-style="Red Text"><strong>包裹信息</strong></span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">包裹类型</span></td>
@@ -22363,7 +22577,8 @@ data-custom-style="Red Text"><strong>承运商信息</strong></span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
 <td><span
-data-custom-style="Red Text">须与【税号】同时填写或同时不填。</span></td>
+data-custom-style="Red Text">须与【税号】同时填写或同时不填；最多 60
+个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)</span></td>
@@ -22379,14 +22594,14 @@ ISENTO</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州</span></td>
@@ -22483,6 +22698,12 @@ data-custom-style="Red Text">1、当用户点【开票】时，若必填项未�
 <span data-custom-style="Red Text">3、当用户点【开票】时，若 CPF / CNPJ
 格式或校验位不正确，则提示：“CPF /
 CNPJ格式不正确”。系统不提交。</span><br />
+<span
+data-custom-style="Red Text">4、当承运商的【税号】【名称】只填了其中一个时，只填名称的，在【税号】下面提示：“请输入税号”。只填税号的，在【名称】下面提示：“请输入名称”。系统不提交。</span><br />
+<span
+data-custom-style="Red Text">5、当用户输入的内容超过字段的字数上限时，系统不截断，在字段下面红字提示，如“门牌号最多
+60 个字符”。【城市】少于 2 个字符时，提示：“城市至少 2
+个字符”。系统不提交。</span><br />
 <span data-custom-style="Red Text">•
 提示消息：在当前页面的字段下面红色字体提示：</span></p>
 <table>
@@ -22545,7 +22766,8 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">请输入城市</span></td>
-<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市至少 2 个字符；城市最多 60
+个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">区</span></td>
@@ -22558,6 +22780,11 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <td><span data-custom-style="Red Text">请输入地址</span></td>
 <td><span data-custom-style="Red Text">地址至少 2 个字符；地址最多 60
 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">门牌号</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">门牌号最多 60 个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">邮箱</span></td>
@@ -22585,14 +22812,37 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <td><span data-custom-style="Red Text">净重最多 3 位小数</span></td>
 </tr>
 <tr>
-<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span data-custom-style="Red Text">包装编号</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包装编号最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td><span data-custom-style="Red Text">税号格式不正确</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)（承运商）</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
 <td><span data-custom-style="Red Text">州税号 (IE)格式不正确</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">名称（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 </tbody>
 </table>
@@ -26297,7 +26547,9 @@ data-custom-style="Red Text">开退票页面中退货管理、退货概览、物
 <td>数字输入框</td>
 <td>是</td>
 <td>回显</td>
-<td>大于 0 的整数；不能超过可退数量。</td>
+<td>大于 0 的整数；不能超过可退数量。<span
+data-custom-style="Red Text">超过可退数量时提示：“退货数量须在 1~N
+之间”。N 为可退数量。</span></td>
 </tr>
 <tr>
 <td>税收性质</td>
@@ -26367,7 +26619,8 @@ data-custom-style="Red Text">鼠标悬停显示：“承运商信息会写入发
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">000.000.000-00</span></td>
 <td><span data-custom-style="Red Text">CPF 或
-CNPJ；与名称须同时填写或同时留空。</span></td>
+CNPJ；与名称须同时填写或同时留空。</span><span
+data-custom-style="Red Text">只填了名称时，税号下方提示：“请输入税号”。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">名称</span></td>
@@ -26375,7 +26628,9 @@ CNPJ；与名称须同时填写或同时留空。</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
 <td><span
-data-custom-style="Red Text">与税号须同时填写或同时留空。</span></td>
+data-custom-style="Red Text">与税号须同时填写或同时留空。</span><span
+data-custom-style="Red Text">只填了税号时，名称下方提示：“请输入名称”。最多
+60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)</span></td>
@@ -26391,14 +26646,14 @@ ISENTO</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州</span></td>
@@ -26475,9 +26730,12 @@ data-custom-style="Red Text">发票管理（电商、零售）› 开票中
 已开退票数量 = 0），不能再开退票。”。<br />
 2、当用户点【开退货发票】时，若这张采购发票在税局已被取消，则不进入页面，提示：“该发票已在税局取消，不能再开退票。”。<br />
 3、当用户点【开退货发票】时，若这张采购发票已被税局否决，则不进入页面，提示：“该发票已被税局否决，不能再开退票。”。<br />
+<span
+data-custom-style="Red Text">4、当用户点【开票】时，若承运商的税号和名称只填了一个，则不提交，没填的字段下方提示：“请输入税号”或“请输入名称”。</span><br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
+
 <thead>
 <tr>
 <th>字段名称</th>
@@ -26489,7 +26747,9 @@ data-custom-style="Red Text">发票管理（电商、零售）› 开票中
 <tr>
 <td>退货数量</td>
 <td>请输入退货数量</td>
-<td>退货数量须为整数；退货数量须大于 0</td>
+<td>退货数量须为整数；退货数量须大于 0<span
+data-custom-style="Red Text">；退货数量须在 1~N 之间（N
+为可退数量）</span></td>
 </tr>
 <tr>
 <td>税收性质</td>
@@ -26522,14 +26782,74 @@ data-custom-style="Red Text">发票管理（电商、零售）› 开票中
 <td>包裹数量须为整数；包裹数量须大于 0</td>
 </tr>
 <tr>
+<td><span data-custom-style="Red Text">毛重</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">毛重须大于 0</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">净重</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">净重须大于 0</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">包裹尺寸（长）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包裹尺寸（长）须大于
+0</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">包裹尺寸（宽）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包裹尺寸（宽）须大于
+0</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">包裹尺寸（高）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包裹尺寸（高）须大于
+0</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">包裹类型</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包裹类型最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">编号</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">编号最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">物流方式</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">物流方式最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">运单号</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">运单号最多 60 个字符</span></td>
+</tr>
+<tr>
 <td>税号</td>
 <td>请输入税号</td>
-<td>税号格式不正确</td>
+<td><span data-custom-style="Red Text">承运商税号格式不正确</span></td>
 </tr>
 <tr>
 <td>名称</td>
 <td>请输入名称</td>
-<td>-</td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 <tr>
 <td>销售终端</td>
@@ -27270,9 +27590,11 @@ ISENTO</td>
 •
 后置条件：供应商资料更新；之后开具采购退票时使用新的纳税类型和州税号（IE）。<br />
 •
-校验规则：当纳税类型为“1-ICMS纳税人”且州税号（IE）为空时，系统不保存，并在州税号（IE）下方提示：“请输入州税号（IE）”。<br />
+校验规则：当纳税类型为“1-ICMS纳税人”且州税号（IE）为空时，系统不保存，并在州税号（IE）下方提示：“请输入州税号（IE）”。<span
+data-custom-style="Red Text">当【CNPJ】的格式不符合约束规则时，在字段下方提示：“CNPJ格式不正确”。当【州税号（IE）】的格式不正确时，在字段下方提示：“州税号（IE）格式不正确”。系统不保存。</span><br />
 • 提示消息：在当前页面的字段下面红色字体提示：</p>
 <table>
+
 <thead>
 <tr>
 <th>字段名称</th>
@@ -27289,7 +27611,7 @@ ISENTO</td>
 <tr>
 <td>CNPJ</td>
 <td>请输入CNPJ</td>
-<td>无</td>
+<td><span data-custom-style="Red Text">CNPJ格式不正确</span></td>
 </tr>
 <tr>
 <td>州</td>
@@ -27309,7 +27631,8 @@ ISENTO</td>
 <tr>
 <td>州税号（IE）</td>
 <td>请输入州税号（IE）</td>
-<td>无</td>
+<td><span
+data-custom-style="Red Text">州税号（IE）格式不正确</span></td>
 </tr>
 </tbody>
 </table>
@@ -28214,7 +28537,7 @@ data-custom-style="Red Text"><strong>包裹信息</strong></span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">包裹类型</span></td>
@@ -28237,7 +28560,8 @@ data-custom-style="Red Text"><strong>承运商信息</strong></span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">CPF；000.000.000-00</span></td>
 <td><span data-custom-style="Red Text">左侧下拉框选择 CPF 或 CNPJ；CPF
-11 位、CNPJ 14 位；须与【名称】同时填写或同时不填。</span></td>
+11 位、CNPJ 14 位；须与【名称】同时填写或同时不填。</span><span
+data-custom-style="Red Text">只填了名称时，税号下方提示：“请输入税号”。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">名称</span></td>
@@ -28245,7 +28569,9 @@ data-custom-style="Red Text"><strong>承运商信息</strong></span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">请输入</span></td>
 <td><span
-data-custom-style="Red Text">须与【税号】同时填写或同时不填。</span></td>
+data-custom-style="Red Text">须与【税号】同时填写或同时不填。</span><span
+data-custom-style="Red Text">只填了税号时，名称下方提示：“请输入名称”。最多
+60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)</span></td>
@@ -28261,14 +28587,14 @@ ISENTO</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">城市</span></td>
 <td><span data-custom-style="Red Text">输入框</span></td>
 <td><span data-custom-style="Red Text">否</span></td>
 <td><span data-custom-style="Red Text">选填</span></td>
-<td><span data-custom-style="Red Text">无</span></td>
+<td><span data-custom-style="Red Text">最多 60 个字符。</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州</span></td>
@@ -28381,6 +28707,8 @@ data-custom-style="Red Text">5、当调拨单处于“开票中”时，不显�
 data-custom-style="Red Text">6、重新开票时，若税局再次拒绝，保持“开票失败”，行下方的失败原因更新为本次税局返回的原因原文。</span><br />
 <span data-custom-style="Red Text">7、当上次失败原因为 Denegada
 时，重新开票取新的发票号，不使用已被税局占用的发票号。</span><br />
+<span
+data-custom-style="Red Text">8、当用户点【开票】时，若承运商的税号和名称只填了一个，则不提交，没填的字段下方提示：“请输入税号”或“请输入名称”。</span><br />
 <span data-custom-style="Red Text">•
 提示消息：在当前页面的字段下面红色字体提示：</span></p>
 <table>
@@ -28478,14 +28806,37 @@ data-custom-style="Red Text">接收方名称不能包含特殊字符</span></td>
 <td><span data-custom-style="Red Text">净重最多 3 位小数</span></td>
 </tr>
 <tr>
-<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span data-custom-style="Red Text">包装编号</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">包装编号最多 60
+个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">税号（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入税号（只填了名称时）</span></td>
 <td><span data-custom-style="Red Text">税号格式不正确</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">名称（承运商）</span></td>
+<td><span
+data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
+<td><span data-custom-style="Red Text">名称最多 60 个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">州税号 (IE)（承运商）</span></td>
 <td><span data-custom-style="Red Text">-</span></td>
 <td><span data-custom-style="Red Text">州税号 (IE)格式不正确</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">地址1（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">地址1最多 60 个字符</span></td>
+</tr>
+<tr>
+<td><span data-custom-style="Red Text">城市（承运商）</span></td>
+<td><span data-custom-style="Red Text">-</span></td>
+<td><span data-custom-style="Red Text">城市最多 60 个字符</span></td>
 </tr>
 <tr>
 <td><span data-custom-style="Red Text">运费</span></td>
@@ -28810,7 +29161,8 @@ aria-hidden="true">调拨管理【待开票】点行上【更多】里的【取�
 <td>是</td>
 <td>至少 15 个字（与税局 Justificativa
 的要求一致），请写明取消调拨的原因</td>
-<td>至少 15 个字符</td>
+<td>至少 15 个字符<span
+data-custom-style="Red Text">；不支持中文。</span></td>
 </tr>
 </tbody>
 </table>
@@ -28829,10 +29181,12 @@ data-custom-style="Red Text">“待开票”或“开票失败”</span>的行�
 后置条件：调拨单状态改为“已取消”；在调拨管理的“已取消”页签可以查到。<br />
 • 校验规则：当用户点【确认取消调拨】时，若这张调拨单的 NF-e
 已经授权，则不改变状态，提示：“<span data-custom-style="Red Text">已授权
-NF-e 的调拨单不能在此取消，请使用【取消发票】</span>”。<br />
+NF-e 的调拨单不能在此取消，请使用【取消发票】</span>”。<span
+data-custom-style="Red Text">当取消原因含中文时，在字段下方提示：“取消原因不能包含特殊字符”。系统不取消。</span><br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
+
 <thead>
 <tr>
 <th>字段名称</th>
@@ -28844,7 +29198,8 @@ NF-e 的调拨单不能在此取消，请使用【取消发票】</span>”。<b
 <tr>
 <td>取消原因</td>
 <td>请输入取消原因</td>
-<td>取消原因至少 15 个字符</td>
+<td>取消原因至少 15 个字符<span
+data-custom-style="Red Text">；取消原因不能包含特殊字符</span></td>
 </tr>
 </tbody>
 </table>

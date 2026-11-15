@@ -9267,81 +9267,121 @@ data-custom-style="Red Text">请输入名称（只填了税号时）</span></td>
 <p>例如：一张 15/07/2026 开具的发票，9 月仍在近期发票；到 01/10/2026
 零点，系统自动将其移到历史发票。</p>
 <p><span
-data-custom-style="Red Text">【说明】浮层的内容如下（电商、零售相同，引号内为原型原文）：</span></p>
-<table>
-
-<thead>
-<tr>
-<th>条目</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span data-custom-style="Red Text">首段</span></td>
-<td><span
-data-custom-style="Red Text">“近期发票指最近三个自然月（当月及前两个月）内开具的发票；每月
-1 日零点滚动更新，更早的发票自动移入【历史发票】。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 1 条</span></td>
-<td><span data-custom-style="Red Text">“1.
-取消发票：只有状态为“已开票”的发票才能取消。NF-e 55 须在授权后 24
-小时内提交，NFC-e 65 须在授权后 30
-分钟内提交，销售发票超过时限后只能开退票（关联收银订单、门店预订单、换货订单的除外：顾客退货请在
-订单 › 售后管理 › 退货订单
-办理，办理退货退款时系统会自动开具销售退票（引用原发票），不用在这里开）。取消后，发票号和
-Key 仍被占用，不可再次使用。离线开出的 NFC-e 65
-在授权前显示在【开票中】，状态为“离线已开票（待上传）”，不能取消；授权后进入近期发票，取消时限从授权时起算
-30 分钟。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 2 条</span></td>
-<td><span data-custom-style="Red Text">“2.
-开退票：只有状态为“已开票”的销售发票才能开退票（发票状态为已取消、已拒绝，或发票类型为销售退票、采购退票、CC-e、货物转移、货物调拨、进口采购的，都不支持开退票）。原发票保持不变，另开一张销售退票，显示在【入库】页签。采购退票只关联采购发票，在【采购发票】›“已导入”【开退货发票】或【发票管理】›“草稿中”【创建发票】选择“采购退票”开具，开出后显示在【出库】页签。
-采购退票、货物转移、货物调拨、进口采购、销售退票超过取消时限：信息错误时开具
-CC-e；其他错误请联系会计师，办理超期取消或开具反向发票。
-收银订单、门店预订单、换货订单（换出件）的发票，在近期发票、历史发票不提供【开退票】：顾客退货请在
-订单 › 售后管理 › 退货订单
-办理，系统按实际退回的商品自动开具销售退票。同一订单重复开出的发票会进入异常发票：NF-e
-55 授权后 24 小时内【取消发票】，超过后【开退票】；NFC-e 65 授权后 30
-分钟内【取消发票】，超过后系统不能取消，也不开退票，请联系会计师按所在州的规定处理。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 3 条</span></td>
-<td><span data-custom-style="Red Text">“3.
-货物调拨、货物转移发票：调拨设置【调拨单出库前是否开票】开启时，在【调拨管理】开票，可在【调拨管理】或近期发票【取消发票】；关闭时，在【发票管理】›“草稿中”【创建发票】关联调拨单开票，在近期发票【取消发票】。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 4 条</span></td>
-<td><span data-custom-style="Red Text">“4. 开具
-CC-e：用于更正发票上不影响税额的信息（如地址、商品描述）；不能修改影响税额的数值（税基、税率、差价、数量、交易金额），不能更换买家或卖家（仅可更正地址、名称笔误），不能修改开票日期、出库日期、发票序列号和发票号，不能修改出口发票已在出口报关单（DU-E）申报的内容，不能新增或修改分期付款的期数和金额。每张发票最多开具
-20
-次；第二次开具时，第一次的更正将作废，须将第一次更正的内容一并重新填写。发票类型为
-CC-e 的不能开
-CC-e（要再次更正，请对原发票开具）；已取消、已拒绝的发票不能开
-CC-e（行上不显示此按钮，批量勾选时自动跳过）。NFC-e 65 不支持
-CC-e（行上不显示此按钮，批量勾选时自动跳过）；NFC-e 65
-开具有误时，只能在授权后 30
-分钟内【取消发票】，超时后，关联收银订单、门店预订单、换货订单的，顾客退货请在
-订单 › 售后管理 › 退货订单
-办理，办理退货退款时系统会自动开具销售退票（引用原发票），不用在这里开；其他的须【开退票】冲销。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 5 条</span></td>
-<td><span data-custom-style="Red Text">“5.
-重开发票：按新金额另开一张发票（标记为【重开发票】，与原发票同一订单号）；原发票不会自动作废：授权后
+data-custom-style="Red Text">【说明】浮层的内容如下（电商、零售相同）：</span></p>
+<div data-custom-style="First Line Indent">
+<p><span data-custom-style="Red Text"><strong>近期发票：</strong>
+最近三个自然月（当月及前两个月）开具的发票；每月 1
+日零点，更早的发票自动移入【历史发票】。</span></p>
+</div>
+<p><span data-custom-style="Red Text"><strong>1.
+取消发票：</strong></span><br />
+• <span data-custom-style="Red Text">只能取消“已开票”的发票。NFC-e 65
+授权后 30 分钟内、NF-e 55 授权后 24 小时内可以取消。</span><br />
+• <span
+data-custom-style="Red Text">销售发票超过时限不能取消；货物已退回的，请开退票（见第
+2 条）。</span><br />
+• <span data-custom-style="Red Text">取消后，发票号和 Key
+仍被占用，不能再用。</span><br />
+• <span data-custom-style="Red Text">离线开出、尚未授权的 NFC-e 65
+显示在【开票中】，状态为“离线已开票（待上传）”，不能取消；授权后进入近期发票，30
+分钟的取消时限从授权时起算。</span></p>
+<p><span data-custom-style="Red Text"><strong>2.
+开退票：</strong></span><br />
+• <span
+data-custom-style="Red Text">用于货物已退回的情况：原发票不变，另开一张销售退票（入库
+· NF-e 55，引用原发票），显示在【入库】页签。</span><br />
+• <span
+data-custom-style="Red Text">只有状态为“已开票”的销售发票可以开退票。发票状态为“已取消”“已拒绝”的，或发票类型为销售退票、采购退票、CC-e、货物转移、货物调拨、进口采购的，不能开退票。</span><br />
+• <span data-custom-style="Red Text">★
+关联批发订单的销售发票，单张开退票时可以选择退货商品和退货数量：</span><br />
+（1）<span
+data-custom-style="Red Text">勾选要退的商品，退货数量默认等于可退数量（可退数量
+= 原数量 − 已开退票的数量），可以改小，只退一部分。</span><br />
+（2）<span data-custom-style="Red Text">勾选的商品，退货数量须在
+1～可退数量之间。</span><br />
+（3）<span
+data-custom-style="Red Text">一个都不勾选，不能开票。</span><br />
+• <span
+data-custom-style="Red Text">其他销售发票按原发票整张开具，不能选择商品。</span><br />
+• <span
+data-custom-style="Red Text">批量开退票一律按整张开具；只退部分商品的，请单张开退票。</span><br />
+• <span
+data-custom-style="Red Text">批发订单的发票开退票后，批发订单不回到“待开票”。</span><br />
+• <span data-custom-style="Red Text">★
+批发订单退货：设置【批发订单退货入库时是否自动开票】关闭时，批发退货入库后不自动开票，请在近期发票找到原批发订单的销售发票，点【开退票】，勾选退回的商品和数量开具。开关开启时，由【退货订单】›【批发订单】在入库时自动开票，不在这里开。</span></p>
+<p><span data-custom-style="Red Text"><strong>3.
+不在这里开退票的发票：</strong></span><br />
+• <span
+data-custom-style="Red Text">收银订单、门店预订单、换货订单（换出件）的发票：顾客退货请在
+收银台 › 订单管理【退换货】、后台 收银订单【售后】或
+换货订单【售后】办理，系统按实际退回的商品自动开具销售退票（引用原发票）。</span><br />
+• <span
+data-custom-style="Red Text">采购退票只关联采购发票：在【采购发票】›“已导入”【开退货发票】，或在【发票管理】›“草稿中”【创建发票】选“采购退票”开具，开出后显示在【出库】页签。</span><br />
+• <span
+data-custom-style="Red Text">同一订单重复开出的发票会进入【异常发票】，请在异常发票处理。</span></p>
+<p><span data-custom-style="Red Text"><strong>4.
+超过取消时限、又不能开退票的发票：</strong>
+采购退票、货物转移、货物调拨、进口采购、销售退票：信息错误时开具
+CC-e；其他错误请联系会计师，办理超期取消或开具反向发票。</span></p>
+<p><span data-custom-style="Red Text"><strong>5.
+货物调拨、货物转移发票：</strong></span><br />
+• <span
+data-custom-style="Red Text">调拨设置【调拨单出库前是否开票】开启时：在【调拨管理】开票，可在【调拨管理】或近期发票【取消发票】。</span><br />
+• <span
+data-custom-style="Red Text">关闭时：在【发票管理】›“草稿中”【创建发票】关联调拨单开票，在近期发票【取消发票】。</span></p>
+<p><span data-custom-style="Red Text"><strong>6. 开具
+CC-e（更正信）：</strong></span><br />
+• <span data-custom-style="Red Text"><strong>用途：</strong>
+更正发票上不影响税额的信息，如地址、商品描述。</span><br />
+• <span
+data-custom-style="Red Text"><strong>不能更正：</strong></span><br />
+（1）<span
+data-custom-style="Red Text">影响税额的数值：税基、税率、差价、数量、交易金额；</span><br />
+（2）<span
+data-custom-style="Red Text">买家或卖家（只能更正地址、名称笔误）；</span><br />
+（3）<span
+data-custom-style="Red Text">开票日期、出库日期、发票序列号和发票号；</span><br />
+（4）<span
+data-custom-style="Red Text">出口发票已在出口报关单（DU-E）申报的内容；</span><br />
+（5）<span
+data-custom-style="Red Text">分期付款的期数和金额。</span><br />
+• <span data-custom-style="Red Text"><strong>次数：</strong>
+每张发票最多开具 20 次。</span><br />
+• <span data-custom-style="Red Text"><strong>★
+每次都要写上以前的全部更正：</strong> 新开的 CC-e
+会替换上一次，上一次的更正随之作废。所以每次开具时，要把以前所有更正的内容，连同这次新改的内容，一起写上。</span><br />
+（1）<span data-custom-style="Red Text">例如：第 1 次更正了收货地址，第
+2 次要改商品描述时，第 2 次的 CC-e
+里要同时写上收货地址和商品描述，否则第 1 次改的地址会失效。</span><br />
+• <span data-custom-style="Red Text"><strong>不能开 CC-e
+的发票：</strong> NFC-e 65；类型为 CC-e
+的发票（要再次更正，请对原发票开具）；已取消、已拒绝的发票。这些发票的行上不显示【开具
+CC-e】，批量勾选时自动跳过。</span></p>
+<p><span data-custom-style="Red Text"><strong>7.
+重开发票：</strong></span><br />
+• <span
+data-custom-style="Red Text">按新金额另开一张带【重开发票】标记的销售发票，订单号和原发票相同。</span><br />
+• <span
+data-custom-style="Red Text">原发票不会自动作废，须先重开、再处理原发票：授权后
 24 小时内【取消发票】；超过 24
-小时不能开退票，请联系会计师处理。关联收银订单、门店预订单、换货订单的发票不能重开。在取消时限内可以在近期发票或订单上【取消发票】，再到订单上重新【开票】。”</span></td>
-</tr>
-<tr>
-<td><span data-custom-style="Red Text">第 6 条</span></td>
-<td><span data-custom-style="Red Text">“6. 打印发票：NFC-e 65 只能打印
-NFC-e 小票；NF-e 55 可打印 DANFE、简易DANFE、面单；CC-e
-不能打印。已拒绝的发票不能打印。批量勾选时，不符合所选格式的发票将自动跳过并提示。”</span></td>
-</tr>
-</tbody>
-</table>
+小时不能开退票，请联系会计师处理。</span><br />
+• <span data-custom-style="Red Text">不能重开的发票：</span><br />
+（1）<span
+data-custom-style="Red Text">发票状态为“已取消”“已拒绝”的；</span><br />
+（2）<span
+data-custom-style="Red Text">发票类型为采购退票、货物转移、货物调拨、销售退票、进口采购、CC-e
+的；</span><br />
+（3）<span
+data-custom-style="Red Text">关联收银订单、门店预订单、换货订单的销售发票（在取消时限内，可以先【取消发票】，再到订单上重新【开票】）。</span><br />
+• <span
+data-custom-style="Red Text">批发订单的发票重开成功后，批发订单换成新的发票号和开票时间。</span></p>
+<p><span data-custom-style="Red Text"><strong>8.
+打印发票：</strong></span><br />
+• <span data-custom-style="Red Text">NFC-e 65 只能打印 NFC-e 小票；NF-e
+55 可以打印 DANFE、简易 DANFE、面单；CC-e
+不能打印；已拒绝的发票不能打印。</span><br />
+• <span
+data-custom-style="Red Text">批量勾选时，不符合所选格式的发票自动跳过并提示。</span></p>
 <p><strong>设置原因</strong>：</p>
 <ol type="1">
 <li>发票经税局授权后即成为法律文件，不能直接修改。信息错误、金额错误、货物退回等情况，各有对应的合法处理方式。</li>
@@ -12485,74 +12525,92 @@ data-custom-style="Red Text">单据号查询（【单据类型】和输入框，
 NFC-e 65
 的选项，也没有关联订单状态；电商【CC-e】页签的关联订单状态只有已取消订单、已取消或已退货两个选项。列表显示总计和分页（50条/页、100条/页）。<span
 data-custom-style="Red Text">组合搜索可以一次输入多个号码，用逗号、分号或换行隔开。</span></p>
-<p>【说明】浮层的内容如下：</p>
-<table>
-
-<thead>
-<tr>
-<th>条目</th>
-<th>零售</th>
-<th>电商</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>首段</td>
-<td>历史发票指超出最近三个自然月（当月及前两个月）范围的发票；每月 1
-日零点滚动更新，由系统自动从【近期发票】移入。</td>
-<td>同零售</td>
-</tr>
-<tr>
-<td>第 1 条</td>
-<td><span data-custom-style="Red Text">1.
-取消发票：历史发票已超过取消时限，不能取消。销售发票如需冲销请开退票（关联收银订单、门店预订单、换货订单的除外，见第
-2 条）；其他类型见第 2 条。</span></td>
-<td><span data-custom-style="Red Text">同零售</span></td>
-</tr>
-<tr>
-<td>第 2 条</td>
-<td><span data-custom-style="Red Text">2.
-开退票：只有状态为“已开票”的销售发票才能开退票（发票状态为已取消、已拒绝，或发票类型为销售退票、采购退票、CC-e、货物转移、货物调拨、进口采购的，都不支持开退票）。原发票保持不变，另开一张销售退票，显示在【入库】页签。采购退票只关联采购发票，在【采购发票】›“已导入”【开退货发票】或【发票管理】›“草稿中”【创建发票】选择“采购退票”开具，开出后显示在【出库】页签。
+<p><span
+data-custom-style="Red Text">【说明】浮层的内容如下（电商、零售相同）：</span></p>
+<div data-custom-style="First Line Indent">
+<p><span data-custom-style="Red Text"><strong>历史发票：</strong>
+超出最近三个自然月（当月及前两个月）范围的发票；每月 1
+日零点，由系统自动从【近期发票】移入。</span></p>
+</div>
+<p><span data-custom-style="Red Text"><strong>1. 取消发票：</strong>
+历史发票已超过取消时限，不能取消。销售发票如需冲销，请开退票（见第 2
+条）。</span></p>
+<p><span data-custom-style="Red Text"><strong>2.
+开退票：</strong></span><br />
+• <span
+data-custom-style="Red Text">用于货物已退回的情况：原发票不变，另开一张销售退票（入库
+· NF-e
+55，引用原发票），授权后显示在【近期发票】的【全部】【入库】页签，不放入历史发票。</span><br />
+• <span
+data-custom-style="Red Text">只有状态为“已开票”的销售发票可以开退票。发票状态为“已取消”“已拒绝”的，或发票类型为销售退票、采购退票、CC-e、货物转移、货物调拨、进口采购的，不能开退票。</span><br />
+• <span data-custom-style="Red Text">★
+关联批发订单的销售发票，单张开退票时可以选择退货商品和退货数量：</span><br />
+（1）<span
+data-custom-style="Red Text">勾选要退的商品，退货数量默认等于可退数量（可退数量
+= 原数量 − 已开退票的数量），可以改小，只退一部分。</span><br />
+（2）<span data-custom-style="Red Text">勾选的商品，退货数量须在
+1～可退数量之间。</span><br />
+（3）<span
+data-custom-style="Red Text">一个都不勾选，不能开票。</span><br />
+• <span
+data-custom-style="Red Text">其他销售发票按原发票整张开具，不能选择商品。</span><br />
+• <span
+data-custom-style="Red Text">批量开退票一律按整张开具；只退部分商品的，请单张开退票。</span><br />
+• <span
+data-custom-style="Red Text">批发订单的发票开退票后，批发订单不回到“待开票”。</span><br />
+• <span data-custom-style="Red Text">★
+批发订单退货：设置【批发订单退货入库时是否自动开票】关闭时，批发退货入库后不自动开票；原批发订单的销售发票已移入历史发票的，请在历史发票找到它，点【开退票】，勾选退回的商品和数量开具。开关开启时，由【退货订单】›【批发订单】在入库时自动开票，不在这里开。</span></p>
+<p><span data-custom-style="Red Text"><strong>3.
+不在这里开退票的发票：</strong></span><br />
+• <span
+data-custom-style="Red Text">收银订单、门店预订单、换货订单（换出件）的发票：顾客退货请在
+收银台 › 订单管理【退换货】、后台 收银订单【售后】或
+换货订单【售后】办理，系统按实际退回的商品自动开具销售退票（引用原发票）。</span><br />
+• <span
+data-custom-style="Red Text">采购退票只关联采购发票：在【采购发票】›“已导入”【开退货发票】，或在【发票管理】›“草稿中”【创建发票】选“采购退票”开具。</span><br />
+• <span
+data-custom-style="Red Text">同一订单重复开出的发票会进入【异常发票】，请在异常发票处理。</span></p>
+<p><span data-custom-style="Red Text"><strong>4.
+不能开退票的发票：</strong>
 采购退票、货物转移、货物调拨、进口采购、销售退票：信息错误时开具
-CC-e；其他错误请联系会计师，办理超期取消或开具反向发票。
-收银订单、门店预订单、换货订单（换出件）的发票，在近期发票、历史发票不提供【开退票】：顾客退货请在
-订单 › 售后管理 › 退货订单
-办理，系统按实际退回的商品自动开具销售退票。同一订单重复开出的发票会进入异常发票：NF-e
-55 授权后 24 小时内【取消发票】，超过后【开退票】；NFC-e 65 授权后 30
-分钟内【取消发票】，超过后系统不能取消，也不开退票，请联系会计师按所在州的规定处理。</span></td>
-<td><span data-custom-style="Red Text">同零售</span></td>
-</tr>
-<tr>
-<td>第 3 条</td>
-<td><span data-custom-style="Red Text">3. 开具
-CC-e：用于更正发票上不影响税额的信息（如地址、商品描述）；不能修改影响税额的数值（税基、税率、差价、数量、交易金额），不能更换买家或卖家（仅可更正地址、名称笔误），不能修改开票日期、出库日期、发票序列号和发票号，不能修改出口发票已在出口报关单（DU-E）申报的内容，不能新增或修改分期付款的期数和金额。每张发票最多开具
-20
-次；第二次开具时，第一次的更正将作废，须将第一次更正的内容一并重新填写。发票类型为
-CC-e 的不能开
-CC-e（要再次更正，请对原发票开具）；已取消、已拒绝的发票不能开
-CC-e（行上不显示此按钮，批量勾选时自动跳过）。NFC-e 65 不支持
-CC-e（行上不显示此按钮，批量勾选时自动跳过）；NFC-e 65
-开具有误时，只能在授权后 30
-分钟内【取消发票】，超时后，关联收银订单、门店预订单、换货订单的，顾客退货请在
-订单 › 售后管理 › 退货订单
-办理，办理退货退款时系统会自动开具销售退票（引用原发票），不用在这里开；其他的须【开退票】冲销。</span></td>
-<td><span data-custom-style="Red Text">同零售</span></td>
-</tr>
-<tr>
-<td>第 4 条</td>
-<td><span data-custom-style="Red Text">4.
-重开发票：历史发票不能重开。</span></td>
-<td><span data-custom-style="Red Text">同零售</span></td>
-</tr>
-<tr>
-<td>第 5 条</td>
-<td><span data-custom-style="Red Text">5. 打印发票：NFC-e 65 只能打印
-NFC-e 小票；NF-e 55 可打印 DANFE、简易DANFE、面单；CC-e
-不能打印。已拒绝的发票不能打印。批量勾选时，不符合所选格式的发票将自动跳过并提示。</span></td>
-<td><span data-custom-style="Red Text">同零售</span></td>
-</tr>
-</tbody>
-</table>
+CC-e；其他错误请联系会计师，办理超期取消或开具反向发票。</span></p>
+<p><span data-custom-style="Red Text"><strong>5. 开具
+CC-e（更正信）：</strong></span><br />
+• <span data-custom-style="Red Text"><strong>用途：</strong>
+更正发票上不影响税额的信息，如地址、商品描述。</span><br />
+• <span
+data-custom-style="Red Text"><strong>不能更正：</strong></span><br />
+（1）<span
+data-custom-style="Red Text">影响税额的数值：税基、税率、差价、数量、交易金额；</span><br />
+（2）<span
+data-custom-style="Red Text">买家或卖家（只能更正地址、名称笔误）；</span><br />
+（3）<span
+data-custom-style="Red Text">开票日期、出库日期、发票序列号和发票号；</span><br />
+（4）<span
+data-custom-style="Red Text">出口发票已在出口报关单（DU-E）申报的内容；</span><br />
+（5）<span
+data-custom-style="Red Text">分期付款的期数和金额。</span><br />
+• <span data-custom-style="Red Text"><strong>次数：</strong>
+每张发票最多开具 20 次。</span><br />
+• <span data-custom-style="Red Text"><strong>★
+每次都要写上以前的全部更正：</strong> 新开的 CC-e
+会替换上一次，上一次的更正随之作废。所以每次开具时，要把以前所有更正的内容，连同这次新改的内容，一起写上。</span><br />
+（1）<span data-custom-style="Red Text">例如：第 1 次更正了收货地址，第
+2 次要改商品描述时，第 2 次的 CC-e
+里要同时写上收货地址和商品描述，否则第 1 次改的地址会失效。</span><br />
+• <span data-custom-style="Red Text"><strong>不能开 CC-e
+的发票：</strong> NFC-e 65；类型为 CC-e
+的发票（要再次更正，请对原发票开具）；已取消、已拒绝的发票。这些发票的行上不显示【开具
+CC-e】，批量勾选时自动跳过。</span></p>
+<p><span data-custom-style="Red Text"><strong>6. 重开发票：</strong>
+历史发票不能重开。</span></p>
+<p><span data-custom-style="Red Text"><strong>7.
+打印发票：</strong></span><br />
+• <span data-custom-style="Red Text">NFC-e 65 只能打印 NFC-e 小票；NF-e
+55 可以打印 DANFE、简易 DANFE、面单；CC-e
+不能打印；已拒绝的发票不能打印。</span><br />
+• <span
+data-custom-style="Red Text">批量勾选时，不符合所选格式的发票自动跳过并提示。</span></p>
 <p><strong>功能说明</strong>：开票时间早于最近三个自然月的发票均存放在此处，主要用于查询、报税和审计。分【全部】【出库】【入库】【CC-e】四个页签。</p>
 <p><strong>存放期限</strong>：<span
 data-custom-style="Red Text">与近期发票的存放期限相同，请参考 5.3.4.1
@@ -14209,40 +14267,90 @@ alt="发票模型为 NFC-e 65 的发票，打开 NFC-e 小票预览" />
 </table>
 <h4 id="异常发票">5.3.6 异常发票</h4>
 <h5 id="异常发票怎么来的">5.3.6.1 异常发票怎么来的</h5>
-<p><strong>异常发票是什么</strong>（取原型页面【说明】ⓘ 的 9 条，<span
-data-custom-style="Red Text">电商、零售相同，</span>引号内为原型原文）<br />
-1、什么是异常发票：<span
-data-custom-style="Red Text">“异常发票：发票已开具，但交易未达成或发票重复开具；如不处理，将为未成交的订单缴税。”。</span><br />
-2、取消、退货订单发票：<span data-custom-style="Red Text">“1.
-取消、退货订单发票：90
+<p><strong>异常发票是什么</strong>（取原型页面【说明】ⓘ<span
+data-custom-style="Red Text">，电商、零售相同</span>）</p>
+<div data-custom-style="First Line Indent">
+<p><span data-custom-style="Red Text"><strong>异常发票：</strong>
+发票已开具，但交易未达成或发票重复开具；如不处理，将为未成交的订单缴税。</span></p>
+</div>
+<p><span data-custom-style="Red Text"><strong>1. 收录哪些：</strong>
+只收录关联订单、状态为“已开票”的销售发票（NF-e 55、NFC-e
+65），分两种：</span><br />
+• <span
+data-custom-style="Red Text"><strong>取消、退货订单的发票：</strong></span><br />
+（1）<span data-custom-style="Red Text">90
 天内（按订单取消或退货的日期计算），电商订单被取消（全平台）或被退货（仅
 Mercado
-Livre、Shopee、Shein），或批发订单被取消，且该订单的发票状态为“已开票”、未开过退票。收银订单结账即完成，不能取消订单。门店预订单在收银台收款时自动开票。”。</span><br />
-3、重复发票：<span data-custom-style="Red Text">“2.
-重复发票：电商订单开具了多张发票时，未上传平台、未取消且未开退票的发票为重复发票。零售订单有多张有效的销售发票时，订单上记录的那张以外、未取消且未开退票的发票为重复发票，换货订单的退回件、换出件各一张，不算重复。带【重开发票】标记的新发票不认定为异常；被重开的原发票未取消、未开退票的，仍认定为重复发票。”。</span><br />
-4、收录范围：<span
-data-custom-style="Red Text">“收录范围：只收录关联订单、状态为“已开票”的销售发票（NF-e
-55、NFC-e
-65）。销售退票、采购退票、货物转移、货物调拨、调给加盟店的销售发票、进口采购、CC-e
-不收录。离线开出、尚未授权的 NFC-e 65
-不收录，授权后再按上述条件判断。”。</span><br />
-5、怎么进入本列表：<span
-data-custom-style="Red Text">“怎么进入本列表：系统每天自动同步一次，也可以点【同步】立即同步。同步时检查过去
-90
-天内被取消、被退货的电商订单，被取消的批发订单，以及同一订单的重复发票，把符合条件的发票加入【待处理】。一张发票只记一条，异常原因按“订单已取消、订单已退货、重复开票”的顺序取第一个。已在其他页面取消或开退票的发票，同步时自动转到【已处理】。退货订单会自动开具销售退票，不列入本列表。”。</span><br />
-6、处理方式：<span data-custom-style="Red Text">“处理方式：NF-e 55
-授权后 24 小时内、NFC-e 65 授权后 30 分钟内可【取消发票】；NF-e 55
-超时后请【开退票】抵扣，NFC-e 65
-超时后请联系会计师处理。确认无需处理的，请【标记为已忽略】。”。</span><br />
-7、注意：<span data-custom-style="Red Text">“注意：异常发票收录 90
-天内的发票，而开退票须在【近期发票】（最近三个自然月）中操作。已归档至【历史发票】的发票，请在历史发票页面开退票。”。</span><br />
-8、五个页签：<span
-data-custom-style="Red Text">“五个页签表示处理进度，不表示发票类型：“待处理”、“处理中”、“失败”、“已处理”、“已忽略”。”。</span><br />
-9、自动取消：<span data-custom-style="Red Text">“自动取消（在 设置 ›
-订单设置 › 开票设置 开启）：开启后，系统每天巴西时间 0 点对授权后 24
-小时内的 NF-e 55
-销售发票自动提交取消；可同时设置取消失败时自动开退票。NFC-e 65
-不自动取消。”。</span></p>
+Livre、Shopee、Shein），或批发订单被取消，且发票未开过退票。</span><br />
+（2）<span
+data-custom-style="Red Text">收银订单结账即完成，不能取消订单；门店预订单在收银台收款时自动开票。</span><br />
+• <span
+data-custom-style="Red Text"><strong>重复发票：</strong></span><br />
+（1）<span
+data-custom-style="Red Text">电商订单开了多张发票时，未上传平台、未取消且未开退票的为重复发票。</span><br />
+（2）<span
+data-custom-style="Red Text">零售订单有多张有效的销售发票时，订单上记录的那张以外、未取消且未开退票的为重复发票。</span><br />
+（3）<span
+data-custom-style="Red Text">换货订单的退回件、换出件各一张，不算重复。</span><br />
+（4）<span
+data-custom-style="Red Text">带【重开发票】标记的新发票不算异常；被重开的原发票未取消、未开退票的，仍算重复发票。</span></p>
+<p><span data-custom-style="Red Text"><strong>2.
+不收录：</strong></span><br />
+• <span
+data-custom-style="Red Text">销售退票、采购退票、货物转移、货物调拨、调给加盟店的销售发票、进口采购、CC-e。</span><br />
+• <span data-custom-style="Red Text">离线开出、尚未授权的 NFC-e 65
+不收录，授权后再按上述条件判断。</span><br />
+• <span
+data-custom-style="Red Text">收银订单、门店预订单、换货订单的退货，由退货订单自动开具销售退票，不进入本列表。</span><br />
+• <span
+data-custom-style="Red Text">批发订单退货也不进入本列表：开关【批发订单退货入库时是否自动开票】开启时，由退货订单自动开票；关闭时，请到近期发票或历史发票对原销售发票【开退票】。</span></p>
+<p><span data-custom-style="Red Text"><strong>3.
+怎么进入本列表：</strong></span><br />
+• <span
+data-custom-style="Red Text">系统每天自动同步一次，也可以点【同步】立即同步。</span><br />
+• <span data-custom-style="Red Text">同步时检查过去 90
+天内被取消、被退货的电商订单，被取消的批发订单，以及同一订单的重复发票，把符合条件的发票加入【待处理】。</span><br />
+• <span
+data-custom-style="Red Text">一张发票只记一条，异常原因按“订单已取消、订单已退货、重复开票”的顺序取第一个。</span><br />
+• <span
+data-custom-style="Red Text">已在其他页面取消或开退票的发票，同步时自动转到【已处理】。</span></p>
+<p><span data-custom-style="Red Text"><strong>4.
+怎么处理：</strong></span><br />
+• <span data-custom-style="Red Text">NF-e 55 授权后 24 小时内、NFC-e 65
+授权后 30 分钟内，可以【取消发票】。</span><br />
+• <span data-custom-style="Red Text">NF-e 55 超过 24
+小时：点【开退票】冲销，原发票不变，另开一张销售退票（入库 · NF-e
+55，引用原发票），显示在【近期发票】的【入库】页签。</span><br />
+（1）<span data-custom-style="Red Text">★
+关联批发订单的销售发票，单张开退票时可以选择退货商品和退货数量：</span><br />
+①<span
+data-custom-style="Red Text">勾选要退的商品，退货数量默认等于可退数量（可退数量
+= 原数量 − 已开退票的数量），可以改小，只退一部分。</span><br />
+②<span data-custom-style="Red Text">勾选的商品，退货数量须在
+1～可退数量之间。</span><br />
+③<span
+data-custom-style="Red Text">一个都不勾选，不能开票。</span><br />
+（2）<span
+data-custom-style="Red Text">其他销售发票按原发票整张开具，不能选择商品。</span><br />
+（3）<span
+data-custom-style="Red Text">批量开退票一律按整张开具；只退部分商品的，请单张开退票。</span><br />
+（4）<span
+data-custom-style="Red Text">批发订单的发票开退票后，批发订单不回到“待开票”。</span><br />
+• <span data-custom-style="Red Text">NFC-e 65 超过 30
+分钟：系统不能取消，请联系会计师处理。</span><br />
+• <span
+data-custom-style="Red Text">确认无需处理的，请【标记为已忽略】。</span><br />
+• <span data-custom-style="Red Text">异常发票收录 90
+天内的发票，而开退票只能对【近期发票】（最近三个自然月）里的发票操作。发票已归档到【历史发票】的，点【开退票】时不打开弹窗，提示：“错误：近期发票无该发票数据，请前往历史发票对该发票进行退票。”。批量开退票时，这些发票自动过滤。</span></p>
+<p><span data-custom-style="Red Text"><strong>5. 自动取消（在 设置 ›
+订单设置 › 开票设置 开启）：</strong></span><br />
+• <span data-custom-style="Red Text">开启后，系统每天巴西时间 0
+点，对授权后 24 小时内的 NF-e 55 销售发票自动提交取消。</span><br />
+• <span
+data-custom-style="Red Text">可同时设置取消失败时自动开退票。</span><br />
+• <span data-custom-style="Red Text">NFC-e 65 不自动取消。</span></p>
+<p><span data-custom-style="Red Text"><strong>6. 页签：</strong>
+五个页签表示处理进度，不表示发票类型：“待处理”“处理中”“失败”“已处理”“已忽略”。</span></p>
 <p><strong>页面顶部【异常发票认定】提示条</strong><br />
 <span data-custom-style="Red Text">电商、零售相同，内容为：</span><span
 data-custom-style="Red Text">“1. 取消、退货订单发票：90

@@ -355,7 +355,7 @@ code{font-family:Consolas,monospace}
 <li class="leaf"><span class="tw"></span><a href="#原型-8" class="t" title="6.1.9.4.2 原型">6.1.9.4.2 原型</a></li>
 <li class="leaf"><span class="tw"></span><a href="#字段规范-9" class="t" title="6.1.9.4.3 字段规范">6.1.9.4.3 字段规范</a></li>
 <li class="leaf"><span class="tw"></span><a href="#用例规则-9" class="t" title="6.1.9.4.4 用例规则">6.1.9.4.4 用例规则</a></li></ul></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开启了离线收银" class="t" title="6.2 开启了离线收银">6.2 开启了离线收银</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#离线开票" class="t" title="6.2.1 离线开票">6.2.1 离线开票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-13" class="t" title="6.2.1.1 业务场景说明">6.2.1.1 业务场景说明</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#断网离线开票nfc-e-65" class="t" title="6.2 断网离线开票（NFC-e 65）">6.2 断网离线开票（NFC-e 65）</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#离线开票" class="t" title="6.2.1 离线开票">6.2.1 离线开票</a><ul><li class="leaf"><span class="tw"></span><a href="#业务场景说明-13" class="t" title="6.2.1.1 业务场景说明">6.2.1.1 业务场景说明</a></li>
 <li class="leaf"><span class="tw"></span><a href="#流程图-14" class="t" title="6.2.1.2 流程图">6.2.1.2 流程图</a></li>
 <li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-10" class="t" title="6.2.1.3 和税局（SEFAZ）的数据交互">6.2.1.3 和税局（SEFAZ）的数据交互</a></li>
 <li class="leaf"><span class="tw"></span><a href="#关键业务约束-13" class="t" title="6.2.1.4 关键业务约束">6.2.1.4 关键业务约束</a></li>
@@ -372,7 +372,7 @@ code{font-family:Consolas,monospace}
 <li class="leaf"><span class="tw"></span><a href="#原型-10" class="t" title="6.2.5.5 原型">6.2.5.5 原型</a></li>
 <li class="leaf"><span class="tw"></span><a href="#字段规范-11" class="t" title="6.2.5.6 字段规范">6.2.5.6 字段规范</a></li>
 <li class="leaf"><span class="tw"></span><a href="#用例规则-11" class="t" title="6.2.5.7 用例规则">6.2.5.7 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#没有开启离线收银断网后补开发票" class="t" title="6.3 没有开启离线收银，断网后补开发票">6.3 没有开启离线收银，断网后补开发票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#断网收款订单进入待开票" class="t" title="6.3.1 断网收款，订单进入待开票">6.3.1 断网收款，订单进入待开票</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-11" class="t" title="6.3.1.1 原型">6.3.1.1 原型</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#断网后补开发票nf-e-55" class="t" title="6.3 断网后补开发票（NF-e 55）">6.3 断网后补开发票（NF-e 55）</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#断网收款订单进入待开票" class="t" title="6.3.1 断网收款，订单进入待开票">6.3.1 断网收款，订单进入待开票</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-11" class="t" title="6.3.1.1 原型">6.3.1.1 原型</a></li>
 <li class="leaf"><span class="tw"></span><a href="#发票信息-1" class="t" title="6.3.1.2 发票信息">6.3.1.2 发票信息</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票补开发票" class="t" title="6.3.2 待开票：补开发票">6.3.2 待开票：补开发票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票-2" class="t" title="6.3.2.1 开票">6.3.2.1 开票</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-15" class="t" title="6.3.2.1.1 关键业务约束">6.3.2.1.1 关键业务约束</a></li>
 <li class="leaf"><span class="tw"></span><a href="#原型-12" class="t" title="6.3.2.1.2 原型">6.3.2.1.2 原型</a></li>
@@ -500,115 +500,111 @@ code{font-family:Consolas,monospace}
 <li class="leaf"><span class="tw"></span><a href="#不开启自动开退票" class="t" title="9.2.2 不开启自动开退票">9.2.2 不开启自动开退票</a></li></ul></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#设置" class="t" title="10 设置">10 设置</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#订单配置" class="t" title="10.1 订单配置">10.1 订单配置</a><ul><li class="leaf"><span class="tw"></span><a href="#自动取消" class="t" title="10.1.1 自动取消">10.1.1 自动取消</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#调拨配置" class="t" title="10.2 调拨配置">10.2 调拨配置</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-35" class="t" title="10.2.1 原型">10.2.1 原型</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#收银开票设置离线开票" class="t" title="10.3 收银开票设置（离线开票）">10.3 收银开票设置（离线开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-36" class="t" title="10.3.1 关键业务约束">10.3.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-36" class="t" title="10.3.2 原型">10.3.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-35" class="t" title="10.3.3 字段规范">10.3.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-35" class="t" title="10.3.4 用例规则">10.3.4 用例规则</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#订单设置" class="t" title="10.4 订单设置">10.4 订单设置</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#批发订单退货入库时是否自动开票" class="t" title="10.4.1 批发订单退货入库时是否自动开票">10.4.1 批发订单退货入库时是否自动开票</a><ul><li class="leaf"><span class="tw"></span><a href="#流程图-30" class="t" title="10.4.1.1 流程图">10.4.1.1 流程图</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-37" class="t" title="10.4.1.2 原型">10.4.1.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-36" class="t" title="10.4.1.3 字段规范">10.4.1.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-36" class="t" title="10.4.1.4 用例规则">10.4.1.4 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#订单设置" class="t" title="10.3 订单设置">10.3 订单设置</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#批发订单退货入库时是否自动开票" class="t" title="10.3.1 批发订单退货入库时是否自动开票">10.3.1 批发订单退货入库时是否自动开票</a><ul><li class="leaf"><span class="tw"></span><a href="#流程图-30" class="t" title="10.3.1.1 流程图">10.3.1.1 流程图</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-36" class="t" title="10.3.1.2 原型">10.3.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-35" class="t" title="10.3.1.3 字段规范">10.3.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-35" class="t" title="10.3.1.4 用例规则">10.3.1.4 用例规则</a></li></ul></li></ul></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#采购发票" class="t" title="11 采购发票">11 采购发票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#采购发票-1" class="t" title="11.1 采购发票">11.1 采购发票</a><ul><li class="leaf"><span class="tw"></span><a href="#页面说明" class="t" title="11.1.1 页面说明">11.1.1 页面说明</a></li>
 <li class="leaf"><span class="tw"></span><a href="#业务场景说明-16" class="t" title="11.1.2 业务场景说明">11.1.2 业务场景说明</a></li>
 <li class="leaf"><span class="tw"></span><a href="#流程图-31" class="t" title="11.1.3 流程图">11.1.3 流程图</a></li>
 <li class="leaf"><span class="tw"></span><a href="#和税局sefaz的数据交互-12" class="t" title="11.1.4 和税局（SEFAZ）的数据交互">11.1.4 和税局（SEFAZ）的数据交互</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-37" class="t" title="11.1.5 关键业务约束">11.1.5 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-36" class="t" title="11.1.5 关键业务约束">11.1.5 关键业务约束</a></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#同步发票" class="t" title="11.1.6 同步发票">11.1.6 同步发票</a><ul><li class="leaf"><span class="tw"></span><a href="#同步发票的范围" class="t" title="11.1.6.1 同步发票的范围">11.1.6.1 同步发票的范围</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-38" class="t" title="11.1.6.2 关键业务约束">11.1.6.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-38" class="t" title="11.1.6.3 原型">11.1.6.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-37" class="t" title="11.1.6.4 字段规范">11.1.6.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-37" class="t" title="11.1.6.5 用例规则">11.1.6.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-37" class="t" title="11.1.6.2 关键业务约束">11.1.6.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-37" class="t" title="11.1.6.3 原型">11.1.6.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-36" class="t" title="11.1.6.4 字段规范">11.1.6.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-36" class="t" title="11.1.6.5 用例规则">11.1.6.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#发票声明含再次声明" class="t" title="11.1.7 发票声明（含再次声明）">11.1.7 发票声明（含再次声明）</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以发票声明" class="t" title="11.1.7.1 哪些发票可以发票声明">11.1.7.1 哪些发票可以发票声明</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-39" class="t" title="11.1.7.2 关键业务约束">11.1.7.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-39" class="t" title="11.1.7.3 原型">11.1.7.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-38" class="t" title="11.1.7.4 字段规范">11.1.7.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-38" class="t" title="11.1.7.5 用例规则">11.1.7.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-38" class="t" title="11.1.7.2 关键业务约束">11.1.7.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-38" class="t" title="11.1.7.3 原型">11.1.7.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-37" class="t" title="11.1.7.4 字段规范">11.1.7.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-37" class="t" title="11.1.7.5 用例规则">11.1.7.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#忽略" class="t" title="11.1.8 忽略">11.1.8 忽略</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以忽略" class="t" title="11.1.8.1 哪些发票可以忽略">11.1.8.1 哪些发票可以忽略</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-40" class="t" title="11.1.8.2 关键业务约束">11.1.8.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-40" class="t" title="11.1.8.3 原型">11.1.8.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-39" class="t" title="11.1.8.4 字段规范">11.1.8.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-39" class="t" title="11.1.8.5 用例规则">11.1.8.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-39" class="t" title="11.1.8.2 关键业务约束">11.1.8.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-39" class="t" title="11.1.8.3 原型">11.1.8.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-38" class="t" title="11.1.8.4 字段规范">11.1.8.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-38" class="t" title="11.1.8.5 用例规则">11.1.8.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票-3" class="t" title="11.1.9 打印发票">11.1.9 打印发票</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以打印" class="t" title="11.1.9.1 哪些发票可以打印">11.1.9.1 哪些发票可以打印</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-41" class="t" title="11.1.9.2 关键业务约束">11.1.9.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-40" class="t" title="11.1.9.3 字段规范">11.1.9.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-40" class="t" title="11.1.9.4 用例规则">11.1.9.4 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-40" class="t" title="11.1.9.2 关键业务约束">11.1.9.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-39" class="t" title="11.1.9.3 字段规范">11.1.9.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-39" class="t" title="11.1.9.4 用例规则">11.1.9.4 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#生成采购单" class="t" title="11.1.10 生成采购单">11.1.10 生成采购单</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以生成采购单" class="t" title="11.1.10.1 哪些发票可以生成采购单">11.1.10.1 哪些发票可以生成采购单</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-42" class="t" title="11.1.10.2 关键业务约束">11.1.10.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-41" class="t" title="11.1.10.3 原型">11.1.10.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-41" class="t" title="11.1.10.4 字段规范">11.1.10.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-41" class="t" title="11.1.10.5 用例规则">11.1.10.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-41" class="t" title="11.1.10.2 关键业务约束">11.1.10.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-40" class="t" title="11.1.10.3 原型">11.1.10.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-40" class="t" title="11.1.10.4 字段规范">11.1.10.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-40" class="t" title="11.1.10.5 用例规则">11.1.10.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开退货发票" class="t" title="11.1.11 开退货发票">11.1.11 开退货发票</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以开退货发票" class="t" title="11.1.11.1 哪些发票可以开退货发票">11.1.11.1 哪些发票可以开退货发票</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-43" class="t" title="11.1.11.2 关键业务约束">11.1.11.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-42" class="t" title="11.1.11.3 原型">11.1.11.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-42" class="t" title="11.1.11.4 字段规范">11.1.11.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-42" class="t" title="11.1.11.5 用例规则">11.1.11.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-42" class="t" title="11.1.11.2 关键业务约束">11.1.11.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-41" class="t" title="11.1.11.3 原型">11.1.11.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-41" class="t" title="11.1.11.4 字段规范">11.1.11.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-41" class="t" title="11.1.11.5 用例规则">11.1.11.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#下载-xml" class="t" title="11.1.12 下载 XML">11.1.12 下载 XML</a><ul><li class="leaf"><span class="tw"></span><a href="#哪些发票可以下载-xml" class="t" title="11.1.12.1 哪些发票可以下载 XML">11.1.12.1 哪些发票可以下载 XML</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-44" class="t" title="11.1.12.2 关键业务约束">11.1.12.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-43" class="t" title="11.1.12.3 字段规范">11.1.12.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-43" class="t" title="11.1.12.4 用例规则">11.1.12.4 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-43" class="t" title="11.1.12.2 关键业务约束">11.1.12.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-42" class="t" title="11.1.12.3 字段规范">11.1.12.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-42" class="t" title="11.1.12.4 用例规则">11.1.12.4 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#导入xml" class="t" title="11.1.13 导入XML">11.1.13 导入XML</a><ul><li class="leaf"><span class="tw"></span><a href="#导入xml-的范围" class="t" title="11.1.13.1 导入XML 的范围">11.1.13.1 导入XML 的范围</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-45" class="t" title="11.1.13.2 关键业务约束">11.1.13.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-43" class="t" title="11.1.13.3 原型">11.1.13.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-44" class="t" title="11.1.13.4 字段规范">11.1.13.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-44" class="t" title="11.1.13.5 用例规则">11.1.13.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-44" class="t" title="11.1.13.2 关键业务约束">11.1.13.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-42" class="t" title="11.1.13.3 原型">11.1.13.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-43" class="t" title="11.1.13.4 字段规范">11.1.13.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-43" class="t" title="11.1.13.5 用例规则">11.1.13.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#按日期导出" class="t" title="11.1.14 按日期导出">11.1.14 按日期导出</a><ul><li class="leaf"><span class="tw"></span><a href="#按日期导出的范围" class="t" title="11.1.14.1 按日期导出的范围">11.1.14.1 按日期导出的范围</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-46" class="t" title="11.1.14.2 关键业务约束">11.1.14.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-44" class="t" title="11.1.14.3 原型">11.1.14.3 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-45" class="t" title="11.1.14.4 字段规范">11.1.14.4 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-45" class="t" title="11.1.14.5 用例规则">11.1.14.5 用例规则</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-45" class="t" title="11.1.14.2 关键业务约束">11.1.14.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-43" class="t" title="11.1.14.3 原型">11.1.14.3 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-44" class="t" title="11.1.14.4 字段规范">11.1.14.4 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-44" class="t" title="11.1.14.5 用例规则">11.1.14.5 用例规则</a></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#按勾选导出" class="t" title="11.1.15 按勾选导出">11.1.15 按勾选导出</a><ul><li class="leaf"><span class="tw"></span><a href="#按勾选导出的范围" class="t" title="11.1.15.1 按勾选导出的范围">11.1.15.1 按勾选导出的范围</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-47" class="t" title="11.1.15.2 关键业务约束">11.1.15.2 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-46" class="t" title="11.1.15.3 字段规范">11.1.15.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-46" class="t" title="11.1.15.4 用例规则">11.1.15.4 用例规则</a></li></ul></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#供应商管理税务资料" class="t" title="12 供应商管理（税务资料）">12 供应商管理（税务资料）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-48" class="t" title="12.1 关键业务约束">12.1 关键业务约束</a></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#编辑供应商" class="t" title="12.2 编辑供应商">12.2 编辑供应商</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-45" class="t" title="12.2.1 原型">12.2.1 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-47" class="t" title="12.2.2 字段规范">12.2.2 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-47" class="t" title="12.2.3 用例规则">12.2.3 用例规则</a></li></ul></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-46" class="t" title="11.1.15.2 关键业务约束">11.1.15.2 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-45" class="t" title="11.1.15.3 字段规范">11.1.15.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-45" class="t" title="11.1.15.4 用例规则">11.1.15.4 用例规则</a></li></ul></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#供应商管理税务资料" class="t" title="12 供应商管理（税务资料）">12 供应商管理（税务资料）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-47" class="t" title="12.1 关键业务约束">12.1 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#编辑供应商" class="t" title="12.2 编辑供应商">12.2 编辑供应商</a><ul><li class="leaf"><span class="tw"></span><a href="#原型-44" class="t" title="12.2.1 原型">12.2.1 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-46" class="t" title="12.2.2 字段规范">12.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-46" class="t" title="12.2.3 用例规则">12.2.3 用例规则</a></li></ul></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#调拨管理" class="t" title="13 调拨管理">13 调拨管理</a><ul><li class="leaf"><span class="tw"></span><a href="#页面说明-1" class="t" title="13.1 页面说明">13.1 页面说明</a></li>
 <li class="leaf"><span class="tw"></span><a href="#流程图-32" class="t" title="13.2 流程图">13.2 流程图</a></li>
-<li class="leaf"><span class="tw"></span><a href="#关键业务约束-49" class="t" title="13.3 关键业务约束">13.3 关键业务约束</a></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票-2" class="t" title="13.4 待开票">13.4 待开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-1" class="t" title="13.4.1 开票（含重新开票）">13.4.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-50" class="t" title="13.4.1.1 关键业务约束">13.4.1.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-46" class="t" title="13.4.1.2 原型">13.4.1.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-48" class="t" title="13.4.1.3 字段规范">13.4.1.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-48" class="t" title="13.4.1.4 用例规则">13.4.1.4 用例规则</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交" class="t" title="13.4.2 转提交（含批量转提交）">13.4.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-51" class="t" title="13.4.2.1 关键业务约束">13.4.2.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-47" class="t" title="13.4.2.2 原型">13.4.2.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-49" class="t" title="13.4.2.3 字段规范">13.4.2.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-49" class="t" title="13.4.2.4 用例规则">13.4.2.4 用例规则</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消调拨" class="t" title="13.4.3 取消调拨">13.4.3 取消调拨</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-52" class="t" title="13.4.3.1 关键业务约束">13.4.3.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-48" class="t" title="13.4.3.2 原型">13.4.3.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-50" class="t" title="13.4.3.3 字段规范">13.4.3.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-50" class="t" title="13.4.3.4 用例规则">13.4.3.4 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中-3" class="t" title="13.5 开票中">13.5 开票中</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#刷新查税局状态含批量刷新" class="t" title="13.5.1 刷新（查税局状态）（含批量刷新）">13.5.1 刷新（查税局状态）（含批量刷新）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-53" class="t" title="13.5.1.1 关键业务约束">13.5.1.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-49" class="t" title="13.5.1.2 原型">13.5.1.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-51" class="t" title="13.5.1.3 字段规范">13.5.1.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-51" class="t" title="13.5.1.4 用例规则">13.5.1.4 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败-3" class="t" title="13.6 开票失败">13.6 开票失败</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-2" class="t" title="13.6.1 开票（含重新开票）">13.6.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-54" class="t" title="13.6.1.1 关键业务约束">13.6.1.1 关键业务约束</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交-1" class="t" title="13.6.2 转提交（含批量转提交）">13.6.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-55" class="t" title="13.6.2.1 关键业务约束">13.6.2.1 关键业务约束</a></li></ul></li>
+<li class="leaf"><span class="tw"></span><a href="#关键业务约束-48" class="t" title="13.3 关键业务约束">13.3 关键业务约束</a></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待开票-2" class="t" title="13.4 待开票">13.4 待开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-1" class="t" title="13.4.1 开票（含重新开票）">13.4.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-49" class="t" title="13.4.1.1 关键业务约束">13.4.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-45" class="t" title="13.4.1.2 原型">13.4.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-47" class="t" title="13.4.1.3 字段规范">13.4.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-47" class="t" title="13.4.1.4 用例规则">13.4.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交" class="t" title="13.4.2 转提交（含批量转提交）">13.4.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-50" class="t" title="13.4.2.1 关键业务约束">13.4.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-46" class="t" title="13.4.2.2 原型">13.4.2.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-48" class="t" title="13.4.2.3 字段规范">13.4.2.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-48" class="t" title="13.4.2.4 用例规则">13.4.2.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消调拨" class="t" title="13.4.3 取消调拨">13.4.3 取消调拨</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-51" class="t" title="13.4.3.1 关键业务约束">13.4.3.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-47" class="t" title="13.4.3.2 原型">13.4.3.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-49" class="t" title="13.4.3.3 字段规范">13.4.3.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-49" class="t" title="13.4.3.4 用例规则">13.4.3.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票中-3" class="t" title="13.5 开票中">13.5 开票中</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#刷新查税局状态含批量刷新" class="t" title="13.5.1 刷新（查税局状态）（含批量刷新）">13.5.1 刷新（查税局状态）（含批量刷新）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-52" class="t" title="13.5.1.1 关键业务约束">13.5.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-48" class="t" title="13.5.1.2 原型">13.5.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-50" class="t" title="13.5.1.3 字段规范">13.5.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-50" class="t" title="13.5.1.4 用例规则">13.5.1.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票失败-3" class="t" title="13.6 开票失败">13.6 开票失败</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#开票含重新开票-2" class="t" title="13.6.1 开票（含重新开票）">13.6.1 开票（含重新开票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-53" class="t" title="13.6.1.1 关键业务约束">13.6.1.1 关键业务约束</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#转提交含批量转提交-1" class="t" title="13.6.2 转提交（含批量转提交）">13.6.2 转提交（含批量转提交）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-54" class="t" title="13.6.2.1 关键业务约束">13.6.2.1 关键业务约束</a></li></ul></li>
 <li class="leaf"><span class="tw"></span><a href="#取消调拨-1" class="t" title="13.6.3 取消调拨">13.6.3 取消调拨</a></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#失败原因与处理指引要修改位置" class="t" title="13.6.4 失败原因与处理指引（要修改位置）">13.6.4 失败原因与处理指引（要修改位置）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-56" class="t" title="13.6.4.1 关键业务约束">13.6.4.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-50" class="t" title="13.6.4.2 原型">13.6.4.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-52" class="t" title="13.6.4.3 字段规范">13.6.4.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-52" class="t" title="13.6.4.4 用例规则">13.6.4.4 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-4" class="t" title="13.7 已开票">13.7 已开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#详情发票信息" class="t" title="13.7.1 详情（发票信息）">13.7.1 详情（发票信息）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-57" class="t" title="13.7.1.1 关键业务约束">13.7.1.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-51" class="t" title="13.7.1.2 原型">13.7.1.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-53" class="t" title="13.7.1.3 字段规范">13.7.1.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-53" class="t" title="13.7.1.4 用例规则">13.7.1.4 用例规则</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票含批量打印发票" class="t" title="13.7.2 打印发票（含批量打印发票）">13.7.2 打印发票（含批量打印发票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-58" class="t" title="13.7.2.1 关键业务约束">13.7.2.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-54" class="t" title="13.7.2.2 字段规范">13.7.2.2 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-54" class="t" title="13.7.2.3 用例规则">13.7.2.3 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待出库" class="t" title="13.8 待出库">13.8 待出库</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票待出库" class="t" title="13.8.1 取消发票（待出库）">13.8.1 取消发票（待出库）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-59" class="t" title="13.8.1.1 关键业务约束">13.8.1.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-52" class="t" title="13.8.1.2 原型">13.8.1.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-55" class="t" title="13.8.1.3 字段规范">13.8.1.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-55" class="t" title="13.8.1.4 用例规则">13.8.1.4 用例规则</a></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#出库拦截开关开启时" class="t" title="13.8.2 出库拦截（开关开启时）">13.8.2 出库拦截（开关开启时）</a><ul><li class="leaf"><span class="tw"></span><a href="#字段规范-56" class="t" title="13.8.2.1 字段规范">13.8.2.1 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-56" class="t" title="13.8.2.2 用例规则">13.8.2.2 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#失败原因与处理指引要修改位置" class="t" title="13.6.4 失败原因与处理指引（要修改位置）">13.6.4 失败原因与处理指引（要修改位置）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-55" class="t" title="13.6.4.1 关键业务约束">13.6.4.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-49" class="t" title="13.6.4.2 原型">13.6.4.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-51" class="t" title="13.6.4.3 字段规范">13.6.4.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-51" class="t" title="13.6.4.4 用例规则">13.6.4.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#已开票-4" class="t" title="13.7 已开票">13.7 已开票</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#详情发票信息" class="t" title="13.7.1 详情（发票信息）">13.7.1 详情（发票信息）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-56" class="t" title="13.7.1.1 关键业务约束">13.7.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-50" class="t" title="13.7.1.2 原型">13.7.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-52" class="t" title="13.7.1.3 字段规范">13.7.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-52" class="t" title="13.7.1.4 用例规则">13.7.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#打印发票含批量打印发票" class="t" title="13.7.2 打印发票（含批量打印发票）">13.7.2 打印发票（含批量打印发票）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-57" class="t" title="13.7.2.1 关键业务约束">13.7.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-53" class="t" title="13.7.2.2 字段规范">13.7.2.2 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-53" class="t" title="13.7.2.3 用例规则">13.7.2.3 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#待出库" class="t" title="13.8 待出库">13.8 待出库</a><ul><li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#取消发票待出库" class="t" title="13.8.1 取消发票（待出库）">13.8.1 取消发票（待出库）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-58" class="t" title="13.8.1.1 关键业务约束">13.8.1.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-51" class="t" title="13.8.1.2 原型">13.8.1.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-54" class="t" title="13.8.1.3 字段规范">13.8.1.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-54" class="t" title="13.8.1.4 用例规则">13.8.1.4 用例规则</a></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#出库拦截开关开启时" class="t" title="13.8.2 出库拦截（开关开启时）">13.8.2 出库拦截（开关开启时）</a><ul><li class="leaf"><span class="tw"></span><a href="#字段规范-55" class="t" title="13.8.2.1 字段规范">13.8.2.1 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-55" class="t" title="13.8.2.2 用例规则">13.8.2.2 用例规则</a></li></ul></li></ul></li>
 <li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#无需开票" class="t" title="13.9 无需开票">13.9 无需开票</a><ul><li class="leaf"><span class="tw"></span><a href="#详情发票信息-1" class="t" title="13.9.1 详情（发票信息）">13.9.1 详情（发票信息）</a></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#无需开票同一发票主体内调拨" class="t" title="13.9.2 无需开票（同一发票主体内调拨）">13.9.2 无需开票（同一发票主体内调拨）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-60" class="t" title="13.9.2.1 关键业务约束">13.9.2.1 关键业务约束</a></li>
-<li class="leaf"><span class="tw"></span><a href="#原型-53" class="t" title="13.9.2.2 原型">13.9.2.2 原型</a></li>
-<li class="leaf"><span class="tw"></span><a href="#字段规范-57" class="t" title="13.9.2.3 字段规范">13.9.2.3 字段规范</a></li>
-<li class="leaf"><span class="tw"></span><a href="#用例规则-57" class="t" title="13.9.2.4 用例规则">13.9.2.4 用例规则</a></li></ul></li></ul></li>
-<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#关闭调拨单出库前是否开票后" class="t" title="13.10 关闭【调拨单出库前是否开票】后">13.10 关闭【调拨单出库前是否开票】后</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-61" class="t" title="13.10.1 关键业务约束">13.10.1 关键业务约束</a></li></ul></li></ul></li></ul></li></ul></nav>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#无需开票同一发票主体内调拨" class="t" title="13.9.2 无需开票（同一发票主体内调拨）">13.9.2 无需开票（同一发票主体内调拨）</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-59" class="t" title="13.9.2.1 关键业务约束">13.9.2.1 关键业务约束</a></li>
+<li class="leaf"><span class="tw"></span><a href="#原型-52" class="t" title="13.9.2.2 原型">13.9.2.2 原型</a></li>
+<li class="leaf"><span class="tw"></span><a href="#字段规范-56" class="t" title="13.9.2.3 字段规范">13.9.2.3 字段规范</a></li>
+<li class="leaf"><span class="tw"></span><a href="#用例规则-56" class="t" title="13.9.2.4 用例规则">13.9.2.4 用例规则</a></li></ul></li></ul></li>
+<li class="closed"><span class="tw" role="button" aria-label="展开或收起"></span><a href="#关闭调拨单出库前是否开票后" class="t" title="13.10 关闭【调拨单出库前是否开票】后">13.10 关闭【调拨单出库前是否开票】后</a><ul><li class="leaf"><span class="tw"></span><a href="#关键业务约束-60" class="t" title="13.10.1 关键业务约束">13.10.1 关键业务约束</a></li></ul></li></ul></li></ul></li></ul></nav>
 <main>
 
 <h1
@@ -684,6 +680,15 @@ Key 不变。用户可以再次修改重提。</td>
 ›【收银开票设置】增加临近上传截止提醒、门店设置表（含开票主体列）；收银台
 › 订单管理
 的【取消发票】弹窗与后台统一，超过取消时限时【取消发票】置灰并显示浮层。7、批发订单补充【刷新】（开票中）和【查看发票信息】的说明。</td>
+</tr>
+<tr>
+<td>v1.3</td>
+<td>17/11/2026</td>
+<td>产品</td>
+<td>去掉 设置
+›【收银开票设置】：离线开票固定开启，收银台断网时固定离线开出 NFC-e
+65；离线发票的上传时限统一为开票后 24 小时。原第 10.3 节删除，原第 10.4
+节订单设置改为第 10.3 节；离线发票的消息通知移到第 6.2.1.7 节。</td>
 </tr>
 </tbody>
 </table>
@@ -862,10 +867,11 @@ CNPJ、证书和号段。</td>
 <tr>
 <td>离线开票（Contingência）</td>
 <td>巴西税局认可的离线开票方式：断网时收银机先在本地签发 NFC-e
-交给顾客，联网后在规定时间内补传税局。本系统只对收银台、门店预订的 NFC-e
-65 离线开票，开票方式（tpEmis）为 9。NF-e 55
-不能离线开具，断网时先完成收款，网络恢复后补开。离线开票开关和各州上传时限在
-设置 ›【收银开票设置】配置，见 10.3。</td>
+交给顾客，联网后补传税局。本系统只对收银台、门店预订的 NFC-e 65
+离线开票，开票方式（tpEmis）为
+9；收银台断网时固定离线开出，不需要设置。离线开出的 NFC-e 65 须在开票后
+24 小时内上传税局。NF-e 55
+不能离线开具，断网时先完成收款，网络恢复后补开。</td>
 </tr>
 <tr>
 <td>离线已开票（待上传）</td>
@@ -944,8 +950,7 @@ DC-e、采购发票、发票报表。电商的发票都是 NF-e 55；另有巴�
 NFC-e 65 和 NF-e 55 两种发票模型。<br />
 3、各业务单据的开票：收银台（收银、订单管理、交班日结）；订单 ›
 收银订单（含门店预订单）、批发订单；售后管理 › 退货订单、换货订单；库存
-› 调拨管理；设置 ›
-开票设置、开票关系、调拨设置、收银开票设置。采购退票在 采购发票 和
+› 调拨管理；设置 › 开票设置、开票关系、调拨设置。采购退票在 采购发票 和
 发票管理 › 草稿中 开具，采购 › 采购退货单 不开票。</p>
 <h3 id="产品框架">4.2 产品框架</h3>
 <h4 id="发票主体是什么按-cnpj-判断不设场所类型">4.2.1 发票主体是什么，按
@@ -1316,12 +1321,10 @@ NFC-e 65，不按买方身份改开 NF-e 55；买方需要 NF-e 55 的，授权�
 分钟按退货处理。退回金额记为【店内抵用】，用来支付新商品，差额多退少补。<br />
 4、<strong>换货不取消原发票再重开</strong>：无论间隔多长时间、货物是否已被取走，一律开具两张发票；顾客原来那张发票不取消，继续有效。收银员无需判断货物是否已交付，系统也不提供该勾选项。<br />
 5、<strong>换货完成后自动开票</strong>：用户在 收银台 › 订单管理
-选中订单，点击【退换货】，选择换货，选择退回的商品，填写退款信息后完成换货。系统自动生成互相关联的退货订单和换货订单（显示在列表最上面，开票状态为“已开票”），退货订单开销售退票、换货订单开销售发票。断网时，换货订单的销售发票为
-NFC-e 65
-且开启离线开票的，当场离线开出（“离线已开票（待上传）”），退货订单的销售退票（NF-e
-55）进入“待开票”，网络恢复后只补开这张销售退票；关闭离线开票的，两张单据都进入“待开票”，税局拒绝时进入“开票失败”，在其中任何一张上点【开票】，两张一起补开。换货只能在
-收银台 › 订单管理 发起，换出商品在收银台结算；后台 订单 ›
-收银订单或门店预订单
+选中订单，点击【退换货】，选择换货，选择退回的商品，填写退款信息后完成换货。系统自动生成互相关联的退货订单和换货订单（显示在列表最上面，开票状态为“已开票”），退货订单开销售退票、换货订单开销售发票。断网时，换货订单的销售发票（NFC-e
+65）当场离线开出（“离线已开票（待上传）”），退货订单的销售退票（NF-e
+55）进入“待开票”，网络恢复后只补开这张销售退票。换货只能在 收银台 ›
+订单管理 发起，换出商品在收银台结算；后台 订单 › 收银订单或门店预订单
 的【售后】只提供退货退款、仅退款，与收银台使用同一套流程，结果相同。<br />
 6、<strong>换货订单的【开票】</strong>：用于自动开票失败后重新开票，或发票被取消后重新开票。换货订单和关联退货订单都在“待开票”时，在其中任何一张上点【开票】，退货订单的销售退票和换货订单的销售发票一起开具；只有一张在“待开票”时，只开这一张。弹窗【应开票种】按单据显示，如“退货订单：销售退票
 · NF-e 55（入库），引用原票
@@ -1339,8 +1342,8 @@ CC-e；（2）金额或数量错误的，回到对应的退货订单上处理。
 财务（零售）› 发票管理 ›
 已开票-近期发票（【入库】【出库】【全部】页签），单据信息写退货单号或换货单号（和原订单号）；退货退款自动开的销售退票同时写进原订单详情的【发票信息】。在订单上点【取消发票】后，近期发票里对应的那张发票变为“已取消”（只改被取消的那一张）。</p>
 <h4 id="断网后如何开票">4.2.6 断网后如何开票</h4>
-<p>1、<strong>NFC-e 65 离线开票（Contingência）</strong>：设置
-›【收银开票设置】的【断网时离线开票】开启时（默认开启），收银台断网、无法连接税局，或税局停止服务（Status
+<p>1、<strong>NFC-e 65
+离线开票（Contingência）</strong>：离线开票固定开启，不需要设置。收银台断网、无法连接税局，或税局停止服务（Status
 108 暂停、109 服务不可用）时，收银台和门店预订收款时当场离线开出 NFC-e
 65。开票方式（tpEmis）为 9，发票号和 Key 照常使用本发票主体 NFC-e
 序列号的下一个号。<br />
@@ -1350,25 +1353,20 @@ CC-e；（2）金额或数量错误的，回到对应的退货订单上处理。
 点【立即上传】。后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），操作列也有【立即上传】，作为自动上传之外的手动上传方式。上传时发票号和
 Key
 不变。税局授权后变为“已开票”；被税局拒绝的进入“开票失败”，处理方法见本节第
-6 条。<br />
-3、<strong>上传时限</strong>：离线开出的发票须在所在州规定的时限内上传税局。时限在
-设置
-›【收银开票设置】按州配置，未单独设置的州默认为开票后第一个工作日，各州时限请参考
-10.3 的目录。<br />
+5 条。<br />
+3、<strong>上传时限</strong>：离线开出的 NFC-e 65 须在开票后 24
+小时内上传税局。网络恢复后系统自动上传，也可以点【立即上传】；超过 24
+小时仍须上传，税局按超时授权（cStat 150）处理，系统不拦截。<br />
 4、<strong>NF-e 55 不能离线开具</strong>：顾客要求开具公司发票（NF-e
 55）的订单、退货入库的销售退票等 NF-e
 55，断网时不能开出。收银员先登记邮箱，网络恢复后在【订单管理】点【开票】补开，开票成功后发票自动发送至登记的邮箱。<strong>退货订单的销售退票是
 NF-e 55
 入库票，不能离线开具；断网时须在网络恢复后补开。换货时，换出件在收银台结算，销售发票一律为
-NFC-e 65，开启离线开票的可以离线开具；退货订单的销售退票是 NF-e
+NFC-e 65，断网时当场离线开出；退货订单的销售退票是 NF-e
 55，不能离线开具，断网时只有这张销售退票进入“待开票”，网络恢复后在退货订单上点击【开票】补开，开票成功后发票自动发送至客户登记的邮箱。</strong><br />
-5、<strong>关闭离线开票时</strong>：设置
-›【收银开票设置】的【断网时离线开票】关闭后，断网时 NFC-e 65
-也不离线开出，按第 4
-条的补开方式处理：订单记为“待开票”，网络恢复后补开。<br />
-6、<strong>上传被拒</strong>：离线发票上传后被税局拒绝的，进入“开票失败”，不能改开
+5、<strong>上传被拒</strong>：离线发票上传后被税局拒绝的，进入“开票失败”，不能改开
 NF-e 55。处理方法请参考 6.2.1.4 的目录。<br />
-7、<strong>整体流程</strong>：<br />
+6、<strong>整体流程</strong>：<br />
 （1）结账：收银员照常收款。<br />
 （2）网络正常：当场开 NFC-e 65；开票结果页的按钮：打印 NFC-e
 发票、打印小票、登记邮箱并发送发票、完成；登记邮箱后立即发送（XML +
@@ -1389,7 +1387,7 @@ CONTINGÊNCIA”和进入离线的时间，打印两份：一份交给顾客，�
 时间】；没有登记的，提示【补开后请打印或另行交给顾客】。<br />
 （8）交班：有待上传的离线发票时不能交班，提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。待补开的单只提醒，不拦截交班：显示【待补开
 N 张】和【去补开】（点击后打开【订单管理】）。<br />
-8、<strong>涉及的模块</strong>：</p>
+7、<strong>涉及的模块</strong>：</p>
 <table>
 
 <thead>
@@ -1435,13 +1433,8 @@ N”（本班次结账时网络异常、未开具发票的订单数，含退货�
 </tr>
 <tr>
 <td>财务（零售）› 发票主体 › NFC-e 配置</td>
-<td>没有【离线开票】开关和【离线补传时限】，这两项在 设置
-›【收银开票设置】配置。</td>
-</tr>
-<tr>
-<td>设置 › 收银开票设置</td>
-<td>【断网时离线开票】开关（默认开启）、门店设置和各州上传时限，请参考
-10.3 的目录。</td>
+<td>没有【离线开票】开关和【离线补传时限】。离线开票固定开启，上传时限固定为开票后
+24 小时。</td>
 </tr>
 <tr>
 <td>财务（零售）› 发票管理 › 已开票-近期发票</td>
@@ -1462,9 +1455,9 @@ DANFE，税局恢复前不得出库。</td>
 </tr>
 </tbody>
 </table>
-<p>9、<strong>风险</strong>：NF-e 55
+<p>8、<strong>风险</strong>：NF-e 55
 事后补开时，发票上的时间晚于实际交易时间；遇到税务检查，或顾客投诉没有拿到发票时，有罚款风险。离线开出的
-NFC-e 65 超过所在州规定的上传时限未上传的，同样有罚款风险。</p>
+NFC-e 65 超过开票后 24 小时未上传的，同样有罚款风险。</p>
 <h4 id="发票号与-key-规则">4.2.7 发票号与 Key 规则</h4>
 <p>1、<strong>发票号</strong>：9 位数字（如
 000000720），在同一发票主体（CNPJ）+ 同一发票模型 +
@@ -1608,9 +1601,8 @@ Key 不一致（Rejeição
 539），说明号段被其他系统占用。此时应到发票主体将起始编号修改为税局已使用号码之后的号码（跳号），或启用新的序列号，并对跳过的号段报送作废（Inutilização）。<br />
 4、<strong>税局停止服务</strong>（Status 108 暂停 / 109
 服务不可用）：无需修改数据。系统自动重试 3 次（间隔 5 / 15 / 30
-分钟），税局恢复后自动授权。收银台的 NFC-e 65 在 设置
-›【收银开票设置】开启离线开票时走离线开票，见 4.2.6。NF-e 55
-不能离线开，NF-e 55 对应的货物须在发票开出后才能出库。<br />
+分钟），税局恢复后自动授权。收银台的 NFC-e 65 走离线开票，见 4.2.6。NF-e
+55 不能离线开，NF-e 55 对应的货物须在发票开出后才能出库。<br />
 5、<strong>事件</strong>（RecepcaoEvento）：取消发票（带取消理由，15~255
 个字符，时限见 4.2.4）、开具 CC-e（每张原发票最多 20
 次，没有时间限制）都作为事件报送税局。税局授权后，系统更新原发票的状态和记录。<br />
@@ -6954,8 +6946,8 @@ CC-e】弹窗里等待结果。<br />
 在本页，开票状态为“离线已开票（待上传）”。网络恢复后系统自动上传税局，也可以在
 收银台 › 订单管理
 点【立即上传】，或在后台【收银订单】【门店预订单】【换货订单】列表里这类行的操作列点【立即上传】；授权后进入【已开票-近期发票】，上传被拒的进入“开票失败”。<br />
-• 结账时因断网未能开具发票的单据不在本页（NF-e 55，以及关闭离线开票时的
-NFC-e 65），这些单据仍在业务单据的【待开票】中。<br />
+• 结账时因断网未能开具发票的单据不在本页（NF-e
+55），这些单据仍在业务单据的【待开票】中。<br />
 • 采购退票提交后也进入本页的【出库】页签，单据信息显示原采购发票号。</p>
 <h4 id="开票失败">5.3.3 开票失败</h4>
 <h5 id="业务场景说明-4">5.3.3.1 业务场景说明</h5>
@@ -7122,8 +7114,7 @@ IE
 <h5 id="关键业务约束-4">5.3.3.4 关键业务约束</h5>
 <p>•
 此处只列出已提交税局、被税局拒绝或超时的发票；结账时因断网没有开出发票的单据（NF-e
-55，以及关闭离线开票时的 NFC-e
-65）不在这里，仍在业务单据的【待开票】中。<br />
+55）不在这里，仍在业务单据的【待开票】中。<br />
 • 收银台离线开出的 NFC-e 65
 上传后被税局拒绝的，进入这里，失败原因以“开票失败：离线发票上传被拒，”开头，不能改开
 NF-e 55。处理方法请参考 6.2.1.4 的目录，【处理方法】弹窗的写法见 5.3.3.6
@@ -7496,8 +7487,7 @@ Key 重新上传（系统按正确的 CSC 重新生成二维码），并重新�
 55、NFC-e
 65）、销售退票、采购退票、货物转移、货物调拨和进口采购。系统按发票类型使用对应的校验清单，在本地重新校验，不与税局交互。</p>
 <p>2、以下单据不能验证发票XML：结账时因断网没有开出发票的单据（NF-e
-55，以及关闭离线开票时的 NFC-e
-65），这些单据不在【开票失败】中，仍在业务单据的【待开票】中。</p>
+55），这些单据不在【开票失败】中，仍在业务单据的【待开票】中。</p>
 <p>3、开票主体资格、买家 IE
 是否有效、发票号是否可用、税局系统状态这几项只能由税局校验，本地不检查，显示“提交后由税局校验”。</p>
 <div class="hx h7" id="hx-46" role="heading" aria-level="7">5.3.3.7.1.2 校验项</div>
@@ -15575,16 +15565,16 @@ aria-hidden="true">点筛选区右侧【同步】，确认后页面顶部提示�
 </div>
 <p>下图把收银台 › 订单管理、后台 ›
 收银订单和门店预订单、退货订单、换货订单的开票流程合成一张。换货按新写法：换货时生成互相关联的退货订单和换货订单，在其中任何一张上点【开票】，两张发票一起开具，之后两张单据各管各的。断网时，NFC-e
-65 在开启离线开票时当场离线开出，网络恢复后上传税局；NF-e 55
-和关闭离线开票时的 NFC-e 65 记为待开票，网络恢复后补开。</p>
+65 当场离线开出，网络恢复后上传税局；NF-e 55
+记为待开票，网络恢复后补开。</p>
 <pre class="mermaid">flowchart TB
   S((&quot;开始&quot;)) --&gt; A[&quot;收银台结账、收款或换货&lt;br&gt;换货时生成互相关联的退货订单和换货订单&quot;]
   subgraph sg1[&quot;系统&quot;]
     A --&gt; C[&quot;系统自动提交开票&quot;]
     C --&gt; N{&quot;网络正常？&quot;}
-    N --&gt;|&quot;断网，NFC-e 65 且开启离线开票&quot;| OFF[&quot;当场离线开出 NFC-e 65（tpEmis=9）&lt;br&gt;小票打印两份&lt;br&gt;开票状态为离线已开票（待上传）&quot;]
+    N --&gt;|&quot;断网，NFC-e 65&quot;| OFF[&quot;当场离线开出 NFC-e 65（tpEmis=9）&lt;br&gt;小票打印两份&lt;br&gt;开票状态为离线已开票（待上传）&quot;]
     OFF --&gt;|&quot;网络恢复自动上传&lt;br&gt;或点【立即上传】&quot;| UP[&quot;用原发票号和原 Key 上传税局&quot;]
-    N --&gt;|&quot;断网，NF-e 55 或关闭离线开票&quot;| W[&quot;开票状态为待开票&lt;br&gt;发票信息显示断网未开出的提示&quot;]
+    N --&gt;|&quot;断网，NF-e 55&quot;| W[&quot;开票状态为待开票&lt;br&gt;发票信息显示断网未开出的提示&quot;]
     W --&gt; K[&quot;点【开票】&quot;]
     K --&gt; T{&quot;订单类型&quot;}
     T --&gt;|&quot;收银订单、门店预订单&quot;| D1[&quot;弹窗选发票类型&lt;br&gt;个人默认 NFC-e 65，可改 NF-e 55&lt;br&gt;公司或有州税号默认 NF-e 55，改 NFC-e 65 时确认&quot;]
@@ -15731,10 +15721,10 @@ CPF/CNPJ
 不带“CPF”等前缀；没有发票号时显示“–”；状态下方的灰字与后台相同。</p>
 </div>
 <div data-custom-style="First Line Indent">
-<p>订单进入“待开票”的来源有两种：一是没有开启离线收银、收银台断网时发票没有开出，请参考
-6.3.1 的目录；二是授权后 30 分钟内取消了发票，请参考 6.4.1
-的目录。开启离线收银时，断网当场离线开出 NFC-e
-65，订单不会进入“待开票”，请参考 6.2.1 的目录。</p>
+<p>订单进入“待开票”的来源有两种：一是收银台断网时 NF-e 55
+没有开出，请参考 6.3.1 的目录；二是授权后 30 分钟内取消了发票，请参考
+6.4.1 的目录。断网时 NFC-e 65 当场离线开出，订单不会进入“待开票”，请参考
+6.2.1 的目录。</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p>收银台 › 订单管理 的开票状态筛选共 6
@@ -15897,8 +15887,7 @@ cadastrada，以及【处理方法 ›】</td>
 </div>
 <div data-custom-style="First Line Indent">
 <p>4、收银台网络异常、发票没有开出的待开票订单（NF-e
-55，或关闭离线开票时的 NFC-e 65），表格为空，下方显示断网提示，见
-6.3.1。离线开出、尚未上传的 NFC-e
+55），表格为空，下方显示断网提示，见 6.3.1。离线开出、尚未上传的 NFC-e
 65，表格显示一行，状态为“离线已开票（待上传）”，时间列显示离线开具时间，下方提示：“收银台断网时已离线开出发票（NFC-e
 65），正在等待上传税局。网络恢复后系统自动上传，发票号和 Key
 不变。”。</p>
@@ -16039,8 +16028,7 @@ Rejeição
 </div>
 <div data-custom-style="First Line Indent">
 <p>4、收银台网络异常、发票没有开出的待开票订单（NF-e
-55，或关闭离线开票时的 NFC-e 65），没有表格，只显示断网提示，见
-6.3.1。</p>
+55），没有表格，只显示断网提示，见 6.3.1。</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p>5、已开票、已取消的记录排在当前有效记录之后；时间列的写法与表一相同。</p>
@@ -16104,7 +16092,7 @@ Rejeição
 </tr>
 <tr>
 <td>离线已开票（待上传）</td>
-<td>发票模型、开票类型、发票号、série、Key、授权时间（显示“–”）、接收方、CPF/CNPJ、发票金额；另分段显示【离线开票信息】：开票方式、离线开具时间、上传截止时间、截止依据。</td>
+<td>发票模型、开票类型、发票号、série、Key、授权时间（显示“–”）、接收方、CPF/CNPJ、发票金额；另分段显示【离线开票信息】：开票方式、离线开具时间、上传截止时间。</td>
 <td>无</td>
 <td>无</td>
 </tr>
@@ -16132,8 +16120,7 @@ NFC-e（发票打印件），用于顾客报账、公司报销；2、【打印�
 DANFE，日常交给顾客。无论顾客提供 CPF 还是 CNPJ，收银台都开具销售发票 ·
 NFC-e 65。企业客户需要销售发票 · NF-e 55 的，结账后到 收银台 › 订单管理
 在授权后 30 分钟内先点【取消发票】，订单回到“待开票”，再点【开票】并选
-NF-e 55（见 6.4）。断网或无法连接税局时，设置
-›【收银开票设置】开启离线开票的（默认开启），收银台当场离线开出 NFC-e
+NF-e 55（见 6.4）。断网或无法连接税局时，收银台当场离线开出 NFC-e
 65（Contingência），开票状态为“离线已开票（待上传）”，网络恢复后自动上传税局，见
 6.2.1。NF-e 55
 不能离线开，断网时订单的开票状态为“待开票”，联网后补开，补开成功后系统自动向顾客发送邮件。</p>
@@ -16169,8 +16156,7 @@ NF-e 55（见 6.4）。断网或无法连接税局时，设置
     C --&gt;|&quot;是&quot;| C2[&quot;打开收款面板&quot;]
     C2 --&gt; D
     D --&gt; E{&quot;网络正常？&quot;}
-    E --&gt;|&quot;否，开启离线收银&quot;| E1[&quot;当场离线开出 NFC-e 65（见 6.2.1）&quot;]
-    E --&gt;|&quot;否，没有开启离线收银&quot;| E2[&quot;收款成功，订单为待开票（见 6.3.1）&quot;]
+    E --&gt;|&quot;否&quot;| E1[&quot;当场离线开出 NFC-e 65（见 6.2.1）&quot;]
     E --&gt;|&quot;是&quot;| F[&quot;提交 NFC-e 65 授权请求&quot;]
   end
   subgraph sg3[&quot;税局（SEFAZ）&quot;]
@@ -16180,7 +16166,6 @@ NF-e 55（见 6.4）。断网或无法连接税局时，设置
   G --&gt;|&quot;拒绝或超时&quot;| J[&quot;开票状态为开票失败（见 6.1.8）&quot;]
   C1 --&gt; Z((&quot;结束&quot;))
   E1 --&gt; Z
-  E2 --&gt; Z
   H --&gt; Z
   J --&gt; Z</pre>
 <h5 id="原型-2">6.1.2.3 原型</h5>
@@ -16299,9 +16284,8 @@ Chave de Acesso（44 位）。用户可以点击【打印 NFC-e
 收银订单【门店预订单】页签可以查到。<br />
 2、开票成功时开票状态为“已开票”，发票同时出现在 财务（零售）› 发票管理 ›
 已开票-近期发票 的【出库】页签。<br />
-3、断网时按 6.2.1（开启离线收银）或
-6.3.1（没有开启离线收银）处理；税局拒绝或超时时开票状态为“开票失败”，请参考
-6.1.8 的目录。<br />
+3、断网时按 6.2.1 当场离线开出 NFC-e
+65；税局拒绝或超时时开票状态为“开票失败”，请参考 6.1.8 的目录。<br />
 4、开票状态不是“已开票”的门店预订单不能核销取货，请参考 6.1.6
 的目录。<br />
 • 校验规则：<br />
@@ -16412,8 +16396,7 @@ NFC-e 65；买方需要 NF-e 55 的，在 NFC-e 65 授权后 30
     C --&gt; D[&quot;生成退货订单和换货订单（互相关联）&quot;]
     D --&gt; E[&quot;退货订单：开销售退票 NF-e 55，引用原发票&quot;]
     D --&gt; F{&quot;网络正常？&quot;}
-    F --&gt;|&quot;否，开启离线收银&quot;| F1[&quot;换出商品当场离线开出 NFC-e 65（见 6.2.1）&quot;]
-    F --&gt;|&quot;否，没有开启离线收银&quot;| F2[&quot;换货订单为待开票（见 6.3.1）&quot;]
+    F --&gt;|&quot;否&quot;| F1[&quot;换出商品当场离线开出 NFC-e 65（见 6.2.1）&quot;]
     F --&gt;|&quot;是&quot;| G[&quot;提交换出商品的 NFC-e 65 授权请求&quot;]
   end
   subgraph sg3[&quot;税局（SEFAZ）&quot;]
@@ -16423,7 +16406,6 @@ NFC-e 65；买方需要 NF-e 55 的，在 NFC-e 65 授权后 30
   H --&gt;|&quot;拒绝或超时&quot;| J[&quot;换货订单开票状态为开票失败（见 6.1.8）&quot;]
   E --&gt; Z((&quot;结束&quot;))
   F1 --&gt; Z
-  F2 --&gt; Z
   I --&gt; Z
   J --&gt; Z</pre>
 <h5 id="原型-3">6.1.3.3 原型</h5>
@@ -16463,8 +16445,7 @@ alt="收银台 › 订单管理：换货订单的【发票信息】，发票类�
 销售发票 · NFC-e 65（换出件）”；发票出现在 财务（零售）› 发票管理 ›
 已开票-近期发票 的【出库】页签，单据信息注明换货单号和原订单号。<br />
 2、门店预订单换货时，生成门店预订单的退货订单和一张新的门店预订单，订单状态为“待提货”。<br />
-3、断网时按 6.2.1（开启离线收银）或
-6.3.1（没有开启离线收银）处理；退货订单的销售退票是 NF-e
+3、断网时换出件按 6.2.1 当场离线开出 NFC-e 65；退货订单的销售退票是 NF-e
 55，不能离线开具。<br />
 4、取消换货订单的发票时，只取消换出商品的这张销售发票，退货订单的销售退票不受影响，请参考
 6.1.9.4 的目录。<br />
@@ -16562,7 +16543,7 @@ CC-e（更正函）修改接收方，只能取消后重新开具。</li>
     B --&gt;|&quot;是&quot;| C{&quot;CPF / CNPJ 校验通过？&quot;}
     C --&gt;|&quot;否&quot;| C1[&quot;字段下方提示错误，不开票&quot;]
     C --&gt;|&quot;是&quot;| D{&quot;网络正常？&quot;}
-    D --&gt;|&quot;否&quot;| D1[&quot;按断网场景处理（见 6.2.1）：开启离线开票时当场离线开出 NFC-e 65；NF-e 55 或关闭离线开票时，正常收款，订单开票状态为待开票&quot;]
+    D --&gt;|&quot;否&quot;| D1[&quot;按断网场景处理（见 6.2.1）：当场离线开出 NFC-e 65；NF-e 55 正常收款，订单开票状态为待开票&quot;]
     D --&gt;|&quot;是&quot;| F{&quot;是否有未填 NCM 的临时商品？&quot;}
     F --&gt;|&quot;是&quot;| F1[&quot;结果页：开票失败 Rejeição 778，订单开票状态为开票失败&quot;]
     F --&gt;|&quot;否&quot;| G[&quot;提交 NFC-e 65 授权请求&quot;]
@@ -16622,9 +16603,8 @@ xxx，如 778 缺少
 NCM）时，结果页显示开票失败和原因，订单的开票状态为“开票失败”。收银员可以点【返回修改】或【重试】，也可以先完成收款，再到
 收银台 › 订单管理 补开。 4、税局拒绝使用（Denegada，如 301 开票方 CNPJ
 在税局状态异常）：处理方式同税局拒绝，订单的开票状态为“开票失败”。
-5、网络断开或税局超时未回复：开启离线开票时，系统当场离线开出 NFC-e
-65（开票方式 tpEmis =
-9），暂不提交税局，网络恢复后自动上传；关闭离线开票时，不开具发票。均按断网场景处理（见
+5、网络断开或税局超时未回复：系统当场离线开出 NFC-e 65（开票方式 tpEmis
+= 9），暂不提交税局，网络恢复后自动上传，按断网场景处理（见
 6.2.1）。</td>
 </tr>
 </tbody>
@@ -16736,8 +16716,7 @@ Informado NCM inexistente”，说明为“临时商品“{商品名}”未填�
 </tr>
 <tr>
 <td>用户点击【确定】时，若网络断开或联系不上税局。</td>
-<td>按断网场景处理（见 6.2.1）：开启离线开票时，系统当场离线开出 NFC-e
-65；关闭时，订单记为“待开票”。</td>
+<td>按断网场景处理（见 6.2.1）：系统当场离线开出 NFC-e 65。</td>
 </tr>
 <tr>
 <td>收款确定后开票成功时</td>
@@ -16915,8 +16894,7 @@ NCM），系统直接开票，不再弹出确认。<br />
 税则号，税局拒绝受理。请补填 NCM
 后重新开票；或先完成收款，之后在【订单管理】中补开。”。订单的开票状态改为“开票失败”。<br />
 6、当用户点击【确定】时，若网络断开或无法连接税局，则按断网场景处理（见
-6.2.1）：开启离线开票时，系统当场离线开出 NFC-e
-65；关闭时，订单记为“待开票”。<br />
+6.2.1）：系统当场离线开出 NFC-e 65。<br />
 • 提示消息：<br />
 在当前页面的字段下面红色字体提示：</p>
 <table>
@@ -17440,14 +17418,7 @@ alt="收银台 › 订单管理：离线已开票（待上传）的订单，订�
 <td>只读文本</td>
 <td>否</td>
 <td>回显</td>
-<td>按门店所在州的上传时限计算。</td>
-</tr>
-<tr>
-<td>截止依据</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>如“门店所在州 SP：开票后第一个工作日”。</td>
+<td>开票时间加 24 小时。</td>
 </tr>
 </tbody>
 </table>
@@ -18317,12 +18288,11 @@ para empresa</td>
 </tr>
 </tbody>
 </table>
-<h3 id="开启了离线收银">6.2 开启了离线收银</h3>
+<h3 id="断网离线开票nfc-e-65">6.2 断网离线开票（NFC-e 65）</h3>
 <h4 id="离线开票">6.2.1 离线开票</h4>
 <blockquote>
-<p>11/11/2026 修订：收银台断网或无法连接税局时，按 设置
-›【收银开票设置】离线开出 NFC-e 65 或补开 NF-e 55。总体规则请参考 4.2.6
-的目录，开关和上传时限请参考 10.3 的目录。</p>
+<p>11/11/2026 修订：收银台断网或无法连接税局时，离线开出 NFC-e 65 或补开
+NF-e 55。总体规则请参考 4.2.6 的目录。</p>
 </blockquote>
 <h5 id="业务场景说明-13">6.2.1.1 业务场景说明</h5>
 <p><strong>功能说明</strong>：结账时网络断开或无法连接税局时，系统照常收款，并当场离线开出
@@ -18333,7 +18303,8 @@ NFC-e 65，订单保存在 收银台 › 订单管理，网络恢复后自动上
 <ol type="1">
 <li>巴西不允许因为税局系统出故障就停止营业。离线开票（Contingência）是税局认可的方式，断网时也能当场把发票交给顾客。</li>
 <li>顾客无法等待网络恢复。先登记顾客邮箱，顾客即可离开；发票授权后系统自动发送，收银员无需事后手动发送邮件。</li>
-<li>离线开出的发票必须在所在州规定的时限内上传税局，系统需要自动上传，并提供【立即上传】，避免超时。</li>
+<li>离线开出的发票必须在开票后 24
+小时内上传税局，系统需要自动上传，并提供【立即上传】，避免超时。</li>
 <li>NF-e 55 不能离线开，断网期间已收款、但未开具 NF-e 55
 的订单必须补开，否则顾客无法取得法定凭证。</li>
 </ol>
@@ -18349,7 +18320,7 @@ NFC-e 65，订单保存在 收银台 › 订单管理，网络恢复后自动上
   subgraph sg2[&quot;系统&quot;]
     A --&gt; B{&quot;网络或税局可以连接？&quot;}
     B --&gt;|&quot;是&quot;| B1[&quot;正常开票（见 6.1.4）&quot;]
-    B --&gt;|&quot;否，开启离线开票且本单为 NFC-e 65&quot;| C[&quot;完成收款，当场离线开出 NFC-e 65（tpEmis=9），结果页：网络异常，已离线开票&quot;]
+    B --&gt;|&quot;否，本单为 NFC-e 65&quot;| C[&quot;完成收款，当场离线开出 NFC-e 65（tpEmis=9），结果页：网络异常，已离线开票&quot;]
     C --&gt; D[&quot;顶栏“待上传”加 1&quot;]
     D --&gt; P --&gt; K
     K --&gt; F[&quot;订单管理列表顶部生成订单：开票状态为离线已开票（待上传）&quot;]
@@ -18392,7 +18363,7 @@ NFC-e 65，订单保存在 收银台 › 订单管理，网络恢复后自动上
   W --&gt; E</pre>
 <p>（4）NF-e 55 断网补开并自动发送邮件</p>
 <pre class="mermaid">flowchart TB
-  S((&quot;开始&quot;)) --&gt; A0[&quot;NF-e 55，或关闭离线开票时的 NFC-e 65：断网收款，结果页：网络异常，发票未开出&quot;]
+  S((&quot;开始&quot;)) --&gt; A0[&quot;NF-e 55：断网收款，结果页：网络异常，发票未开出&quot;]
   subgraph sg1[&quot;角色：收银员&quot;]
     A0 --&gt; A[&quot;网络恢复后，在订单管理按开票状态筛选待开票，选中订单点【开票】&quot;]
     A --&gt; B[&quot;核对开票弹窗，按需补填 CPF / CNPJ，点【确认开票】&quot;]
@@ -18476,20 +18447,11 @@ xxx）：订单的开票状态为“开票失败”，失败原因以“开票�
 Inutilização），也不能改开 NF-e 55。</td>
 </tr>
 <tr>
-<td>重试（关闭离线开票时）</td>
-<td>1、提交内容：NFeAutorizacao 授权请求，发票模型为 NFC-e 65，数据同
-6.1.4.3（série、发票号、开票方 CNPJ、接收方 CPF / CNPJ、商品 NCM、CFOP
-5102、用 CSC 生成的 QR Code）。 2、税局接受（返回 cStat 100）：生成
-Chave 和授权协议号，结果页显示开票成功。 3、税局拒绝（Rejeição
-xxx）：结果页显示开票失败原因。
-4、仍超时或断网：没有返回结果，订单的开票状态仍为“待开票”。</td>
-</tr>
-<tr>
 <td>NF-e 55 联网补开并自动发送邮件</td>
 <td>1、提交内容：NFeAutorizacao 授权请求，发票模型为 NF-e
-55（关闭离线开票时也用于 NFC-e 65），号段内重新取下一个发票号，开票方
-CNPJ 和 IE，接收方 CPF / CNPJ（取弹窗中填写的号码），商品行 NCM，CFOP
-5102。 2、税局接受（返回 cStat 100）：生成 44 位 Chave
+55，号段内重新取下一个发票号，开票方 CNPJ 和 IE，接收方 CPF /
+CNPJ（取弹窗中填写的号码），商品行 NCM，CFOP 5102。 2、税局接受（返回
+cStat 100）：生成 44 位 Chave
 和授权协议号，订单的开票状态改为“已开票”，系统自动发送邮件。
 3、税局拒绝（Rejeição
 xxx）：订单回到“开票失败”，失败原因显示在发票信息下面（见 6.1.8）。
@@ -18503,13 +18465,14 @@ xxx）：订单回到“开票失败”，失败原因显示在发票信息下�
 • <strong>退货订单的销售退票是 NF-e 55
 入库票，不能离线开具；断网时须在网络恢复后补开。</strong><br />
 • <strong>换货时，换出件在收银台结算，销售发票一律为 NFC-e
-65，开启离线开票的可以离线开具；退货订单的销售退票是 NF-e
+65，断网时当场离线开出；退货订单的销售退票是 NF-e
 55，不能离线开具，断网时只有这张销售退票进入“待开票”，网络恢复后在退货订单上点击【开票】补开，开票成功后发票自动发送至客户登记的邮箱。</strong><br />
 • 离线开出的发票占用发票号，开票状态为“离线已开票（待上传）”，显示在
 财务（零售）› 发票管理 ›【开票中】。<br />
 • 离线小票的打印规则请参考 6.1.9.2.4 的目录。<br />
-• 离线开出的发票须在门店所在州的上传时限内上传税局。时限在 设置
-›【收银开票设置】按州配置，请参考 10.3 的目录。<br />
+• 离线开出的发票须在开票后 24
+小时内上传税局。网络恢复后系统自动上传，也可以点【立即上传】；超过 24
+小时仍须上传，税局按超时授权（cStat 150）处理，系统不拦截。<br />
 • <strong>【立即上传】的入口有两处：一是 收银台 › 订单管理
 的订单详情底部，二是后台【收银订单】【门店预订单】【换货订单】列表里离线开出、尚未上传的行（开票状态格显示“开票中”，下方灰色小字“离线已开票（待上传）”），在操作列【查看】的右边。收银台
 › 订单管理 发票信息表的行上没有【立即上传】。<span
@@ -18552,7 +18515,7 @@ NFC-e
 是本班次结账时网络异常、未开具发票的订单数。</td>
 </tr>
 <tr>
-<td>网络异常时用户点【确定】（开启离线开票）</td>
+<td>网络异常时用户点【确定】（NFC-e 65）</td>
 <td>照常完成收款，系统当场离线开出 NFC-e
 65。结果页标题“网络异常，已离线开票”，说明“已收款，发票已离线开出。小票上印有“NFC-e
 EMITIDA EM
@@ -18574,10 +18537,10 @@ Key 不变。”，并显示 NFC-e 号和 Chave de Acesso（44 位）。</td>
 <tr>
 <td>离线开票结果页用户点【完成】时</td>
 <td>系统在 收银台 › 订单管理
-列表最上面生成这张收银订单：订单状态“交易完成”，开票状态“离线已开票（待上传）”。订单信息显示：“开票情况：收银台断网，已离线开票（待上传）”。发票信息显示开票方式“离线开票（tpEmis=9）”、离线开具时间、上传截止时间、截止依据，以及提示：“这张发票已离线开出，尚未上传税局，须在
-{上传截止时间}
-前上传（{截止依据}）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和
-Key 不变。”。</td>
+列表最上面生成这张收银订单：订单状态“交易完成”，开票状态“离线已开票（待上传）”。订单信息显示：“开票情况：收银台断网，已离线开票（待上传）”。发票信息显示开票方式“离线开票（tpEmis=9）”、离线开具时间、上传截止时间，以及提示：“这张发票已离线开出，尚未上传税局，须在
+{上传截止时间} 前上传（开票后 24
+小时内）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和 Key
+不变。”。</td>
 </tr>
 <tr>
 <td>网络恢复后</td>
@@ -18591,7 +18554,7 @@ Key 不变。”。</td>
 5.3.3.6 第 3 部分。</td>
 </tr>
 <tr>
-<td>网络异常时用户点【确定】（NF-e 55，或关闭离线开票）</td>
+<td>网络异常时用户点【确定】（NF-e 55）</td>
 <td>照常完成收款。结果页标题“网络异常，发票未开出”，说明“已收款。网络或税局暂时无法连接，本单发票未开出，订单记为“待开票”，网络恢复后请到【收银台
 ›
 订单管理】补开。可先为顾客登记邮箱，开票成功后系统将自动发送发票。”。</td>
@@ -18850,14 +18813,7 @@ aria-hidden="true">点【处理方法】打开的弹窗：系统提示的异常�
 <td>只读文本</td>
 <td>否</td>
 <td>回显</td>
-<td>按门店所在州的上传时限显示，如“开票后第一个工作日内”。</td>
-</tr>
-<tr>
-<td>截止依据</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>如“门店所在州 SP：开票后第一个工作日”。</td>
+<td>开票时间加 24 小时。</td>
 </tr>
 </tbody>
 </table>
@@ -18870,9 +18826,7 @@ aria-hidden="true">点【处理方法】打开的弹窗：系统提示的异常�
 3、登记邮箱、重试：本次结账已离线开票，当前在“网络异常，已离线开票”结果页；或本次结账因网络异常未开具发票，当前在“网络异常，发票未开出”结果页。<br />
 4、联网补开：收银台 › 订单管理
 中有开票状态为“待开票”（结账时网络异常）的收银订单或门店预订单；网络已恢复，可正常连接税局。<br />
-5、离线开票：设置
-›【收银开票设置】的【断网时离线开票】为开启，且本门店的【离线开票】为开启；本门店的发票主体已配置
-CSC。<br />
+5、离线开票：本门店的发票主体已配置 CSC。<br />
 • 操作流程：<br />
 （1）离线开票并打印：<br />
 1、用户在收款面板输入实收金额，点击【确定】。<br />
@@ -18900,7 +18854,7 @@ NFC-e 发票】、【登记邮箱】（见本节（2））。<br />
 Key 重新上传，用户重新打印小票。<br />
 3、涉及税额的，用户联系会计师处理，不能自行修改后重传；离线发票号不能作废，也不能改开
 NF-e 55。<br />
-（5）NF-e 55 断网补开（关闭离线开票时也适用于 NFC-e 65）：<br />
+（5）NF-e 55 断网补开：<br />
 1、网络异常、本单发票未能开出时，开票结果页显示：“网络异常，发票未开出”。顶栏“待补开”数量加
 1。用户可以点击【重试】重新提交，仍无法连接税局时，系统继续显示：“网络异常，发票未开出”。结果页，用户可以点击【完成】结束本单。<br />
 2、用户在 收银台 › 订单管理
@@ -18929,8 +18883,8 @@ NFC-e {号}；顾客未登记邮箱，请打印或另行交给顾客”。<br />
 已开票-近期发票 的【出库】页签（销售发票 · NFC-e
 65）。顶栏“待补开”数量和交班页“待补开”数量各减 1。<br />
 • 校验规则：<br />
-1、当用户点击【确定】时，若网络断开或无法连接税局，且开启离线开票，则当场离线开出
-NFC-e 65，提示：“网络异常，已离线开票”。关闭离线开票，或本单为 NF-e 55
+1、当用户点击【确定】时，若网络断开或无法连接税局，则当场离线开出 NFC-e
+65，提示：“网络异常，已离线开票”。本单为 NF-e 55
 时，不开具发票，提示：“网络异常，发票未开出”。系统照常完成收款，订单的开票状态为“待开票”。<br />
 2、当用户交班时，若还有待上传的离线发票，则提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。系统不允许交班。若还有待补开的订单，则提示：“还有
 {n}
@@ -18967,8 +18921,60 @@ NF-e 55。<br />
 </tr>
 </tbody>
 </table>
-<p>• 消息通知：无。<br />
-•
+<p>• 消息通知：</p>
+<table>
+
+<thead>
+<tr>
+<th>通知场景</th>
+<th>通知标题</th>
+<th>通知内容</th>
+<th>接收方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>离线发票在上传截止时间前 4 小时仍未上传。</td>
+<td>离线发票即将超过上传期限</td>
+<td>门店 {门店} 有 {n} 张离线发票尚未上传税局，最早一张须在 {截止时间}
+前上传。请检查门店网络，或在【订单管理】点【立即上传】。</td>
+<td>店长、财务</td>
+</tr>
+<tr>
+<td>离线发票上传被税局拒绝。</td>
+<td>离线发票上传被税局拒绝</td>
+<td>门店 {门店} 的发票 {发票号}
+上传被拒（{税局返回码}）。请在【订单管理】点【处理方法】按提示修改后重新上传。</td>
+<td>店长、财务</td>
+</tr>
+</tbody>
+</table>
+<p><strong>消息的触发和接收规则：</strong></p>
+<p>1、上传截止时间为开票时间加 24 小时。<br />
+2、“离线发票即将超过上传期限”的触发时间：上传截止时间前 4
+小时。到了这个时间，该发票仍是“离线已开票（待上传）”的，系统发送提醒；在这之前已经上传成功的发票，不发送提醒。<br />
+3、同一门店同时到达提醒时间的待上传发票合并成一条消息，{n}
+为合并的张数，{截止时间}
+为其中最早一张的上传截止时间；每张发票只提醒一次，不重复发送。<br />
+4、“离线发票上传被税局拒绝”的触发时间：网络恢复后系统自动上传，或用户在【订单管理】点【立即上传】后，税局返回拒绝时立即发送；每张被拒的发票发送一条消息。<br />
+5、接收方为店长和财务：店长为该门店的店长，财务为该门店所属发票主体的财务（零售）人员。<br />
+6、提醒方式固定为站内消息，不发邮件、短信。<br />
+7、通知内容里的变量：{门店} 为门店编码和名称，例如 LJ001 Paulista；{n}
+为待上传发票张数；{截止时间} 格式为 YYYY-MM-DD HH:mm:ss，例如开票时间为
+2026-11-09 14:30:00 的，截止时间为 2026-11-10 14:30:00；{发票号} 为 9
+位发票号，例如 000620502；{税局返回码} 为税局返回的拒绝代码，例如
+Rejeição 464。</p>
+<div data-custom-style="First Line Indent">
+<p>消息显示在每个页面右上角的铃铛里，按时间从新到旧排，未读的带红点；点一条消息会标为已读、角标减
+1，并跳到【收银台】›【订单管理】选中相关订单，点【全部已读】会清掉所有未读。</p>
+</div>
+<figure>
+<img loading="lazy" src="img/0216.png"
+alt="右上角铃铛的【消息通知】：离线发票即将超过上传期限、离线发票上传被税局拒绝，未读的带红点，右上角有【全部已读】" />
+<figcaption
+aria-hidden="true">右上角铃铛的【消息通知】：离线发票即将超过上传期限、离线发票上传被税局拒绝，未读的带红点，右上角有【全部已读】</figcaption>
+</figure>
+<p>•
 操作日志：用户操作成功后，系统在操作日志模块记录：操作时间、操作账号、操作模块、操作功能、操作明细、IP地址。</p>
 <table>
 
@@ -19059,7 +19065,7 @@ NFC-e
 本节仅描述与开票有关的功能点；时间节点、快速统计、营收统计及其【明细】属于收银对账，不在本文范围。
 25/10/2026
 确定：存在待补开的订单时，交班<strong>只提醒、不阻止</strong>（见 4.2.6
-第 7 条（8）、BR-83）。11/11/2026
+第 6 条（8）、BR-83）。11/11/2026
 修订：有待上传的离线发票时不能交班；待补开的单仍只提醒、不拦截。</p>
 </blockquote>
 <h5 id="业务场景说明-14">6.2.5.1 业务场景说明</h5>
@@ -19073,7 +19079,8 @@ NFC-e
 <li>跳号未申报作废，税务申报时数据将无法核对一致。</li>
 <li>网络可能整晚未恢复，不能因 NF-e 55
 发票未补开而阻止收银员下班，但须明确告知收银员尚有几张未补开以及补开位置。离线开出的
-NFC-e 65 有上传时限，上传成功前不能交班，避免超时无人跟进。</li>
+NFC-e 65 须在开票后 24
+小时内上传税局，上传成功前不能交班，避免超时无人跟进。</li>
 <li>下一班或店长需要了解上一班遗留的未补开发票数量，系统需支持按班次查看。</li>
 </ol>
 <h5 id="流程图-15">6.2.5.2 流程图</h5>
@@ -19276,7 +19283,7 @@ Inutilização；跳号这一行用警示色。</td>
 交班日结【交班】页签的原型截图：有待上传的离线发票时，【本班开票（NFC-e）】的“待上传”卡片显示张数和【立即上传】，底部提示不能交班，【交班】不可点击。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0216.png"
+<img loading="lazy" src="img/0217.png"
 alt="交班日结【交班】页签：“待上传”卡片为 2 张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击" />
 <figcaption aria-hidden="true">交班日结【交班】页签：“待上传”卡片为 2
 张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击</figcaption>
@@ -19380,21 +19387,20 @@ NFC-e】记录本班开票情况；未补开的订单仍在 收银台 ›
 </tr>
 </tbody>
 </table>
-<h3 id="没有开启离线收银断网后补开发票">6.3
-没有开启离线收银，断网后补开发票</h3>
+<h3 id="断网后补开发票nf-e-55">6.3 断网后补开发票（NF-e 55）</h3>
 <h4 id="断网收款订单进入待开票">6.3.1 断网收款，订单进入待开票</h4>
 <h5 id="原型-11">6.3.1.1 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是收银台网络异常、发票没有开出时【发票信息】的原型截图，以收银订单为例。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0217.png"
+<img loading="lazy" src="img/0218.png"
 alt="后台订单详情【发票信息】：NF-e 55 断网没有开出，表格为空，下方显示断网提示" />
 <figcaption aria-hidden="true">后台订单详情【发票信息】：NF-e 55
 断网没有开出，表格为空，下方显示断网提示</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0218.png"
+<img loading="lazy" src="img/0219.png"
 alt="收银台 › 订单管理【发票信息】：NF-e 55 断网没有开出，只显示断网提示" />
 <figcaption aria-hidden="true">收银台 › 订单管理【发票信息】：NF-e 55
 断网没有开出，只显示断网提示</figcaption>
@@ -19402,16 +19408,15 @@ alt="收银台 › 订单管理【发票信息】：NF-e 55 断网没有开出�
 <h5 id="发票信息-1">6.3.1.2 发票信息</h5>
 <div data-custom-style="First Line Indent">
 <p>适用：收银台结账、收款或换货时网络异常。NFC-e 65
-在开启离线开票时当场离线开出，见下方表一；NF-e 55，以及关闭离线开票时的
-NFC-e 65，发票没有开出，订单进入“待开票”，见下方表二。</p>
+当场离线开出，见下方表一；NF-e 55
+发票没有开出，订单进入“待开票”，见下方表二。</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p><strong>退货订单的销售退票是 NF-e 55
 入库票，不能离线开具；断网时须在网络恢复后补开。</strong></p>
 </div>
 <div data-custom-style="First Line Indent">
-<p>表一：NFC-e 65 离线开票（设置
-›【收银开票设置】的【断网时离线开票】开启）</p>
+<p>表一：NFC-e 65 离线开票</p>
 </div>
 <table style="width:100%;">
 
@@ -19433,10 +19438,9 @@ NFC-e 65，发票没有开出，订单进入“待开票”，见下方表二。
 <td>销售发票 · NFC-e 65</td>
 <td>离线已开票（待上传）</td>
 <td>【立即上传】</td>
-<td>发票信息显示开票方式“离线开票（tpEmis=9）”、离线开具时间、上传截止时间、截止依据，提示：“这张发票已离线开出，尚未上传税局，须在
-{上传截止时间}
-前上传（{截止依据}）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和
-Key
+<td>发票信息显示开票方式“离线开票（tpEmis=9）”、离线开具时间、上传截止时间，提示：“这张发票已离线开出，尚未上传税局，须在
+{上传截止时间} 前上传（开票后 24
+小时内）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和 Key
 不变。”。【立即上传】在订单详情底部，【发票信息】行上为【查看】。</td>
 <td>网络恢复后自动上传，或点【立即上传】上传。税局授权后变为“已开票”，登记了邮箱的自动发送；上传被拒的变为“开票失败”，见
 6.2.3。</td>
@@ -19471,8 +19475,9 @@ Key 不变，上传结果与第一行相同。</td>
 订单管理为【立即上传】；后台换货订单列表的操作列也有【立即上传】。</td>
 <td>收银台 › 订单管理 提示：“换出件的销售发票（NFC-e
 65）：这张发票已离线开出，尚未上传税局，须在 {上传截止时间}
-前上传（{截止依据}）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和
-Key 不变。退回件的销售退票（NF-e 55
+前上传（开票后 24
+小时内）。网络恢复后系统自动上传，也可点【立即上传】；上传时发票号和 Key
+不变。退回件的销售退票（NF-e 55
 入库票）不能离线开具，请在网络恢复后到退货订单 {退货单号}
 点【开票】开具。”。对应退货订单的销售退票已开出的，最后一句为“对应的退货订单
 {退货单号} 已开出销售退票，不会重开。”。</td>
@@ -19491,7 +19496,7 @@ Key 不变。退回件的销售退票（NF-e 55
 </tbody>
 </table>
 <div data-custom-style="First Line Indent">
-<p>表二：NF-e 55 断网补开（关闭离线开票时也适用于 NFC-e 65）</p>
+<p>表二：NF-e 55 断网补开</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p>收银台换货时生成两张互相关联的单据：退货订单（退回的商品，开销售退票
@@ -19515,7 +19520,7 @@ Key 不变。退回件的销售退票（NF-e 55
 <tbody>
 <tr>
 <td>收银台 › 订单管理（收银订单、门店预订单）</td>
-<td>发票没开出（NF-e 55，或关闭离线开票）</td>
+<td>发票没开出（NF-e 55）</td>
 <td>销售发票 · NFC-e 65 或 NF-e 55</td>
 <td>待开票</td>
 <td>【开票】</td>
@@ -19534,7 +19539,7 @@ CPF / CNPJ 栏填 CNPJ（公司）时，系统自动切换为 NF-e
 </tr>
 <tr>
 <td>后台订单详情【发票信息】页签（收银订单、门店预订单）</td>
-<td>发票没开出（NF-e 55，或关闭离线开票）</td>
+<td>发票没开出（NF-e 55）</td>
 <td>销售发票 · NFC-e 65 或 NF-e 55</td>
 <td>待开票</td>
 <td>【开票】</td>
@@ -19550,49 +19555,6 @@ CPF / CNPJ 栏填 CNPJ（公司）时，系统自动切换为 NF-e
 55；买方是公司（CNPJ）或有州税号时改选 NFC-e 65 会弹提醒。</td>
 <td>按弹窗里选的发票类型开具一张销售发票（NFC-e 65 或 NF-e
 55）。提交后订单变为”开票中”，税局授权后变为”已开票”，页面顶部提示开票结果。</td>
-</tr>
-<tr>
-<td>退货订单（换货时退回的商品；收银台 ›
-订单管理、后台退货订单详情【发票信息】页签，显示相同）</td>
-<td>换货时两张发票都没开出（关闭离线开票）</td>
-<td>销售退票 · NF-e 55（入库，引用原发票）</td>
-<td>待开票</td>
-<td>【开票】</td>
-<td>提示：<strong>“收银台网络异常，销售退票未开出，请点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，该退货订单对应的换货订单
-{换货单号} 也将自动开具销售发票。2
-张发票将自动发送至客户登记的邮箱。”</strong>{换货单号}
-显示具体单号，点击跳转到换货订单详情。</td>
-<td>1、退货订单 {退货单号}：销售退票 · NF-e 55（只读）；2、换货订单
-{换货单号} 的销售发票：个人（CPF）现场购买的默认 NFC-e 65，可改 NF-e
-55；公司（CNPJ）或有州税号的默认 NF-e 55，可改 NFC-e
-65（改时弹提醒）；3、选 NF-e 55 时，先选买家类型（企业 CNPJ 或个人
-CPF），再填写企业资料或个人资料、地址和税务资料（含电话、国家）和用途，必填；选
-NFC-e 65 时可填写 CPF / CNPJ、外国人证件、姓名、邮箱（选填）。</td>
-<td>两张发票一起开具：退货订单的销售退票 · NF-e
-55，换货订单的销售发票（按弹窗里选的 NFC-e 65 或 NF-e
-55）。提交后两张单据都变为”开票中”，税局授权后都变为”已开票”，页面顶部提示开票结果。</td>
-</tr>
-<tr>
-<td>换货订单（换出的商品；收银台 ›
-订单管理、后台换货订单详情【发票信息】页签，显示相同）</td>
-<td>换货时两张发票都没开出（关闭离线开票）</td>
-<td>销售发票（个人现场购买默认 NFC-e 65；公司或有州税号默认 NF-e
-55，可改 NFC-e 65（改时提醒））</td>
-<td>待开票</td>
-<td>【开票】</td>
-<td>提示：<strong>“收银台网络异常，销售发票未开出，请点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，该换货订单对应的退货订单
-{退货单号} 也将自动开具销售退票。2
-张发票将自动发送至客户登记的邮箱。”</strong>{退货单号}
-显示具体单号，点击跳转到退货订单详情。</td>
-<td>1、退货订单 {退货单号}：销售退票 · NF-e 55（只读）；2、换货订单
-{换货单号} 的销售发票：个人（CPF）现场购买的默认 NFC-e 65，可改 NF-e
-55；公司（CNPJ）或有州税号的默认 NF-e 55，可改 NFC-e
-65（改时弹提醒）；3、选 NF-e 55 时，先选买家类型（企业 CNPJ 或个人
-CPF），再填写企业资料或个人资料、地址和税务资料（含电话、国家）和用途，必填；选
-NFC-e 65 时可填写 CPF / CNPJ、外国人证件、姓名、邮箱（选填）。</td>
-<td>两张发票一起开具：退货订单的销售退票 · NF-e
-55，换货订单的销售发票（按弹窗里选的 NFC-e 65 或 NF-e
-55）。提交后两张单据都变为”开票中”，税局授权后都变为”已开票”，页面顶部提示开票结果。</td>
 </tr>
 <tr>
 <td>退货订单（换货时退回的商品；收银台 ›
@@ -19629,8 +19591,7 @@ NFC-e 65 时可填写 CPF / CNPJ、外国人证件、姓名、邮箱（选填）
 <tr>
 <td><strong>换货买方是公司（CNPJ）或有州税号</strong></td>
 <td>换出件在收银台结算，销售发票仍开 NFC-e
-65，开启离线开票的断网时离线开出；退货订单的销售退票（NF-e
-55）不能离线开具。</td>
+65，断网时当场离线开出；退货订单的销售退票（NF-e 55）不能离线开具。</td>
 <td>销售退票 · NF-e 55（入库，引用原发票）；销售发票 · NFC-e 65</td>
 <td>退货订单为“待开票”；换货订单为“离线已开票（待上传）”</td>
 <td>退货订单为【开票】；换货订单为【立即上传】。</td>
@@ -19721,7 +19682,7 @@ NF-e 55 销售退票。开票失败状态下的按钮仍为【开票】。本章
 </div>
 <div data-custom-style="First Line Indent">
 <p>2、订单进入“待开票”的情况：从未开过发票（含收银台结账、收款或换货时网络异常，NF-e
-55 或关闭离线开票时的 NFC-e 65 没有开出；开启离线开票时 NFC-e 65
+55 没有开出；NFC-e 65
 当场离线开出，开票状态为“离线已开票（待上传）”，不进入“待开票”）；原发票在时限内被【取消发票】（销售发票
 · NFC-e 65 授权后 30 分钟内，销售发票 · NF-e 55 授权后 24
 小时内，在订单上取消或在发票管理取消，结果相同）；退货订单尚未开具销售退票；换货订单的销售发票未开具或被取消。关联收银订单、门店预订单、换货订单的发票，不能在
@@ -19732,15 +19693,15 @@ NF-e 55 销售退票。开票失败状态下的按钮仍为【开票】。本章
 <p>3、“待开票”时【发票信息】的显示按发票类型区分：收银订单、门店预订单从未开过发票、且不是断网未开出的
 NF-e 55
 订单的，提示：“请点击【开票】开具发票。”。退货订单、换货订单从未开过发票的，提示：“尚未开票，请在待开票状态下执行【开票】操作。”。收银订单、门店预订单因网络异常没有开出的（NF-e
-55，或关闭离线开票时的 NFC-e 65），为补开提示：“结账时网络异常，NF-e 55
+55），为补开提示：“结账时网络异常，NF-e 55
 不能离线开具，发票未开出。请在网络恢复后点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，发票将自动发送至客户登记的邮箱；未登记邮箱的，请打印或另行交给顾客。”。这两种情况都没有【历史发票】。原发票被取消的，历次发票按开票时间先后排列，原来的在上面，后开的在下面；原发票状态显示“已取消”，状态下方灰字显示原因（如“在订单上取消（30
 分钟内）”）；收银台 › 订单管理
 当前有效发票的位置显示“待开票”，【历史发票
 N】默认展开，列出原发票的发票模型、发票号、série（序列号）、授权时间、取消时间、取消理由；下方提示：“原发票已取消，请在待开票状态下重新执行【开票】操作。”</p>
 </div>
 <div data-custom-style="First Line Indent">
-<p>4、断网补开（NF-e 55，以及关闭离线开票时的 NFC-e
-65）：网络异常没有开出的发票没有提交到税局，系统不生成发票记录，也不进入
+<p>4、断网补开（NF-e
+55）：网络异常没有开出的发票没有提交到税局，系统不生成发票记录，也不进入
 财务（零售）› 发票管理 ›
 开票失败；因为没有税局返回码，不显示【处理方法】和【验证发票XML】。订单信息显示“开票情况：收银台网络异常，发票未开出（待补开）”，抬头显示“发票邮箱：{邮箱}
 /
@@ -19750,7 +19711,7 @@ DANFE，并显示“已自动发送”；没有登记邮箱的，打印或另行
 订单管理 补开成功后，顶栏“待补开”和交班页的待补开数量各减
 1。<strong>退货订单的销售退票是 NF-e 55
 入库票，不能离线开具；断网时须在网络恢复后补开。换货时，换出件在收银台结算，销售发票一律为
-NFC-e 65，开启离线开票的可以离线开具；退货订单的销售退票是 NF-e
+NFC-e 65，断网时当场离线开出；退货订单的销售退票是 NF-e
 55，不能离线开具，断网时只有这张销售退票进入“待开票”，网络恢复后在退货订单上点击【开票】补开，开票成功后发票自动发送至客户登记的邮箱。</strong></p>
 </div>
 <div data-custom-style="First Line Indent">
@@ -19822,9 +19783,8 @@ NFC-e 65“已取消”、换出件新开的 NF-e
 NFC-e。</p>
 </div>
 <div data-custom-style="First Line Indent">
-<p>9、换货订单关联开票：换货时生成互相关联的退货订单（开销售退票）和换货订单（开销售发票）。断网时换出件的销售发票为
-NFC-e
-65、且开启离线开票的，换出件当场离线开出，对应退货订单只补开销售退票，弹窗说明：“对应换货订单的销售发票（NFC-e
+<p>9、换货订单关联开票：换货时生成互相关联的退货订单（开销售退票）和换货订单（开销售发票）。断网时换出件的销售发票（NFC-e
+65）当场离线开出，对应退货订单只补开销售退票，弹窗说明：“对应换货订单的销售发票（NFC-e
 65）已离线开具。此处只开具销售退票（NF-e 55
 入库票）。”。两张都在“待开票”时，在任何一张上点【开票】，两张发票一起开具；关联退货订单已开票时，只开换货订单的销售发票，弹窗说明“关联退货订单的销售退票已开票，此处只开换货订单的销售发票（换出件）”，销售退票不重开；两张中只取消了一张时，【应开票种】只列被取消的那一张，系统只补开这一张。换货订单的发票接收方、CPF
 / CNPJ 取原订单的值，只读（消费者显示“—”，企业买家显示公司名称和
@@ -19884,27 +19844,27 @@ Key）。换货订单两张一起开时提交两次授权请求，逐张查询�
 65；提交后税局返回结果，页面顶部提示开票结果。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0219.png"
+<img loading="lazy" src="img/0220.png"
 alt="收银台 › 订单管理：【开票】弹窗，发票类型默认 NFC-e 65（个人 CPF 现场购买）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：【开票】弹窗，发票类型默认 NFC-e 65（个人 CPF
 现场购买）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0220.png"
+<img loading="lazy" src="img/0221.png"
 alt="收银台 › 订单管理：换货订单关联开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或 NF-e 55" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单关联开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或
 NF-e 55</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0221.png"
+<img loading="lazy" src="img/0222.png"
 alt="收银台 › 订单管理：税局返回结果，开票成功，顶部提示：“税局已授权……”。订单变为“已开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：税局返回结果，开票成功，顶部提示：“税局已授权……”。订单变为“已开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0222.png"
+<img loading="lazy" src="img/0223.png"
 alt="后台 › 收银订单：税局返回结果，开票成功，顶部提示：“税局已授权：发票已开具……”" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：税局返回结果，开票成功，顶部提示：“税局已授权：发票已开具……”</figcaption>
@@ -19917,25 +19877,25 @@ alt="后台 › 收银订单：税局返回结果，开票成功，顶部提示�
 时的原型截图，包括企业买家、个人买家，以及改选 NFC-e 65 时的提醒。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0223.png"
+<img loading="lazy" src="img/0224.png"
 alt="收银台 › 订单管理：发票类型 NF-e 55，企业买家（CNPJ），填写公司资料" />
 <figcaption aria-hidden="true">收银台 › 订单管理：发票类型 NF-e
 55，企业买家（CNPJ），填写公司资料</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0224.png"
+<img loading="lazy" src="img/0225.png"
 alt="收银台 › 订单管理：发票类型 NF-e 55，个人买家（CPF），填写 CPF 和姓名" />
 <figcaption aria-hidden="true">收银台 › 订单管理：发票类型 NF-e
 55，个人买家（CPF），填写 CPF 和姓名</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0225.png"
+<img loading="lazy" src="img/0226.png"
 alt="收银台 › 订单管理：买方有州税号时改选 NFC-e 65，弹出提醒" />
 <figcaption aria-hidden="true">收银台 › 订单管理：买方有州税号时改选
 NFC-e 65，弹出提醒</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0226.png"
+<img loading="lazy" src="img/0227.png"
 alt="后台 › 收银订单：【开票】弹窗，发票类型 NF-e 55，企业买家" />
 <figcaption aria-hidden="true">后台 › 收银订单：【开票】弹窗，发票类型
 NF-e 55，企业买家</figcaption>
@@ -19945,13 +19905,13 @@ NF-e 55，企业买家</figcaption>
 开票失败重开的【开票】弹窗：税局退回原因涉及的字段标红，下方显示税局返回的原因。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0227.png"
+<img loading="lazy" src="img/0228.png"
 alt="收银订单 XSW829261110000105 开票失败重开：【接收方信息】中的接收方名称标红" />
 <figcaption aria-hidden="true">收银订单 XSW829261110000105
 开票失败重开：【接收方信息】中的接收方名称标红</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0228.png"
+<img loading="lazy" src="img/0229.png"
 alt="收银订单 XSW829261110000106 开票失败重开：邮编和城市不匹配，两处同时标红" />
 <figcaption aria-hidden="true">收银订单 XSW829261110000106
 开票失败重开：邮编和城市不匹配，两处同时标红</figcaption>
@@ -20665,7 +20625,7 @@ NFC-e，所以不能在原发票上直接改开 NF-e 55。</li>
 分钟后【取消发票】置灰、鼠标悬停显示浮层的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0229.png"
+<img loading="lazy" src="img/0230.png"
 alt="收银台 › 订单管理：门店预订单的 NFC-e 65 授权已超过 30 分钟，【取消发票】置灰，悬停显示“不能取消发票”、原因和处理方法" />
 <figcaption aria-hidden="true">收银台 › 订单管理：门店预订单的 NFC-e 65
 授权已超过 30
@@ -20840,80 +20800,80 @@ NF-e，以及 财务（零售）› 发票管理 › 已开票-近期发票
 中赠品发票的列表和详情。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0230.png"
+<img loading="lazy" src="img/0231.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000901，赠品行标识“赠品”，原价划线、成交价 R$ 0,00；发票信息中只有一张 NFC-e 65，赠品与销售商品同票开具" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000901，赠品行标识“赠品”，原价划线、成交价 R$
 0,00；发票信息中只有一张 NFC-e 65，赠品与销售商品同票开具</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0231.png"
+<img loading="lazy" src="img/0232.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000902（信用卡付款），赠品与销售商品同票开具一张 NFC-e 65" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000902（信用卡付款），赠品与销售商品同票开具一张 NFC-e
 65</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0232.png"
+<img loading="lazy" src="img/0233.png"
 alt="收银台 › 订单管理：退货订单 THW829261111000901，商品连同赠品一起退回，开具一张入库 · 销售退票 · NF-e 55，状态下方灰字“引用原 NFC-e”" />
 <figcaption aria-hidden="true">收银台 › 订单管理：退货订单
 THW829261111000901，商品连同赠品一起退回，开具一张入库 · 销售退票 · NF-e
 55，状态下方灰字“引用原 NFC-e”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0233.png"
+<img loading="lazy" src="img/0234.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000903，买二送一，赠品与销售商品同票开具 NFC-e 65（发票号 000099963）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000903，买二送一，赠品与销售商品同票开具 NFC-e 65（发票号
 000099963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0234.png"
+<img loading="lazy" src="img/0235.png"
 alt="收银台 › 订单管理：门店预订单 YDW829261111000901，公司买家，赠品与销售商品同票开具 NF-e 55（发票号 000098963）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：门店预订单
 YDW829261111000901，公司买家，赠品与销售商品同票开具 NF-e 55（发票号
 000098963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0235.png"
+<img loading="lazy" src="img/0236.png"
 alt="收银台 › 订单管理：退货订单 THW829261111000902，只退赠品，销售退票只开赠品那一行（发票号 000098964）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：退货订单
 THW829261111000902，只退赠品，销售退票只开赠品那一行（发票号
 000098964）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0236.png"
+<img loading="lazy" src="img/0237.png"
 alt="财务（零售）› 发票管理 › 已开票-近期发票：整单赠品单独开具的 NF-e 55（发票号 000098962），单据信息为“整单赠品（样品）”" />
 <figcaption aria-hidden="true">财务（零售）› 发票管理 ›
 已开票-近期发票：整单赠品单独开具的 NF-e 55（发票号
 000098962），单据信息为“整单赠品（样品）”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0237.png"
+<img loading="lazy" src="img/0238.png"
 alt="整单赠品 NF-e 的详情：CFOP 为 5.910，开票事由为“Remessa em bonificação, doação ou brinde”" />
 <figcaption aria-hidden="true">整单赠品 NF-e 的详情：CFOP 为
 5.910，开票事由为“Remessa em bonificação, doação ou brinde”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0238.png"
+<img loading="lazy" src="img/0239.png"
 alt="财务（零售）› 发票管理 › 已开票-近期发票：赠品发票（发票号 000099963）" />
 <figcaption aria-hidden="true">财务（零售）› 发票管理 ›
 已开票-近期发票：赠品发票（发票号 000099963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0239.png"
+<img loading="lazy" src="img/0240.png"
 alt="赠品发票 000099963 的详情：商品行包含赠品行，赠品行 CFOP 为 5.910；付款方式为“借记卡 + 无付款（tPag=90）”" />
 <figcaption aria-hidden="true">赠品发票 000099963
 的详情：商品行包含赠品行，赠品行 CFOP 为 5.910；付款方式为“借记卡 +
 无付款（tPag=90）”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0240.png" alt="赠品发票 000098963 的详情（NF-e 55）" />
+<img loading="lazy" src="img/0241.png" alt="赠品发票 000098963 的详情（NF-e 55）" />
 <figcaption aria-hidden="true">赠品发票 000098963 的详情（NF-e
 55）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0241.png"
+<img loading="lazy" src="img/0242.png"
 alt="赠品退货的销售退票 000098961 的详情：入库 · 销售退票 · NF-e 55，引用原 NFC-e 的 Key" />
 <figcaption aria-hidden="true">赠品退货的销售退票 000098961 的详情：入库
 · 销售退票 · NF-e 55，引用原 NFC-e 的 Key</figcaption>
@@ -21018,7 +20978,7 @@ NF-e 55
 8 章。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0242.png"
+<img loading="lazy" src="img/0243.png"
 alt="收银台 › 订单管理：已开票的订单点【退换货】，选择退换货方式：换货、退货退款、仅退款" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：已开票的订单点【退换货】，选择退换货方式：换货、退货退款、仅退款</figcaption>
@@ -21035,14 +20995,14 @@ alt="收银台 › 订单管理：已开票的订单点【退换货】，选择�
     E --&gt; F[&quot;生成一张退货订单（退款类型：退货退款）&quot;]
     F --&gt; N{&quot;网络正常？&quot;}
     N --&gt;|&quot;正常&quot;| G[&quot;自动开具 NF-e 55 销售退票&lt;br&gt;CFOP 1202（跨州 2202），引用原发票，只列退回的商品&quot;]
-    N --&gt;|&quot;断网（不论是否开启离线收银）&quot;| W[&quot;NF-e 55 不能离线开具&lt;br&gt;退货订单进入“待开票”&quot;]
+    N --&gt;|&quot;断网&quot;| W[&quot;NF-e 55 不能离线开具&lt;br&gt;退货订单进入“待开票”&quot;]
   end
   subgraph sg2[&quot;税局（SEFAZ）&quot;]
     G --&gt; R{&quot;税局返回结果&quot;}
   end
   R --&gt;|&quot;授权&quot;| OK[&quot;退货订单为“已开票”&lt;br&gt;原订单发票不变&quot;]
   R --&gt;|&quot;拒绝或超时&quot;| FL[&quot;退货订单为“开票失败”，见 7.4.3&quot;]
-  W --&gt; P[&quot;网络恢复后点【开票】补开，见 7.4.1&quot;]
+  W --&gt; P[&quot;退货订单同步到 后台 › 退货订单【待开票】&lt;br&gt;网络恢复后在收银台或后台点【开票】补开，见 7.4.1&quot;]
   OK --&gt; Z((&quot;结束&quot;))
   FL --&gt; Z
   P --&gt; Z</pre>
@@ -21075,8 +21035,16 @@ NF-e 55
 <tr>
 <td>断网时退货退款</td>
 <td>销售退票是 NF-e
-55，不能离线开具，与是否开启离线收银无关。断网时退货订单照常生成，开票状态为“待开票”，系统提示：“退货退款完成，已生成退货订单
+55，不能离线开具。断网时退货订单照常生成，开票状态为“待开票”，系统提示：“退货退款完成，已生成退货订单
 {退货单号}。网络异常，销售退票未开出，请在网络恢复后点击【开票】补开。”。网络恢复后点【开票】补开，见
+7.4.1。</td>
+</tr>
+<tr>
+<td>断网生成的退货订单在后台的显示</td>
+<td>断网时生成的退货订单同步出现在 后台 › 退货订单
+的【待开票】，在【全部】页签和原订单类型对应的页签（如【收银订单】）都能查到；后台详情的【发票信息】显示与收银台相同的提示：“退货时网络异常，销售退票（NF-e
+55
+入库票）不能离线开具，发票未开出。请在网络恢复后点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，发票将自动发送至客户登记的邮箱；未登记邮箱的，请打印或另行交给顾客。”。网络恢复后在收银台或后台任一处点【开票】补开，两边的开票状态同步变化，见
 7.4.1。</td>
 </tr>
 <tr>
@@ -21093,28 +21061,28 @@ NF-e 55
 </table>
 <h5 id="原型-15">7.1.1.3 原型</h5>
 <div data-custom-style="First Line Indent">
-<p>选退货退款后，先勾选要退的商品，再编辑退款信息；提交后右侧显示新生成的退货订单，顶部提示自动开出的销售退票号和引用的原发票号。</p>
+<p>选退货退款后，先勾选要退的商品，再编辑退款信息；提交后右侧显示新生成的退货订单，顶部提示自动开出的销售退票号和引用的原发票号。退货订单详情头部的“原订单”显示被退货的订单号和订单类型；从换货订单退货时，头部只显示“原订单：{换货单号}（换货订单）”和发票邮箱，不显示换货订单头部的“原订单”“退货订单”两行。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0243.png"
+<img loading="lazy" src="img/0244.png"
 alt="收银台 › 订单管理：选择退款商品，未勾选商品时【下一步】不能点击" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选择退款商品，未勾选商品时【下一步】不能点击</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0244.png"
+<img loading="lazy" src="img/0245.png"
 alt="收银台 › 订单管理：编辑退款信息，退款原因必选" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退款原因必选</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0245.png"
+<img loading="lazy" src="img/0246.png"
 alt="收银台 › 订单管理：编辑退款信息，退货数量、退款金额超过最大可退值时，输入框下方红字提示：“退货数量不能超过最大可退数量”“退款金额不能超过最大可退金额”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退货数量、退款金额超过最大可退值时，输入框下方红字提示：“退货数量不能超过最大可退数量”“退款金额不能超过最大可退金额”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0246.png"
+<img loading="lazy" src="img/0247.png"
 alt="收银台 › 订单管理：收银订单退货退款完成，顶部提示：“退货退款完成，已自动开出 NF-e 55 入库票 000620503（引用原票 000099111），可在 发票管理 › 近期发票 › 入库 中查看”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：收银订单退货退款完成，顶部提示：“退货退款完成，已自动开出 NF-e
@@ -21122,28 +21090,34 @@ alt="收银台 › 订单管理：收银订单退货退款完成，顶部提示�
 入库 中查看”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0247.png"
-alt="收银台 › 订单管理：换货订单退货退款完成，销售退票引用换出件的销售发票 000617314" />
+<img loading="lazy" src="img/0248.png"
+alt="收银台 › 订单管理：换货订单退货退款完成，销售退票引用换出件的销售发票 000620103；退货订单头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单退货退款完成，销售退票引用换出件的销售发票
-000617314</figcaption>
+000620103；退货订单头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0248.png"
+<img loading="lazy" src="img/0249.png"
 alt="收银台 › 订单管理：断网时收银订单退货退款完成，顶部提示：“退货退款完成，已生成退货订单 THW829261025000001。网络异常，销售退票未开出，请在网络恢复后点击【开票】补开。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：断网时收银订单退货退款完成，顶部提示：“退货退款完成，已生成退货订单
 THW829261025000001。网络异常，销售退票未开出，请在网络恢复后点击【开票】补开。”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0249.png"
+<img loading="lazy" src="img/0250.png"
 alt="收银台 › 订单管理：断网时生成的退货订单开票状态为“待开票”，发票信息提示销售退票（NF-e 55 入库票）不能离线开具，订单详情底部有【开票】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：断网时生成的退货订单开票状态为“待开票”，发票信息提示销售退票（NF-e
 55 入库票）不能离线开具，订单详情底部有【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0250.png"
+<img loading="lazy" src="img/0251.png"
+alt="后台 › 退货订单【待开票】【全部】：收银台断网退货生成的退货订单同步出现在列表中，【原订单号】列下一行灰字显示原订单类型，操作列为【查看】【备注】【开票】" />
+<figcaption aria-hidden="true">后台 ›
+退货订单【待开票】【全部】：收银台断网退货生成的退货订单同步出现在列表中，【原订单号】列下一行灰字显示原订单类型，操作列为【查看】【备注】【开票】</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0252.png"
 alt="收银台 › 订单管理：原订单因结账时网络异常为“待开票”，订单详情底部不显示【退换货】，【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：原订单因结账时网络异常为“待开票”，订单详情底部不显示【退换货】，【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”</figcaption>
@@ -21248,7 +21222,8 @@ NF-e 55 入库票 {发票号}（引用原票 {原发票号}），可在 发票�
 2、税局授权后，退货订单的开票状态为“已开票”，【发票信息】显示“入库 ·
 销售退票 · NF-e 55”，发票出现在 财务（零售）› 发票管理 › 已开票-近期发票
 的【入库】【全部】页签，单据信息为退货单号、原订单号和引用原票。<br />
-3、断网时退货订单的开票状态为“待开票”；税局拒绝或超时时为“开票失败”。<br />
+3、断网时退货订单的开票状态为“待开票”，同时出现在 后台 ›
+退货订单【待开票】的【全部】页签和原订单类型对应的页签。后台详情的【发票信息】显示与收银台相同的断网提示。网络恢复后在收银台或后台任一处点【开票】补开，两边的开票状态同步变为“开票中”，税局授权后同步变为“已开票”，发票号相同。税局拒绝或超时时为“开票失败”。<br />
 4、原订单的发票不变；原订单的可退数量减少。系统记录操作日志。<br />
 • 校验规则：<br />
 1、当用户没有勾选任何商品时，【下一步】不能点击。<br />
@@ -21401,7 +21376,7 @@ R$ 50,00，生成退货订单 THW829261025000001，自动开 NF-e 55 销售退�
 <p>选择退款商品、编辑退款信息两步与退货退款相同；提交后顶部提示：“仅退款完成：货物未退回，无需开票”。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0251.png"
+<img loading="lazy" src="img/0253.png"
 alt="收银台 › 订单管理：仅退款完成，退款记录的开票状态为“无需开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：仅退款完成，退款记录的开票状态为“无需开票”</figcaption>
@@ -21546,7 +21521,7 @@ NF-e 55 入库发票（销售退票，引用原发票），在 售后管理 ›
 <p>下面是后台 › 收银订单【售后】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0252.png"
+<img loading="lazy" src="img/0254.png"
 alt="后台 › 收银订单：已开票的订单点行上的【售后】，弹窗显示售后方式、售后原因、退款金额和开票说明，下方为【退货商品】表" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：已开票的订单点行上的【售后】，弹窗显示售后方式、售后原因、退款金额和开票说明，下方为【退货商品】表</figcaption>
@@ -21858,13 +21833,13 @@ NF-e 55 销售退票</td>
 收银订单相同，请参考 7.2.2 的目录。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0253.png"
+<img loading="lazy" src="img/0255.png"
 alt="后台 › 换货订单：已开票的换货订单，操作列有【售后】" />
 <figcaption aria-hidden="true">后台 ›
 换货订单：已开票的换货订单，操作列有【售后】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0247.png"
+<img loading="lazy" src="img/0248.png"
 alt="收银台 › 订单管理：换货订单退货退款后，销售退票引用换出件的销售发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单退货退款后，销售退票引用换出件的销售发票</figcaption>
@@ -22103,13 +22078,22 @@ NF-e 55；3、取消时限为授权后 24
 <tr>
 <td>退货订单什么时候进入“待开票”</td>
 <td>1、退货退款时断网：销售退票是 NF-e
-55，不能离线开具，不论是否开启离线收银，退货订单都进入“待开票”。2、销售退票在授权后
-24
+55，不能离线开具，退货订单进入“待开票”。2、销售退票在授权后 24
 小时内被取消，退货订单回到“待开票”。仅退款的退货订单不进入“待开票”。</td>
 </tr>
 <tr>
+<td>收银台断网退货生成的退货订单</td>
+<td>收银台 › 订单管理 和 后台 ›
+退货订单【待开票】（【全部】页签和原订单类型对应的页签）显示的是同一张退货订单。网络恢复后在任一处点【开票】补开，两边的开票状态同步变为“开票中”，税局授权后同步变为“已开票”，发票号相同。发票进入
+财务（零售）› 发票管理 › 已开票-近期发票
+的【入库】页签。收银台仍断网时点【开票】后点【确认开票】，不提交税局，提示网络异常，见用例规则第
+3 条。</td>
+</tr>
+<tr>
 <td>断网未开出时【发票信息】的提示</td>
-<td>换货退回的退货订单（换出件已离线开出）显示：“对应换货订单的销售发票（NFC-e
+<td>收银台断网退货生成的退货订单（收银台和后台详情相同）显示：“退货时网络异常，销售退票（NF-e
+55
+入库票）不能离线开具，发票未开出。请在网络恢复后点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，发票将自动发送至客户登记的邮箱；未登记邮箱的，请打印或另行交给顾客。”换货退回的退货订单（换出件已离线开出）显示：“对应换货订单的销售发票（NFC-e
 65）已离线开具。此处只开具销售退票（NF-e 55
 入库票）。退货时网络异常，销售退票（NF-e 55
 入库票）不能离线开具，发票未开出。请在网络恢复后点击【开票】补开（须在所在州规定的时限内补开）。开票成功后，发票将自动发送至客户登记的邮箱；未登记邮箱的，请打印或另行交给顾客。”</td>
@@ -22145,7 +22129,7 @@ Key。系统规定原发票授权后才能开具销售退票：离线发票号�
   subgraph sg2[&quot;税局（SEFAZ）&quot;]
     P --&gt; R{&quot;税局返回结果&quot;}
   end
-  R --&gt;|&quot;授权&quot;| OK[&quot;“已开票”，发票进入 发票管理 › 已开票-近期发票【入库】&quot;]
+  R --&gt;|&quot;授权&quot;| OK[&quot;“已开票”，发票进入 发票管理 › 已开票-近期发票【入库】&lt;br&gt;收银台和后台的同一张退货订单同步变化&quot;]
   R --&gt;|&quot;拒绝或超时&quot;| FL[&quot;“开票失败”，见 7.4.3&quot;]
   OK --&gt; Z((&quot;结束&quot;))
   FL --&gt; Z</pre>
@@ -22154,22 +22138,45 @@ Key。系统规定原发票授权后才能开具销售退票：离线发票号�
 <p>下面是换货退回的退货订单断网未开出销售退票、网络恢复后补开的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0254.png"
+<img loading="lazy" src="img/0256.png"
 alt="收银台 › 订单管理：退货订单为“待开票”，发票信息提示销售退票不能离线开具，订单详情底部有【开票】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：退货订单为“待开票”，发票信息提示销售退票不能离线开具，订单详情底部有【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0255.png"
+<img loading="lazy" src="img/0257.png"
 alt="收银台 › 订单管理：【开票】弹窗，只补开退货订单的销售退票，换货订单的销售发票不重开" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：【开票】弹窗，只补开退货订单的销售退票，换货订单的销售发票不重开</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0256.png"
+<img loading="lazy" src="img/0258.png"
 alt="收银台 › 订单管理：仍断网时退货订单点【开票】后点【确认开票】，顶部提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：仍断网时退货订单点【开票】后点【确认开票】，顶部提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”</figcaption>
+</figure>
+<div data-custom-style="First Line Indent">
+<p>下面是收银台断网退货生成的退货订单，网络恢复后在收银台或后台补开、两边同步变化的原型截图。</p>
+</div>
+<figure>
+<img loading="lazy" src="img/0259.png"
+alt="收银台 › 订单管理：网络恢复后点【开票】补开，退货订单变为“开票中”，顶部提示：“已提交开票请求，单据已进入【开票中】，正在向税局（SEFAZ）请求授权，结果可在【发票管理】中查看。”。后台 › 退货订单 的同一张退货订单同步变为“开票中”" />
+<figcaption aria-hidden="true">收银台 ›
+订单管理：网络恢复后点【开票】补开，退货订单变为“开票中”，顶部提示：“已提交开票请求，单据已进入【开票中】，正在向税局（SEFAZ）请求授权，结果可在【发票管理】中查看。”。后台
+› 退货订单 的同一张退货订单同步变为“开票中”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0260.png"
+alt="后台 › 退货订单【待开票】：收银台断网生成的退货订单点【开票】，应开票种固定为销售退票（NF-e 55 入库），显示引用原票" />
+<figcaption aria-hidden="true">后台 ›
+退货订单【待开票】：收银台断网生成的退货订单点【开票】，应开票种固定为销售退票（NF-e
+55 入库），显示引用原票</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0261.png"
+alt="收银台 › 订单管理：在后台补开后，收银台的同一张退货订单同步变为“已开票”，顶部提示：“税局已授权销售退票，退货订单已改为“已开票”。”" />
+<figcaption aria-hidden="true">收银台 ›
+订单管理：在后台补开后，收银台的同一张退货订单同步变为“已开票”，顶部提示：“税局已授权销售退票，退货订单已改为“已开票”。”</figcaption>
 </figure>
 <h6 id="字段规范-19">7.4.1.1.4 字段规范</h6>
 <div data-custom-style="First Line Indent">
@@ -22185,7 +22192,8 @@ alt="收银台 › 订单管理：仍断网时退货订单点【开票】后点�
 2、后置条件：退货订单变为“开票中”，发票进入 财务（零售）› 发票管理 ›
 开票中
 的【入库】页签；税局授权后变为“已开票”，原订单【发票信息】新增一条“入库
-· NF-e 55 销售退票（退货）”。<br />
+· NF-e 55
+销售退票（退货）”。收银台断网退货生成的退货订单，在收银台或后台任一处补开后，另一处的同一张退货订单同步变为“开票中”“已开票”，两边显示的发票号相同。<br />
 3、校验规则：当补开时仍无法连接税局时，提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”，系统不发送邮件。</p>
 </div>
 <h4 id="开票中-1">7.4.2 开票中</h4>
@@ -22196,7 +22204,7 @@ alt="收银台 › 订单管理：仍断网时退货订单点【开票】后点�
 财务（零售）› 发票管理 › 开票中 的【入库】页签。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0257.png"
+<img loading="lazy" src="img/0262.png"
 alt="后台 › 退货订单：【开票中】的行操作列只有【查看】【备注】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【开票中】的行操作列只有【查看】【备注】</figcaption>
@@ -22211,7 +22219,7 @@ alt="后台 › 退货订单：【开票中】的行操作列只有【查看】�
 7.4.1.1 的目录。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0258.png"
+<img loading="lazy" src="img/0263.png"
 alt="后台 › 退货订单：开票失败重新开票的【开票】弹窗，应开票种固定为销售退票（NF-e 55 入库），显示引用原票" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：开票失败重新开票的【开票】弹窗，应开票种固定为销售退票（NF-e
@@ -22247,13 +22255,13 @@ Key
 </tbody>
 </table>
 <figure>
-<img loading="lazy" src="img/0259.png"
+<img loading="lazy" src="img/0264.png"
 alt="后台 › 退货订单：开票失败的行下方显示失败原因和【处理方法 ›】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：开票失败的行下方显示失败原因和【处理方法 ›】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0260.png"
+<img loading="lazy" src="img/0265.png"
 alt="【处理方法】弹窗：销售退票引用的原发票在税局查询不到（Rejeição 267）" />
 <figcaption
 aria-hidden="true">【处理方法】弹窗：销售退票引用的原发票在税局查询不到（Rejeição
@@ -22271,14 +22279,14 @@ aria-hidden="true">【处理方法】弹窗：销售退票引用的原发票在�
 退货订单【已开票】的行，操作列为【查看】【备注】【取消发票】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0261.png"
+<img loading="lazy" src="img/0266.png"
 alt="收银台 › 订单管理：已开票的退货订单，底部有【打印 NF-e 发票（A4 DANFE）】【导出】【取消发票】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：已开票的退货订单，底部有【打印 NF-e 发票（A4
 DANFE）】【导出】【取消发票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0262.png"
+<img loading="lazy" src="img/0267.png"
 alt="后台 › 退货订单：【已开票】的行操作列为【查看】【备注】【取消发票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【已开票】的行操作列为【查看】【备注】【取消发票】</figcaption>
@@ -22292,7 +22300,7 @@ alt="后台 › 退货订单：【已开票】的行操作列为【查看】【�
 7.4.1。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0263.png"
+<img loading="lazy" src="img/0268.png"
 alt="后台 › 退货订单：【取消发票】弹窗，销售退票授权后 24 小时内可取消" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【取消发票】弹窗，销售退票授权后 24 小时内可取消</figcaption>
@@ -22352,7 +22360,7 @@ NF-e 55 销售退票（引用原发票，只列退回的商品），换货订单
 </tr>
 <tr>
 <td>结账时网络异常</td>
-<td>换货订单的 NFC-e 65 按离线收银规则处理，退货订单的 NF-e 55
+<td>换货订单的 NFC-e 65 当场离线开出，退货订单的 NF-e 55
 销售退票不能离线开具，进入“待开票”，请参考 6.2、6.3 的目录。</td>
 </tr>
 <tr>
@@ -22395,31 +22403,31 @@ NF-e 55 销售退票（引用原发票，只列退回的商品），换货订单
 发起换货的原型截图，依次为选择退换货方式、选择退回的商品、编辑退款信息和换货完成。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0264.png"
+<img loading="lazy" src="img/0269.png"
 alt="收银台 › 订单管理：选中已开票的订单点【退换货】，选择退换货方式（换货、退货退款、仅退款）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选中已开票的订单点【退换货】，选择退换货方式（换货、退货退款、仅退款）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0265.png"
+<img loading="lazy" src="img/0270.png"
 alt="收银台 › 订单管理：选择换货后勾选退回的商品，底部显示已选件数，点【下一步】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选择换货后勾选退回的商品，底部显示已选件数，点【下一步】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0266.png"
+<img loading="lazy" src="img/0271.png"
 alt="收银台 › 订单管理：编辑退款信息，退款原因必选，点【下一步】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退款原因必选，点【下一步】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0267.png"
+<img loading="lazy" src="img/0272.png"
 alt="收银台 › 收银：点【下一步】后切到收银页，结账清单里列出标“退回”的商品，顶部换货提示条显示原订单号、退回商品和退回金额，提示条上有【取消换货】；选好换出商品后结账" />
 <figcaption aria-hidden="true">收银台 ›
 收银：点【下一步】后切到收银页，结账清单里列出标“退回”的商品，顶部换货提示条显示原订单号、退回商品和退回金额，提示条上有【取消换货】；选好换出商品后结账</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0268.png"
+<img loading="lazy" src="img/0273.png"
 alt="收银台 › 订单管理：换货完成，提示已自动开出 2 张发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货完成，提示已自动开出 2 张发票</figcaption>
@@ -22668,14 +22676,14 @@ HHW829261119000001（NFC-e 65 销售发票 000620504）</td>
 中同一次换货生成的换货订单和退货订单的【订单信息】【发票信息】，两张单据互相显示对方的单号。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0269.png"
+<img loading="lazy" src="img/0274.png"
 alt="收银台 › 订单管理：换货订单，订单信息显示原订单号和退货单号，发票信息只有换出件的 NFC-e 65 销售发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单，订单信息显示原订单号和退货单号，发票信息只有换出件的
 NFC-e 65 销售发票</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0270.png"
+<img loading="lazy" src="img/0275.png"
 alt="收银台 › 订单管理：换货生成的退货订单，订单信息显示原订单号和换货单号，发票信息为 NF-e 55 销售退票，引用原 NFC-e" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货生成的退货订单，订单信息显示原订单号和换货单号，发票信息为
@@ -22755,14 +22763,14 @@ NF-e 55 销售退票，引用原 NFC-e</figcaption>
 退货订单【门店预订单】页签中门店预订单换货生成的退货订单，原订单号下方显示关联的换货单号。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0271.png"
+<img loading="lazy" src="img/0276.png"
 alt="后台 › 退货订单【门店预订单】页签：门店预订单换货生成的退货订单，原订单号下方显示“门店预订单 · 换货单”" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【门店预订单】页签：门店预订单换货生成的退货订单，原订单号下方显示“门店预订单
 · 换货单”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0272.png"
+<img loading="lazy" src="img/0277.png"
 alt="收银台 › 订单管理：门店预订单换货完成后生成的新订单状态为“待提货”，订单详情底部有【核销取货】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：门店预订单换货完成后生成的新订单状态为“待提货”，订单详情底部有【核销取货】</figcaption>
@@ -22823,7 +22831,7 @@ YDW829261111000901 换货，生成退货订单、新门店预订单（待提货�
 <p>换货页面与 8.1 相同，【编辑退款信息】没有“货没带走”的勾选项。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0266.png"
+<img loading="lazy" src="img/0271.png"
 alt="收银台 › 订单管理：换货的编辑退款信息页面，没有“货没带走”的勾选项" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货的编辑退款信息页面，没有“货没带走”的勾选项</figcaption>
@@ -22903,7 +22911,7 @@ NF-e 55 开具，请参考 6.4.1、6.4.2
 55。取消发票弹窗请参考 6.1.9.4.2 的原型。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0220.png"
+<img loading="lazy" src="img/0221.png"
 alt="收银台 › 订单管理：换货订单的开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或 NF-e 55" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单的开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或
@@ -22985,13 +22993,13 @@ THUI4O261119100005”；详情【基本信息】显示换货单号、原订单�
 的原型。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0273.png"
+<img loading="lazy" src="img/0278.png"
 alt="后台 › 换货订单：左侧按开票状态筛选，列表分【全部】【收银订单】【门店预订单】页签，原订单号下方显示关联的退货单号" />
 <figcaption aria-hidden="true">后台 ›
 换货订单：左侧按开票状态筛选，列表分【全部】【收银订单】【门店预订单】页签，原订单号下方显示关联的退货单号</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0274.png"
+<img loading="lazy" src="img/0279.png"
 alt="后台 › 退货订单【收银订单】页签：换货生成的退货订单，原订单号下方显示关联的换货单号" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【收银订单】页签：换货生成的退货订单，原订单号下方显示关联的换货单号</figcaption>
@@ -23098,7 +23106,7 @@ NFC-e 发票】【打印小票】；其它状态的按钮请参考 6.1.7～6.1.9
 <div data-custom-style="First Line Indent">
 <p>（0）开关与状态流转：开关【批发订单出库前是否开票】（设置 ›
 订单设置，默认关闭，见
-10.4）开启和关闭时，批发订单走两条不同的路。下面（1）～（8）以及
+10.3）开启和关闭时，批发订单走两条不同的路。下面（1）～（8）以及
 9.1.3～9.1.6
 只在开关开启时适用；开关关闭时，批发订单不显示“待开票”状态及开票相关功能（【待开票】页签、【开票】、【开票状态】、【取消发票】、【打印发票】等），付款后直接进入“待出库”，出库不拦截，需要发票时在【发票管理】›“草稿中”【创建发票】并关联该批发订单。</p>
 </div>
@@ -23116,55 +23124,55 @@ NFC-e 发票】【打印小票】；其它状态的按钮请参考 6.1.7～6.1.9
   W --&gt; O
   O --&gt; Z((&quot;结束&quot;))</pre>
 <figure>
-<img loading="lazy" src="img/0275.png"
+<img loading="lazy" src="img/0280.png"
 alt="开关关闭（默认）：订单 › 批发订单 左侧没有【待开票】，列表没有【开票状态】列和【全部开票状态】筛选，行上没有开票类按钮" />
 <figcaption aria-hidden="true">开关关闭（默认）：订单 › 批发订单
 左侧没有【待开票】，列表没有【开票状态】列和【全部开票状态】筛选，行上没有开票类按钮</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0276.png"
+<img loading="lazy" src="img/0281.png"
 alt="开关开启：左侧有【待开票】，列表有【开票状态】列和【全部开票状态】筛选" />
 <figcaption
 aria-hidden="true">开关开启：左侧有【待开票】，列表有【开票状态】列和【全部开票状态】筛选</figcaption>
 </figure>
 <p>（1）开票（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0277.png" alt="FLOW-089" />
+<img loading="lazy" src="img/0282.png" alt="FLOW-089" />
 <figcaption aria-hidden="true">FLOW-089</figcaption>
 </figure>
 <p>（2）转待支付（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0278.png" alt="FLOW-090" />
+<img loading="lazy" src="img/0283.png" alt="FLOW-090" />
 <figcaption aria-hidden="true">FLOW-090</figcaption>
 </figure>
 <p>（3）发票备注（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0279.png" alt="FLOW-091" />
+<img loading="lazy" src="img/0284.png" alt="FLOW-091" />
 <figcaption aria-hidden="true">FLOW-091</figcaption>
 </figure>
 <p>（4）刷新（开票中）</p>
 <figure>
-<img loading="lazy" src="img/0280.png" alt="FLOW-092" />
+<img loading="lazy" src="img/0285.png" alt="FLOW-092" />
 <figcaption aria-hidden="true">FLOW-092</figcaption>
 </figure>
 <p>（5）开票（重新开票，开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0281.png" alt="FLOW-093" />
+<img loading="lazy" src="img/0286.png" alt="FLOW-093" />
 <figcaption aria-hidden="true">FLOW-093</figcaption>
 </figure>
 <p>（6）打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0282.png" alt="FLOW-094" />
+<img loading="lazy" src="img/0287.png" alt="FLOW-094" />
 <figcaption aria-hidden="true">FLOW-094</figcaption>
 </figure>
 <p>（7）批量打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0283.png" alt="FLOW-095" />
+<img loading="lazy" src="img/0288.png" alt="FLOW-095" />
 <figcaption aria-hidden="true">FLOW-095</figcaption>
 </figure>
 <p>（8）取消发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0284.png" alt="FLOW-096" />
+<img loading="lazy" src="img/0289.png" alt="FLOW-096" />
 <figcaption aria-hidden="true">FLOW-096</figcaption>
 </figure>
 <p>查看失败原因、查看发票信息只查看，没有分支流程。</p>
@@ -23306,7 +23314,7 @@ NFeRetAutorizacao 查询结果。
 <p>下面是批发订单【开票】页面的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0285.png"
+<img loading="lazy" src="img/0290.png"
 alt="批发订单点行上的【开票】，打开【开票 · 批发订单】页面：订单信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】" />
 <figcaption aria-hidden="true">批发订单点行上的【开票】，打开【开票 ·
 批发订单】页面：订单信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】</figcaption>
@@ -23987,14 +23995,14 @@ Key 重新提交。</p>
 ›】打开的弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0286.png"
+<img loading="lazy" src="img/0291.png"
 alt="订单 › 批发订单 › 左侧【待开票】› 子页签【开票失败】，点行上的【开票】：打开【开票 · 批发订单】页面，页面顶部显示失败提示条和【处理方法 ›】" />
 <figcaption aria-hidden="true">订单 › 批发订单 › 左侧【待开票】›
 子页签【开票失败】，点行上的【开票】：打开【开票 ·
 批发订单】页面，页面顶部显示失败提示条和【处理方法 ›】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0287.png"
+<img loading="lazy" src="img/0292.png"
 alt="点失败提示条上的【处理方法 ›】，弹窗显示该失败原因的处理方法" />
 <figcaption aria-hidden="true">点失败提示条上的【处理方法
 ›】，弹窗显示该失败原因的处理方法</figcaption>
@@ -24710,7 +24718,7 @@ Protocolo）”弹窗，显示本次查询结果（cStat、Chave、Protocolo）�
 <p>下面是批发订单开票中【刷新】的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0288.png"
+<img loading="lazy" src="img/0293.png"
 alt="批发订单【开票中】点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果" />
 <figcaption
 aria-hidden="true">批发订单【开票中】点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果</figcaption>
@@ -24930,14 +24938,14 @@ DANFE、简易DANFE、简易DANFE -
 面单格式；点其中一项，打开对应的打印预览弹窗。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0289.png"
+<img loading="lazy" src="img/0294.png"
 alt="订单 › 批发订单 ›“待出库”，行上【打印发票】的下拉：DANFE、简易DANFE、简易DANFE - 面单格式" />
 <figcaption aria-hidden="true">订单 › 批发订单
 ›“待出库”，行上【打印发票】的下拉：DANFE、简易DANFE、简易DANFE -
 面单格式</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0290.png"
+<img loading="lazy" src="img/0295.png"
 alt="点 DANFE 后打开【打印预览 · DANFE（批发订单）】弹窗，底部为【关闭】【下载 PDF】【打印】" />
 <figcaption aria-hidden="true">点 DANFE 后打开【打印预览 ·
 DANFE（批发订单）】弹窗，底部为【关闭】【下载 PDF】【打印】</figcaption>
@@ -25168,13 +25176,13 @@ PDF】，系统下载合并后的文件。<br />
 PDF】【打印】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0291.png"
+<img loading="lazy" src="img/0296.png"
 alt="“待出库”勾选 3 张订单后，列表上方【打印】的下拉" />
 <figcaption aria-hidden="true">“待出库”勾选 3
 张订单后，列表上方【打印】的下拉</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0292.png"
+<img loading="lazy" src="img/0297.png"
 alt="选【打印发票 · DANFE】后打开【打印发票 · DANFE（批发订单）】预览弹窗" />
 <figcaption aria-hidden="true">选【打印发票 · DANFE】后打开【打印发票 ·
 DANFE（批发订单）】预览弹窗</figcaption>
@@ -25285,7 +25293,7 @@ CNPJ、取消理由（Justificativa）。
 <p>下面是批发订单【取消发票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0293.png"
+<img loading="lazy" src="img/0298.png"
 alt="批发订单【待出库】点行上的【取消发票】，弹窗显示序列号、发票号、关联单号、开票时间、距超时和取消理由" />
 <figcaption
 aria-hidden="true">批发订单【待出库】点行上的【取消发票】，弹窗显示序列号、发票号、关联单号、开票时间、距超时和取消理由</figcaption>
@@ -25451,7 +25459,7 @@ Key。”。只查看，不与税局交互，不输出操作日志。</p>
 <p>下面是批发订单详情【发票信息】页签的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0294.png"
+<img loading="lazy" src="img/0299.png"
 alt="批发订单详情【发票信息】页签：列出这张订单开过的全部发票" />
 <figcaption
 aria-hidden="true">批发订单详情【发票信息】页签：列出这张订单开过的全部发票</figcaption>
@@ -25572,7 +25580,7 @@ Key。”。<br />
 <div data-custom-style="First Line Indent">
 <p>适用：设置 › 订单设置 › 订单设置
 的开关【批发订单退货入库时是否自动开票】已开启（见
-10.4.1）。批发订单退货【退货订单-批发订单】入库时，系统自动开销售退票（NF-e
+10.3.1）。批发订单退货【退货订单-批发订单】入库时，系统自动开销售退票（NF-e
 55 入库，引用原销售发票）。后台 › 退货订单
 ›【批发订单】下分【全部】【待入库】【待开票】【已入库】【交易完成】页签：【待开票】页签只在开关开启时显示，里面分“待开票”“开票中”“开票失败”三个子状态，税局授权成功后退货订单自动流转到【已入库】。【开票状态】列紧跟在【状态】列后面。切到【批发订单】页签时，左侧【开票状态】面板隐藏。</p>
 </div>
@@ -25651,14 +25659,14 @@ xxx）、拒绝使用（Denegada）或超时。在【待开票】页签的“开
 5 条和 9.2.2 处理，不显示【待开票】页签和开票状态。</strong></p>
 </div>
 <figure>
-<img loading="lazy" src="img/0295.png"
+<img loading="lazy" src="img/0300.png"
 alt="后台 › 退货订单【批发订单】›【待开票】页签：原批发订单没开销售发票的退货订单，【开票状态】列第二行灰字显示“原批发订单未开销售发票，请先补开原销售发票”，【原订单号】下方灰字显示“批发订单 · 原单未开票”" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】›【待开票】页签：原批发订单没开销售发票的退货订单，【开票状态】列第二行灰字显示“原批发订单未开销售发票，请先补开原销售发票”，【原订单号】下方灰字显示“批发订单
 · 原单未开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0296.png"
+<img loading="lazy" src="img/0301.png"
 alt="原批发订单没开销售发票时点行上的【开票】：不打开弹窗，页面顶部提示：“原批发订单 {批发订单号} 还没有开具销售发票，请先在【发票管理】›【草稿中】补开原销售发票，再开具销售退票。”" />
 <figcaption
 aria-hidden="true">原批发订单没开销售发票时点行上的【开票】：不打开弹窗，页面顶部提示：“原批发订单
@@ -25693,7 +25701,7 @@ aria-hidden="true">原批发订单没开销售发票时点行上的【开票】�
 退货订单【批发订单】页签的原型截图：页签为【全部】【待入库】【待开票】【已入库】【交易完成】，左侧不显示【开票状态】面板，列表的【开票状态】列紧跟在【状态】列后面，已开票的行操作列为【查看】【备注】【取消发票】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0297.png"
+<img loading="lazy" src="img/0302.png"
 alt="后台 › 退货订单【批发订单】页签（开关开启）：分【全部】【待入库】【待开票】【已入库】【交易完成】页签，【开票状态】列紧跟在【状态】列后面" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签（开关开启）：分【全部】【待入库】【待开票】【已入库】【交易完成】页签，【开票状态】列紧跟在【状态】列后面</figcaption>
@@ -25907,13 +25915,13 @@ CNPJ】为企业客户的 CNPJ。弹窗说明为“批发订单退货开具一�
 退货订单【批发订单】页签中“待开票”的行点【开票】后打开的【开票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0298.png"
+<img loading="lazy" src="img/0303.png"
 alt="后台 › 退货订单【批发订单】›【待开票】页签（开关开启）：顶部说明这一页放已入库、尚未开出销售退票的批发退货单，状态分“待开票”“开票中”“开票失败”三个小标签，“待开票”的行上有【开票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】›【待开票】页签（开关开启）：顶部说明这一页放已入库、尚未开出销售退票的批发退货单，状态分“待开票”“开票中”“开票失败”三个小标签，“待开票”的行上有【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0299.png"
+<img loading="lazy" src="img/0304.png"
 alt="后台 › 退货订单【批发订单】页签：“待开票”的行点【开票】，打开【开票】弹窗，下方【退货商品】表列出退回的商品、退货数量、单价和金额，底部为【取消】【确认开票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签：“待开票”的行点【开票】，打开【开票】弹窗，下方【退货商品】表列出退回的商品、退货数量、单价和金额，底部为【取消】【确认开票】</figcaption>
@@ -26127,7 +26135,7 @@ Mercadinho Vila Nova Ltda（34.567.890/0001-30）</td>
 ›【批发订单】没有【待开票】页签，只有【全部】【待入库】【已入库】【交易完成】；不显示开票状态（【开票状态】列、【全部开票状态】筛选），行上也没有【开票】；左侧【开票状态】面板同样隐藏。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0300.png"
+<img loading="lazy" src="img/0305.png"
 alt="后台 › 退货订单【批发订单】页签（开关关闭）：只有【全部】【待入库】【已入库】【交易完成】页签，没有【待开票】页签和【开票状态】列" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签（开关关闭）：只有【全部】【待入库】【已入库】【交易完成】页签，没有【待开票】页签和【开票状态】列</figcaption>
@@ -26136,7 +26144,7 @@ alt="后台 › 退货订单【批发订单】页签（开关关闭）：只有�
 <blockquote>
 <p>菜单位置：设置 › 订单设置 › 开票设置（见 10.1）；设置 › 调拨设置 ›
 开票关系（见 10.2）；设置 › 调拨设置 的开关【调拨单出库前是否开票】（见
-10.2）；设置 › 收银开票设置（见 10.3）。</p>
+10.2）。</p>
 </blockquote>
 <h3 id="订单配置">10.1 订单配置</h3>
 <blockquote>
@@ -26407,367 +26415,12 @@ CNPJ 和所在州。</td>
 行的区别只在调出方、调入方是不是门店：两端都是仓库的开货物调拨，至少一端是门店的开货物转移。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0301.png"
+<img loading="lazy" src="img/0306.png"
 alt="设置 › 调拨设置 › 开票关系：开关【调拨单出库前是否开票】、【说明】和开票关系表" />
 <figcaption aria-hidden="true">设置 › 调拨设置 ›
 开票关系：开关【调拨单出库前是否开票】、【说明】和开票关系表</figcaption>
 </figure>
-<h3 id="收银开票设置离线开票">10.3 收银开票设置（离线开票）</h3>
-<blockquote>
-<p>位置：设置 › 收银开票设置。用于设置收银台断网时是否离线开出 NFC-e
-65、临近上传截止时的提醒、各门店是否离线开票，以及各州离线发票的上传时限。页面右上角有【操作日志】。</p>
-</blockquote>
-<h4 id="关键业务约束-36">10.3.1 关键业务约束</h4>
-<p><strong>页面组成：</strong></p>
-<p>1、【说明】提示条，共 4
-条：“1.离线开票：网络或税局无法连接时，收银台离线开出
-NFC-e，网络恢复后自动上传税局。”“2.上传时限：离线开出的发票须在时限内上传税局，按门店所在州执行；未单独设置的州按默认时限。”“3.离线小票打印两份：一份给顾客，一份留店，授权后可销毁。”“4.关闭【断网时离线开票】后，断网时收银照常收款，订单开票状态为“待开票”，网络恢复后在【订单管理】点【开票】补开。NF-e
-55 不受此开关影响。”。</p>
-<p>2、【基本设置】：开关【断网时离线开票】、临近上传截止提醒、接收人、提醒方式。</p>
-<p>3、【基本设置】下方的卡片顶部为横向页签【上传时限】【门店设置】，样式与列表的状态页签相同，点哪个页签只显示对应的板块。</p>
-<p>4、【上传时限（按州）】：表格列为州、上传时限、操作。第一行为“默认（未单独设置的州）”，其后每州一行，共
-28 行，每页 25 条，带分页。行上【编辑】打开【编辑上传时限】弹窗。</p>
-<p>5、【门店设置】：可按州、按开票主体筛选，点【查询】按条件显示，点【重置】清空条件；表格列为门店、开票主体、所在州、离线开票、上传时限，每页
-10 条，带分页。</p>
-<p>6、原【离线小票打印】卡片已删除，离线小票打印两份的说明见【说明】第 3
-条。</p>
-<p><strong>开关【断网时离线开票】开启（默认）时，影响以下模块：</strong></p>
-<p>1、收银台 › 收银、门店预订收款：网络或税局无法连接（含税局停止服务
-108、109）时，当场离线开出 NFC-e 65，开票方式为 9（tpEmis =
-9），处理规则请参考 6.2.1
-的目录。只对门店设置表里【离线开票】为开启的门店生效。</p>
-<p>2、财务（零售）› 发票管理
-›【开票中】：离线开出、尚未上传的发票显示在这里，开票状态为“离线已开票（待上传）”。</p>
-<p>3、收银台 ›
-订单管理：显示离线开票信息和【立即上传】；须在门店所在州的上传时限内上传，时限按本页上传时限表执行。</p>
-<p>4、临近上传截止时，系统按【临近上传截止提醒】设置的时间，以站内消息提醒所选接收人。</p>
-<p>5、收银台 › 交班日结：有待上传的离线发票时不能交班，请参考 6.2.5
-的目录。</p>
-<p>6、NF-e 55 不受本开关影响，断网时仍按补开处理。</p>
-<p><strong>开关【断网时离线开票】关闭时：</strong></p>
-<p>1、门店设置表置灰，表格上方提示：“总开关已关闭，所有门店断网时不离线开票。”。</p>
-<p>2、断网时不离线开票，收银照常收款，订单的开票状态为“待开票”；网络恢复后，在【订单管理】点【开票】补开；登记了邮箱的，开票成功后系统自动发送发票。</p>
-<p>3、交班时有待补开的订单，只提醒、不拦截。</p>
-<p>各州上传时限的法规依据为全国规则 Ajuste SINIEF
-19/16，部分州另有本州规定（如 DF 为 Portaria SEEC
-387/2019）；页面不显示依据。</p>
-<h4 id="原型-36">10.3.2 原型</h4>
-<div data-custom-style="First Line Indent">
-<p>下面是 设置 › 收银开票设置
-的原型截图：顶部为【说明】和【基本设置】；下方卡片顶部为横向页签【上传时限】【门店设置】，点哪个页签只显示对应的板块；以及【编辑上传时限】弹窗。</p>
-</div>
-<figure>
-<img loading="lazy" src="img/0302.png"
-alt="页面顶部【说明】（4 条）和【基本设置】：开关【断网时离线开票】、临近上传截止提醒、接收人、提醒方式" />
-<figcaption aria-hidden="true">页面顶部【说明】（4
-条）和【基本设置】：开关【断网时离线开票】、临近上传截止提醒、接收人、提醒方式</figcaption>
-</figure>
-<figure>
-<img loading="lazy" src="img/0303.png"
-alt="卡片顶部横向页签选【上传时限】：显示【上传时限（按州）】，第一行为默认，其后每州一行，共 28 行，行上有【编辑】" />
-<figcaption
-aria-hidden="true">卡片顶部横向页签选【上传时限】：显示【上传时限（按州）】，第一行为默认，其后每州一行，共
-28 行，行上有【编辑】</figcaption>
-</figure>
-<figure>
-<img loading="lazy" src="img/0304.png"
-alt="卡片顶部横向页签选【门店设置】：按州、按开票主体筛选，表格显示门店、开票主体、所在州、离线开票开关和上传时限" />
-<figcaption
-aria-hidden="true">卡片顶部横向页签选【门店设置】：按州、按开票主体筛选，表格显示门店、开票主体、所在州、离线开票开关和上传时限</figcaption>
-</figure>
-<figure>
-<img loading="lazy" src="img/0305.png"
-alt="上传时限表点【编辑】打开【编辑上传时限】弹窗" />
-<figcaption
-aria-hidden="true">上传时限表点【编辑】打开【编辑上传时限】弹窗</figcaption>
-</figure>
-<h4 id="字段规范-35">10.3.3 字段规范</h4>
-<table>
-
-<thead>
-<tr>
-<th>字段名称</th>
-<th>类型</th>
-<th>是否必填/必选</th>
-<th>默认值</th>
-<th>约束规则</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>基本设置</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>断网时离线开票</td>
-<td>开关</td>
-<td>是</td>
-<td>开启</td>
-<td>开关说明：“开启后，网络或税局无法连接时，收银台离线开出
-NFC-e，网络恢复后自动上传税局。”。关闭后门店设置表置灰。</td>
-</tr>
-<tr>
-<td>临近上传截止提醒</td>
-<td>数字输入框</td>
-<td>否</td>
-<td>4</td>
-<td>显示为“截止前 N 小时提醒”；正整数。</td>
-</tr>
-<tr>
-<td>接收人</td>
-<td>下拉多选</td>
-<td>否</td>
-<td>店长、财务</td>
-<td>选项：店长、财务。</td>
-</tr>
-<tr>
-<td>提醒方式</td>
-<td>只读文本</td>
-<td>否</td>
-<td>站内消息</td>
-<td>不能修改。</td>
-</tr>
-<tr>
-<td><strong>上传时限（按州）</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>州</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>上传时限表每州一行，第一行为“默认（未单独设置的州）”，共 28 行，每页
-25 条，带分页；【编辑上传时限】弹窗里只读。</td>
-</tr>
-<tr>
-<td>上传时限</td>
-<td>下拉框（【编辑上传时限】弹窗内）</td>
-<td>是</td>
-<td>回显，默认行为开票后第一个工作日</td>
-<td>选项：开票后第一个工作日、开票后 24 小时。</td>
-</tr>
-<tr>
-<td>操作</td>
-<td>按钮</td>
-<td>否</td>
-<td>无</td>
-<td>每行一个【编辑】，打开【编辑上传时限】弹窗（宽
-480px）；点【保存】，系统保存并提示：“已保存”。点【取消】，关闭弹窗，不保存。</td>
-</tr>
-<tr>
-<td><strong>门店设置</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>州（筛选）</td>
-<td>下拉框</td>
-<td>否</td>
-<td>全部州</td>
-<td>按门店所在州筛选门店设置表。</td>
-</tr>
-<tr>
-<td>开票主体（筛选）</td>
-<td>下拉框</td>
-<td>否</td>
-<td>全部开票主体</td>
-<td>按门店关联的开票主体筛选门店设置表。</td>
-</tr>
-<tr>
-<td>【查询】【重置】</td>
-<td>按钮</td>
-<td>否</td>
-<td>无</td>
-<td>点【查询】按所选条件显示门店；点【重置】清空筛选条件，显示全部门店。</td>
-</tr>
-<tr>
-<td>门店（门店设置表）</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>门店编码和名称，每个门店一行；每页 10 条，带分页。</td>
-</tr>
-<tr>
-<td>开票主体（门店设置表）</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>门店关联的发票主体；未关联时显示“–”。</td>
-</tr>
-<tr>
-<td>所在州（门店设置表）</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>门店所在的州。</td>
-</tr>
-<tr>
-<td>离线开票（门店设置表）</td>
-<td>开关</td>
-<td>否</td>
-<td>开启</td>
-<td>逐个门店设置断网时是否离线开票；总开关关闭时置灰。</td>
-</tr>
-<tr>
-<td>上传时限（门店设置表）</td>
-<td>只读文本</td>
-<td>否</td>
-<td>回显</td>
-<td>不能在这里修改。按门店所在州，自动显示【上传时限】页签里该州的上传时限；该州未单独设置时，显示默认行的时限。在【上传时限】页签修改某个州的时限并保存后，这里该州所有门店的上传时限自动显示新的时限。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="用例规则-35">10.3.4 用例规则</h4>
-<p>• 前置条件：<br />
-1、用户已登录系统，具备【设置-收银开票设置】权限。<br />
-2、门店已关联发票主体，发票主体已配置 NFC-e（CSC）。<br />
-• 操作流程：<br />
-1、用户进入 设置 ›
-收银开票设置，拨动【断网时离线开票】，或修改临近上传截止提醒、接收人，或拨动某个门店的【离线开票】，修改立即生效。<br />
-2、用户在上传时限表点某一行的【编辑】，系统打开【编辑上传时限】弹窗；用户选择上传时限，点【保存】，系统保存并提示：“已保存”。系统关闭弹窗，门店设置表里该州门店的【上传时限】同步更新。<br />
-3、用户在弹窗点【取消】，系统关闭弹窗，不保存。<br />
-4、用户点右上角【操作日志】，系统打开【操作日志】弹窗（宽
-960px），列为操作时间、操作账号、模块、功能、操作明细、IP。<br />
-5、用户在【门店设置】选择州、开票主体后点【查询】，系统按条件显示门店；点【重置】，系统清空条件并显示全部门店。<br />
-•
-后置条件：之后断网时的收银、门店预订收款按新的设置处理；已经离线开出的发票不受影响。修改成功后记录操作日志。<br />
-•
-校验规则：当用户在【编辑上传时限】弹窗未选择上传时限就点【保存】时，在字段下方提示，系统不保存。<br />
-• 提示消息：<br />
-在当前页面的字段下面红色字体提示：</p>
-<table>
-<thead>
-<tr>
-<th>字段名称</th>
-<th>未填写/未选择提示</th>
-<th>输入错误提示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>上传时限</td>
-<td>请选择上传时限</td>
-<td>-</td>
-</tr>
-<tr>
-<td>临近上传截止提醒</td>
-<td>-</td>
-<td>临近上传截止提醒须为正整数</td>
-</tr>
-</tbody>
-</table>
-<p>• 消息通知：</p>
-<table>
-
-<thead>
-<tr>
-<th>通知场景</th>
-<th>通知标题</th>
-<th>通知内容</th>
-<th>接收方</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>离线发票临近上传截止时间仍未上传（按【收银开票设置】中“截止前 N
-小时提醒”触发）。</td>
-<td>离线发票即将超过上传期限</td>
-<td>门店 {门店} 有 {N} 张离线发票尚未上传税局，须在 {上传截止时间}
-前上传。请检查门店网络，或在【订单管理】点【立即上传】。</td>
-<td>店长、财务</td>
-</tr>
-<tr>
-<td>离线发票上传被税局拒绝。</td>
-<td>离线发票上传被税局拒绝</td>
-<td>门店 {门店} 的发票 {发票号}
-上传被拒（{税局返回码}）。请在【订单管理】点【处理方法】按提示修改后重新上传。</td>
-<td>店长、财务</td>
-</tr>
-</tbody>
-</table>
-<p><strong>消息的触发和接收规则：</strong></p>
-<p>1、只有开关【断网时离线开票】开启、并且门店设置表里该门店的【离线开票】为开启时，才会产生这两类消息；关闭后不再产生新消息，已发出的消息仍保留在铃铛里。<br />
-2、上传截止时间的算法：每张离线发票按门店所在州的上传时限计算，例如时限为“开票后第一个工作日”的，截止时间为开票后第一个工作日的
-23:59:59；时限为“开票后 24 小时”的，截止时间为开票时间加 24 小时。<br />
-3、“离线发票即将超过上传期限”的触发时间：上传截止时间减去【临近上传截止提醒】设置的小时数。到了这个时间，该发票仍是“离线已开票（待上传）”的，系统发送提醒；在这之前已经上传成功的发票，不发送提醒。<br />
-4、同一门店、同一上传截止时间的待上传发票合并成一条消息，{N}
-为合并的张数；每批发票只提醒一次，不重复发送。<br />
-5、“离线发票上传被税局拒绝”的触发时间：网络恢复后系统自动上传，或用户在【订单管理】点【立即上传】后，税局返回拒绝时立即发送；每张被拒的发票发送一条消息。<br />
-6、接收方按【接收人】的设置发送：店长为该门店的店长，财务为该门店所属发票主体的财务（零售）人员；只选了其中一个角色的，只发给该角色；两个都不选的，不发送消息。<br />
-7、提醒方式固定为站内消息，不发邮件、短信。<br />
-8、修改【临近上传截止提醒】或【接收人】后，只对之后到达提醒时间的发票生效，已经发出的消息不变。<br />
-9、通知内容里的变量：{门店} 为门店编码和名称，例如 LJ001 Paulista；{N}
-为待上传发票张数；{上传截止时间} 格式为 YYYY-MM-DD HH:mm:ss，例如
-2026-11-10 23:59:59；{发票号} 为 9 位发票号，例如
-000620502；{税局返回码} 为税局返回的拒绝代码，例如 Rejeição 464。</p>
-<div data-custom-style="First Line Indent">
-<p>消息显示在每个页面右上角的铃铛里，按时间从新到旧排，未读的带红点；点一条消息会标为已读、角标减
-1，并跳到【收银台】›【订单管理】选中相关订单，点【全部已读】会清掉所有未读。</p>
-</div>
-<figure>
-<img loading="lazy" src="img/0306.png"
-alt="右上角铃铛的【消息通知】：离线发票即将超过上传期限、离线发票上传被税局拒绝，未读的带红点，右上角有【全部已读】" />
-<figcaption
-aria-hidden="true">右上角铃铛的【消息通知】：离线发票即将超过上传期限、离线发票上传被税局拒绝，未读的带红点，右上角有【全部已读】</figcaption>
-</figure>
-<p>•
-操作日志：修改开关、提醒设置、门店设置或上传时限成功后，系统在操作日志模块记录：操作时间、操作账号、操作模块、操作功能、操作明细、IP地址。</p>
-<table>
-
-<thead>
-<tr>
-<th>字段</th>
-<th>字段说明</th>
-<th>规则/示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>操作时间</td>
-<td>操作发生时间</td>
-<td>精确到：年月日时分秒，格式：DD/MM/YYYY HH:mm:ss</td>
-</tr>
-<tr>
-<td>操作账号</td>
-<td>登录系统的账号名称</td>
-<td>例如：ana@tfretail.com.br</td>
-</tr>
-<tr>
-<td>操作模块</td>
-<td>具体菜单名称</td>
-<td>例如：设置</td>
-</tr>
-<tr>
-<td>操作功能</td>
-<td>本次操作触发的功能动作名称</td>
-<td>例如：收银开票设置</td>
-</tr>
-<tr>
-<td>操作明细</td>
-<td>本次操作的详细信息</td>
-<td>例如：断网时离线开票：由“关闭”改为“开启”；临近上传截止提醒：由“截止前
-2 小时”改为“截止前 4
-小时”；接收人由“店长”改为“店长、财务”；门店设置：LJ004 Boa Viagem
-离线开票由“关闭”改为“开启”；上传时限：伯南布哥（PE）由“开票后第一个工作日”改为“开票后
-24 小时”</td>
-</tr>
-<tr>
-<td>IP地址</td>
-<td>操作终端 IP</td>
-<td>例如：189.45.12.8</td>
-</tr>
-</tbody>
-</table>
-<p>修改本页设置都不与税局交互。</p>
-<h3 id="订单设置">10.4 订单设置</h3>
+<h3 id="订单设置">10.3 订单设置</h3>
 <div data-custom-style="First Line Indent">
 <p>位置：设置 › 订单设置 ›
 订单设置。页面有一个开关【批发订单出库前是否开票】，开关在名称前面，默认关闭。</p>
@@ -26797,7 +26450,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单出库前�
 <figcaption aria-hidden="true">设置 › 订单设置 ›
 订单设置：开关【批发订单出库前是否开票】默认关闭，下方为两条开关说明</figcaption>
 </figure>
-<h4 id="批发订单退货入库时是否自动开票">10.4.1
+<h4 id="批发订单退货入库时是否自动开票">10.3.1
 批发订单退货入库时是否自动开票</h4>
 <div data-custom-style="First Line Indent">
 <p>位置：设置 › 订单设置 › 订单设置
@@ -26817,7 +26470,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单出库前�
 <div data-custom-style="First Line Indent">
 <p><strong>3、本开关只对批发订单的退货订单生效，不影响收银订单、门店预订单、换货订单的退货订单。</strong></p>
 </div>
-<h5 id="流程图-30">10.4.1.1 流程图</h5>
+<h5 id="流程图-30">10.3.1.1 流程图</h5>
 <pre class="mermaid">flowchart TB
   S((&quot;开始&quot;)) --&gt; A[&quot;进入 设置 › 订单设置 › 订单设置&quot;]
   A --&gt; B[&quot;拨动开关【批发订单退货入库时是否自动开票】&quot;]
@@ -26827,7 +26480,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单出库前�
   D --&gt; L[&quot;记录操作日志&quot;]
   E --&gt; L
   L --&gt; Z((&quot;结束&quot;))</pre>
-<h5 id="原型-37">10.4.1.2 原型</h5>
+<h5 id="原型-36">10.3.1.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是 设置 › 订单设置 › 订单设置
 的原型截图：开关【批发订单退货入库时是否自动开票】在开关【批发订单出库前是否开票】下面，开关在名称前面，默认关闭。</p>
@@ -26838,7 +26491,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单退货入�
 <figcaption aria-hidden="true">设置 › 订单设置 ›
 订单设置：开关【批发订单退货入库时是否自动开票】默认关闭，下方为两条开关说明</figcaption>
 </figure>
-<h5 id="字段规范-36">10.4.1.3 字段规范</h5>
+<h5 id="字段规范-35">10.3.1.3 字段规范</h5>
 <table>
 
 <thead>
@@ -26867,7 +26520,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单退货入�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-36">10.4.1.4 用例规则</h5>
+<h5 id="用例规则-35">10.3.1.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录系统，具备【设置-订单设置-订单设置】权限。<br />
 2、开关当前为关闭（要开启）或开启（要关闭）。<br />
@@ -27678,7 +27331,7 @@ NCM、CEST、单位、原产地、数量、价格、运输信息、IPI 退回组
 </tr>
 </tbody>
 </table>
-<h4 id="关键业务约束-37">11.1.5 关键业务约束</h4>
+<h4 id="关键业务约束-36">11.1.5 关键业务约束</h4>
 <p><strong>【待处理】</strong></p>
 <p>•
 忽略只在本系统里标记，不提交税局，这张采购发票在税局仍然有效。<br />
@@ -27706,7 +27359,7 @@ Key。税局授权后，退票为【已开票】；税局拒绝的，退票进�
 90 天的采购发票，税局不再保留，无法再拉取。</p>
 <p>3、新拉回的采购发票放在【待处理】页签最前，状态为“待确认”；没有新发票时，提示：“同步完成：税局暂无新的采购发票（近
 90 天的发票均已同步）”。税局超时的，本次不新增发票，稍后重试。</p>
-<h5 id="关键业务约束-38">11.1.6.2 关键业务约束</h5>
+<h5 id="关键业务约束-37">11.1.6.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -27739,7 +27392,7 @@ Key。税局授权后，退票为【已开票】；税局拒绝的，退票进�
 </tr>
 </tbody>
 </table>
-<h5 id="原型-38">11.1.6.3 原型</h5>
+<h5 id="原型-37">11.1.6.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【同步发票】弹窗的原型截图。</p>
 </div>
@@ -27749,7 +27402,7 @@ alt="采购发票【待处理】点【同步发票】，弹窗按公司主体（
 <figcaption
 aria-hidden="true">采购发票【待处理】点【同步发票】，弹窗按公司主体（CNPJ）勾选需要同步的公司</figcaption>
 </figure>
-<h5 id="字段规范-37">11.1.6.4 字段规范</h5>
+<h5 id="字段规范-36">11.1.6.4 字段规范</h5>
 <table>
 
 <thead>
@@ -27771,7 +27424,7 @@ aria-hidden="true">采购发票【待处理】点【同步发票】，弹窗按�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-37">11.1.6.5 用例规则</h5>
+<h5 id="用例规则-36">11.1.6.5 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-同步发票”权限。<br />
 2、所选公司已配置有效的 A1 证书，并已授权。<br />
@@ -27872,7 +27525,7 @@ Realizada）”的采购发票，提示：““交易未完成”是最终状�
 <p>3、弹窗按采购发票当前的状态，把不能选的声明状态置灰：已确认的，“知悉”“确认交易”置灰；已知悉的，“知悉”置灰；不知情的，“知悉”“不知情”置灰。例如：已声明“知悉”的采购发票，再次声明可以选“确认交易”，税局接受后系统导入
 XML，这张采购发票进入【已导入】页签。只有选“确认交易”并且税局接受时才导入
 XML；选“交易未完成”的必须填写理由；税局拒绝或超时的，状态都不变。</p>
-<h5 id="关键业务约束-39">11.1.7.2 关键业务约束</h5>
+<h5 id="关键业务约束-38">11.1.7.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -27958,7 +27611,7 @@ Realizada)”的采购发票点【发票声明】时</td>
 </tr>
 </tbody>
 </table>
-<h5 id="原型-39">11.1.7.3 原型</h5>
+<h5 id="原型-38">11.1.7.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【发票声明】弹窗的原型截图。</p>
 </div>
@@ -27968,7 +27621,7 @@ alt="采购发票【待处理】点行上的【发票声明】，弹窗选择声
 <figcaption
 aria-hidden="true">采购发票【待处理】点行上的【发票声明】，弹窗选择声明状态</figcaption>
 </figure>
-<h5 id="字段规范-38">11.1.7.4 字段规范</h5>
+<h5 id="字段规范-37">11.1.7.4 字段规范</h5>
 <table>
 
 <thead>
@@ -28000,7 +27653,7 @@ Realizada（交易未完成）；根据该发票当前状态，不可选的选�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-38">11.1.7.5 用例规则</h5>
+<h5 id="用例规则-37">11.1.7.5 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-发票声明”权限。<br />
 2、首次声明：【待处理】页签里有状态为“待确认”的采购发票。再次声明：【已处理】页签里有可以再次声明的采购发票（如状态为【已知悉
@@ -28113,7 +27766,7 @@ Confirmação da Operação</td>
 <p>1、只有【待处理】页签里状态为“待确认”的采购发票可以忽略，支持在行上单张忽略，也支持勾选多张后批量忽略。</p>
 <p>2、以下发票不能忽略：状态为“已忽略”的采购发票，提示：“该发票已被忽略，无需重复操作。”。已被供应商取消（Cancelada）或已被税局否决（Denegada）的采购发票，在税局已经失效，无需忽略。点【忽略】后，这些发票的状态都不变。</p>
 <p>3、忽略只在本系统里把采购发票标记为“已忽略”，不向税局提交任何事件，这张发票在税局仍然有效；忽略之后，仍然可以对这张采购发票做发票声明。</p>
-<h5 id="关键业务约束-40">11.1.8.2 关键业务约束</h5>
+<h5 id="关键业务约束-39">11.1.8.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -28153,7 +27806,7 @@ Confirmação da Operação</td>
 </tr>
 </tbody>
 </table>
-<h5 id="原型-40">11.1.8.3 原型</h5>
+<h5 id="原型-39">11.1.8.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【忽略】的原型截图：点【忽略】后弹出二次确认。</p>
 </div>
@@ -28163,9 +27816,9 @@ alt="采购发票【待处理】点行上的【忽略】，弹出二次确认：
 <figcaption
 aria-hidden="true">采购发票【待处理】点行上的【忽略】，弹出二次确认：“忽略仅在本地搁置，不向税局提交任何事件，之后仍可进行发票声明。确定忽略该发票吗？”</figcaption>
 </figure>
-<h5 id="字段规范-39">11.1.8.4 字段规范</h5>
+<h5 id="字段规范-38">11.1.8.4 字段规范</h5>
 <p>无。</p>
-<h5 id="用例规则-39">11.1.8.5 用例规则</h5>
+<h5 id="用例规则-38">11.1.8.5 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-忽略”权限。<br />
 2、【待处理】页签里有状态为“待确认”的采购发票。<br />
@@ -28237,7 +27890,7 @@ DANFE、简易DANFE、简易DANFE - 面单格式三种。</p>
 <p>3、打印使用本系统已导入的 XML
 生成打印内容，不与税局交互；预览弹窗可以【下载
 PDF】或【打印】，打印后发票状态不变。</p>
-<h5 id="关键业务约束-41">11.1.9.2 关键业务约束</h5>
+<h5 id="关键业务约束-40">11.1.9.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -28262,7 +27915,7 @@ PDF】或【打印】，打印后发票状态不变。</p>
 </tr>
 </tbody>
 </table>
-<h5 id="字段规范-40">11.1.9.3 字段规范</h5>
+<h5 id="字段规范-39">11.1.9.3 字段规范</h5>
 <table>
 
 <thead>
@@ -28284,7 +27937,7 @@ PDF】或【打印】，打印后发票状态不变。</p>
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-40">11.1.9.4 用例规则</h5>
+<h5 id="用例规则-39">11.1.9.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-打印发票”权限。<br />
 2、【已导入】页签里有要打印的采购发票。<br />
@@ -28352,7 +28005,7 @@ PDF】，系统下载 PDF 文件。<br />
 步选择仓库和供应商，商品金额、运费、折扣、其他费用只读。其他费用 =
 发票计税金额 − 商品金额 − 运费 +
 折扣。点【保存&amp;入库】生成状态为“待入库”的采购单；点【保存&amp;采购】生成状态为“待审核”的采购单。生成后，【已导入】页签里这张采购发票显示采购单号。</p>
-<h5 id="关键业务约束-42">11.1.10.2 关键业务约束</h5>
+<h5 id="关键业务约束-41">11.1.10.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -28395,7 +28048,7 @@ PDF】，系统下载 PDF 文件。<br />
 </tr>
 </tbody>
 </table>
-<h5 id="原型-41">11.1.10.3 原型</h5>
+<h5 id="原型-40">11.1.10.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【生成采购单】的原型截图：先配对仓库 SKU，再创建采购单。</p>
 </div>
@@ -28412,7 +28065,7 @@ alt="点【保存并生成采购单】后进入【创建采购单】页面，选
 <figcaption
 aria-hidden="true">点【保存并生成采购单】后进入【创建采购单】页面，选择仓库和供应商</figcaption>
 </figure>
-<h5 id="字段规范-41">11.1.10.4 字段规范</h5>
+<h5 id="字段规范-40">11.1.10.4 字段规范</h5>
 <table>
 
 <thead>
@@ -28483,7 +28136,7 @@ aria-hidden="true">点【保存并生成采购单】后进入【创建采购单�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-41">11.1.10.5 用例规则</h5>
+<h5 id="用例规则-40">11.1.10.5 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-生成采购单”权限。<br />
 2、【已导入】页签里有尚未生成采购单的采购发票。<br />
@@ -28585,7 +28238,7 @@ POUI4O2610626，保存&amp;入库</td>
 <p>3、一张退票只引用这一张采购发票（refNFe），退货数量不能超过可退数量，可退数量
 = 总数 −
 已开退票数量。提交后，退票进入发票管理（电商、零售）【开票中】的【出库】页签，单据信息显示原采购发票号，这张采购发票的可退数量相应减少。退票之后在发票管理的开票中、开票失败、近期发票、历史发票的【出库】页签查看；开票失败的在发票管理点【修改重提】；取消后这张采购发票的可退数量恢复。</p>
-<h5 id="关键业务约束-43">11.1.11.2 关键业务约束</h5>
+<h5 id="关键业务约束-42">11.1.11.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -28639,7 +28292,7 @@ Key&gt;”，鼠标停在序列号、发票号、Key
 </tr>
 </tbody>
 </table>
-<h5 id="原型-42">11.1.11.3 原型</h5>
+<h5 id="原型-41">11.1.11.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【开退货发票】打开的页面的原型截图。</p>
 </div>
@@ -28655,7 +28308,7 @@ alt="开退货发票页面的承运商信息板块：标题旁有【?】帮助�
 <figcaption
 aria-hidden="true">开退货发票页面的承运商信息板块：标题旁有【?】帮助，没有勾选框，字段与创建发票相同</figcaption>
 </figure>
-<h5 id="字段规范-42">11.1.11.4 字段规范</h5>
+<h5 id="字段规范-41">11.1.11.4 字段规范</h5>
 <p>开退票页面中退货管理、退货概览、物流信息、承运商信息、其他信息补充 5
 个板块，与 发票管理 › 草稿中
 ›【创建发票】选“采购退票”时相同，完整字段请参考 5.3.1.5.1.4
@@ -28827,7 +28480,7 @@ CNPJ；与名称须同时填写或同时留空。只填了名称时，税号下�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-42">11.1.11.5 用例规则</h5>
+<h5 id="用例规则-41">11.1.11.5 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-开退货发票”权限。<br />
 2、【已导入】页签里有可退数量大于 0 的采购发票。<br />
@@ -29025,7 +28678,7 @@ XML】。</p>
 <p>2、【待处理】【已处理】页签里的采购发票没有【下载 XML】。</p>
 <p>3、下载的是本系统已导入的 XML（含授权回执），不与税局交互，文件名为
 NFe + 44 位 Key + .xml；下载后发票状态不变。</p>
-<h5 id="关键业务约束-44">11.1.12.2 关键业务约束</h5>
+<h5 id="关键业务约束-43">11.1.12.2 关键业务约束</h5>
 <table>
 <thead>
 <tr>
@@ -29040,9 +28693,9 @@ NFe + 44 位 Key + .xml；下载后发票状态不变。</p>
 </tr>
 </tbody>
 </table>
-<h5 id="字段规范-43">11.1.12.3 字段规范</h5>
+<h5 id="字段规范-42">11.1.12.3 字段规范</h5>
 <p>无。</p>
-<h5 id="用例规则-43">11.1.12.4 用例规则</h5>
+<h5 id="用例规则-42">11.1.12.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-下载
 XML”权限。<br />
@@ -29111,7 +28764,7 @@ CNPJ 与发票账号不符的文件；已导入过的采购发票（重复文件
 <p>3、导入时不向税局查询，只校验 XML
 内容；点【确定导入】后弹出二次确认，可以点【继续导入】或【返回调整】。校验通过的采购发票直接进入【已导入】页签，发票号下方显示来源【导入
 XML】。</p>
-<h5 id="关键业务约束-45">11.1.13.2 关键业务约束</h5>
+<h5 id="关键业务约束-44">11.1.13.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -29164,7 +28817,7 @@ CNPJ 与发票账号不符，不能导入；该发票已导入，重复文件将
 </tr>
 </tbody>
 </table>
-<h5 id="原型-43">11.1.13.3 原型</h5>
+<h5 id="原型-42">11.1.13.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【导入XML】弹窗的原型截图。</p>
 </div>
@@ -29175,7 +28828,7 @@ alt="采购发票【已导入】点【导入 &amp; 导出】里的【导入XML�
 导出】里的【导入XML】，弹窗上传 XML
 文件并显示可导入和将被跳过的文件</figcaption>
 </figure>
-<h5 id="字段规范-44">11.1.13.4 字段规范</h5>
+<h5 id="字段规范-43">11.1.13.4 字段规范</h5>
 <table>
 
 <thead>
@@ -29198,7 +28851,7 @@ alt="采购发票【已导入】点【导入 &amp; 导出】里的【导入XML�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-44">11.1.13.5 用例规则</h5>
+<h5 id="用例规则-43">11.1.13.5 用例规则</h5>
 <p>•
 前置条件：用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-导入XML”权限。<br />
 • 操作流程：<br />
@@ -29293,7 +28946,7 @@ XML。导出时，在【已导入】页签点列表上方【导入 &amp;
 导出】，选择【按日期导出】。发票账号可以多选，默认为全部发票账号。</p>
 <p>2、导出方式二选一：选【按月导出】的，必须选择月份；选【自定义导出】的，必须选择日期范围（快捷选项：今天、最近
 7 天、最近 30 天、本月），开始日期不能晚于结束日期。</p>
-<h5 id="关键业务约束-46">11.1.14.2 关键业务约束</h5>
+<h5 id="关键业务约束-45">11.1.14.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -29318,7 +28971,7 @@ XML。导出时，在【已导入】页签点列表上方【导入 &amp;
 </tr>
 </tbody>
 </table>
-<h5 id="原型-44">11.1.14.3 原型</h5>
+<h5 id="原型-43">11.1.14.3 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是【按日期导出】弹窗的原型截图。</p>
 </div>
@@ -29328,7 +28981,7 @@ alt="采购发票【已导入】点【导入 &amp; 导出】里的【按日期�
 <figcaption aria-hidden="true">采购发票【已导入】点【导入 &amp;
 导出】里的【按日期导出】，弹窗选择发票账号和导出方式</figcaption>
 </figure>
-<h5 id="字段规范-45">11.1.14.4 字段规范</h5>
+<h5 id="字段规范-44">11.1.14.4 字段规范</h5>
 <table>
 
 <thead>
@@ -29371,7 +29024,7 @@ alt="采购发票【已导入】点【导入 &amp; 导出】里的【按日期�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-45">11.1.14.5 用例规则</h5>
+<h5 id="用例规则-44">11.1.14.5 用例规则</h5>
 <p>•
 前置条件：用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-导出”权限。<br />
 • 操作流程：<br />
@@ -29465,7 +29118,7 @@ alt="采购发票【已导入】点【导入 &amp; 导出】里的【按日期�
 <p>2、清单的列：序列号 /
 发票号、Key、商品信息、供应商、发票账号、计税金额、开票时间；【按日期导出】导出的是
 XML 发票，【按勾选导出】导出的是清单。</p>
-<h5 id="关键业务约束-47">11.1.15.2 关键业务约束</h5>
+<h5 id="关键业务约束-46">11.1.15.2 关键业务约束</h5>
 <table>
 
 <thead>
@@ -29490,9 +29143,9 @@ XML 发票，【按勾选导出】导出的是清单。</p>
 </tr>
 </tbody>
 </table>
-<h5 id="字段规范-46">11.1.15.3 字段规范</h5>
+<h5 id="字段规范-45">11.1.15.3 字段规范</h5>
 <p>无。</p>
-<h5 id="用例规则-46">11.1.15.4 用例规则</h5>
+<h5 id="用例规则-45">11.1.15.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“财务（电商）-采购发票-采购发票-导出”权限。<br />
 2、【已导入】页签里已勾选至少一张采购发票。<br />
@@ -29560,7 +29213,7 @@ Rejeição 210、229、232）。【开票失败】处理方法弹窗中的修改
 修订版去掉了采购退货单的开票流程，原第 8.1～8.9 节删除。采购退票在
 财务（电商）› 采购发票 ›【已导入】›【更多】›【开退货发票】（见
 11.1.11）或 发票管理 › 草稿中 ›【创建发票】（见 5.3.1.5.1.4）开具。</p>
-<h3 id="关键业务约束-48">12.1 关键业务约束</h3>
+<h3 id="关键业务约束-47">12.1 关键业务约束</h3>
 <table>
 
 <thead>
@@ -29591,7 +29244,7 @@ Rejeição 210、229、232）。【开票失败】处理方法弹窗中的修改
 </tbody>
 </table>
 <h3 id="编辑供应商">12.2 编辑供应商</h3>
-<h4 id="原型-45">12.2.1 原型</h4>
+<h4 id="原型-44">12.2.1 原型</h4>
 <div data-custom-style="First Line Indent">
 <p>下面是【编辑供应商】弹窗的原型截图。</p>
 </div>
@@ -29601,7 +29254,7 @@ alt="供应商管理点行上的【编辑】，弹窗分为基本信息和税务
 <figcaption
 aria-hidden="true">供应商管理点行上的【编辑】，弹窗分为基本信息和税务资料</figcaption>
 </figure>
-<h4 id="字段规范-47">12.2.2 字段规范</h4>
+<h4 id="字段规范-46">12.2.2 字段规范</h4>
 <table>
 
 <thead>
@@ -29673,7 +29326,7 @@ ISENTO</td>
 </tr>
 </tbody>
 </table>
-<h4 id="用例规则-47">12.2.3 用例规则</h4>
+<h4 id="用例规则-46">12.2.3 用例规则</h4>
 <p>•
 前置条件：用户已登录TF发票，具备【采购-采购管理-供应商管理-编辑】权限。<br />
 • 操作流程：<br />
@@ -29949,7 +29602,7 @@ aria-hidden="true">开关开启：【已完成】页签，【开票状态】列�
 <figcaption aria-hidden="true">FLOW-124</figcaption>
 </figure>
 <p>详情（发票信息）只有查看一个步骤，没有分支流程。</p>
-<h3 id="关键业务约束-49">13.3 关键业务约束</h3>
+<h3 id="关键业务约束-48">13.3 关键业务约束</h3>
 <p>• CFOP 按开票类型和两端所在州自动确定：货物调拨、货物转移，州内
 5152、跨州 6152；销售发票，州内 5102、跨州 6102。<br />
 • 调出方发票主体没有有效的 A1
@@ -29972,7 +29625,7 @@ aria-hidden="true">开关开启：【已完成】页签，【开票状态】列�
 <p>适用：子状态为“待开票”的行上的【开票】，以及子状态为“开票失败”的行上的【开票】（重新开票）。两处打开的是同一个【开票
 ·
 调拨单】页面，从“开票失败”的行打开时页面顶部多一条失败提示条；重新开票时资料重新带出（带出的是修改后的资料）；两处的差别写在下表，只适用于重新开票的行在场景里写明“重新开票”。</p>
-<h5 id="关键业务约束-50">13.4.1.1 关键业务约束</h5>
+<h5 id="关键业务约束-49">13.4.1.1 关键业务约束</h5>
 <blockquote>
 <p>开票时本机网络断开：用户点击【开票】后无法提交，系统提示：“网络异常，提交失败，请检查网络后重试”。调拨单仍在【待开票】。</p>
 </blockquote>
@@ -30115,7 +29768,7 @@ xxx）：调拨单进“开票失败”，行下方显示失败原因。4、税�
 </tr>
 </tbody>
 </table>
-<h5 id="原型-46">13.4.1.2 原型</h5>
+<h5 id="原型-45">13.4.1.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理【开票】页面的原型截图：第一张从“待开票”的行打开，第二张从“开票失败”的行打开，页面顶部多一条失败提示条。</p>
 </div>
@@ -30133,7 +29786,7 @@ alt="从“开票失败”的行点【开票】：页面顶部显示失败提示
 aria-hidden="true">从“开票失败”的行点【开票】：页面顶部显示失败提示条和【处理方法
 ›】</figcaption>
 </figure>
-<h5 id="字段规范-48">13.4.1.3 字段规范</h5>
+<h5 id="字段规范-47">13.4.1.3 字段规范</h5>
 <table>
 
 <thead>
@@ -30640,7 +30293,7 @@ remessa/transferência)</td>
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-48">13.4.1.4 用例规则</h5>
+<h5 id="用例规则-47">13.4.1.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-待开票-开票”权限。<br />
 2、开票：调拨管理列表中有状态为“待开票”的调拨单。重新开票：调拨管理列表中有子状态为“开票失败”的调拨单。<br />
@@ -30860,7 +30513,7 @@ remessa/transferência)</td>
 </table>
 <h4 id="转提交含批量转提交">13.4.2 转提交（含批量转提交）</h4>
 <p>适用：子状态为“待开票”“开票失败”的行上的【转提交】，以及【待开票】页签列表上方的【转提交】（批量转提交）。规则基本相同，差别写在下表；只适用于批量转提交或开票失败的行在场景里写明。</p>
-<h5 id="关键业务约束-51">13.4.2.1 关键业务约束</h5>
+<h5 id="关键业务约束-50">13.4.2.1 关键业务约束</h5>
 <table>
 
 <thead>
@@ -30921,7 +30574,7 @@ remessa/transferência)</td>
 <blockquote>
 <p>以下操作不与税局交互：转提交，仅修改本系统的调拨单状态。【待开票】的调拨单尚未提交税局，未占用发票号；批量转提交，仅修改本系统的调拨单状态。</p>
 </blockquote>
-<h5 id="原型-47">13.4.2.2 原型</h5>
+<h5 id="原型-46">13.4.2.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理【转提交】的原型截图：点【转提交】后弹出二次确认。</p>
 </div>
@@ -30931,9 +30584,9 @@ alt="调拨管理【待开票】点行上的【转提交】，弹出二次确认
 <figcaption
 aria-hidden="true">调拨管理【待开票】点行上的【转提交】，弹出二次确认</figcaption>
 </figure>
-<h5 id="字段规范-49">13.4.2.3 字段规范</h5>
+<h5 id="字段规范-48">13.4.2.3 字段规范</h5>
 <p>无。</p>
-<h5 id="用例规则-49">13.4.2.4 用例规则</h5>
+<h5 id="用例规则-48">13.4.2.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-待开票-转提交”权限。<br />
 2、行上转提交：调拨管理列表中有状态为“待开票”的调拨单，或有子状态为“开票失败”的调拨单。<br />
@@ -31005,7 +30658,7 @@ DBW829261019018 由开票失败退回待提交；批量转提交时：批量转�
 </tbody>
 </table>
 <h4 id="取消调拨">13.4.3 取消调拨</h4>
-<h5 id="关键业务约束-52">13.4.3.1 关键业务约束</h5>
+<h5 id="关键业务约束-51">13.4.3.1 关键业务约束</h5>
 <table>
 
 <thead>
@@ -31050,7 +30703,7 @@ NF-e 55 的发票，授权后 24 小时内可以取消。超过 24
 <p>以下操作不与税局交互：取消调拨，弹窗只取消本系统的调拨单；已授权 NF-e
 的取消，须使用【取消发票】（见 13.8.1）。</p>
 </blockquote>
-<h5 id="原型-48">13.4.3.2 原型</h5>
+<h5 id="原型-47">13.4.3.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理【取消调拨】弹窗的原型截图。</p>
 </div>
@@ -31060,7 +30713,7 @@ alt="调拨管理【待开票】点行上【更多】里的【取消调拨】，
 <figcaption
 aria-hidden="true">调拨管理【待开票】点行上【更多】里的【取消调拨】，弹窗显示可以取消的条件，并填写取消原因</figcaption>
 </figure>
-<h5 id="字段规范-50">13.4.3.3 字段规范</h5>
+<h5 id="字段规范-49">13.4.3.3 字段规范</h5>
 <table>
 
 <thead>
@@ -31083,7 +30736,7 @@ aria-hidden="true">调拨管理【待开票】点行上【更多】里的【取�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-50">13.4.3.4 用例规则</h5>
+<h5 id="用例规则-49">13.4.3.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-待开票-取消调拨”权限。<br />
 2、调拨管理列表中有子状态为“待开票”或“开票失败”的调拨单。<br />
@@ -31165,7 +30818,7 @@ DBW829261019014，原因：门店装修暂停收货，本批不再调拨</td>
 <h4 id="刷新查税局状态含批量刷新">13.5.1
 刷新（查税局状态）（含批量刷新）</h4>
 <p>适用：子状态为“开票中”的行上的【刷新】，以及【待开票】页签列表上方的【刷新】（批量刷新，不需要勾选）。行上刷新打开查询结果弹窗，用户点【按税局结果更新】后才更新状态；批量刷新直接按税局结果更新各调拨单，没有弹窗，不输出操作日志。</p>
-<h5 id="关键业务约束-53">13.5.1.1 关键业务约束</h5>
+<h5 id="关键业务约束-52">13.5.1.1 关键业务约束</h5>
 <p><strong>功能说明</strong>：已提交税局、正在等待税局授权的调拨单。可以用
 44 位 Chave（即发票
 Key）向税局查询实际状态，并更新本系统的状态；可以在单行刷新，也可以点列表上方的【刷新】批量刷新。开票状态为“开票中”的调拨单不能取消调拨：发票已提交税局，等结果返回后，授权的到“待出库”用【取消发票】，失败的在“开票失败”取消调拨。</p>
@@ -31257,7 +30910,7 @@ Chave。2、税局返回已授权：改为“已开票”，调拨单进“待�
 </tr>
 </tbody>
 </table>
-<h5 id="原型-49">13.5.1.2 原型</h5>
+<h5 id="原型-48">13.5.1.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理开票中【刷新】的原型截图。</p>
 </div>
@@ -31267,7 +30920,7 @@ alt="调拨管理【待开票】的“开票中”点行上的【刷新】，弹
 <figcaption
 aria-hidden="true">调拨管理【待开票】的“开票中”点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果</figcaption>
 </figure>
-<h5 id="字段规范-51">13.5.1.3 字段规范</h5>
+<h5 id="字段规范-50">13.5.1.3 字段规范</h5>
 <p>以下为行上【刷新】打开的“查税局状态（Consulta
 Protocolo）”弹窗字段；批量刷新没有弹窗字段。</p>
 <table>
@@ -31305,7 +30958,7 @@ Protocolo）”弹窗字段；批量刷新没有弹窗字段。</p>
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-51">13.5.1.4 用例规则</h5>
+<h5 id="用例规则-50">13.5.1.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-待开票-刷新”权限。<br />
 2、行上刷新：调拨管理列表中有子状态为“开票中”的调拨单。<br />
@@ -31380,7 +31033,7 @@ Protocolo）”弹窗，显示本次查询结果。<br />
 <h3 id="开票失败-3">13.6 开票失败</h3>
 <h4 id="开票含重新开票-2">13.6.1 开票（含重新开票）</h4>
 <p>请参考 13.4.1 的目录。</p>
-<h5 id="关键业务约束-54">13.6.1.1 关键业务约束</h5>
+<h5 id="关键业务约束-53">13.6.1.1 关键业务约束</h5>
 <p><strong>功能说明</strong>：被税局拒绝的调拨单。行下方显示失败原因（失败标题
 + 税局返回的原因原文）和【要修改位置】链接。用户可先到 发票管理
 ›【开票失败】点击【验证发票XML】自查（调拨管理里不提供），再重新开票；也可点击【转提交】，将调拨单退回以修改调拨内容。</p>
@@ -31418,7 +31071,7 @@ xxx）：保持“开票失败”，并更新行下方的失败原因。4、税�
 </table>
 <h4 id="转提交含批量转提交-1">13.6.2 转提交（含批量转提交）</h4>
 <p>请参考 13.4.2 的目录。</p>
-<h5 id="关键业务约束-55">13.6.2.1 关键业务约束</h5>
+<h5 id="关键业务约束-54">13.6.2.1 关键业务约束</h5>
 <p>•
 “开票失败”的调拨单没有经过税局授权，没有有效发票，退回“待提交”不需要取消发票。<br />
 • 退回后，财务（电商）或财务（零售）› 发票管理 › 开票失败
@@ -31431,7 +31084,7 @@ xxx）：保持“开票失败”，并更新行下方的失败原因。4、税�
 <p>请参考 13.4.3 的目录。</p>
 <h4 id="失败原因与处理指引要修改位置">13.6.4
 失败原因与处理指引（要修改位置）</h4>
-<h5 id="关键业务约束-56">13.6.4.1 关键业务约束</h5>
+<h5 id="关键业务约束-55">13.6.4.1 关键业务约束</h5>
 <table>
 
 <thead>
@@ -31526,7 +31179,7 @@ IPI、ICMS-ST、PIS、COFINS 税率，填错会带来税务风险。</td>
 <blockquote>
 <p>以下操作不与税局交互：失败原因与处理指引（要修改位置），弹窗内容来自上次开票（NFeAutorizacao）时税局返回的拒绝代码和原因原文，以及系统对商品、发票主体资料的自动检查结果。</p>
 </blockquote>
-<h5 id="原型-50">13.6.4.2 原型</h5>
+<h5 id="原型-49">13.6.4.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理开票失败的失败原因和【处理方法】弹窗的原型截图。</p>
 </div>
@@ -31542,7 +31195,7 @@ alt="点【处理方法】打开的弹窗：系统提示的异常、异常说明
 <figcaption
 aria-hidden="true">点【处理方法】打开的弹窗：系统提示的异常、异常说明和处理方法</figcaption>
 </figure>
-<h5 id="字段规范-52">13.6.4.3 字段规范</h5>
+<h5 id="字段规范-51">13.6.4.3 字段规范</h5>
 <table>
 
 <thead>
@@ -31607,7 +31260,7 @@ inexistente</td>
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-52">13.6.4.4 用例规则</h5>
+<h5 id="用例规则-51">13.6.4.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备【库存-调拨管理-调拨管理-待开票】权限。<br />
 2、调拨管理列表中有子状态为“开票失败”的调拨单。<br />
@@ -31623,7 +31276,7 @@ inexistente</td>
 • 操作日志：查询/查看不输出操作日志。</p>
 <h3 id="已开票-4">13.7 已开票</h3>
 <h4 id="详情发票信息">13.7.1 详情（发票信息）</h4>
-<h5 id="关键业务约束-57">13.7.1.1 关键业务约束</h5>
+<h5 id="关键业务约束-56">13.7.1.1 关键业务约束</h5>
 <p><strong>功能说明</strong>：已开票的调拨单分布在“待出库”“待入库”“已完成”页签，列表的【开票状态】列显示“已开票”，【开票状态】列紧跟在【状态】列后面。</p>
 <p>用户可以查看发票信息、打印 DANFE（NF-e
 的打印件）。调出方、调入方属于同一个发票主体的调拨单不开票，开票状态显示“无需开票”。</p>
@@ -31668,7 +31321,7 @@ Autorização、授权时间、开票方（Emitente）、收货方（Destinatár
 <blockquote>
 <p>以下操作不与税局交互：详情（发票信息），数据来自开票授权时保存的税局返回信息（Chave、Protocolo、授权时间）和调拨单。</p>
 </blockquote>
-<h5 id="原型-51">13.7.1.2 原型</h5>
+<h5 id="原型-50">13.7.1.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨单详情的原型截图。</p>
 </div>
@@ -31678,7 +31331,7 @@ alt="调拨单详情：基本信息、商品信息和【发票信息】页签" /
 <figcaption
 aria-hidden="true">调拨单详情：基本信息、商品信息和【发票信息】页签</figcaption>
 </figure>
-<h5 id="字段规范-53">13.7.1.3 字段规范</h5>
+<h5 id="字段规范-52">13.7.1.3 字段规范</h5>
 <table>
 
 <thead>
@@ -31842,7 +31495,7 @@ class="math inline">，2<em>位</em><em>小</em><em>数</em>。||<em>I</em><em>C
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-53">13.7.1.4 用例规则</h5>
+<h5 id="用例规则-52">13.7.1.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备【库存-调拨管理-调拨管理-详情】权限。<br />
 2、调拨管理列表中至少有一张开票状态为“已开票”的调拨单。<br />
@@ -31857,7 +31510,7 @@ class="math inline">，2<em>位</em><em>小</em><em>数</em>。||<em>I</em><em>C
 • 操作日志：查询/查看不输出操作日志。</p>
 <h4 id="打印发票含批量打印发票">13.7.2 打印发票（含批量打印发票）</h4>
 <p>适用：已开票调拨单行上的【打印发票】，以及列表上方的【打印】（批量打印发票，须先勾选）。两处票面相同，差别在打印格式的选项名称和是否需要勾选，写在下表。</p>
-<h5 id="关键业务约束-58">13.7.2.1 关键业务约束</h5>
+<h5 id="关键业务约束-57">13.7.2.1 关键业务约束</h5>
 <table>
 
 <thead>
@@ -31911,7 +31564,7 @@ class="math inline">，2<em>位</em><em>小</em><em>数</em>。||<em>I</em><em>C
 的数据（发票号、série、Key、授权协议号、开票方、收货方、商品）在本系统生成
 DANFE；批量打印发票，按已授权 NF-e 的数据在本系统生成。</p>
 </blockquote>
-<h5 id="字段规范-54">13.7.2.2 字段规范</h5>
+<h5 id="字段规范-53">13.7.2.2 字段规范</h5>
 <table>
 
 <thead>
@@ -31935,7 +31588,7 @@ DANFE；批量打印发票，按已授权 NF-e 的数据在本系统生成。</p
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-54">13.7.2.3 用例规则</h5>
+<h5 id="用例规则-53">13.7.2.3 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-打印发票”权限。<br />
 2、行上打印：调拨管理列表中有开票状态为“已开票”的调拨单。<br />
@@ -32007,7 +31660,7 @@ DANFE 5 张，跳过无需开票 1 张</td>
 </table>
 <h3 id="待出库">13.8 待出库</h3>
 <h4 id="取消发票待出库">13.8.1 取消发票（待出库）</h4>
-<h5 id="关键业务约束-59">13.8.1.1 关键业务约束</h5>
+<h5 id="关键业务约束-58">13.8.1.1 关键业务约束</h5>
 <p><strong>功能说明</strong>：已开票、货物尚未出库的调拨单。开票后如发现问题，可在此向税局取消该
 NF-e，调拨单退回【待开票】，修改后重新开票。</p>
 <p><strong>设置原因</strong>：</p>
@@ -32091,7 +31744,7 @@ CNPJ、取消理由（Justificativa）。2、税局接受取消：发票标“�
 </tr>
 </tbody>
 </table>
-<h5 id="原型-52">13.8.1.2 原型</h5>
+<h5 id="原型-51">13.8.1.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是调拨管理【待出库】【取消发票】弹窗的原型截图。</p>
 </div>
@@ -32101,7 +31754,7 @@ alt="调拨管理【待出库】点行上的【取消发票】，弹窗显示发
 <figcaption
 aria-hidden="true">调拨管理【待出库】点行上的【取消发票】，弹窗显示发票信息、距超时和取消理由</figcaption>
 </figure>
-<h5 id="字段规范-55">13.8.1.3 字段规范</h5>
+<h5 id="字段规范-54">13.8.1.3 字段规范</h5>
 <p>取消发票弹窗为表格形式，每张发票占一行。序列号、发票号、关联单号、开票时间、距超时的字段规范与
 发票管理 › 近期发票 的【取消发票】相同（见
 5.3.4.5.3.6），取消理由如下：</p>
@@ -32127,7 +31780,7 @@ aria-hidden="true">调拨管理【待出库】点行上的【取消发票】，�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-55">13.8.1.4 用例规则</h5>
+<h5 id="用例规则-54">13.8.1.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备“库存-调拨管理-调拨管理-待出库-取消发票”权限。<br />
 2、调拨管理列表中有状态为“待出库”、开票状态为“已开票”的调拨单。<br />
@@ -32213,9 +31866,9 @@ SEFAZ 提交取消申请，调拨单已退回【待开票】”。列表自动�
 </tbody>
 </table>
 <h4 id="出库拦截开关开启时">13.8.2 出库拦截（开关开启时）</h4>
-<h5 id="字段规范-56">13.8.2.1 字段规范</h5>
+<h5 id="字段规范-55">13.8.2.1 字段规范</h5>
 <p>无。</p>
-<h5 id="用例规则-56">13.8.2.2 用例规则</h5>
+<h5 id="用例规则-55">13.8.2.2 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备【库存-出库管理-调拨出库】的出库权限。<br />
 2、开关【调拨单出库前是否开票】为开启；调拨单需要开票（不是“无需开票”）。<br />
@@ -32236,7 +31889,7 @@ SEFAZ 提交取消申请，调拨单已退回【待开票】”。列表自动�
 <p>请参考 13.7.1 的目录。</p>
 <h4 id="无需开票同一发票主体内调拨">13.9.2
 无需开票（同一发票主体内调拨）</h4>
-<h5 id="关键业务约束-60">13.9.2.1 关键业务约束</h5>
+<h5 id="关键业务约束-59">13.9.2.1 关键业务约束</h5>
 <table>
 
 <thead>
@@ -32275,7 +31928,7 @@ SEFAZ 提交取消申请，调拨单已退回【待开票】”。列表自动�
 <blockquote>
 <p>以下操作不与税局交互：无需开票（同一发票主体内调拨），判断依据是门店和仓库关联的发票主体。</p>
 </blockquote>
-<h5 id="原型-53">13.9.2.2 原型</h5>
+<h5 id="原型-52">13.9.2.2 原型</h5>
 <div data-custom-style="First Line Indent">
 <p>下面是同一发票主体内调拨的原型截图。</p>
 </div>
@@ -32285,7 +31938,7 @@ alt="调拨管理【待出库】：同一发票主体内调拨的调拨单，开
 <figcaption
 aria-hidden="true">调拨管理【待出库】：同一发票主体内调拨的调拨单，开票类型显示“无需开票”，行上只有【详情】</figcaption>
 </figure>
-<h5 id="字段规范-57">13.9.2.3 字段规范</h5>
+<h5 id="字段规范-56">13.9.2.3 字段规范</h5>
 <table>
 
 <thead>
@@ -32314,7 +31967,7 @@ aria-hidden="true">调拨管理【待出库】：同一发票主体内调拨的�
 </tr>
 </tbody>
 </table>
-<h5 id="用例规则-57">13.9.2.4 用例规则</h5>
+<h5 id="用例规则-56">13.9.2.4 用例规则</h5>
 <p>• 前置条件：<br />
 1、用户已登录TF发票，具备【库存-调拨管理-调拨管理】权限。<br />
 2、调拨单的调出方、调入方关联同一个发票主体。<br />
@@ -32331,7 +31984,7 @@ aria-hidden="true">调拨管理【待出库】：同一发票主体内调拨的�
 关闭【调拨单出库前是否开票】后</h3>
 <p>适用：设置 › 调拨设置 的开关【调拨单出库前是否开票】为关闭（见
 10.2）。开关默认关闭；开启时按 13.4～13.8 执行。</p>
-<h4 id="关键业务约束-61">13.10.1 关键业务约束</h4>
+<h4 id="关键业务约束-60">13.10.1 关键业务约束</h4>
 <p>1、调拨管理不显示“待开票”状态及开票相关功能：不显示【待开票】页签；【待出库】【待入库】【已完成】页签不显示【开票类型】【开票状态】两列和行上的【打印发票】【取消发票】，列表上方不显示【打印】（打印发票·DANFE
 / 简易DANFE / 简易DANFE -
 面单格式）；调拨单详情不显示【开票类型】【开票状态】字段和【发票信息】页签，只保留【操作日志】。</p>

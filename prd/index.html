@@ -11924,9 +11924,10 @@ NF-e 55 的发票可以打印 DANFE、简易DANFE、面单，销售发票 · NFC
 <p><strong>一、列表页</strong></p>
 <figure>
 <img loading="lazy" src="img/0104.png"
-alt="勾选发票后，列表上方【打印发票】下拉选择打印格式" />
+alt="勾选发票后，列表上方【打印发票】下拉选择打印格式：NFC-e 发票、DANFE、简易DANFE、简易DANFE - 面单格式" />
 <figcaption
-aria-hidden="true">勾选发票后，列表上方【打印发票】下拉选择打印格式</figcaption>
+aria-hidden="true">勾选发票后，列表上方【打印发票】下拉选择打印格式：NFC-e
+发票、DANFE、简易DANFE、简易DANFE - 面单格式</figcaption>
 </figure>
 <p><strong>二、打印预览</strong></p>
 <figure>
@@ -15768,7 +15769,7 @@ NFC-e 65”“入库 · 销售退票 · NF-e
 单独一列，不带“CPF”等前缀，没有时显示“–”；没有发票号时显示“–”；状态下方的灰字与后台相同。7、Key
 列显示前 4 位、“******”和后 4 位，鼠标悬停时显示完整的 44 位 Key 和
 ID；没有 Key
-时显示“–”。8、操作列为【查看】，点击后打开【发票详情】弹窗，收银台和后台显示的内容相同；开票中的发票不显示【查看】。</p>
+时显示“–”。8、操作列为【查看】，点击后打开【发票详情】弹窗，后台不显示上传截止时间，其余与收银台相同；开票中的发票不显示【查看】。</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p>订单进入“待开票”的来源有两种：一是收银台断网时 NF-e 55
@@ -15956,7 +15957,7 @@ cadastrada，以及【处理方法 ›】</td>
 时间”；离线发票上传被拒的显示“被拒 时间”。</p>
 </div>
 <div data-custom-style="First Line Indent">
-<p>5、操作列为【查看】，点击后打开【发票详情】弹窗，内容与收银台相同，见表三。开票中的发票没有【查看】，操作列为空。</p>
+<p>5、操作列为【查看】，点击后打开【发票详情】弹窗，后台不显示上传截止时间，其余与收银台相同，见表三。开票中的发票没有【查看】，操作列为空。</p>
 </div>
 <div data-custom-style="First Line Indent">
 <p>表二：收银台 › 订单管理（收银订单、门店预订单、退货订单、换货订单 ›
@@ -16114,7 +16115,7 @@ Rejeição
 </div>
 <div data-custom-style="First Line Indent">
 <p>表三：收银台 ›
-订单管理和后台订单详情点【查看】弹出的【发票详情】，两边显示的内容相同</p>
+订单管理和后台订单详情点【查看】弹出的【发票详情】，后台不显示上传截止时间，其余与收银台相同</p>
 </div>
 <table>
 
@@ -16177,7 +16178,7 @@ Key、CFOP、发票目的；换货生成的退货订单另显示关联换货订�
 </tr>
 <tr>
 <td>离线已开票（待上传）</td>
-<td>发票模型、开票类型、发票号、série、Key、授权时间（显示“–”）、接收方、CPF/CNPJ、发票金额；另分段显示【离线开票信息】：开票方式、离线开具时间、上传截止时间。</td>
+<td>发票模型、开票类型、发票号、série、Key、授权时间（显示“–”）、接收方、CPF/CNPJ、发票金额；另分段显示【离线开票信息】：开票方式、离线开具时间、上传截止时间；后台不显示上传截止时间。</td>
 <td>无</td>
 <td>无</td>
 </tr>
@@ -17365,8 +17366,8 @@ Key
 </div>
 <h5 id="原型-7">6.1.7.2 原型</h5>
 <div data-custom-style="First Line Indent">
-<p>下面是开票中订单的原型截图：后台以收银订单为例，收银台 › 订单管理
-包括普通开票中的订单和离线已开票（待上传）的订单。</p>
+<p>下面是开票中订单的原型截图：后台列表以收银订单为例，离线发票的订单详情以门店预订单为例，收银台
+› 订单管理 包括普通开票中的订单和离线已开票（待上传）的订单。</p>
 </div>
 <figure>
 <img loading="lazy" src="img/0211.png"
@@ -17375,11 +17376,13 @@ alt="后台 › 收银订单：开票状态选【开票中】，列表中离线�
 收银订单：开票状态选【开票中】，列表中离线开出的订单开票状态显示“开票中”，下方灰色小字“离线已开票（待上传）”，行上有【查看】和【立即上传】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0178.png"
-alt="后台订单详情【发票信息】：显示离线开出的发票，状态为“离线已开票（待上传）”，时间列为“离线开具 …”，操作列为【查看】，后台不提供【立即上传】" />
+<img loading="lazy" src="img/0212.png"
+alt="后台订单详情【发票信息】（门店预订单）：显示离线开出的发票，状态为“离线已开票（待上传）”，时间列为“离线开具 …”，操作列为【查看】，下方提示：“这张发票已离线开出，须在 2026-10-21 09:17:21 前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��后台不提供【立即上传】" />
 <figcaption
-aria-hidden="true">后台订单详情【发票信息】：显示离线开出的发票，状态为“离线已开票（待上传）”，时间列为“离线开具
-…”，操作列为【查看】，后台不提供【立即上传】</figcaption>
+aria-hidden="true">后台订单详情【发票信息】（门店预订单）：显示离线开出的发票，状态为“离线已开票（待上传）”，时间列为“离线开具
+…”，操作列为【查看】，下方提示：“这张发票已离线开出，须在 2026-10-21
+09:17:21
+前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��后台不提供【立即上传】</figcaption>
 </figure>
 <figure>
 <img loading="lazy" src="img/0183.png"
@@ -17388,20 +17391,22 @@ alt="收银台 › 订单管理：开票中的订单，发票号和 Key 显示�
 Key 显示“–”，没有【查看】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0187.png"
-alt="收银台 › 订单管理：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，下方提示须在上传截止时间前上传（开票后 24 小时内）" />
+<img loading="lazy" src="img/0213.png"
+alt="收银台 › 订单管理（门店预订单）：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，下方提示：“这张发票已离线开出，须在 2026-10-21 09:17:21 前上传税局。网络恢复后自动上传，也可点【立即上传】。”（开票后 24 小时内）" />
 <figcaption aria-hidden="true">收银台 ›
-订单管理：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，下方提示须在上传截止时间前上传（开票后
-24 小时内）</figcaption>
+订单管理（门店预订单）：离线订单的徽标为“开票中”加橙色小标签“离线已开票（待上传）”，发票信息行上有【查看】，下方提示：“这张发票已离线开出，须在
+2026-10-21 09:17:21
+前上传税局。网络恢复后自动上传，也可点【立即上传】。”（开票后 24
+小时内）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0212.png"
+<img loading="lazy" src="img/0214.png"
 alt="收银台 › 订单管理：离线发票点【查看】打开【发票详情】，显示开票信息和离线开票信息（开票方式、离线开具时间、上传截止时间）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：离线发票点【查看】打开【发票详情】，显示开票信息和离线开票信息（开票方式、离线开具时间、上传截止时间）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0213.png"
+<img loading="lazy" src="img/0215.png"
 alt="收银台 › 订单管理：离线已开票（待上传）的订单，订单详情底部不显示【退换货】，【立即上传】左边显示灰字提示：“原订单发票尚未上传税局，请先点击【立即上传】，税局授权后再办理退换货。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：离线已开票（待上传）的订单，订单详情底部不显示【退换货】，【立即上传】左边显示灰字提示：“原订单发票尚未上传税局，请先点击【立即上传】，税局授权后再办理退换货。”</figcaption>
@@ -17409,7 +17414,7 @@ alt="收银台 › 订单管理：离线已开票（待上传）的订单，订�
 <h5 id="字段规范-6">6.1.7.3 字段规范</h5>
 <div data-custom-style="First Line Indent">
 <p>【发票详情】弹窗（收银台 › 订单管理
-和后台订单详情，离线已开票（待上传）的发票点【查看】打开，只读，两边内容相同）：</p>
+和后台订单详情，离线已开票（待上传）的发票点【查看】打开，只读；后台不显示上传截止时间，其余与收银台相同）：</p>
 </div>
 <table>
 
@@ -17505,7 +17510,7 @@ alt="收银台 › 订单管理：离线已开票（待上传）的订单，订�
 <td>只读文本</td>
 <td>否</td>
 <td>回显</td>
-<td>开票时间加 24 小时。</td>
+<td>开票时间加 24 小时。后台不显示。</td>
 </tr>
 </tbody>
 </table>
@@ -17628,7 +17633,7 @@ NFC-e，热敏小票无法满足要求。</li>
   C --&gt; E</pre>
 <p>原型：</p>
 <figure>
-<img loading="lazy" src="img/0214.png"
+<img loading="lazy" src="img/0216.png"
 alt="收银台开票成功结果页：没有连接打印机时点【打印 NFC-e 发票】，顶部提示没有连接打印机" />
 <figcaption
 aria-hidden="true">收银台开票成功结果页：没有连接打印机时点【打印 NFC-e
@@ -17896,7 +17901,7 @@ Key 不变，授权后不需要重新打印给顾客。</td>
 </tbody>
 </table>
 <figure>
-<img loading="lazy" src="img/0215.png"
+<img loading="lazy" src="img/0217.png"
 alt="收银台开票成功结果页：没有连接打印机时点【打印小票】，顶部提示没有连接打印机" />
 <figcaption
 aria-hidden="true">收银台开票成功结果页：没有连接打印机时点【打印小票】，顶部提示没有连接打印机</figcaption>
@@ -18140,25 +18145,25 @@ CNPJ、取消理由（Justificativa，至少 15
 <p>下面是【取消发票】的原型截图：填写取消理由后提交，税局返回结果，页面顶部提示取消结果。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0216.png"
+<img loading="lazy" src="img/0218.png"
 alt="收银台 › 订单管理：【取消发票】弹窗，显示距超时时间，填写取消理由" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：【取消发票】弹窗，显示距超时时间，填写取消理由</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0217.png"
+<img loading="lazy" src="img/0219.png"
 alt="收银台 › 订单管理：税局返回结果，取消成功，顶部提示：“税局已接受取消……”。订单回到“待开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：税局返回结果，取消成功，顶部提示：“税局已接受取消……”。订单回到“待开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0218.png"
+<img loading="lazy" src="img/0220.png"
 alt="后台 › 收银订单：【取消发票】弹窗，显示距超时时间，填写取消理由" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：【取消发票】弹窗，显示距超时时间，填写取消理由</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0219.png"
+<img loading="lazy" src="img/0221.png"
 alt="后台 › 收银订单：税局返回结果，取消成功，顶部提示：“税局已接受取消（Cancelamento）……”。订单回到“待开票”" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：税局返回结果，取消成功，顶部提示：“税局已接受取消（Cancelamento）……”。订单回到“待开票”</figcaption>
@@ -18747,7 +18752,7 @@ N”和【去补开】（打开订单管理），提醒“还有 {n}
 的离线订单（发票信息第一行为离线开出的发票，订单详情底部有【立即上传】），以及离线发票上传被拒的订单和【处理方法】弹窗。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0220.png"
+<img loading="lazy" src="img/0222.png"
 alt="收银台断网结账：结果页标题为“网络异常，已离线开票”，显示 NFC-e 号和 Chave de Acesso，按钮为【打印 NFC-e 发票】【打印小票】【登记邮箱】【完成】；顶栏显示“待上传 1”" />
 <figcaption
 aria-hidden="true">收银台断网结账：结果页标题为“网络异常，已离线开票”，显示
@@ -18755,13 +18760,13 @@ NFC-e 号和 Chave de Acesso，按钮为【打印 NFC-e
 发票】【打印小票】【登记邮箱】【完成】；顶栏显示“待上传 1”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0221.png"
+<img loading="lazy" src="img/0223.png"
 alt="离线开票结果页点【登记邮箱】：弹窗多一行提示：“发票授权后自动发送至该邮箱。”" />
 <figcaption
 aria-hidden="true">离线开票结果页点【登记邮箱】：弹窗多一行提示：“发票授权后自动发送至该邮箱。”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0222.png"
+<img loading="lazy" src="img/0224.png"
 alt="收银台 › 订单管理：上面结账生成的离线订单，【发票信息】标题旁的徽标为“开票中”，旁边橙色小标签“离线已开票（待上传）”；发票号 000620401，状态列为“离线已开票（待上传）”，时间列为“离线开具 2026-11-18 00:08:58”，操作列为【查看】；下方提示须在 2026-11-19 00:08:58 前上传（开票后 24 小时内）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：上面结账生成的离线订单，【发票信息】标题旁的徽标为“开票中”，旁边橙色小标签“离线已开票（待上传）”；发票号
@@ -18777,7 +18782,7 @@ alt="收银台 › 订单管理：离线发票上传被拒，开票状态为“�
 时间”，发票信息下面显示以“开票失败：离线发票上传被拒，”开头的失败原因和【处理方法】，订单详情底部有【立即上传】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0223.png"
+<img loading="lazy" src="img/0225.png"
 alt="点【处理方法】打开的弹窗：系统提示的异常、异常说明和处理方法" />
 <figcaption
 aria-hidden="true">点【处理方法】打开的弹窗：系统提示的异常、异常说明和处理方法</figcaption>
@@ -19058,7 +19063,7 @@ Rejeição 464。</p>
 1，并跳到【收银台】›【订单管理】选中相关订单，点【全部已读】会清掉所有未读。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0224.png"
+<img loading="lazy" src="img/0226.png"
 alt="右上角铃铛的【消息通知】：离线发票上传被税局拒绝（2026-11-10 08:31:40）、离线发票即将超过上传期限（2026-11-10 06:12:01，最早一张须在 2026-11-10 10:12:01 前上传），未读的带红点，右上角有【全部已读】" />
 <figcaption
 aria-hidden="true">右上角铃铛的【消息通知】：离线发票上传被税局拒绝（2026-11-10
@@ -19375,7 +19380,7 @@ Inutilização；跳号这一行用警示色。</td>
 交班日结【交班】页签的原型截图：有待上传的离线发票时，【本班开票（NFC-e）】的“待上传”卡片显示张数和【立即上传】，底部提示不能交班，【交班】不可点击。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0225.png"
+<img loading="lazy" src="img/0227.png"
 alt="交班日结【交班】页签：“待上传”卡片为 2 张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击" />
 <figcaption aria-hidden="true">交班日结【交班】页签：“待上传”卡片为 2
 张并显示【立即上传】；底部提示：“有待上传的离线发票，不能交班。请在【订单管理】点【立即上传】，上传成功后再交班。”。【交班】不可点击</figcaption>
@@ -19486,16 +19491,18 @@ NFC-e】记录本班开票情况；未补开的订单仍在 收银台 ›
 <p>下面是收银台网络异常、发票没有开出时【发票信息】的原型截图，以收银订单为例。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0226.png"
-alt="后台订单详情【发票信息】：NF-e 55 断网没有开出，表格为空，下方显示断网提示" />
+<img loading="lazy" src="img/0228.png"
+alt="后台订单详情【发票信息】：NF-e 55 断网没有开出，表格为空，显示断网提示：“结账时网络异常，NF-e 55 未开出。请在网络恢复后点击【开票】补开。”" />
 <figcaption aria-hidden="true">后台订单详情【发票信息】：NF-e 55
-断网没有开出，表格为空，下方显示断网提示</figcaption>
+断网没有开出，表格为空，显示断网提示：“结账时网络异常，NF-e 55
+未开出。请在网络恢复后点击【开票】补开。”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0227.png"
-alt="收银台 › 订单管理【发票信息】：NF-e 55 断网没有开出，只显示断网提示" />
+<img loading="lazy" src="img/0229.png"
+alt="收银台 › 订单管理【发票信息】：NF-e 55 断网没有开出，只显示断网提示：“结账时网络异常，NF-e 55 未开出。请在网络恢复后点击【开票】补开。”。��订单详情底部【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”" />
 <figcaption aria-hidden="true">收银台 › 订单管理【发票信息】：NF-e 55
-断网没有开出，只显示断网提示</figcaption>
+断网没有开出，只显示断网提示：“结账时网络异常，NF-e 55
+未开出。请在网络恢复后点击【开票】补开。”。��订单详情底部【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”</figcaption>
 </figure>
 <h5 id="发票信息-1">6.3.1.2 发票信息</h5>
 <div data-custom-style="First Line Indent">
@@ -19582,6 +19589,29 @@ Key 不变，上传结果与第一行相同。</td>
 </tr>
 </tbody>
 </table>
+<div data-custom-style="First Line Indent">
+<p>下面是换货订单的销售发票断网离线开出后，收银台 › 订单管理
+和后台换货订单详情【发票信息】的原型截图。</p>
+</div>
+<figure>
+<img loading="lazy" src="img/0230.png"
+alt="收银台 › 订单管理：换货订单 HHW829261109000004 的销售发票离线开出，状态为“离线已开票（待上传）”，下方提示：“这张发票已离线开出，须在 2026-11-10 10:12:04 前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��再下方一行显示“关联退货订单 THW829261109000004（退回件的销售退票：已开票）→”，订单详情底部有【立即上传】" />
+<figcaption aria-hidden="true">收银台 › 订单管理：换货订单
+HHW829261109000004
+的销售发票离线开出，状态为“离线已开票（待上传）”，下方提示：“这张发票已离线开出，须在
+2026-11-10 10:12:04
+前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��再下方一行显示“关联退货订单
+THW829261109000004（退回件的销售退票：已开票）→”，订单详情底部有【立即上传】</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0231.png"
+alt="后台 › 换货订单详情【发票信息】：换出件的销售发票为“离线已开票（待上传）”，下方提示：“这张发票已离线开出，须在 2026-08-29 08:00:00 前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��再下方一行显示“关联退货订单 THUI4O261113300001（退回件的销售退票：待开票）→”" />
+<figcaption aria-hidden="true">后台 ›
+换货订单详情【发票信息】：换出件的销售发票为“离线已开票（待上传）”，下方提示：“这张发票已离线开出，须在
+2026-08-29 08:00:00
+前上传税局。网络恢复后自动上传，也可点【立即上传】。”。��再下方一行显示“关联退货订单
+THUI4O261113300001（退回件的销售退票：待开票）→”</figcaption>
+</figure>
 <div data-custom-style="First Line Indent">
 <p>表二：NF-e 55 断网补开</p>
 </div>
@@ -19926,27 +19956,27 @@ Key）。换货订单两张一起开时提交两次授权请求，逐张查询�
 65；提交后税局返回结果，页面顶部提示开票结果。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0228.png"
+<img loading="lazy" src="img/0232.png"
 alt="收银台 › 订单管理：【开票】弹窗，发票类型默认 NFC-e 65（个人 CPF 现场购买）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：【开票】弹窗，发票类型默认 NFC-e 65（个人 CPF
 现场购买）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0229.png"
+<img loading="lazy" src="img/0233.png"
 alt="收银台 › 订单管理：换货订单关联开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或 NF-e 55" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单关联开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或
 NF-e 55</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0230.png"
+<img loading="lazy" src="img/0234.png"
 alt="收银台 › 订单管理：税局返回结果，开票成功，顶部提示：“税局已授权……”。订单变为“已开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：税局返回结果，开票成功，顶部提示：“税局已授权……”。订单变为“已开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0231.png"
+<img loading="lazy" src="img/0235.png"
 alt="后台 › 收银订单：税局返回结果，开票成功，顶部提示：“税局已授权：发票已开具……”" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：税局返回结果，开票成功，顶部提示：“税局已授权：发票已开具……”</figcaption>
@@ -19959,25 +19989,25 @@ alt="后台 › 收银订单：税局返回结果，开票成功，顶部提示�
 时的原型截图，包括企业买家、个人买家，以及改选 NFC-e 65 时的提醒。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0232.png"
+<img loading="lazy" src="img/0236.png"
 alt="收银台 › 订单管理：发票类型 NF-e 55，企业买家（CNPJ），填写公司资料" />
 <figcaption aria-hidden="true">收银台 › 订单管理：发票类型 NF-e
 55，企业买家（CNPJ），填写公司资料</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0233.png"
+<img loading="lazy" src="img/0237.png"
 alt="收银台 › 订单管理：发票类型 NF-e 55，个人买家（CPF），填写 CPF 和姓名" />
 <figcaption aria-hidden="true">收银台 › 订单管理：发票类型 NF-e
 55，个人买家（CPF），填写 CPF 和姓名</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0234.png"
+<img loading="lazy" src="img/0238.png"
 alt="收银台 › 订单管理：买方有州税号时改选 NFC-e 65，弹出提醒" />
 <figcaption aria-hidden="true">收银台 › 订单管理：买方有州税号时改选
 NFC-e 65，弹出提醒</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0235.png"
+<img loading="lazy" src="img/0239.png"
 alt="后台 › 收银订单：【开票】弹窗，发票类型 NF-e 55，企业买家" />
 <figcaption aria-hidden="true">后台 › 收银订单：【开票】弹窗，发票类型
 NF-e 55，企业买家</figcaption>
@@ -19987,13 +20017,13 @@ NF-e 55，企业买家</figcaption>
 开票失败重开的【开票】弹窗：税局退回原因涉及的字段标红，下方显示税局返回的原因。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0236.png"
+<img loading="lazy" src="img/0240.png"
 alt="收银订单 XSW829261110000105 开票失败重开：【接收方信息】中的接收方名称标红" />
 <figcaption aria-hidden="true">收银订单 XSW829261110000105
 开票失败重开：【接收方信息】中的接收方名称标红</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0237.png"
+<img loading="lazy" src="img/0241.png"
 alt="收银订单 XSW829261110000106 开票失败重开：邮编和城市不匹配，两处同时标红" />
 <figcaption aria-hidden="true">收银订单 XSW829261110000106
 开票失败重开：邮编和城市不匹配，两处同时标红</figcaption>
@@ -20056,6 +20086,14 @@ NF-e 55 时显示买家类型、企业资料或个人资料、地址和税务资
 <td>否</td>
 <td>退货订单为“销售退票（NF-e 55 入库）　CFOP 1202”；换货订单回显</td>
 <td>仅退货订单、换货订单显示。退货订单为固定值。换货订单两张一起开时，按当前单据显示退货订单的销售退票、换货订单的销售发票，以及引用的原发票；只开销售发票、重新开票时，只显示换货订单的销售发票。</td>
+</tr>
+<tr>
+<td>原订单号</td>
+<td>文本（只读）</td>
+<td>否</td>
+<td>回显</td>
+<td>仅后台 ›
+退货订单显示，放在应开票种后面；显示这张退货订单的原订单号。</td>
 </tr>
 <tr>
 <td>引用原票</td>
@@ -20707,7 +20745,7 @@ NFC-e，所以不能在原发票上直接改开 NF-e 55。</li>
 分钟后【取消发票】置灰、鼠标悬停显示浮层的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0238.png"
+<img loading="lazy" src="img/0242.png"
 alt="收银台 › 订单管理：门店预订单的 NFC-e 65 授权已超过 30 分钟，【取消发票】置灰，悬停显示“不能取消发票”、原因和处理方法" />
 <figcaption aria-hidden="true">收银台 › 订单管理：门店预订单的 NFC-e 65
 授权已超过 30
@@ -20882,80 +20920,80 @@ NF-e，以及 财务（零售）› 发票管理 › 已开票-近期发票
 中赠品发票的列表和详情。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0239.png"
+<img loading="lazy" src="img/0243.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000901，赠品行标识“赠品”，原价划线、成交价 R$ 0,00；发票信息中只有一张 NFC-e 65，赠品与销售商品同票开具" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000901，赠品行标识“赠品”，原价划线、成交价 R$
 0,00；发票信息中只有一张 NFC-e 65，赠品与销售商品同票开具</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0240.png"
+<img loading="lazy" src="img/0244.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000902（信用卡付款），赠品与销售商品同票开具一张 NFC-e 65" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000902（信用卡付款），赠品与销售商品同票开具一张 NFC-e
 65</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0241.png"
+<img loading="lazy" src="img/0245.png"
 alt="收银台 › 订单管理：退货订单 THW829261111000901，商品连同赠品一起退回，开具一张入库 · 销售退票 · NF-e 55，状态下方灰字“引用原 NFC-e”" />
 <figcaption aria-hidden="true">收银台 › 订单管理：退货订单
 THW829261111000901，商品连同赠品一起退回，开具一张入库 · 销售退票 · NF-e
 55，状态下方灰字“引用原 NFC-e”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0242.png"
+<img loading="lazy" src="img/0246.png"
 alt="收银台 › 订单管理：收银订单 XSW829261111000903，买二送一，赠品与销售商品同票开具 NFC-e 65（发票号 000099963）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：收银订单
 XSW829261111000903，买二送一，赠品与销售商品同票开具 NFC-e 65（发票号
 000099963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0243.png"
+<img loading="lazy" src="img/0247.png"
 alt="收银台 › 订单管理：门店预订单 YDW829261111000901，公司买家，赠品与销售商品同票开具 NF-e 55（发票号 000098963）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：门店预订单
 YDW829261111000901，公司买家，赠品与销售商品同票开具 NF-e 55（发票号
 000098963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0244.png"
+<img loading="lazy" src="img/0248.png"
 alt="收银台 › 订单管理：退货订单 THW829261111000902，只退赠品，销售退票只开赠品那一行（发票号 000098964）" />
 <figcaption aria-hidden="true">收银台 › 订单管理：退货订单
 THW829261111000902，只退赠品，销售退票只开赠品那一行（发票号
 000098964）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0245.png"
+<img loading="lazy" src="img/0249.png"
 alt="财务（零售）› 发票管理 › 已开票-近期发票：整单赠品单独开具的 NF-e 55（发票号 000098962），单据信息为“整单赠品（样品）”" />
 <figcaption aria-hidden="true">财务（零售）› 发票管理 ›
 已开票-近期发票：整单赠品单独开具的 NF-e 55（发票号
 000098962），单据信息为“整单赠品（样品）”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0246.png"
+<img loading="lazy" src="img/0250.png"
 alt="整单赠品 NF-e 的详情：CFOP 为 5.910，开票事由为“Remessa em bonificação, doação ou brinde”" />
 <figcaption aria-hidden="true">整单赠品 NF-e 的详情：CFOP 为
 5.910，开票事由为“Remessa em bonificação, doação ou brinde”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0247.png"
+<img loading="lazy" src="img/0251.png"
 alt="财务（零售）› 发票管理 › 已开票-近期发票：赠品发票（发票号 000099963）" />
 <figcaption aria-hidden="true">财务（零售）› 发票管理 ›
 已开票-近期发票：赠品发票（发票号 000099963）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0248.png"
+<img loading="lazy" src="img/0252.png"
 alt="赠品发票 000099963 的详情：商品行包含赠品行，赠品行 CFOP 为 5.910；付款方式为“借记卡 + 无付款（tPag=90）”" />
 <figcaption aria-hidden="true">赠品发票 000099963
 的详情：商品行包含赠品行，赠品行 CFOP 为 5.910；付款方式为“借记卡 +
 无付款（tPag=90）”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0249.png" alt="赠品发票 000098963 的详情（NF-e 55）" />
+<img loading="lazy" src="img/0253.png" alt="赠品发票 000098963 的详情（NF-e 55）" />
 <figcaption aria-hidden="true">赠品发票 000098963 的详情（NF-e
 55）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0250.png"
+<img loading="lazy" src="img/0254.png"
 alt="赠品退货的销售退票 000098961 的详情：入库 · 销售退票 · NF-e 55，引用原 NFC-e 的 Key" />
 <figcaption aria-hidden="true">赠品退货的销售退票 000098961 的详情：入库
 · 销售退票 · NF-e 55，引用原 NFC-e 的 Key</figcaption>
@@ -21060,7 +21098,7 @@ NF-e 55
 8 章。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0251.png"
+<img loading="lazy" src="img/0255.png"
 alt="收银台 › 订单管理：已开票的订单点【退换货】，选择退换货方式：换货、退货退款、仅退款" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：已开票的订单点【退换货】，选择退换货方式：换货、退货退款、仅退款</figcaption>
@@ -21144,25 +21182,25 @@ NF-e 55
 <p>选退货退款后，先勾选要退的商品，再编辑退款信息；提交后右侧显示新生成的退货订单，顶部提示自动开出的销售退票号和引用的原发票号。退货订单详情头部的“原订单”显示被退货的订单号和订单类型；从换货订单退货时，头部只显示“原订单：{换货单号}（换货订单）”和发票邮箱，不显示换货订单头部的“原订单”“退货订单”两行。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0252.png"
+<img loading="lazy" src="img/0256.png"
 alt="收银台 › 订单管理：选择退款商品，未勾选商品时【下一步】不能点击" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选择退款商品，未勾选商品时【下一步】不能点击</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0253.png"
+<img loading="lazy" src="img/0257.png"
 alt="收银台 › 订单管理：编辑退款信息，退款原因必选" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退款原因必选</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0254.png"
+<img loading="lazy" src="img/0258.png"
 alt="收银台 › 订单管理：编辑退款信息，退货数量、退款金额超过最大可退值时，输入框下方红字提示：“退货数量不能超过最大可退数量”“退款金额不能超过最大可退金额”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退货数量、退款金额超过最大可退值时，输入框下方红字提示：“退货数量不能超过最大可退数量”“退款金额不能超过最大可退金额”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0255.png"
+<img loading="lazy" src="img/0259.png"
 alt="收银台 › 订单管理：收银订单退货退款完成，顶部提示：“退货退款完成，已自动开出 NF-e 55 入库票 000620503（引用原票 000099111），可在 发票管理 › 近期发票 › 入库 中查看”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：收银订单退货退款完成，顶部提示：“退货退款完成，已自动开出 NF-e
@@ -21170,28 +21208,28 @@ alt="收银台 › 订单管理：收银订单退货退款完成，顶部提示�
 入库 中查看”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0256.png"
+<img loading="lazy" src="img/0260.png"
 alt="收银台 › 订单管理：换货订单退货退款完成，销售退票引用换出件的销售发票 000620103；退货订单头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单退货退款完成，销售退票引用换出件的销售发票
 000620103；退货订单头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0257.png"
+<img loading="lazy" src="img/0261.png"
 alt="收银台 › 订单管理：断网时收银订单退货退款完成，顶部提示：“退货退款完成，已生成退货订单 THW829261025000001。网络异常，销售退票未开出，请在网络恢复后点击【开票】补开。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：断网时收银订单退货退款完成，顶部提示：“退货退款完成，已生成退货订单
 THW829261025000001。网络异常，销售退票未开出，请在网络恢复后点击【开票】补开。”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0258.png"
-alt="收银台 › 订单管理：断网时生成的退货订单开票状态为“待开票”，发票信息提示销售退票（NF-e 55 入库票）不能离线开具，订单详情底部有【开票】" />
-<figcaption aria-hidden="true">收银台 ›
-订单管理：断网时生成的退货订单开票状态为“待开票”，发票信息提示销售退票（NF-e
-55 入库票）不能离线开具，订单详情底部有【开票】</figcaption>
+<img loading="lazy" src="img/0262.png"
+alt="收银台 › 订单管理：断网时生成的退货订单 THW829261025000001 开票状态为“待开票”，【发票信息】提示：“退货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”。��订单详情底部有【开票】" />
+<figcaption aria-hidden="true">收银台 › 订单管理：断网时生成的退货订单
+THW829261025000001
+开票状态为“待开票”，【发票信息】提示：“退货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”。��订单详情底部有【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0259.png"
+<img loading="lazy" src="img/0263.png"
 alt="后台 › 退货订单【待开票】【全部】：收银台断网退货生成的退货订单（如 THW829261025000002，退款金额 R$ 50,00）同步出现在列表中，【原订单号】列下一行灰字显示原订单类型，操作列为【查看】【备注】【开票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【待开票】【全部】：收银台断网退货生成的退货订单（如
@@ -21199,7 +21237,13 @@ THW829261025000002，退款金额 R$
 50,00）同步出现在列表中，【原订单号】列下一行灰字显示原订单类型，操作列为【查看】【备注】【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0260.png"
+<img loading="lazy" src="img/0264.png"
+alt="后台 › 退货订单详情【发票信息】：断网生成的退货订单，表格为空，显示与收银台相同的提示：“退货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”" />
+<figcaption aria-hidden="true">后台 ›
+退货订单详情【发票信息】：断网生成的退货订单，表格为空，显示与收银台相同的提示：“退货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0265.png"
 alt="收银台 › 订单管理：原订单因结账时网络异常为“待开票”，订单详情底部不显示【退换货】，【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：原订单因结账时网络异常为“待开票”，订单详情底部不显示【退换货】，【开票】左边显示灰字提示：“原订单发票尚未开出，请先点击【开票】补开，开票成功后再办理退换货。”</figcaption>
@@ -21455,13 +21499,20 @@ R$ 50,00，生成退货订单 THW829261025000001，自动开 NF-e 55 销售退�
 </table>
 <h5 id="原型-16">7.1.2.3 原型</h5>
 <div data-custom-style="First Line Indent">
-<p>选择退款商品、编辑退款信息两步与退货退款相同；提交后顶部提示：“仅退款完成：货物未退回，无需开票”。</p>
+<p>选择退款商品、编辑退款信息两步与退货退款相同；提交后顶部提示：“仅退款完成：货物未退回，无需开票”。仅退款生成的退货订单详情头部与退货退款相同，只显示“原订单：{单号}（{订单类型}）”和发票邮箱；从换货订单仅退款时，头部显示“原订单：{换货单号}（换货订单）”，不显示换货订单头部的“原订单”“退货订单”两行。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0261.png"
+<img loading="lazy" src="img/0266.png"
 alt="收银台 › 订单管理：仅退款完成，退款记录的开票状态为“无需开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：仅退款完成，退款记录的开票状态为“无需开票”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0267.png"
+alt="收银台 › 订单管理：换货订单仅退款后生成的退货订单 THW829261025000001，头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱，退款类型为“仅退款”，开票状态为“无需开票”" />
+<figcaption aria-hidden="true">收银台 ›
+订单管理：换货订单仅退款后生成的退货订单
+THW829261025000001，头部只显示“原订单：HHW829261115000001（换货订单）”和发票邮箱，退款类型为“仅退款”，开票状态为“无需开票”</figcaption>
 </figure>
 <h5 id="字段规范-16">7.1.2.4 字段规范</h5>
 <div data-custom-style="First Line Indent">
@@ -21603,7 +21654,7 @@ NF-e 55 入库发票（销售退票，引用原发票），在 售后管理 ›
 <p>下面是后台 › 收银订单【售后】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0262.png"
+<img loading="lazy" src="img/0268.png"
 alt="后台 › 收银订单：已开票的订单点行上的【售后】，弹窗显示售后方式、售后原因、退款金额和开票说明，下方为【退货商品】表" />
 <figcaption aria-hidden="true">后台 ›
 收银订单：已开票的订单点行上的【售后】，弹窗显示售后方式、售后原因、退款金额和开票说明，下方为【退货商品】表</figcaption>
@@ -21915,13 +21966,13 @@ NF-e 55 销售退票</td>
 收银订单相同，请参考 7.2.2 的目录。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0263.png"
+<img loading="lazy" src="img/0269.png"
 alt="后台 › 换货订单：已开票的换货订单，操作列有【售后】" />
 <figcaption aria-hidden="true">后台 ›
 换货订单：已开票的换货订单，操作列有【售后】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0256.png"
+<img loading="lazy" src="img/0260.png"
 alt="收银台 › 订单管理：换货订单退货退款后，销售退票引用换出件的销售发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单退货退款后，销售退票引用换出件的销售发票</figcaption>
@@ -22216,19 +22267,20 @@ Key。系统规定原发票授权后才能开具销售退票：离线发票号�
 <p>下面是换货退回的退货订单断网未开出销售退票、网络恢复后补开的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0264.png"
-alt="收银台 › 订单管理：退货订单为“待开票”，发票信息提示销售退票不能离线开具，订单详情底部有【开票】" />
-<figcaption aria-hidden="true">收银台 ›
-订单管理：退货订单为“待开票”，发票信息提示销售退票不能离线开具，订单详情底部有【开票】</figcaption>
+<img loading="lazy" src="img/0270.png"
+alt="后台 › 退货订单详情【发票信息】：换货退回的退货订单为“待开票”，表格为空，提示：“换货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”。��下方一行显示“关联换货订单 HHUI4O261109000001（换出件的销售发票：离线已开票（待上传））→”" />
+<figcaption aria-hidden="true">后台 ›
+退货订单详情【发票信息】：换货退回的退货订单为“待开票”，表格为空，提示：“换货时网络异常，销售退票未开出。请在网络恢复后点击【开票】补开。”。��下方一行显示“关联换货订单
+HHUI4O261109000001（换出件的销售发票：离线已开票（待上传））→”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0265.png"
+<img loading="lazy" src="img/0271.png"
 alt="收银台 › 订单管理：【开票】弹窗，只补开退货订单的销售退票，换货订单的销售发票不重开" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：【开票】弹窗，只补开退货订单的销售退票，换货订单的销售发票不重开</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0266.png"
+<img loading="lazy" src="img/0272.png"
 alt="收银台 › 订单管理：仍断网时退货订单点【开票】后点【确认开票】，顶部提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：仍断网时退货订单点【开票】后点【确认开票】，顶部提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”</figcaption>
@@ -22237,7 +22289,7 @@ alt="收银台 › 订单管理：仍断网时退货订单点【开票】后点�
 <p>下面是收银台断网退货生成的退货订单，网络恢复后在收银台或后台补开、两边同步变化的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0267.png"
+<img loading="lazy" src="img/0273.png"
 alt="收银台 › 订单管理：网络恢复后，退货订单 THW829261025000001 点【开票】打开【开票】弹窗，应开票种为销售退票（NF-e 55 入库），引用原票 000099961，开票金额 R$ 20,00；点【确认开票】后退货订单变为“开票中”，顶部提示：“已提交开票请求，单据已进入【开票中】，正在向税局（SEFAZ）请求授权，结果可在【发票管理】中查看。”。后台 › 退货订单 的同一张退货订单同步变为“开票中”" />
 <figcaption aria-hidden="true">收银台 › 订单管理：网络恢复后，退货订单
 THW829261025000001 点【开票】打开【开票】弹窗，应开票种为销售退票（NF-e
@@ -22246,14 +22298,14 @@ THW829261025000001 点【开票】打开【开票】弹窗，应开票种为销�
 › 退货订单 的同一张退货订单同步变为“开票中”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0268.png"
+<img loading="lazy" src="img/0274.png"
 alt="收银台 › 订单管理：税局授权后，退货订单 THW829261025000001 的【发票信息】显示发票号 000620513，发票类型为“入库 · 销售退票 · NF-e 55”，发票金额 R$ 20,00，状态为“已开票”" />
 <figcaption aria-hidden="true">收银台 › 订单管理：税局授权后，退货订单
 THW829261025000001 的【发票信息】显示发票号 000620513，发票类型为“入库 ·
 销售退票 · NF-e 55”，发票金额 R$ 20,00，状态为“已开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0269.png"
+<img loading="lazy" src="img/0275.png"
 alt="后台 › 退货订单【待开票】：收银台断网生成的退货订单 THW829261025000002 点【开票】，应开票种固定为销售退票（NF-e 55 入库），引用原票 000099962，开票金额 R$ 50,00" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【待开票】：收银台断网生成的退货订单 THW829261025000002
@@ -22261,7 +22313,14 @@ alt="后台 › 退货订单【待开票】：收银台断网生成的退货订�
 000099962，开票金额 R$ 50,00</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0270.png"
+<img loading="lazy" src="img/0276.png"
+alt="后台 › 退货订单【待开票】：退货订单 THW829261025000001 点【开票】，【开票】弹窗在应开票种后面显示原订单号 XSW829261106000003，引用原票 000099028，开票金额 R$ 50,00" />
+<figcaption aria-hidden="true">后台 › 退货订单【待开票】：退货订单
+THW829261025000001 点【开票】，【开票】弹窗在应开票种后面显示原订单号
+XSW829261106000003，引用原票 000099028，开票金额 R$ 50,00</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0277.png"
 alt="收银台 › 订单管理：在后台补开后，收银台的同一张退货订单 THW829261025000002 同步变为“已开票”，【发票信息】显示发票号 000620514，发票金额 R$ 50,00；同步时顶部提示：“税局已授权销售退票，退货订单已改为“已开票”。”" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：在后台补开后，收银台的同一张退货订单 THW829261025000002
@@ -22269,7 +22328,7 @@ alt="收银台 › 订单管理：在后台补开后，收银台的同一张退�
 50,00；同步时顶部提示：“税局已授权销售退票，退货订单已改为“已开票”。”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0271.png"
+<img loading="lazy" src="img/0278.png"
 alt="发票管理 › 已开票-近期发票：补开的两张销售退票 000620513（R$ 20,00）和 000620514（R$ 50,00），发票类型为入库 · 销售退票 · NF-e 55" />
 <figcaption aria-hidden="true">发票管理 ›
 已开票-近期发票：补开的两张销售退票 000620513（R$ 20,00）和
@@ -22279,7 +22338,8 @@ alt="发票管理 › 已开票-近期发票：补开的两张销售退票 00062
 <div data-custom-style="First Line Indent">
 <p>请参考 6.3.2.1.3
 的目录。退货订单的弹窗显示其中的单据号、门店、开票主体、应开票种、引用原票、发票接收方、CPF
-/ CNPJ、开票金额，不显示发票类型和选 NF-e 55 时的公司资料。</p>
+/ CNPJ、开票金额，不显示发票类型和选 NF-e 55 时的公司资料。后台 ›
+退货订单的弹窗在应开票种后面另显示原订单号。</p>
 </div>
 <h6 id="用例规则-19">7.4.1.1.5 用例规则</h6>
 <div data-custom-style="First Line Indent">
@@ -22289,8 +22349,8 @@ alt="发票管理 › 已开票-近期发票：补开的两张销售退票 00062
 2、后置条件：退货订单变为“开票中”，发票进入 财务（零售）› 发票管理 ›
 开票中
 的【入库】页签；税局授权后变为“已开票”，原订单【发票信息】新增一条“入库
-· NF-e 55
-销售退票（退货）”。收银台断网退货生成的退货订单，在收银台或后台任一处补开后，另一处的同一张退货订单同步变为“开票中”“已开票”，两边显示的发票号相同。<br />
+· 销售退票 · NF-e
+55”。收银台断网退货生成的退货订单，在收银台或后台任一处补开后，另一处的同一张退货订单同步变为“开票中”“已开票”，两边显示的发票号相同。<br />
 3、校验规则：当补开时仍无法连接税局时，提示：“网络异常，发票未开出。请在网络恢复后再点击【开票】补开。”。退货订单保持“待开票”，系统不发送邮件。</p>
 </div>
 <h4 id="开票中-1">7.4.2 开票中</h4>
@@ -22301,7 +22361,7 @@ alt="发票管理 › 已开票-近期发票：补开的两张销售退票 00062
 财务（零售）› 发票管理 › 开票中 的【入库】页签。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0272.png"
+<img loading="lazy" src="img/0279.png"
 alt="后台 › 退货订单：【开票中】的行操作列只有【查看】【备注】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【开票中】的行操作列只有【查看】【备注】</figcaption>
@@ -22316,7 +22376,7 @@ alt="后台 › 退货订单：【开票中】的行操作列只有【查看】�
 7.4.1.1 的目录。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0273.png"
+<img loading="lazy" src="img/0280.png"
 alt="后台 › 退货订单：开票失败重新开票的【开票】弹窗，应开票种固定为销售退票（NF-e 55 入库），显示引用原票" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：开票失败重新开票的【开票】弹窗，应开票种固定为销售退票（NF-e
@@ -22352,13 +22412,13 @@ Key
 </tbody>
 </table>
 <figure>
-<img loading="lazy" src="img/0274.png"
+<img loading="lazy" src="img/0281.png"
 alt="后台 › 退货订单：开票失败的行下方显示失败原因和【处理方法 ›】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：开票失败的行下方显示失败原因和【处理方法 ›】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0275.png"
+<img loading="lazy" src="img/0282.png"
 alt="【处理方法】弹窗：销售退票引用的原发票在税局查询不到（Rejeição 267）" />
 <figcaption
 aria-hidden="true">【处理方法】弹窗：销售退票引用的原发票在税局查询不到（Rejeição
@@ -22376,14 +22436,14 @@ aria-hidden="true">【处理方法】弹窗：销售退票引用的原发票在�
 退货订单【已开票】的行，操作列为【查看】【备注】【取消发票】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0276.png"
+<img loading="lazy" src="img/0283.png"
 alt="收银台 › 订单管理：已开票的退货订单，底部有【打印 NF-e 发票（A4 DANFE）】【导出】【取消发票】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：已开票的退货订单，底部有【打印 NF-e 发票（A4
 DANFE）】【导出】【取消发票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0277.png"
+<img loading="lazy" src="img/0284.png"
 alt="后台 › 退货订单：【已开票】的行操作列为【查看】【备注】【取消发票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【已开票】的行操作列为【查看】【备注】【取消发票】</figcaption>
@@ -22397,7 +22457,7 @@ alt="后台 › 退货订单：【已开票】的行操作列为【查看】【�
 7.4.1。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0278.png"
+<img loading="lazy" src="img/0285.png"
 alt="后台 › 退货订单：【取消发票】弹窗，销售退票授权后 24 小时内可取消" />
 <figcaption aria-hidden="true">后台 ›
 退货订单：【取消发票】弹窗，销售退票授权后 24 小时内可取消</figcaption>
@@ -22500,31 +22560,31 @@ NF-e 55 销售退票（引用原发票，只列退回的商品），换货订单
 发起换货的原型截图，依次为选择退换货方式、选择退回的商品、编辑退款信息和换货完成。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0279.png"
+<img loading="lazy" src="img/0286.png"
 alt="收银台 › 订单管理：选中已开票的订单点【退换货】，选择退换货方式（换货、退货退款、仅退款）" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选中已开票的订单点【退换货】，选择退换货方式（换货、退货退款、仅退款）</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0280.png"
+<img loading="lazy" src="img/0287.png"
 alt="收银台 › 订单管理：选择换货后勾选退回的商品，底部显示已选件数，点【下一步】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：选择换货后勾选退回的商品，底部显示已选件数，点【下一步】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0281.png"
+<img loading="lazy" src="img/0288.png"
 alt="收银台 › 订单管理：编辑退款信息，退款原因必选，点【下一步】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：编辑退款信息，退款原因必选，点【下一步】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0282.png"
+<img loading="lazy" src="img/0289.png"
 alt="收银台 › 收银：点【下一步】后切到收银页，结账清单里列出标“退回”的商品，顶部换货提示条显示原订单号、退回商品和退回金额，提示条上有【取消换货】；选好换出商品后结账" />
 <figcaption aria-hidden="true">收银台 ›
 收银：点【下一步】后切到收银页，结账清单里列出标“退回”的商品，顶部换货提示条显示原订单号、退回商品和退回金额，提示条上有【取消换货】；选好换出商品后结账</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0283.png"
+<img loading="lazy" src="img/0290.png"
 alt="收银台 › 订单管理：换货完成，提示已自动开出 2 张发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货完成，提示已自动开出 2 张发票</figcaption>
@@ -22773,14 +22833,14 @@ HHW829261119000001（NFC-e 65 销售发票 000620504）</td>
 中同一次换货生成的换货订单和退货订单的【订单信息】【发票信息】，两张单据互相显示对方的单号。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0284.png"
+<img loading="lazy" src="img/0291.png"
 alt="收银台 › 订单管理：换货订单，订单信息显示原订单号和退货单号，发票信息只有换出件的 NFC-e 65 销售发票" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单，订单信息显示原订单号和退货单号，发票信息只有换出件的
 NFC-e 65 销售发票</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0285.png"
+<img loading="lazy" src="img/0292.png"
 alt="收银台 › 订单管理：换货生成的退货订单，订单信息显示原订单号和换货单号，发票信息为 NF-e 55 销售退票，引用原 NFC-e" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货生成的退货订单，订单信息显示原订单号和换货单号，发票信息为
@@ -22860,14 +22920,14 @@ NF-e 55 销售退票，引用原 NFC-e</figcaption>
 退货订单【门店预订单】页签中门店预订单换货生成的退货订单，原订单号下方显示关联的换货单号。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0286.png"
+<img loading="lazy" src="img/0293.png"
 alt="后台 › 退货订单【门店预订单】页签：门店预订单换货生成的退货订单，原订单号下方显示“门店预订单 · 换货单”" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【门店预订单】页签：门店预订单换货生成的退货订单，原订单号下方显示“门店预订单
 · 换货单”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0287.png"
+<img loading="lazy" src="img/0294.png"
 alt="收银台 › 订单管理：门店预订单换货完成后生成的新订单状态为“待提货”，订单详情底部有【核销取货】" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：门店预订单换货完成后生成的新订单状态为“待提货”，订单详情底部有【核销取货】</figcaption>
@@ -22928,7 +22988,7 @@ YDW829261111000901 换货，生成退货订单、新门店预订单（待提货�
 <p>换货页面与 8.1 相同，【编辑退款信息】没有“货没带走”的勾选项。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0281.png"
+<img loading="lazy" src="img/0288.png"
 alt="收银台 › 订单管理：换货的编辑退款信息页面，没有“货没带走”的勾选项" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货的编辑退款信息页面，没有“货没带走”的勾选项</figcaption>
@@ -23008,7 +23068,7 @@ NF-e 55 开具，请参考 6.4.1、6.4.2
 55。取消发票弹窗请参考 6.1.9.4.2 的原型。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0229.png"
+<img loading="lazy" src="img/0233.png"
 alt="收银台 › 订单管理：换货订单的开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或 NF-e 55" />
 <figcaption aria-hidden="true">收银台 ›
 订单管理：换货订单的开票弹窗，【换货订单的销售发票】可选 NFC-e 65 或
@@ -23090,13 +23150,13 @@ THUI4O261119100005”；详情【基本信息】显示换货单号、原订单�
 的原型。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0288.png"
+<img loading="lazy" src="img/0295.png"
 alt="后台 › 换货订单：左侧按开票状态筛选，列表分【全部】【收银订单】【门店预订单】页签，原订单号下方显示关联的退货单号" />
 <figcaption aria-hidden="true">后台 ›
 换货订单：左侧按开票状态筛选，列表分【全部】【收银订单】【门店预订单】页签，原订单号下方显示关联的退货单号</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0289.png"
+<img loading="lazy" src="img/0296.png"
 alt="后台 › 退货订单【收银订单】页签：换货生成的退货订单，原订单号下方显示关联的换货单号" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【收银订单】页签：换货生成的退货订单，原订单号下方显示关联的换货单号</figcaption>
@@ -23190,8 +23250,48 @@ NFC-e 发票】【打印小票】；其它状态的按钮请参考 6.1.7～6.1.9
 </div>
 <h3 id="换货订单的发票信息">8.4 换货订单的发票信息</h3>
 <div data-custom-style="First Line Indent">
-<p>请参考 6.0 的目录。</p>
+<p>请参考 6.0
+的目录。换货订单和换货生成的退货订单，【发票信息】只显示本单的发票，表格下方一行显示关联单据：换货订单显示“关联退货订单
+{退货单号}（退回件的销售退票：{状态}）→”，换货生成的退货订单显示“关联换货订单
+{换货单号}（换出件的销售发票：{状态}）→”。点单号跳转到关联的退货订单或换货订单。普通退货订单（不是换货生成的）不显示这一行。收银台
+› 订单管理 和后台订单详情相同。</p>
 </div>
+<div data-custom-style="First Line Indent">
+<p>下面是换货订单、换货生成的退货订单和普通退货订单【发票信息】的原型截图。</p>
+</div>
+<figure>
+<img loading="lazy" src="img/0297.png"
+alt="后台 › 换货订单详情【发票信息】：只显示换出件的销售发票，表格下方一行显示“关联退货订单 THUI4O261119300001（退回件的销售退票：已开票）→”" />
+<figcaption aria-hidden="true">后台 ›
+换货订单详情【发票信息】：只显示换出件的销售发票，表格下方一行显示“关联退货订单
+THUI4O261119300001（退回件的销售退票：已开票）→”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0298.png"
+alt="后台：点关联退货单号后打开换货生成的退货订单详情，【发票信息】只显示销售退票，表格下方一行显示“关联换货订单 HHUI4O261119300001（换出件的销售发票：已开票）→”" />
+<figcaption
+aria-hidden="true">后台：点关联退货单号后打开换货生成的退货订单详情，【发票信息】只显示销售退票，表格下方一行显示“关联换货订单
+HHUI4O261119300001（换出件的销售发票：已开票）→”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0299.png"
+alt="收银台 › 订单管理：换货生成的退货订单 THW829261109000004，【发票信息】只显示销售退票，表格下方一行显示“关联换货订单 HHW829261109000004（换出件的销售发票：离线已开票（待上传））→”" />
+<figcaption aria-hidden="true">收银台 › 订单管理：换货生成的退货订单
+THW829261109000004，【发票信息】只显示销售退票，表格下方一行显示“关联换货订单
+HHW829261109000004（换出件的销售发票：离线已开票（待上传））→”</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0300.png"
+alt="收银台 › 订单管理：普通退货订单的【发票信息】不显示关联行" />
+<figcaption aria-hidden="true">收银台 ›
+订单管理：普通退货订单的【发票信息】不显示关联行</figcaption>
+</figure>
+<figure>
+<img loading="lazy" src="img/0301.png"
+alt="后台 › 退货订单详情：普通退货订单的【发票信息】不显示关联行" />
+<figcaption aria-hidden="true">后台 ›
+退货订单详情：普通退货订单的【发票信息】不显示关联行</figcaption>
+</figure>
 <h3 id="换货订单再退货">8.5 换货订单再退货</h3>
 <div data-custom-style="First Line Indent">
 <p>请参考 7.1、7.3 的目录。</p>
@@ -23220,55 +23320,55 @@ NFC-e 发票】【打印小票】；其它状态的按钮请参考 6.1.7～6.1.9
   W --&gt; O
   O --&gt; Z((&quot;结束&quot;))</pre>
 <figure>
-<img loading="lazy" src="img/0290.png"
+<img loading="lazy" src="img/0302.png"
 alt="开关关闭（默认）：订单 › 批发订单 左侧没有【待开票】，列表没有【开票状态】列和【全部开票状态】筛选，行上没有开票类按钮" />
 <figcaption aria-hidden="true">开关关闭（默认）：订单 › 批发订单
 左侧没有【待开票】，列表没有【开票状态】列和【全部开票状态】筛选，行上没有开票类按钮</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0291.png"
+<img loading="lazy" src="img/0303.png"
 alt="开关开启：左侧有【待开票】，列表有【开票状态】列和【全部开票状态】筛选" />
 <figcaption
 aria-hidden="true">开关开启：左侧有【待开票】，列表有【开票状态】列和【全部开票状态】筛选</figcaption>
 </figure>
 <p>（1）开票（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0292.png" alt="FLOW-089" />
+<img loading="lazy" src="img/0304.png" alt="FLOW-089" />
 <figcaption aria-hidden="true">FLOW-089</figcaption>
 </figure>
 <p>（2）转待支付（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0293.png" alt="FLOW-090" />
+<img loading="lazy" src="img/0305.png" alt="FLOW-090" />
 <figcaption aria-hidden="true">FLOW-090</figcaption>
 </figure>
 <p>（3）发票备注（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0294.png" alt="FLOW-091" />
+<img loading="lazy" src="img/0306.png" alt="FLOW-091" />
 <figcaption aria-hidden="true">FLOW-091</figcaption>
 </figure>
 <p>（4）刷新（开票中）</p>
 <figure>
-<img loading="lazy" src="img/0295.png" alt="FLOW-092" />
+<img loading="lazy" src="img/0307.png" alt="FLOW-092" />
 <figcaption aria-hidden="true">FLOW-092</figcaption>
 </figure>
 <p>（5）开票（重新开票，开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0296.png" alt="FLOW-093" />
+<img loading="lazy" src="img/0308.png" alt="FLOW-093" />
 <figcaption aria-hidden="true">FLOW-093</figcaption>
 </figure>
 <p>（6）打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0297.png" alt="FLOW-094" />
+<img loading="lazy" src="img/0309.png" alt="FLOW-094" />
 <figcaption aria-hidden="true">FLOW-094</figcaption>
 </figure>
 <p>（7）批量打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0298.png" alt="FLOW-095" />
+<img loading="lazy" src="img/0310.png" alt="FLOW-095" />
 <figcaption aria-hidden="true">FLOW-095</figcaption>
 </figure>
 <p>（8）取消发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0299.png" alt="FLOW-096" />
+<img loading="lazy" src="img/0311.png" alt="FLOW-096" />
 <figcaption aria-hidden="true">FLOW-096</figcaption>
 </figure>
 <p>查看失败原因、查看发票信息只查看，没有分支流程。</p>
@@ -23410,7 +23510,7 @@ NFeRetAutorizacao 查询结果。
 <p>下面是批发订单【开票】页面的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0300.png"
+<img loading="lazy" src="img/0312.png"
 alt="批发订单点行上的【开票】，打开【开票 · 批发订单】页面：订单信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】" />
 <figcaption aria-hidden="true">批发订单点行上的【开票】，打开【开票 ·
 批发订单】页面：订单信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】</figcaption>
@@ -24091,14 +24191,14 @@ Key 重新提交。</p>
 ›】打开的弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0301.png"
+<img loading="lazy" src="img/0313.png"
 alt="订单 › 批发订单 › 左侧【待开票】› 子页签【开票失败】，点行上的【开票】：打开【开票 · 批发订单】页面，页面顶部显示失败提示条和【处理方法 ›】" />
 <figcaption aria-hidden="true">订单 › 批发订单 › 左侧【待开票】›
 子页签【开票失败】，点行上的【开票】：打开【开票 ·
 批发订单】页面，页面顶部显示失败提示条和【处理方法 ›】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0302.png"
+<img loading="lazy" src="img/0314.png"
 alt="点失败提示条上的【处理方法 ›】，弹窗显示该失败原因的处理方法" />
 <figcaption aria-hidden="true">点失败提示条上的【处理方法
 ›】，弹窗显示该失败原因的处理方法</figcaption>
@@ -24814,7 +24914,7 @@ Protocolo）”弹窗，显示本次查询结果（cStat、Chave、Protocolo）�
 <p>下面是批发订单开票中【刷新】的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0303.png"
+<img loading="lazy" src="img/0315.png"
 alt="批发订单【开票中】点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果" />
 <figcaption
 aria-hidden="true">批发订单【开票中】点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果</figcaption>
@@ -25034,14 +25134,14 @@ DANFE、简易DANFE、简易DANFE -
 面单格式；点其中一项，打开对应的打印预览弹窗。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0304.png"
+<img loading="lazy" src="img/0316.png"
 alt="订单 › 批发订单 ›“待出库”，行上【打印发票】的下拉：DANFE、简易DANFE、简易DANFE - 面单格式" />
 <figcaption aria-hidden="true">订单 › 批发订单
 ›“待出库”，行上【打印发票】的下拉：DANFE、简易DANFE、简易DANFE -
 面单格式</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0305.png"
+<img loading="lazy" src="img/0317.png"
 alt="点 DANFE 后打开【打印预览 · DANFE（批发订单）】弹窗，底部为【关闭】【下载 PDF】【打印】" />
 <figcaption aria-hidden="true">点 DANFE 后打开【打印预览 ·
 DANFE（批发订单）】弹窗，底部为【关闭】【下载 PDF】【打印】</figcaption>
@@ -25272,13 +25372,13 @@ PDF】，系统下载合并后的文件。<br />
 PDF】【打印】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0306.png"
+<img loading="lazy" src="img/0318.png"
 alt="“待出库”勾选 3 张订单后，列表上方【打印】的下拉" />
 <figcaption aria-hidden="true">“待出库”勾选 3
 张订单后，列表上方【打印】的下拉</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0307.png"
+<img loading="lazy" src="img/0319.png"
 alt="选【打印发票 · DANFE】后打开【打印发票 · DANFE（批发订单）】预览弹窗" />
 <figcaption aria-hidden="true">选【打印发票 · DANFE】后打开【打印发票 ·
 DANFE（批发订单）】预览弹窗</figcaption>
@@ -25389,7 +25489,7 @@ CNPJ、取消理由（Justificativa）。
 <p>下面是批发订单【取消发票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0308.png"
+<img loading="lazy" src="img/0320.png"
 alt="批发订单【待出库】点行上的【取消发票】，弹窗显示序列号、发票号、关联单号、开票时间、距超时和取消理由" />
 <figcaption
 aria-hidden="true">批发订单【待出库】点行上的【取消发票】，弹窗显示序列号、发票号、关联单号、开票时间、距超时和取消理由</figcaption>
@@ -25555,7 +25655,7 @@ Key。”。只查看，不与税局交互，不输出操作日志。</p>
 <p>下面是批发订单详情【发票信息】页签的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0309.png"
+<img loading="lazy" src="img/0321.png"
 alt="批发订单详情【发票信息】页签：列出这张订单开过的全部发票" />
 <figcaption
 aria-hidden="true">批发订单详情【发票信息】页签：列出这张订单开过的全部发票</figcaption>
@@ -25650,7 +25750,7 @@ aria-hidden="true">批发订单详情【发票信息】页签：列出这张订�
 <td>按钮</td>
 <td>否</td>
 <td>无</td>
-<td>行上的【查看发票】。</td>
+<td>行上的【查看】。</td>
 </tr>
 </tbody>
 </table>
@@ -25755,14 +25855,14 @@ xxx）、拒绝使用（Denegada）或超时。在【待开票】页签的“开
 5 条和 9.2.2 处理，不显示【待开票】页签和开票状态。</strong></p>
 </div>
 <figure>
-<img loading="lazy" src="img/0310.png"
+<img loading="lazy" src="img/0322.png"
 alt="后台 › 退货订单【批发订单】›【待开票】页签：原批发订单没开销售发票的退货订单，【开票状态】列第二行灰字显示“原批发订单未开销售发票，请先补开原销售发票”，【原订单号】下方灰字显示“批发订单 · 原单未开票”" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】›【待开票】页签：原批发订单没开销售发票的退货订单，【开票状态】列第二行灰字显示“原批发订单未开销售发票，请先补开原销售发票”，【原订单号】下方灰字显示“批发订单
 · 原单未开票”</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0311.png"
+<img loading="lazy" src="img/0323.png"
 alt="原批发订单没开销售发票时点行上的【开票】：不打开弹窗，页面顶部提示：“原批发订单 {批发订单号} 还没有开具销售发票，请先在【发票管理】›【草稿中】补开原销售发票，再开具销售退票。”" />
 <figcaption
 aria-hidden="true">原批发订单没开销售发票时点行上的【开票】：不打开弹窗，页面顶部提示：“原批发订单
@@ -25797,7 +25897,7 @@ aria-hidden="true">原批发订单没开销售发票时点行上的【开票】�
 退货订单【批发订单】页签的原型截图：页签为【全部】【待入库】【待开票】【已入库】【交易完成】，左侧不显示【开票状态】面板，列表的【开票状态】列紧跟在【状态】列后面，已开票的行操作列为【查看】【备注】【取消发票】。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0312.png"
+<img loading="lazy" src="img/0324.png"
 alt="后台 › 退货订单【批发订单】页签（开关开启）：分【全部】【待入库】【待开票】【已入库】【交易完成】页签，【开票状态】列紧跟在【状态】列后面" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签（开关开启）：分【全部】【待入库】【待开票】【已入库】【交易完成】页签，【开票状态】列紧跟在【状态】列后面</figcaption>
@@ -26011,13 +26111,13 @@ CNPJ】为企业客户的 CNPJ。弹窗说明为“批发订单退货开具一�
 退货订单【批发订单】页签中“待开票”的行点【开票】后打开的【开票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0313.png"
+<img loading="lazy" src="img/0325.png"
 alt="后台 › 退货订单【批发订单】›【待开票】页签（开关开启）：顶部说明这一页放已入库、尚未开出销售退票的批发退货单，状态分“待开票”“开票中”“开票失败”三个小标签，“待开票”的行上有【开票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】›【待开票】页签（开关开启）：顶部说明这一页放已入库、尚未开出销售退票的批发退货单，状态分“待开票”“开票中”“开票失败”三个小标签，“待开票”的行上有【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0314.png"
+<img loading="lazy" src="img/0326.png"
 alt="后台 › 退货订单【批发订单】页签：“待开票”的行点【开票】，打开【开票】弹窗，下方【退货商品】表列出退回的商品、退货数量、单价和金额，底部为【取消】【确认开票】" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签：“待开票”的行点【开票】，打开【开票】弹窗，下方【退货商品】表列出退回的商品、退货数量、单价和金额，底部为【取消】【确认开票】</figcaption>
@@ -26062,6 +26162,13 @@ alt="后台 › 退货订单【批发订单】页签：“待开票”的行点�
 <td>否</td>
 <td>销售退票（NF-e 55 入库）　CFOP 1202</td>
 <td>跨州时为 CFOP 2202；不能修改。</td>
+</tr>
+<tr>
+<td>原订单号</td>
+<td>只读文本</td>
+<td>否</td>
+<td>回显</td>
+<td>显示这张退货订单的原订单号。</td>
 </tr>
 <tr>
 <td>引用原票</td>
@@ -26231,7 +26338,7 @@ Mercadinho Vila Nova Ltda（34.567.890/0001-30）</td>
 ›【批发订单】没有【待开票】页签，只有【全部】【待入库】【已入库】【交易完成】；不显示开票状态（【开票状态】列、【全部开票状态】筛选），行上也没有【开票】；左侧【开票状态】面板同样隐藏。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0315.png"
+<img loading="lazy" src="img/0327.png"
 alt="后台 › 退货订单【批发订单】页签（开关关闭）：只有【全部】【待入库】【已入库】【交易完成】页签，没有【待开票】页签和【开票状态】列" />
 <figcaption aria-hidden="true">后台 ›
 退货订单【批发订单】页签（开关关闭）：只有【全部】【待入库】【已入库】【交易完成】页签，没有【待开票】页签和【开票状态】列</figcaption>
@@ -26511,7 +26618,7 @@ CNPJ 和所在州。</td>
 行的区别只在调出方、调入方是不是门店：两端都是仓库的开货物调拨，至少一端是门店的开货物转移。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0316.png"
+<img loading="lazy" src="img/0328.png"
 alt="设置 › 调拨设置 › 开票关系：开关【调拨单出库前是否开票】、【说明】和开票关系表" />
 <figcaption aria-hidden="true">设置 › 调拨设置 ›
 开票关系：开关【调拨单出库前是否开票】、【说明】和开票关系表</figcaption>
@@ -26541,7 +26648,7 @@ alt="设置 › 调拨设置 › 开票关系：开关【调拨单出库前是�
 的原型截图：开关【批发订单出库前是否开票】在名称前面，默认关闭。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0317.png"
+<img loading="lazy" src="img/0329.png"
 alt="设置 › 订单设置 › 订单设置：开关【批发订单出库前是否开票】默认关闭，下方为两条开关说明" />
 <figcaption aria-hidden="true">设置 › 订单设置 ›
 订单设置：开关【批发订单出库前是否开票】默认关闭，下方为两条开关说明</figcaption>
@@ -26582,7 +26689,7 @@ alt="设置 › 订单设置 › 订单设置：开关【批发订单出库前�
 的原型截图：开关【批发订单退货入库时是否自动开票】在开关【批发订单出库前是否开票】下面，开关在名称前面，默认关闭。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0318.png"
+<img loading="lazy" src="img/0330.png"
 alt="设置 › 订单设置 › 订单设置：开关【批发订单退货入库时是否自动开票】默认关闭，下方为两条开关说明" />
 <figcaption aria-hidden="true">设置 › 订单设置 ›
 订单设置：开关【批发订单退货入库时是否自动开票】默认关闭，下方为两条开关说明</figcaption>
@@ -27276,47 +27383,47 @@ DANFE，也可以在这里【生成采购单】或【开退货发票】。</p>
 <h4 id="流程图-31">11.1.3 流程图</h4>
 <p>（1）查询（【待处理】）</p>
 <figure>
-<img loading="lazy" src="img/0319.png" alt="FLOW-144" />
+<img loading="lazy" src="img/0331.png" alt="FLOW-144" />
 <figcaption aria-hidden="true">FLOW-144</figcaption>
 </figure>
 <p>（2）同步发票（【待处理】）</p>
 <figure>
-<img loading="lazy" src="img/0320.png" alt="FLOW-145" />
+<img loading="lazy" src="img/0332.png" alt="FLOW-145" />
 <figcaption aria-hidden="true">FLOW-145</figcaption>
 </figure>
 <p>（3）发票声明（【待处理】）</p>
 <figure>
-<img loading="lazy" src="img/0321.png" alt="FLOW-146" />
+<img loading="lazy" src="img/0333.png" alt="FLOW-146" />
 <figcaption aria-hidden="true">FLOW-146</figcaption>
 </figure>
 <p>（4）忽略（【待处理】）</p>
 <figure>
-<img loading="lazy" src="img/0322.png" alt="FLOW-147" />
+<img loading="lazy" src="img/0334.png" alt="FLOW-147" />
 <figcaption aria-hidden="true">FLOW-147</figcaption>
 </figure>
 <p>（5）查询（【已处理】）</p>
 <figure>
-<img loading="lazy" src="img/0323.png" alt="FLOW-148" />
+<img loading="lazy" src="img/0335.png" alt="FLOW-148" />
 <figcaption aria-hidden="true">FLOW-148</figcaption>
 </figure>
 <p>（6）发票声明（再次声明，【已处理】）</p>
 <figure>
-<img loading="lazy" src="img/0324.png" alt="FLOW-149" />
+<img loading="lazy" src="img/0336.png" alt="FLOW-149" />
 <figcaption aria-hidden="true">FLOW-149</figcaption>
 </figure>
 <p>（7）查询（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0325.png" alt="FLOW-150" />
+<img loading="lazy" src="img/0337.png" alt="FLOW-150" />
 <figcaption aria-hidden="true">FLOW-150</figcaption>
 </figure>
 <p>（8）打印发票（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0326.png" alt="FLOW-151" />
+<img loading="lazy" src="img/0338.png" alt="FLOW-151" />
 <figcaption aria-hidden="true">FLOW-151</figcaption>
 </figure>
 <p>（9）生成采购单（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0327.png" alt="FLOW-152" />
+<img loading="lazy" src="img/0339.png" alt="FLOW-152" />
 <figcaption aria-hidden="true">FLOW-152</figcaption>
 </figure>
 <p>（10）开退货发票（【已导入】）</p>
@@ -27353,17 +27460,17 @@ DANFE，也可以在这里【生成采购单】或【开退货发票】。</p>
   I --&gt; E</pre>
 <p>（11）导入XML（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0328.png" alt="FLOW-154" />
+<img loading="lazy" src="img/0340.png" alt="FLOW-154" />
 <figcaption aria-hidden="true">FLOW-154</figcaption>
 </figure>
 <p>（12）按日期导出（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0329.png" alt="FLOW-155" />
+<img loading="lazy" src="img/0341.png" alt="FLOW-155" />
 <figcaption aria-hidden="true">FLOW-155</figcaption>
 </figure>
 <p>（13）按勾选导出（【已导入】）</p>
 <figure>
-<img loading="lazy" src="img/0330.png" alt="FLOW-156" />
+<img loading="lazy" src="img/0342.png" alt="FLOW-156" />
 <figcaption aria-hidden="true">FLOW-156</figcaption>
 </figure>
 <p>三个页签的查看、【已导入】页签的退货历史只查看，没有分支流程；下载
@@ -27493,7 +27600,7 @@ Key。税局授权后，退票为【已开票】；税局拒绝的，退票进�
 <p>下面是【同步发票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0331.png"
+<img loading="lazy" src="img/0343.png"
 alt="采购发票【待处理】点【同步发票】，弹窗按公司主体（CNPJ）勾选需要同步的公司" />
 <figcaption
 aria-hidden="true">采购发票【待处理】点【同步发票】，弹窗按公司主体（CNPJ）勾选需要同步的公司</figcaption>
@@ -27712,7 +27819,7 @@ Realizada)”的采购发票点【发票声明】时</td>
 <p>下面是【发票声明】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0332.png"
+<img loading="lazy" src="img/0344.png"
 alt="采购发票【待处理】点行上的【发票声明】，弹窗选择声明状态" />
 <figcaption
 aria-hidden="true">采购发票【待处理】点行上的【发票声明】，弹窗选择声明状态</figcaption>
@@ -27907,7 +28014,7 @@ Confirmação da Operação</td>
 <p>下面是【忽略】的原型截图：点【忽略】后弹出二次确认。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0333.png"
+<img loading="lazy" src="img/0345.png"
 alt="采购发票【待处理】点行上的【忽略】，弹出二次确认：“忽略仅在本地搁置，不向税局提交任何事件，之后仍可进行发票声明。确定忽略该发票吗？”" />
 <figcaption
 aria-hidden="true">采购发票【待处理】点行上的【忽略】，弹出二次确认：“忽略仅在本地搁置，不向税局提交任何事件，之后仍可进行发票声明。确定忽略该发票吗？”</figcaption>
@@ -28149,14 +28256,14 @@ PDF】，系统下载 PDF 文件。<br />
 <p>下面是【生成采购单】的原型截图：先配对仓库 SKU，再创建采购单。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0334.png"
+<img loading="lazy" src="img/0346.png"
 alt="采购发票【已导入】点行上【更多】里的【生成采购单】，先打开【配对仓库 SKU】页面" />
 <figcaption
 aria-hidden="true">采购发票【已导入】点行上【更多】里的【生成采购单】，先打开【配对仓库
 SKU】页面</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0335.png"
+<img loading="lazy" src="img/0347.png"
 alt="点【保存并生成采购单】后进入【创建采购单】页面，选择仓库和供应商" />
 <figcaption
 aria-hidden="true">点【保存并生成采购单】后进入【创建采购单】页面，选择仓库和供应商</figcaption>
@@ -28393,13 +28500,13 @@ Key&gt;”，鼠标停在序列号、发票号、Key
 <p>下面是【开退货发票】打开的页面的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0336.png"
+<img loading="lazy" src="img/0348.png"
 alt="采购发票【已导入】点行上【更多】里的【开退货发票】，打开退票页面：退货管理、退货概览、物流信息等板块，底部为【取消】【开票】" />
 <figcaption
 aria-hidden="true">采购发票【已导入】点行上【更多】里的【开退货发票】，打开退票页面：退货管理、退货概览、物流信息等板块，底部为【取消】【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0337.png"
+<img loading="lazy" src="img/0349.png"
 alt="开退货发票页面的承运商信息板块：标题旁有【?】帮助，没有勾选框，字段与创建发票相同" />
 <figcaption
 aria-hidden="true">开退货发票页面的承运商信息板块：标题旁有【?】帮助，没有勾选框，字段与创建发票相同</figcaption>
@@ -28918,7 +29025,7 @@ CNPJ 与发票账号不符，不能导入；该发票已导入，重复文件将
 <p>下面是【导入XML】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0338.png"
+<img loading="lazy" src="img/0350.png"
 alt="采购发票【已导入】点【导入 &amp; 导出】里的【导入XML】，弹窗上传 XML 文件并显示可导入和将被跳过的文件" />
 <figcaption aria-hidden="true">采购发票【已导入】点【导入 &amp;
 导出】里的【导入XML】，弹窗上传 XML
@@ -29072,7 +29179,7 @@ XML。导出时，在【已导入】页签点列表上方【导入 &amp;
 <p>下面是【按日期导出】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0339.png"
+<img loading="lazy" src="img/0351.png"
 alt="采购发票【已导入】点【导入 &amp; 导出】里的【按日期导出】，弹窗选择发票账号和导出方式" />
 <figcaption aria-hidden="true">采购发票【已导入】点【导入 &amp;
 导出】里的【按日期导出】，弹窗选择发票账号和导出方式</figcaption>
@@ -29345,7 +29452,7 @@ Rejeição 210、229、232）。【开票失败】处理方法弹窗中的修改
 <p>下面是【编辑供应商】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0340.png"
+<img loading="lazy" src="img/0352.png"
 alt="供应商管理点行上的【编辑】，弹窗分为基本信息和税务资料" />
 <figcaption
 aria-hidden="true">供应商管理点行上的【编辑】，弹窗分为基本信息和税务资料</figcaption>
@@ -29610,91 +29717,91 @@ DANFE）；开关关闭时，审核通过后直接进入“待出库”，出库
   W2 --&gt; O
   O --&gt; Z((&quot;结束&quot;))</pre>
 <figure>
-<img loading="lazy" src="img/0341.png"
+<img loading="lazy" src="img/0353.png"
 alt="开关关闭（默认）：库存 › 调拨管理 没有【待开票】页签，列表上方没有【打印】" />
 <figcaption aria-hidden="true">开关关闭（默认）：库存 › 调拨管理
 没有【待开票】页签，列表上方没有【打印】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0342.png"
+<img loading="lazy" src="img/0354.png"
 alt="开关开启：有【待开票】页签，列表上方有【打印】" />
 <figcaption
 aria-hidden="true">开关开启：有【待开票】页签，列表上方有【打印】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0343.png"
+<img loading="lazy" src="img/0355.png"
 alt="开关开启：【已完成】页签，【开票状态】列紧跟在【状态】列后面" />
 <figcaption
 aria-hidden="true">开关开启：【已完成】页签，【开票状态】列紧跟在【状态】列后面</figcaption>
 </figure>
 <p>（1）查询（状态快捷筛选）（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0344.png" alt="FLOW-110" />
+<img loading="lazy" src="img/0356.png" alt="FLOW-110" />
 <figcaption aria-hidden="true">FLOW-110</figcaption>
 </figure>
 <p>（2）开票（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0345.png" alt="FLOW-111" />
+<img loading="lazy" src="img/0357.png" alt="FLOW-111" />
 <figcaption aria-hidden="true">FLOW-111</figcaption>
 </figure>
 <p>（3）转提交（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0346.png" alt="FLOW-112" />
+<img loading="lazy" src="img/0358.png" alt="FLOW-112" />
 <figcaption aria-hidden="true">FLOW-112</figcaption>
 </figure>
 <p>（4）批量转提交（待开票）</p>
 <figure>
-<img loading="lazy" src="img/0347.png" alt="FLOW-113" />
+<img loading="lazy" src="img/0359.png" alt="FLOW-113" />
 <figcaption aria-hidden="true">FLOW-113</figcaption>
 </figure>
 <p>（5）刷新（查税局状态）（开票中）</p>
 <figure>
-<img loading="lazy" src="img/0348.png" alt="FLOW-114" />
+<img loading="lazy" src="img/0360.png" alt="FLOW-114" />
 <figcaption aria-hidden="true">FLOW-114</figcaption>
 </figure>
 <p>（6）批量刷新（开票中）</p>
 <figure>
-<img loading="lazy" src="img/0349.png" alt="FLOW-115" />
+<img loading="lazy" src="img/0361.png" alt="FLOW-115" />
 <figcaption aria-hidden="true">FLOW-115</figcaption>
 </figure>
 <p>（7）取消调拨（待开票、开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0350.png" alt="FLOW-116" />
+<img loading="lazy" src="img/0362.png" alt="FLOW-116" />
 <figcaption aria-hidden="true">FLOW-116</figcaption>
 </figure>
 <p>（8）失败原因与处理指引（要修改位置）（开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0351.png" alt="FLOW-117" />
+<img loading="lazy" src="img/0363.png" alt="FLOW-117" />
 <figcaption aria-hidden="true">FLOW-117</figcaption>
 </figure>
 <p>（9）开票（重新开票）（开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0352.png" alt="FLOW-119" />
+<img loading="lazy" src="img/0364.png" alt="FLOW-119" />
 <figcaption aria-hidden="true">FLOW-119</figcaption>
 </figure>
 <p>（10）转提交（开票失败）</p>
 <figure>
-<img loading="lazy" src="img/0353.png" alt="FLOW-120" />
+<img loading="lazy" src="img/0365.png" alt="FLOW-120" />
 <figcaption aria-hidden="true">FLOW-120</figcaption>
 </figure>
 <p>（11）打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0354.png" alt="FLOW-121" />
+<img loading="lazy" src="img/0366.png" alt="FLOW-121" />
 <figcaption aria-hidden="true">FLOW-121</figcaption>
 </figure>
 <p>（12）批量打印发票（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0355.png" alt="FLOW-122" />
+<img loading="lazy" src="img/0367.png" alt="FLOW-122" />
 <figcaption aria-hidden="true">FLOW-122</figcaption>
 </figure>
 <p>（13）无需开票（同一发票主体内调拨）（已开票）</p>
 <figure>
-<img loading="lazy" src="img/0356.png" alt="FLOW-123" />
+<img loading="lazy" src="img/0368.png" alt="FLOW-123" />
 <figcaption aria-hidden="true">FLOW-123</figcaption>
 </figure>
 <p>（14）取消发票（待出库）</p>
 <figure>
-<img loading="lazy" src="img/0357.png" alt="FLOW-124" />
+<img loading="lazy" src="img/0369.png" alt="FLOW-124" />
 <figcaption aria-hidden="true">FLOW-124</figcaption>
 </figure>
 <p>详情（发票信息）只有查看一个步骤，没有分支流程。</p>
@@ -29869,14 +29976,14 @@ xxx）：调拨单进“开票失败”，行下方显示失败原因。4、税�
 <p>下面是调拨管理【开票】页面的原型截图：第一张从“待开票”的行打开，第二张从“开票失败”的行打开，页面顶部多一条失败提示条。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0358.png"
+<img loading="lazy" src="img/0370.png"
 alt="调拨管理【待开票】点行上的【开票】，打开【开票 · 调拨单】页面：调拨信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】" />
 <figcaption
 aria-hidden="true">调拨管理【待开票】点行上的【开票】，打开【开票 ·
 调拨单】页面：调拨信息、发票信息、接收方信息、开票产品、包裹信息、承运商信息、支付信息，底部为【取消】【开票】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0359.png"
+<img loading="lazy" src="img/0371.png"
 alt="从“开票失败”的行点【开票】：页面顶部显示失败提示条和【处理方法 ›】" />
 <figcaption
 aria-hidden="true">从“开票失败”的行点【开票】：页面顶部显示失败提示条和【处理方法
@@ -30675,7 +30782,7 @@ remessa/transferência)</td>
 <p>下面是调拨管理【转提交】的原型截图：点【转提交】后弹出二次确认。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0360.png"
+<img loading="lazy" src="img/0372.png"
 alt="调拨管理【待开票】点行上的【转提交】，弹出二次确认" />
 <figcaption
 aria-hidden="true">调拨管理【待开票】点行上的【转提交】，弹出二次确认</figcaption>
@@ -30804,7 +30911,7 @@ NF-e 55 的发票，授权后 24 小时内可以取消。超过 24
 <p>下面是调拨管理【取消调拨】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0361.png"
+<img loading="lazy" src="img/0373.png"
 alt="调拨管理【待开票】点行上【更多】里的【取消调拨】，弹窗显示可以取消的条件，并填写取消原因" />
 <figcaption
 aria-hidden="true">调拨管理【待开票】点行上【更多】里的【取消调拨】，弹窗显示可以取消的条件，并填写取消原因</figcaption>
@@ -31011,7 +31118,7 @@ Chave。2、税局返回已授权：改为“已开票”，调拨单进“待�
 <p>下面是调拨管理开票中【刷新】的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0362.png"
+<img loading="lazy" src="img/0374.png"
 alt="调拨管理【待开票】的“开票中”点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果" />
 <figcaption
 aria-hidden="true">调拨管理【待开票】的“开票中”点行上的【刷新】，弹窗说明查税局状态的原因和作用，并显示本次查询结果</figcaption>
@@ -31280,13 +31387,13 @@ IPI、ICMS-ST、PIS、COFINS 税率，填错会带来税务风险。</td>
 <p>下面是调拨管理开票失败的失败原因和【处理方法】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0363.png"
+<img loading="lazy" src="img/0375.png"
 alt="调拨管理【待开票】的“开票失败”：每行下面显示失败原因和【处理方法】" />
 <figcaption
 aria-hidden="true">调拨管理【待开票】的“开票失败”：每行下面显示失败原因和【处理方法】</figcaption>
 </figure>
 <figure>
-<img loading="lazy" src="img/0364.png"
+<img loading="lazy" src="img/0376.png"
 alt="点【处理方法】打开的弹窗：系统提示的异常、异常说明和处理方法" />
 <figcaption
 aria-hidden="true">点【处理方法】打开的弹窗：系统提示的异常、异常说明和处理方法</figcaption>
@@ -31422,7 +31529,7 @@ Autorização、授权时间、开票方（Emitente）、收货方（Destinatár
 <p>下面是调拨单详情的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0365.png"
+<img loading="lazy" src="img/0377.png"
 alt="调拨单详情：基本信息、商品信息和【发票信息】页签" />
 <figcaption
 aria-hidden="true">调拨单详情：基本信息、商品信息和【发票信息】页签</figcaption>
@@ -31845,7 +31952,7 @@ CNPJ、取消理由（Justificativa）。2、税局接受取消：发票标“�
 <p>下面是调拨管理【待出库】【取消发票】弹窗的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0366.png"
+<img loading="lazy" src="img/0378.png"
 alt="调拨管理【待出库】点行上的【取消发票】，弹窗显示发票信息、距超时和取消理由" />
 <figcaption
 aria-hidden="true">调拨管理【待出库】点行上的【取消发票】，弹窗显示发票信息、距超时和取消理由</figcaption>
@@ -32029,7 +32136,7 @@ SEFAZ 提交取消申请，调拨单已退回【待开票】”。列表自动�
 <p>下面是同一发票主体内调拨的原型截图。</p>
 </div>
 <figure>
-<img loading="lazy" src="img/0367.png"
+<img loading="lazy" src="img/0379.png"
 alt="调拨管理【待出库】：同一发票主体内调拨的调拨单，开票类型显示“无需开票”，行上只有【详情】" />
 <figcaption
 aria-hidden="true">调拨管理【待出库】：同一发票主体内调拨的调拨单，开票类型显示“无需开票”，行上只有【详情】</figcaption>
